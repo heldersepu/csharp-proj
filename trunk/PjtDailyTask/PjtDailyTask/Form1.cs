@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Diagnostics;
-using Microsoft.Office.Interop.Word;
 using SHDocVw;
 
 namespace PjtDailyTask
@@ -17,8 +16,9 @@ namespace PjtDailyTask
    
     public partial class Form1 : Form
     {
-        string mypath = @"S:\";
-        SHDocVw.InternetExplorer IExplorer = new SHDocVw.InternetExplorer();
+        private string mypath = @"S:\";
+        private SHDocVw.InternetExplorer IExplorer = new SHDocVw.InternetExplorer();
+        
         public Form1()
         {
             InitializeComponent();
@@ -110,13 +110,11 @@ namespace PjtDailyTask
                             CloseWebPage();
                         }
                     }
-                }
-                
+                }                
             }          
         }
-        public object document;
 
-        private void OpenWebPage(string webpage,int pageind,string qqid)
+        private void OpenWebPage( string webpage,int pageind,string qqid)
         {
             object url = webpage;
             object empty = 0;
@@ -124,10 +122,10 @@ namespace PjtDailyTask
             IExplorer.Navigate2(ref url, ref  empty, ref empty, ref empty, ref empty);
             System.Threading.Thread.Sleep(5000);
             if (pageind == 1)
-                FillPageData(qqid,IExplorer);
+                FillPageData(qqid);
         }
 
-        private void FillPageData(string QQID, SHDocVw.InternetExplorer IExplorer)
+        private void FillPageData(string QQID)
         {
            
         }
