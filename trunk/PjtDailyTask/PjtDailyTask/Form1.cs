@@ -146,7 +146,6 @@ namespace PjtDailyTask
             }
             // click on the check box for the assigned user
             mshtml.IHTMLElementCollection UserIDTags = htmlDoc.getElementsByTagName("tr");
-            mshtml.HTMLDocumentClass trDoc;
             foreach (mshtml.IHTMLElement CurrUserTag in UserIDTags)
             {
                 if (CurrUserTag.innerHTML.Substring(0,7).ToUpper().Equals("<TD ID="))
