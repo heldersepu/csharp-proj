@@ -18,7 +18,7 @@ namespace PjtDailyTask
     {
         private string mypath = @"S:\";
         private SHDocVw.InternetExplorer IExplorer = new SHDocVw.InternetExplorer();
-        
+        object empty = 0;
         public Form1()
         {
             InitializeComponent();
@@ -118,7 +118,7 @@ namespace PjtDailyTask
         private void OpenWebPage( string webpage,int pageind,string qqid)
         {
             object url = webpage;
-            object empty = 0;
+            
             IExplorer.Navigate2(ref url, ref empty, ref empty, ref empty, ref empty);
             do {System.Threading.Thread.Sleep(500);} while (IExplorer.Busy);
             if (pageind == 1)
@@ -127,7 +127,19 @@ namespace PjtDailyTask
 
         private void FillPageData(string QQID)
         {
-           
+            mshtml.HTMLDocumentClass htmlDoc = (mshtml.HTMLDocumentClass)IExplorer.Document;
+            var TaskNo = htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
+            int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 20 ;
+            htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
+            htmlDoc.getElementById("TASK_RESUME").innerText = QQID + " Desktop New Conversion";
+            htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
+
+            object url = "http://qqprojects.com/server01";
+            IExplorer.Navigate2(ref url, ref  empty, ref empty, ref empty, ref empty);
+            if (IExplorer.Busy)
+                System.Threading.Thread.Sleep(500);
+            IExplorer.GoBack();
+            
         }
         private void CloseWebPage()
         {
