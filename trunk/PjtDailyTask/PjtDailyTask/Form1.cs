@@ -134,17 +134,38 @@ namespace PjtDailyTask
             htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
             htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
             mshtml.IHTMLElementCollection  Tags = htmlDoc.getElementsByTagName("input");
+            // click on the button [Save + Assignment]
             foreach (mshtml.IHTMLElement CurrTag in Tags)
             {
-                if (CurrTag.getAttribute("value",0).Equals("Save + Assignment"))
+                if (CurrTag.getAttribute("value", 0).Equals("Save + Assignment"))
+                {                    
                     CurrTag.click();
+                    do { System.Threading.Thread.Sleep(500); } while (IExplorer.Busy);
+                    break;
+                }
             }
-            mshtml.IHTMLElementCollection UserIDTags = htmlDoc.getElementsByTagName("<tr>");
+            // click on the check box for the assigned user
+            mshtml.IHTMLElementCollection UserIDTags = htmlDoc.getElementsByTagName("tr");
+            mshtml.HTMLDocumentClass trDoc;
             foreach (mshtml.IHTMLElement CurrUserTag in UserIDTags)
             {
-                if (CurrUserTag.innerText == "LChandran")
+                if (CurrUserTag.innerHTML.Substring(0,7).ToUpper().Equals("<TD ID="))
                 {
-                    mshtml.IHTMLElementCollection UserIDTags = htmlDoc.getElementsByTagName("<tr>");
+                    if (CurrUserTag.innerHTML.IndexOf("LChandran") > 0)
+                    {
+                        int pos = CurrUserTag.innerHTML.IndexOf("incrementAssignation(this,");
+                        if (pos > 0)
+                        {
+                            string strNum = CurrUserTag.innerHTML.Substring(pos+ 27, 3);
+                            strNum = strNum.Replace("'", "");
+                            mshtml.IHTMLElementCollection hiddenElems = htmlDoc.getElementsByName(strNum);
+                            foreach (mshtml.IHTMLElement hiddenElem in hiddenElems)
+                            {
+                                hiddenElem.setAttribute("value", "1", 0);
+                            }
+                            break;
+                        }
+                    }                    
                 }
             }
         }
