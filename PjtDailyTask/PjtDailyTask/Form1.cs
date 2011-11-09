@@ -110,10 +110,6 @@ namespace PjtDailyTask
                             OpenWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
                             FillPageData(strQQID);
 
-                            //OpenWebPage("http://qqprojects.com/server01");                            
-                            //IExplorer.GoBack();                            
-                            //CloseWebPage();
-
                         }
                     }
                 }                
@@ -131,12 +127,26 @@ namespace PjtDailyTask
         {
             mshtml.HTMLDocumentClass htmlDoc = (mshtml.HTMLDocumentClass)IExplorer.Document;
             var TaskNo = htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
-            int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 20 ;
+            int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 50 ;
             htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
             htmlDoc.getElementById("TASK_RESUME").innerText = QQID + " Desktop New Conversion";
             htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
             htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
-            htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";                        
+            htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
+            mshtml.IHTMLElementCollection  Tags = htmlDoc.getElementsByTagName("input");
+            foreach (mshtml.IHTMLElement CurrTag in Tags)
+            {
+                if (CurrTag.getAttribute("value",0).Equals("Save + Assignment"))
+                    CurrTag.click();
+            }
+            mshtml.IHTMLElementCollection UserIDTags = htmlDoc.getElementsByTagName("<tr>");
+            foreach (mshtml.IHTMLElement CurrUserTag in UserIDTags)
+            {
+                if (CurrUserTag.innerText == "LChandran")
+                {
+                    mshtml.IHTMLElementCollection UserIDTags = htmlDoc.getElementsByTagName("<tr>");
+                }
+            }
         }
 
         private void CloseWebPage()
