@@ -98,16 +98,17 @@ namespace PjtDailyTask
                         if (strQQID != "")
                         {
                             string strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData );
+                            IExplorer.Visible = true;
                             string strLoginHtml = strpath + @"\Login.html";
                                 
                             strLoginHtml = strLoginHtml.Replace(@"\", @"/");
                             strLoginHtml = strLoginHtml.Replace(":", "$");
                             strLoginHtml = "file://127.0.0.1/" + strLoginHtml;
 
-                            OpenWebPage(strLoginHtml,0,"" );
+                            OpenWebPage(strLoginHtml, 0, "");
                             OpenWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16", 1, strQQID);
                             
-                            CloseWebPage();
+                            //CloseWebPage();
                         }
                     }
                 }                
@@ -118,9 +119,8 @@ namespace PjtDailyTask
         {
             object url = webpage;
             object empty = 0;
-            IExplorer.Visible = true;
-            IExplorer.Navigate2(ref url, ref  empty, ref empty, ref empty, ref empty);
-            System.Threading.Thread.Sleep(5000);
+            IExplorer.Navigate2(ref url, ref empty, ref empty, ref empty, ref empty);
+            do {System.Threading.Thread.Sleep(500);} while (IExplorer.Busy);
             if (pageind == 1)
                 FillPageData(qqid);
         }
