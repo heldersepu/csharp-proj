@@ -98,31 +98,34 @@ namespace PjtDailyTask
                         if (strQQID != "")
                         {
                             string strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData );
-                            IExplorer.Visible = true;
+                            
                             string strLoginHtml = strpath + @"\Login.html";
                                 
                             strLoginHtml = strLoginHtml.Replace(@"\", @"/");
                             strLoginHtml = strLoginHtml.Replace(":", "$");
                             strLoginHtml = "file://127.0.0.1/" + strLoginHtml;
 
-                            OpenWebPage(strLoginHtml, 0, "");
-                            OpenWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16", 1, strQQID);
+                            OpenWebPage(strLoginHtml);
+                            IExplorer.Visible = true;
+                            OpenWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
+                            FillPageData(strQQID);
+
+                            OpenWebPage("http://qqprojects.com/server01");                            
+                            IExplorer.GoBack();
                             
                             //CloseWebPage();
+
                         }
                     }
                 }                
             }          
         }
 
-        private void OpenWebPage( string webpage,int pageind,string qqid)
+        private void OpenWebPage( string webpage)
         {
-            object url = webpage;
-            
+            object url = webpage;            
             IExplorer.Navigate2(ref url, ref empty, ref empty, ref empty, ref empty);
             do {System.Threading.Thread.Sleep(500);} while (IExplorer.Busy);
-            if (pageind == 1)
-                FillPageData(qqid);
         }
 
         private void FillPageData(string QQID)
@@ -132,15 +135,9 @@ namespace PjtDailyTask
             int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 20 ;
             htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
             htmlDoc.getElementById("TASK_RESUME").innerText = QQID + " Desktop New Conversion";
-            htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
-
-            object url = "http://qqprojects.com/server01";
-            IExplorer.Navigate2(ref url, ref  empty, ref empty, ref empty, ref empty);
-            if (IExplorer.Busy)
-                System.Threading.Thread.Sleep(500);
-            IExplorer.GoBack();
-            
+            htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";            
         }
+
         private void CloseWebPage()
         {
             IExplorer.Quit();
