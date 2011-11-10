@@ -34,6 +34,8 @@
             this.cmdTemplate = new System.Windows.Forms.Button();
             this.FromDateCalender = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSave = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cmdReport
@@ -91,11 +93,30 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Select From Date";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 311);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Save Report To";
+            // 
+            // txtSave
+            // 
+            this.txtSave.Location = new System.Drawing.Point(104, 311);
+            this.txtSave.Name = "txtSave";
+            this.txtSave.Size = new System.Drawing.Size(426, 20);
+            this.txtSave.TabIndex = 9;
+            this.txtSave.Text = "C:\\";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 404);
+            this.Controls.Add(this.txtSave);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FromDateCalender);
             this.Controls.Add(this.cmdTemplate);
@@ -117,6 +138,8 @@
         private System.Windows.Forms.Button cmdTemplate;
         private System.Windows.Forms.MonthCalendar FromDateCalender;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSave;
     }
 }
 
