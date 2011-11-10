@@ -26,11 +26,21 @@ namespace PjtDailyTask
             IE.Visible = false;
         }
 
+        public void WaitUntilReady()
+        {
+            do 
+            {
+                System.Threading.Thread.Sleep(500); 
+            } 
+            while (IE.Busy);
+        }
+
+
         public void openWebPage(string webpage)
         {
             object url = webpage;
             IE.Navigate2(ref url, ref empty, ref empty, ref empty, ref empty);
-            do { System.Threading.Thread.Sleep(500); } while (IE.Busy);
+            this.WaitUntilReady();
         }        
 
         public void CloseWebPage()
@@ -51,7 +61,7 @@ namespace PjtDailyTask
                         if (cTag.outerHTML.IndexOf(strValue) > 0)
                         {
                             cTag.click();
-                            do { System.Threading.Thread.Sleep(500); } while (IE.Busy);
+                            this.WaitUntilReady();
                             break;
                         }
                     }
