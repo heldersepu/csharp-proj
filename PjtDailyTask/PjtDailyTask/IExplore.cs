@@ -103,5 +103,16 @@ namespace PjtDailyTask
             return strUserId;
         }
 
+        public void FillTask(string resume, string description)
+        {
+            var TaskNo = this.htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
+            int ConvertIntTaskno = int.Parse(string.Format("{0}", TaskNo)) + 50;
+            this.htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
+            this.htmlDoc.getElementById("TASK_RESUME").innerText = resume;
+            this.htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = description;
+            this.htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
+            this.htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
+        }
+
     }
 }
