@@ -133,40 +133,46 @@ namespace PjtDailyTask
             htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
             htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
             htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
-            mshtml.IHTMLElementCollection  Tags = htmlDoc.getElementsByTagName("input");
-            // click on the button [Save + Assignment]
-            foreach (mshtml.IHTMLElement CurrTag in Tags)
-            {
-                if (CurrTag.getAttribute("value", 0).Equals("Save + Assignment"))
-                {                    
-                    CurrTag.click();
-                    do { System.Threading.Thread.Sleep(500); } while (IExplorer.Busy);
-                    break;
-                }
+            mshtml.IHTMLElementCollection inputTags = htmlDoc.getElementsByTagName("input");            
+            ClickElement("value", "Save + Assignment", "document", inputTags);
+            string strUserID = GetUserID("LChandran", htmlDoc.getElementsByTagName("tr"));
+            if (strUserID != "") {
+                ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID, htmlDoc.getElementsByTagName("input"));
             }
-            // click on the check box for the assigned user
-            mshtml.IHTMLElementCollection UserIDTags = htmlDoc.getElementsByTagName("tr");
-            foreach (mshtml.IHTMLElement CurrUserTag in UserIDTags)
-            {
-                if (CurrUserTag.innerHTML.Substring(0,7).ToUpper().Equals("<TD ID="))
-                {
-                    if (CurrUserTag.innerHTML.IndexOf("LChandran") > 0)
-                    {
-                        int pos = CurrUserTag.innerHTML.IndexOf("incrementAssignation(this,");
-                        if (pos > 0)
-                        {
-                            string strNum = CurrUserTag.innerHTML.Substring(pos+ 27, 3);
-                            strNum = strNum.Replace("'", "");
-                            mshtml.IHTMLElementCollection hiddenElems = htmlDoc.getElementsByName(strNum);
-                            foreach (mshtml.IHTMLElement hiddenElem in hiddenElems)
-                            {
-                                hiddenElem.setAttribute("value", "1", 0);
-                            }
+        }
+
+        private void ClickElement(string strAttrib, string strID, string strValue, mshtml.IHTMLElementCollection Tags)
+        {
+            foreach (mshtml.IHTMLElement cTag in Tags) {
+                object objAtrib = cTag.getAttribute(strAttrib, 0);
+                if (objAtrib != null) {
+                    if (objAtrib.Equals(strID)) {
+                        if (cTag.outerHTML.IndexOf(strValue) > 0) {
+                            cTag.click();
+                            do { System.Threading.Thread.Sleep(500); } while (IExplorer.Busy);
                             break;
                         }
-                    }                    
+                    }
                 }
             }
+        }
+
+        private string GetUserID(string strUserName, mshtml.IHTMLElementCollection Tags)
+        {
+            string strUserId = "";
+            foreach (mshtml.IHTMLElement cTag in Tags) {
+                if (cTag.innerHTML.Substring(0, 7).ToUpper().Equals("<TD ID=")) {
+                    if (cTag.innerText.IndexOf(strUserName) >= 0) {
+                        int pos = cTag.innerHTML.IndexOf("incrementAssignation(this,");
+                        if (pos > 0) {
+                            strUserId = cTag.innerHTML.Substring(pos + 27, 3);
+                            strUserId = strUserId.Replace("'", "");
+                            break;
+                        }
+                    }
+                }
+            }
+            return strUserId;
         }
 
         private void CloseWebPage()
