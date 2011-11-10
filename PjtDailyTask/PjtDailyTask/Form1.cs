@@ -112,31 +112,20 @@ namespace PjtDailyTask
         private void AceFillData(string strQQID)
         {            
             IExplore IE = new IExplore();
-            string [] AssUserIDs = {"LChandran","hsepulveda"};
-            string[] RevUserIDs = {"NFitzgerald", "RSequeira" };
+            string[,] UserIDs = { {"LChandran", "ass"}, {"hsepulveda", "ass"}, {"NFitzgerald", "rev"}, {"RSequeira", "rev"} };
             IE.show();
             IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");            
             IE.FillTask("test" + strQQID + " Desktop New Conversion", "Data is located in UploadShar.");            
             
             IE.ClickElement("value", "Save + Assignment", "document");
-            foreach (string UserID in AssUserIDs)
+            for(int i=0; i<UserIDs.GetLength(0); i++)
             {
-                string strUserID = IE.GetUserID(UserID);
+                string strUserID = IE.GetUserID(UserIDs[i,0]);
                 if (strUserID != "")
                 {
-                    IE.ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID);
-                    
+                    IE.ClickElement("id", UserIDs[i, 1], "incrementAssignation(this,'" + strUserID);                    
                 }
-            }
-            foreach (string UserID in RevUserIDs)
-            {
-                string strUserID = IE.GetUserID(UserID);
-                if (strUserID != "")
-                {
-                    IE.ClickElement("id", "rev", "incrementAssignation(this,'" + strUserID);
-
-                }
-            }
+            }            
             //IE.CloseWebPage();
         }
 
