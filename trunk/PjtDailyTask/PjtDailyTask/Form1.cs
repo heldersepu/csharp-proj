@@ -69,23 +69,28 @@ namespace PjtDailyTask
             ManipulateRecentFiles();
             //Navigate through each ZipIT
             string strfilepath = "C:\\Temp\\test\\test-" + DateTime.Now.ToString("D") + ".txt";
-            NavigateZipIT(strfilepath);
-            Console.WriteLine("Test");
-            MessageBox.Show("Done");
+            Boolean CheckProcessed = NavigateZipIT(strfilepath);
+            //Boolean CheckProcessed = NavigateZipIT("C:\\TEMP\\test\\test-Monday, November 07, 2011.txt");
+            if (CheckProcessed == true)
+                MessageBox.Show("Tasks Created on Ace");
+            else
+                MessageBox.Show("Not Tasks to Upload on Ace");
             System.Windows.Forms.Application.Exit();   
         }
 
-        private void NavigateZipIT(string path)
+        private Boolean NavigateZipIT(string path)
         {
             string strline, strQQID;
+            Boolean  processed = false;
             int i = 0;
             if (File.Exists(path))
             {
                 StreamReader file = null;
                 file = new StreamReader(path);
-                for (i=0;file.ReadLine()!=null ;i++)
+                
+                for (i=0;(strline = file.ReadLine())!=null ;i++)
                 {
-                    strline = file.ReadLine();
+                    //strline = file.ReadLine();
                     Console.WriteLine (strline);
                     int pos = strline.IndexOf("QQ", 0);
                     if (pos > 1)
@@ -93,6 +98,7 @@ namespace PjtDailyTask
                         strQQID = strline.Substring(pos, 8);
                         if (strQQID != "")
                         {
+                            processed = true;
                             string strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData );                            
                             string strLoginHtml = strpath + @"\Login.html";
                                 
@@ -103,12 +109,14 @@ namespace PjtDailyTask
                         }
                     }
                 }                
-            }          
+            }
+            return processed;
         }
         
         private void AceFillData(string strQQID, string strLoginHtml)
         {            
             IExplore IE = new IExplore();
+            string [] UserIDs = {"LChandran","hsepulveda","NFitzgerald","RSequeira"};
             IE.openWebPage(strLoginHtml);
             IE.show();
             IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
@@ -121,11 +129,16 @@ namespace PjtDailyTask
             IE.htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
             
             IE.ClickElement("value", "Save + Assignment", "document");
-            string strUserID = IE.GetUserID("LChandran");
-            if (strUserID != "") {
-                IE.ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID);
+            foreach (string UserID in UserIDs)
+            {
+                //string strUserID = IE.GetUserID("LChandran");
+                string strUserID = IE.GetUserID(UserID);
+                if (strUserID != "") 
+                    IE.ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID);
             }
             //IE.CloseWebPage();
         }
+
+       
     }
 }
