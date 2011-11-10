@@ -112,14 +112,8 @@ namespace PjtDailyTask
             IExplore IE = new IExplore();
             string [] UserIDs = {"LChandran","hsepulveda","NFitzgerald","RSequeira"};
             IE.show();
-            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
-            var TaskNo = IE.htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
-            int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 50 ;
-            IE.htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
-            IE.htmlDoc.getElementById("TASK_RESUME").innerText = strQQID + " Desktop New Conversion";
-            IE.htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
-            IE.htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
-            IE.htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
+            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");            
+            IE.FillTask("test" + strQQID + " Desktop New Conversion", "Data is located in UploadShar.");            
             
             IE.ClickElement("value", "Save + Assignment", "document");
             foreach (string UserID in UserIDs)
