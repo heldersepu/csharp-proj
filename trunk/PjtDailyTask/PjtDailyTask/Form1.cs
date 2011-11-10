@@ -74,7 +74,7 @@ namespace PjtDailyTask
             if (CheckProcessed == true)
                 MessageBox.Show("Tasks Created on Ace");
             else
-                MessageBox.Show("Not Tasks to Upload on Ace");
+                MessageBox.Show("No Tasks to Upload on Ace");
             System.Windows.Forms.Application.Exit();   
         }
 
@@ -99,13 +99,7 @@ namespace PjtDailyTask
                         if (strQQID != "")
                         {
                             processed = true;
-                            string strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData );                            
-                            string strLoginHtml = strpath + @"\Login.html";
-                                
-                            strLoginHtml = strLoginHtml.Replace(@"\", @"/");
-                            strLoginHtml = strLoginHtml.Replace(":", "$");
-                            strLoginHtml = "file://127.0.0.1/" + strLoginHtml;
-                            AceFillData(strQQID, strLoginHtml);
+                            AceFillData(strQQID);
                         }
                     }
                 }                
@@ -113,11 +107,10 @@ namespace PjtDailyTask
             return processed;
         }
         
-        private void AceFillData(string strQQID, string strLoginHtml)
+        private void AceFillData(string strQQID)
         {            
             IExplore IE = new IExplore();
             string [] UserIDs = {"LChandran","hsepulveda","NFitzgerald","RSequeira"};
-            IE.openWebPage(strLoginHtml);
             IE.show();
             IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
             var TaskNo = IE.htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);

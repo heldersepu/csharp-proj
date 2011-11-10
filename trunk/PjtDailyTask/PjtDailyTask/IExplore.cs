@@ -14,8 +14,19 @@ namespace PjtDailyTask
         public HTMLDocumentClass htmlDoc
         {
             get { return (HTMLDocumentClass)IE.Document; }
-        }        
-        
+        }
+
+        public IExplore()
+        {
+            string strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string strLoginHtml = strpath + @"\Login.html";
+
+            strLoginHtml = strLoginHtml.Replace(@"\", @"/");
+            strLoginHtml = strLoginHtml.Replace(":", "$");
+            strLoginHtml = "file://127.0.0.1/" + strLoginHtml;
+            this.openWebPage(strLoginHtml);
+        }
+
         public void show()
         {
             IE.Visible = true;
