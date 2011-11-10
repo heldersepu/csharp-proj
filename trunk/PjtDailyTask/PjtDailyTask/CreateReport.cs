@@ -15,10 +15,16 @@ namespace PjtDailyTask
     {
         public TextWriter CreateFile(string filename,string header)
         {
-            File.Delete(filename);
-            TextWriter tw = new StreamWriter(filename, true);
-            tw.WriteLine(header);
-            return tw;
+            if (File.Exists(filename))
+                File.Delete(filename);
+            if (Directory.Exists(filename))
+            {
+                TextWriter tw = new StreamWriter(filename, true);
+                tw.WriteLine(header);
+                return tw;
+            }
+            
+            return null;
         }
 
         public void Write(string strline, TextWriter tw)

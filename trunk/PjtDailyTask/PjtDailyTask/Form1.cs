@@ -9,14 +9,15 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Diagnostics;
+using Microsoft.VisualBasic;
 
 
 namespace PjtDailyTask
 {
     public partial class Form1 : Form
-    {
-        private string mypath = @"S:\";        
-
+    {  
+        private string mypath = @"S:\";
+        
         public Form1()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace PjtDailyTask
             int intcount = 0;
             string strheader = "This is a report listing the new ZipIt files: ";
             CreateReport Mainreport = new CreateReport();
-            TextWriter TW = Mainreport.CreateFile("C:\\Temp\\test\\test-" + DateTime.Now.ToString("D") + ".txt", strheader);
+            TextWriter TW = Mainreport.CreateFile(txtSave.Text + "test-" + DateTime.Now.ToString("D") + ".txt", strheader);
 
             while (intcount < totalfilecount)
             {
@@ -60,17 +61,19 @@ namespace PjtDailyTask
                 }
                 intcount++;
             }
-            TW.Close();
+            if (TW != null)
+                TW.Close();
         }
-
+        
+       
         private void cmdUploadAce_Click(object sender, EventArgs e)
-        {
+        { 
             //Create Report
             ManipulateRecentFiles();
             //Navigate through each ZipIT
             string strfilepath = "C:\\Temp\\test\\test-" + DateTime.Now.ToString("D") + ".txt";
-            Boolean CheckProcessed = NavigateZipIT(strfilepath);
             //Boolean CheckProcessed = NavigateZipIT("C:\\TEMP\\test\\test-Monday, November 07, 2011.txt");
+            Boolean CheckProcessed = NavigateZipIT(strfilepath);
             if (CheckProcessed == true)
                 MessageBox.Show("Tasks Created on Ace");
             else
@@ -90,8 +93,6 @@ namespace PjtDailyTask
                 
                 for (i=0;(strline = file.ReadLine())!=null ;i++)
                 {
-                    //strline = file.ReadLine();
-                    Console.WriteLine (strline);
                     int pos = strline.IndexOf("QQ", 0);
                     if (pos > 1)
                     {
@@ -110,18 +111,30 @@ namespace PjtDailyTask
         private void AceFillData(string strQQID)
         {            
             IExplore IE = new IExplore();
-            string [] UserIDs = {"LChandran","hsepulveda","NFitzgerald","RSequeira"};
+            string [] AssUserIDs = {"LChandran","hsepulveda"};
+            string[] RevUserIDs = {"NFitzgerald", "RSequeira" };
             IE.show();
             IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");            
             IE.FillTask("test" + strQQID + " Desktop New Conversion", "Data is located in UploadShar.");            
             
             IE.ClickElement("value", "Save + Assignment", "document");
-            foreach (string UserID in UserIDs)
+            foreach (string UserID in AssUserIDs)
             {
-                //string strUserID = IE.GetUserID("LChandran");
                 string strUserID = IE.GetUserID(UserID);
-                if (strUserID != "") 
+                if (strUserID != "")
+                {
                     IE.ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID);
+                    
+                }
+            }
+            foreach (string UserID in RevUserIDs)
+            {
+                string strUserID = IE.GetUserID(UserID);
+                if (strUserID != "")
+                {
+                    IE.ClickElement("id", "rev", "incrementAssignation(this,'" + strUserID);
+
+                }
             }
             //IE.CloseWebPage();
         }
