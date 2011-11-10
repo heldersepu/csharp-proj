@@ -51,10 +51,10 @@ namespace PjtDailyTask
             
             int intcount = 0;
             string strheader = "This is a report listing the new ZipIt files: ";
-            
+
 
             TextWriter TW = Mainreport.CreateFile(txtSave.Text + filenameMain, strheader);
-            
+
 
             while (intcount < totalfilecount)
             {
@@ -62,7 +62,7 @@ namespace PjtDailyTask
 
                 if (DateTime.Parse(strlastmodified) > SelectedDate)
                 {
-                    Mainreport.Write(filelists[intcount],TW );
+                    Mainreport.Write(filelists[intcount], TW);
                 }
                 intcount++;
             }
@@ -76,7 +76,7 @@ namespace PjtDailyTask
             ManipulateRecentFiles();
             //Navigate through each ZipIT
             Boolean CheckProcessed = NavigateZipIT(txtSave.Text + filenameMain);
-            if (CheckProcessed == true) 
+            if (CheckProcessed == true)
                 MessageBox.Show("Tasks Created on Ace");
             else
                 MessageBox.Show("No Tasks to Upload on Ace");
@@ -113,38 +113,34 @@ namespace PjtDailyTask
         private void AceFillData(string strQQID)
         {            
             IExplore IE = new IExplore();
+            string[,] UserIDs = { {"LChandran", "assign"}, {"hsepulveda", "assign"}, 
+                                {"NFitzgerald", "review"}, {"RSequeira", "review"} };          
 
-            string[,] UserIDs = { {"LChandran", "ass"}, {"hsepulveda", "ass"}, {"NFitzgerald", "rev"}, {"RSequeira", "rev"} };
-
-            
-
-            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
+            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");            
             
             var AddTaskConfirm = MessageBox.Show("Add Task for " + strQQID, "Add Task Confirmation", MessageBoxButtons.YesNo);
             if (AddTaskConfirm == DialogResult.Yes)
-
-            IE.show();
-            IE.FillTask(strQQID + " Desktop New Conversion", "Data is located in UploadShar.");
-            IE.ClickElement("value", "Save + Assignment", "document");
-            for(int i=0; i<UserIDs.GetLength(0); i++)
-
             {
-                string strUserID = IE.GetUserID(UserIDs[i,0]);
-                if (strUserID != "")
-
+                IE.show();
+                IE.FillTask(strQQID + " Desktop New Conversion", "Data is located in UploadShar.");
+                IE.ClickElement("value", "Save + Assignment", "document");
+                for(int i=0; i<UserIDs.GetLength(0); i++)
                 {
-                    IE.ClickElement("id", UserIDs[i, 1], "incrementAssignation(this,'" + strUserID);                    
-                }
+                    string strUserID = IE.GetUserID(UserIDs[i,0]);
+                    if (strUserID != "")
+                    {
+                        IE.ClickElement("id", UserIDs[i, 1].Substring(0,3), "incrementAssignation(this,'" + strUserID + "'");                    
+                    }
 
-            }            
-
-            //IE.ClickElement("value", "Update", " ");
+                }            
+                //IE.ClickElement("value", "Update", " ");             
+            }
             //IE.CloseWebPage();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+
         }
 
        
