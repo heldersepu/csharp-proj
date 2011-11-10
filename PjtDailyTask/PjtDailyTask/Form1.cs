@@ -15,9 +15,8 @@ namespace PjtDailyTask
 {
     public partial class Form1 : Form
     {
-        private string mypath = @"S:\";
-        private IExplore IE = new IExplore();
-        object empty = 0;
+        private string mypath = @"S:\";        
+
         public Form1()
         {
             InitializeComponent();
@@ -92,37 +91,31 @@ namespace PjtDailyTask
                     if (pos > 1)
                     {
                         strQQID = strline.Substring(pos, 8);
-
-                        //Open Ace, Login
                         if (strQQID != "")
                         {
-                            string strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData );
-                            
+                            string strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData );                            
                             string strLoginHtml = strpath + @"\Login.html";
                                 
                             strLoginHtml = strLoginHtml.Replace(@"\", @"/");
                             strLoginHtml = strLoginHtml.Replace(":", "$");
                             strLoginHtml = "file://127.0.0.1/" + strLoginHtml;
-
-                            IE.openWebPage(strLoginHtml);
-                            IE.show();
-                            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
-                            FillPageData(strQQID);
-
-                            //IE.CloseWebPage();
-
+                            AceFillData(strQQID, strLoginHtml);
                         }
                     }
                 }                
             }          
         }
-
-        private void FillPageData(string QQID)
+        
+        private void AceFillData(string strQQID, string strLoginHtml)
         {            
+            IExplore IE = new IExplore();
+            IE.openWebPage(strLoginHtml);
+            IE.show();
+            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
             var TaskNo = IE.htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
             int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 50 ;
             IE.htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
-            IE.htmlDoc.getElementById("TASK_RESUME").innerText = QQID + " Desktop New Conversion";
+            IE.htmlDoc.getElementById("TASK_RESUME").innerText = strQQID + " Desktop New Conversion";
             IE.htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
             IE.htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
             IE.htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
@@ -132,6 +125,7 @@ namespace PjtDailyTask
             if (strUserID != "") {
                 IE.ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID);
             }
+            //IE.CloseWebPage();
         }
     }
 }
