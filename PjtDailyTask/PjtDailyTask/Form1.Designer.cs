@@ -106,7 +106,7 @@
             // 
             this.txtSave.Location = new System.Drawing.Point(104, 311);
             this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(426, 20);
+            this.txtSave.Size = new System.Drawing.Size(224, 20);
             this.txtSave.TabIndex = 9;
             this.txtSave.Text = "C:\\";
             // 
@@ -123,8 +123,9 @@
             this.Controls.Add(this.cmdOpen);
             this.Controls.Add(this.cmdCreateAce);
             this.Controls.Add(this.cmdReport);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

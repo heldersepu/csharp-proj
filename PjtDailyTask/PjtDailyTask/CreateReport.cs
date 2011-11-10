@@ -13,7 +13,7 @@ namespace PjtDailyTask
 {
     class CreateReport
     {
-        public TextWriter CreateFile(string filename,string header)
+        public TextWriter  CreateFile(string filename,string header)
         {
             string filenameTemp = filename;
             if (File.Exists(filename))
@@ -30,10 +30,11 @@ namespace PjtDailyTask
             
         }
 
-        public void Write(string strline, TextWriter tw)
+        public void Write(string strline,TextWriter tw)
         {
             tw.WriteLine(strline);
         }
+       
     }
 
 }
