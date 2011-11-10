@@ -9,16 +9,14 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Diagnostics;
-using SHDocVw;
-using mshtml;
+
 
 namespace PjtDailyTask
 {
-   
     public partial class Form1 : Form
     {
         private string mypath = @"S:\";
-        private InternetExplorer IE = new InternetExplorer();
+        private IExplore IE = new IExplore();
         object empty = 0;
         public Form1()
         {
@@ -106,10 +104,12 @@ namespace PjtDailyTask
                             strLoginHtml = strLoginHtml.Replace(":", "$");
                             strLoginHtml = "file://127.0.0.1/" + strLoginHtml;
 
-                            OpenWebPage(strLoginHtml);
-                            IE.Visible = true;
-                            OpenWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
+                            IE.openWebPage(strLoginHtml);
+                            IE.show();
+                            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
                             FillPageData(strQQID);
+
+                            //IE.CloseWebPage();
 
                         }
                     }
@@ -117,68 +117,21 @@ namespace PjtDailyTask
             }          
         }
 
-        private void OpenWebPage( string webpage)
-        {
-            object url = webpage;            
-            IE.Navigate2(ref url, ref empty, ref empty, ref empty, ref empty);
-            do {System.Threading.Thread.Sleep(500);} while (IE.Busy);
-        }
-
         private void FillPageData(string QQID)
-        {
-            HTMLDocumentClass htmlDoc = (HTMLDocumentClass)IE.Document;
-            var TaskNo = htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
+        {            
+            var TaskNo = IE.htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
             int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 50 ;
-            htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
-            htmlDoc.getElementById("TASK_RESUME").innerText = QQID + " Desktop New Conversion";
-            htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
-            htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
-            htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
+            IE.htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
+            IE.htmlDoc.getElementById("TASK_RESUME").innerText = QQID + " Desktop New Conversion";
+            IE.htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
+            IE.htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
+            IE.htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
             
-            ClickElement("value", "Save + Assignment", "document", htmlDoc.getElementsByTagName("input"));
-            string strUserID = GetUserID("LChandran", htmlDoc.getElementsByTagName("tr"));
+            IE.ClickElement("value", "Save + Assignment", "document");
+            string strUserID = IE.GetUserID("LChandran");
             if (strUserID != "") {
-                ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID, htmlDoc.getElementsByTagName("input"));
+                IE.ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID);
             }
-        }
-
-        private void ClickElement(string strAttrib, string strID, string strValue, IHTMLElementCollection Tags)
-        {
-            foreach (IHTMLElement cTag in Tags) {
-                object objAtrib = cTag.getAttribute(strAttrib, 0);
-                if (objAtrib != null) {
-                    if (objAtrib.Equals(strID)) {
-                        if (cTag.outerHTML.IndexOf(strValue) > 0) {
-                            cTag.click();
-                            do { System.Threading.Thread.Sleep(500); } while (IE.Busy);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        private string GetUserID(string strUserName, IHTMLElementCollection Tags)
-        {
-            string strUserId = "";
-            foreach (IHTMLElement cTag in Tags) {
-                if (cTag.innerHTML.Substring(0, 7).ToUpper().Equals("<TD ID=")) {
-                    if (cTag.innerText.IndexOf(strUserName) >= 0) {
-                        int pos = cTag.innerHTML.IndexOf("incrementAssignation(this,");
-                        if (pos > 0) {
-                            strUserId = cTag.innerHTML.Substring(pos + 27, 3);
-                            strUserId = strUserId.Replace("'", "");
-                            break;
-                        }
-                    }
-                }
-            }
-            return strUserId;
-        }
-
-        private void CloseWebPage()
-        {
-            IE.Quit();
         }
     }
 }
