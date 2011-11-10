@@ -10,6 +10,7 @@ using System.IO;
 using System.Net;
 using System.Diagnostics;
 using SHDocVw;
+using mshtml;
 
 namespace PjtDailyTask
 {
@@ -17,7 +18,7 @@ namespace PjtDailyTask
     public partial class Form1 : Form
     {
         private string mypath = @"S:\";
-        private SHDocVw.InternetExplorer IExplorer = new SHDocVw.InternetExplorer();
+        private InternetExplorer IE = new InternetExplorer();
         object empty = 0;
         public Form1()
         {
@@ -106,7 +107,7 @@ namespace PjtDailyTask
                             strLoginHtml = "file://127.0.0.1/" + strLoginHtml;
 
                             OpenWebPage(strLoginHtml);
-                            IExplorer.Visible = true;
+                            IE.Visible = true;
                             OpenWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");
                             FillPageData(strQQID);
 
@@ -119,13 +120,13 @@ namespace PjtDailyTask
         private void OpenWebPage( string webpage)
         {
             object url = webpage;            
-            IExplorer.Navigate2(ref url, ref empty, ref empty, ref empty, ref empty);
-            do {System.Threading.Thread.Sleep(500);} while (IExplorer.Busy);
+            IE.Navigate2(ref url, ref empty, ref empty, ref empty, ref empty);
+            do {System.Threading.Thread.Sleep(500);} while (IE.Busy);
         }
 
         private void FillPageData(string QQID)
         {
-            mshtml.HTMLDocumentClass htmlDoc = (mshtml.HTMLDocumentClass)IExplorer.Document;
+            HTMLDocumentClass htmlDoc = (HTMLDocumentClass)IE.Document;
             var TaskNo = htmlDoc.getElementById("TASK_NUMBER").getAttribute("Value", 0);
             int ConvertIntTaskno = int.Parse(string.Format("{0}",TaskNo)) + 50 ;
             htmlDoc.getElementById("TASK_NUMBER").innerText = ConvertIntTaskno.ToString();
@@ -141,15 +142,15 @@ namespace PjtDailyTask
             }
         }
 
-        private void ClickElement(string strAttrib, string strID, string strValue, mshtml.IHTMLElementCollection Tags)
+        private void ClickElement(string strAttrib, string strID, string strValue, IHTMLElementCollection Tags)
         {
-            foreach (mshtml.IHTMLElement cTag in Tags) {
+            foreach (IHTMLElement cTag in Tags) {
                 object objAtrib = cTag.getAttribute(strAttrib, 0);
                 if (objAtrib != null) {
                     if (objAtrib.Equals(strID)) {
                         if (cTag.outerHTML.IndexOf(strValue) > 0) {
                             cTag.click();
-                            do { System.Threading.Thread.Sleep(500); } while (IExplorer.Busy);
+                            do { System.Threading.Thread.Sleep(500); } while (IE.Busy);
                             break;
                         }
                     }
@@ -157,10 +158,10 @@ namespace PjtDailyTask
             }
         }
 
-        private string GetUserID(string strUserName, mshtml.IHTMLElementCollection Tags)
+        private string GetUserID(string strUserName, IHTMLElementCollection Tags)
         {
             string strUserId = "";
-            foreach (mshtml.IHTMLElement cTag in Tags) {
+            foreach (IHTMLElement cTag in Tags) {
                 if (cTag.innerHTML.Substring(0, 7).ToUpper().Equals("<TD ID=")) {
                     if (cTag.innerText.IndexOf(strUserName) >= 0) {
                         int pos = cTag.innerHTML.IndexOf("incrementAssignation(this,");
@@ -177,7 +178,7 @@ namespace PjtDailyTask
 
         private void CloseWebPage()
         {
-            IExplorer.Quit();
+            IE.Quit();
         }
     }
 }
