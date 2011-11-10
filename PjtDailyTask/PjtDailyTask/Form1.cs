@@ -102,7 +102,11 @@ namespace PjtDailyTask
                         if (strQQID != "")
                         {
                             processed = true;
-                            AceFillData(strQQID);
+                            var AddTaskConfirm = MessageBox.Show("Add Task for " + strQQID, "Add Task Confirmation", MessageBoxButtons.YesNo);
+                            if (AddTaskConfirm == DialogResult.Yes)
+                            {
+                                AceFillData(strQQID);
+                            }
                         }
                     }
                 }                
@@ -116,25 +120,20 @@ namespace PjtDailyTask
             string[,] UserIDs = { {"LChandran", "assign"}, {"hsepulveda", "assign"}, 
                                 {"NFitzgerald", "review"}, {"RSequeira", "review"} };          
 
-            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");            
-            
-            var AddTaskConfirm = MessageBox.Show("Add Task for " + strQQID, "Add Task Confirmation", MessageBoxButtons.YesNo);
-            if (AddTaskConfirm == DialogResult.Yes)
+            IE.openWebPage("http://qqprojects.com/server01/EditTask.asp?PROJECT_ID=16");                        
+            IE.show();
+            IE.FillTask(strQQID + " Desktop New Conversion", "Data is located in UploadShar.");
+            IE.ClickElement("value", "Save + Assignment", "document");
+            for(int i=0; i<UserIDs.GetLength(0); i++)
             {
-                IE.show();
-                IE.FillTask(strQQID + " Desktop New Conversion", "Data is located in UploadShar.");
-                IE.ClickElement("value", "Save + Assignment", "document");
-                for(int i=0; i<UserIDs.GetLength(0); i++)
+                string strUserID = IE.GetUserID(UserIDs[i,0]);
+                if (strUserID != "")
                 {
-                    string strUserID = IE.GetUserID(UserIDs[i,0]);
-                    if (strUserID != "")
-                    {
-                        IE.ClickElement("id", UserIDs[i, 1].Substring(0,3), "incrementAssignation(this,'" + strUserID + "'");                    
-                    }
+                    IE.ClickElement("id", UserIDs[i, 1].Substring(0,3), "incrementAssignation(this,'" + strUserID + "'");                    
+                }
 
-                }            
-                //IE.ClickElement("value", "Update", " ");             
-            }
+            }            
+            //IE.ClickElement("value", "Update", " ");             
             //IE.CloseWebPage();
         }
 
