@@ -133,8 +133,8 @@ namespace PjtDailyTask
             htmlDoc.getElementById("TASK_DESC_CREATOR").innerText = "Data is located in UploadShar.";
             htmlDoc.getElementById("TASK_DESC_CREATOR").style.display = "block";
             htmlDoc.getElementById("TASK_DESC_CREATOR___Frame").outerHTML = "";
-            mshtml.IHTMLElementCollection inputTags = htmlDoc.getElementsByTagName("input");            
-            ClickElement("value", "Save + Assignment", "document", inputTags);
+            
+            ClickElement("value", "Save + Assignment", "document", htmlDoc.getElementsByTagName("input"));
             string strUserID = GetUserID("LChandran", htmlDoc.getElementsByTagName("tr"));
             if (strUserID != "") {
                 ClickElement("id", "ass", "incrementAssignation(this,'" + strUserID, htmlDoc.getElementsByTagName("input"));
