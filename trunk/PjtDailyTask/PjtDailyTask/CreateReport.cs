@@ -15,16 +15,19 @@ namespace PjtDailyTask
     {
         public TextWriter CreateFile(string filename,string header)
         {
+            string filenameTemp = filename;
             if (File.Exists(filename))
                 File.Delete(filename);
-            if (Directory.Exists(filename))
-            {
-                TextWriter tw = new StreamWriter(filename, true);
-                tw.WriteLine(header);
-                return tw;
+            if (!Directory.Exists(filename))
+            { 
+                filenameTemp = filenameTemp.Replace("UploadShar_RecentTasks_Report_" + DateTime.Now.ToString("D") + ".txt", "");
+                Directory.CreateDirectory(filenameTemp);
             }
+
+            TextWriter tw = new StreamWriter(filename, true);
+            tw.WriteLine(header);
+            return tw;
             
-            return null;
         }
 
         public void Write(string strline, TextWriter tw)

@@ -17,6 +17,7 @@ namespace PjtDailyTask
     public partial class Form1 : Form
     {  
         private string mypath = @"S:\";
+        public string filenameMain = "UploadShar_RecentTasks_Report_" + DateTime.Now.ToString("D") + ".txt";
         
         public Form1()
         {
@@ -49,7 +50,8 @@ namespace PjtDailyTask
             int intcount = 0;
             string strheader = "This is a report listing the new ZipIt files: ";
             CreateReport Mainreport = new CreateReport();
-            TextWriter TW = Mainreport.CreateFile(txtSave.Text + "test-" + DateTime.Now.ToString("D") + ".txt", strheader);
+
+            TextWriter TW = Mainreport.CreateFile(txtSave.Text + filenameMain, strheader);
 
             while (intcount < totalfilecount)
             {
@@ -61,8 +63,7 @@ namespace PjtDailyTask
                 }
                 intcount++;
             }
-            if (TW != null)
-                TW.Close();
+           TW.Close();
         }
         
        
@@ -71,9 +72,9 @@ namespace PjtDailyTask
             //Create Report
             ManipulateRecentFiles();
             //Navigate through each ZipIT
-            string strfilepath = "C:\\Temp\\test\\test-" + DateTime.Now.ToString("D") + ".txt";
+            //string strfilepath = "C:\\Temp\\test\\test-" + DateTime.Now.ToString("D") + ".txt";
             //Boolean CheckProcessed = NavigateZipIT("C:\\TEMP\\test\\test-Monday, November 07, 2011.txt");
-            Boolean CheckProcessed = NavigateZipIT(strfilepath);
+            Boolean CheckProcessed = NavigateZipIT(txtSave.Text + filenameMain);
             if (CheckProcessed == true)
                 MessageBox.Show("Tasks Created on Ace");
             else
