@@ -36,13 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSave = new System.Windows.Forms.TextBox();
+            this.lbldescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdReport
             // 
-            this.cmdReport.Location = new System.Drawing.Point(104, 251);
+            this.cmdReport.Location = new System.Drawing.Point(101, 282);
             this.cmdReport.Name = "cmdReport";
-            this.cmdReport.Size = new System.Drawing.Size(224, 42);
+            this.cmdReport.Size = new System.Drawing.Size(227, 42);
             this.cmdReport.TabIndex = 0;
             this.cmdReport.Text = "Generate Report of new ZipIt";
             this.cmdReport.UseVisualStyleBackColor = true;
@@ -79,6 +80,7 @@
             // 
             // FromDateCalender
             // 
+            this.FromDateCalender.BackColor = System.Drawing.SystemColors.Window;
             this.FromDateCalender.Location = new System.Drawing.Point(101, 55);
             this.FromDateCalender.Name = "FromDateCalender";
             this.FromDateCalender.ShowToday = false;
@@ -87,7 +89,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 24);
+            this.label1.Location = new System.Drawing.Point(6, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 7;
@@ -96,7 +98,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 311);
+            this.label2.Location = new System.Drawing.Point(6, 249);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 8;
@@ -104,17 +106,26 @@
             // 
             // txtSave
             // 
-            this.txtSave.Location = new System.Drawing.Point(104, 311);
+            this.txtSave.Location = new System.Drawing.Point(104, 246);
             this.txtSave.Name = "txtSave";
             this.txtSave.Size = new System.Drawing.Size(224, 20);
             this.txtSave.TabIndex = 9;
             this.txtSave.Text = "C:\\";
+            // 
+            // lbldescription
+            // 
+            this.lbldescription.Location = new System.Drawing.Point(21, 356);
+            this.lbldescription.Name = "lbldescription";
+            this.lbldescription.Size = new System.Drawing.Size(491, 13);
+            this.lbldescription.TabIndex = 11;
+            this.lbldescription.Text = "Starting...";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 404);
+            this.Controls.Add(this.lbldescription);
             this.Controls.Add(this.txtSave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -141,6 +152,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSave;
+        private System.Windows.Forms.Label lbldescription;
     }
 }
 
