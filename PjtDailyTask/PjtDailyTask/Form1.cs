@@ -86,7 +86,7 @@ namespace PjtDailyTask
             if (processed == "P")
             {
                 NavigateZipIT(txtSave.Text + filenameMain);
-                MessageBox.Show("Tasks Created on Ace");
+                MessageBox.Show("Done");
             }
             else
             {
