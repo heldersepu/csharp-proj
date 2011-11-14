@@ -18,7 +18,7 @@ namespace PjtDailyTask
     {  
         private string mypath = @"S:\";
         public string filenameMain = "UploadShar_RecentTasks_Report_" + DateTime.Now.ToString("D") + ".txt";
-        string processed = "N";
+        string processed;
         public Form1()
         {
             InitializeComponent();
@@ -38,13 +38,18 @@ namespace PjtDailyTask
         {
             ManipulateRecentFiles();
             Process.Start(txtSave.Text + filenameMain);
-            System.Windows.Forms.Application.Exit();
+            var QuitApp = MessageBox.Show("Quit Application (Yes/No)", "Quit Application", MessageBoxButtons.YesNo);
+            if (QuitApp == DialogResult.Yes)
+                System.Windows.Forms.Application.Exit();
+            else
+                lbldescription.Text = "Waiting for the next operation";
         }
 
         private void ManipulateRecentFiles()
         {
             Application.DoEvents();
-            lbldescription.Text = "Reading Recent Files from Ace...";            
+            lbldescription.Text = "Reading Recent Files from Ace...";
+            processed = "N";
             CreateReport Mainreport = new CreateReport();
             DateTime SelectedDate = FromDateCalender.SelectionRange.Start;
             string[] filelists = System.IO.Directory.GetFiles(mypath);
