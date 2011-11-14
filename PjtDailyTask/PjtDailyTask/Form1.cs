@@ -141,7 +141,7 @@ namespace PjtDailyTask
                     {
                         IE.ClickElement("id", UserIDs[i, 1].Substring(0, 3), "incrementAssignation(this,'" + strUserID + "'");
                     }
-                    //IE.ClickElement("value", "Update", " ");
+                    IE.ClickElement("value", "Update", " ");
                 }
             }
             IE.CloseWebPage();
