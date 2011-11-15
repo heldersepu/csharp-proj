@@ -73,7 +73,7 @@ namespace PjtDailyTask
                 intcount++;
             }
             if (processed != "P")
-                Mainreport.Write("No Zip files uploaded on/after" + SelectedDate,TW );
+                Mainreport.Write("No Zip files uploaded on/after " + SelectedDate,TW );
            TW.Close();
             
         }        
