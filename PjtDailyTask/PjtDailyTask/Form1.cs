@@ -18,7 +18,7 @@ namespace PjtDailyTask
     {  
         private string mypath = @"S:\";
         public string filenameMain = "UploadShar_RecentTasks_Report_" + DateTime.Now.ToString("D") + ".txt";
-        string processed;
+        string processed, strQQID;
         public Form1()
         {
             InitializeComponent();
@@ -101,7 +101,7 @@ namespace PjtDailyTask
 
         private Boolean NavigateZipIT(string path)
         {
-            string strline, strQQID;
+            string strline, strQQIDbck;
             int i = 0;
             if (File.Exists(path))
             {
@@ -112,10 +112,11 @@ namespace PjtDailyTask
                     int pos = strline.IndexOf("QQ", 0);
                     if (pos > 1) 
                     {
-                        strQQID = strline.Substring(pos, 8);
-                        if (strQQID != "")
+                        strQQIDbck = strline.Substring(pos, 8);
+                        if ((strQQIDbck != "") && (strQQID != strQQIDbck))
                         {
-                           AceFillData(strQQID);                   
+                            strQQID = strQQIDbck;
+                            AceFillData(strQQIDbck);                   
                         }                        
                     }
                 }
