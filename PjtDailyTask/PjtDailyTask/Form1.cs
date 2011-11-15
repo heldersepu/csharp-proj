@@ -66,9 +66,13 @@ namespace PjtDailyTask
                 if (DateTime.Parse(strlastmodified) > SelectedDate)
                 {
                     Application.DoEvents();
-                    processed = "P";
-                    Mainreport.Write(filelists[intcount],TW );
-                    lbldescription.Text = "Writing Report...";
+
+                    if ((filelists[intcount].IndexOf("_pm", 0) > 0) || (filelists[intcount].IndexOf("_am", 0) > 0))
+                    {
+                        processed = "P";
+                        Mainreport.Write(filelists[intcount], TW);
+                        lbldescription.Text = "Writing Report...";
+                    }
                 }
                 intcount++;
             }
@@ -106,7 +110,7 @@ namespace PjtDailyTask
                 for (i=0;(strline = file.ReadLine())!=null ;i++)
                 {                    
                     int pos = strline.IndexOf("QQ", 0);
-                    if (pos > 1)
+                    if (pos > 1) 
                     {
                         strQQID = strline.Substring(pos, 8);
                         if (strQQID != "")
