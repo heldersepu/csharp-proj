@@ -26,5 +26,5 @@ https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_output.png
 <br><br><br>
 
 == The config file ==
-The relevant information is at the bottom of the *.config* file, in the appSettings section<br>
+The relevant information is at the bottom of the *.config* file, in the appSettings section<br><br>
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/PID773176.png
