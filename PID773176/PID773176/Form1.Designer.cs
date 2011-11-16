@@ -1,4 +1,4 @@
-﻿namespace PID773176
+﻿namespace GeoData
 {
     partial class frmGeoData
     {

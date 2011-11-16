@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace PID773176
+namespace GeoData
 {
     static class Program
     {

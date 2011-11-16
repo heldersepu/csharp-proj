@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PID773176.SearchService {
+namespace GeoData.SearchService {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,23 +17,23 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRequest))]
     public partial class RequestBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Credentials CredentialsField;
+        private GeoData.SearchService.Credentials CredentialsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CultureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.ExecutionOptions ExecutionOptionsField;
+        private GeoData.SearchService.ExecutionOptions ExecutionOptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.UserProfile UserProfileField;
+        private GeoData.SearchService.UserProfile UserProfileField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -46,7 +46,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Credentials Credentials {
+        public GeoData.SearchService.Credentials Credentials {
             get {
                 return this.CredentialsField;
             }
@@ -72,7 +72,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.ExecutionOptions ExecutionOptions {
+        public GeoData.SearchService.ExecutionOptions ExecutionOptions {
             get {
                 return this.ExecutionOptionsField;
             }
@@ -85,7 +85,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.UserProfile UserProfile {
+        public GeoData.SearchService.UserProfile UserProfile {
             get {
                 return this.UserProfileField;
             }
@@ -223,25 +223,25 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Heading CurrentHeadingField;
+        private GeoData.SearchService.Heading CurrentHeadingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.UserLocation CurrentLocationField;
+        private GeoData.SearchService.UserLocation CurrentLocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.DeviceType DeviceTypeField;
+        private GeoData.SearchService.DeviceType DeviceTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.DistanceUnit DistanceUnitField;
+        private GeoData.SearchService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IPAddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.ShapeBase MapViewField;
+        private GeoData.SearchService.ShapeBase MapViewField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.SizeOfint ScreenSizeField;
+        private GeoData.SearchService.SizeOfint ScreenSizeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -254,7 +254,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Heading CurrentHeading {
+        public GeoData.SearchService.Heading CurrentHeading {
             get {
                 return this.CurrentHeadingField;
             }
@@ -267,7 +267,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.UserLocation CurrentLocation {
+        public GeoData.SearchService.UserLocation CurrentLocation {
             get {
                 return this.CurrentLocationField;
             }
@@ -280,7 +280,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.DeviceType DeviceType {
+        public GeoData.SearchService.DeviceType DeviceType {
             get {
                 return this.DeviceTypeField;
             }
@@ -293,7 +293,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.DistanceUnit DistanceUnit {
+        public GeoData.SearchService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -319,7 +319,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.ShapeBase MapView {
+        public GeoData.SearchService.ShapeBase MapView {
             get {
                 return this.MapViewField;
             }
@@ -332,7 +332,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.SizeOfint ScreenSize {
+        public GeoData.SearchService.SizeOfint ScreenSize {
             get {
                 return this.ScreenSizeField;
             }
@@ -358,16 +358,16 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchRequest", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    public partial class SearchRequest : PID773176.SearchService.RequestBase {
+    public partial class SearchRequest : GeoData.SearchService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string QueryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.SearchOptions SearchOptionsField;
+        private GeoData.SearchService.SearchOptions SearchOptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.StructuredSearchQuery StructuredQueryField;
+        private GeoData.SearchService.StructuredSearchQuery StructuredQueryField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Query {
@@ -383,7 +383,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.SearchOptions SearchOptions {
+        public GeoData.SearchService.SearchOptions SearchOptions {
             get {
                 return this.SearchOptionsField;
             }
@@ -396,7 +396,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.StructuredSearchQuery StructuredQuery {
+        public GeoData.SearchService.StructuredSearchQuery StructuredQuery {
             get {
                 return this.StructuredQueryField;
             }
@@ -425,10 +425,10 @@ namespace PID773176.SearchService {
         private System.Nullable<int> CountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.FilterExpressionBase FiltersField;
+        private GeoData.SearchService.FilterExpressionBase FiltersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.ListingType ListingTypeField;
+        private GeoData.SearchService.ListingType ListingTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool ParseOnlyField;
@@ -437,7 +437,7 @@ namespace PID773176.SearchService {
         private System.Nullable<double> RadiusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.SortOrder SortOrderField;
+        private GeoData.SearchService.SortOrder SortOrderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int StartingIndexField;
@@ -479,7 +479,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.FilterExpressionBase Filters {
+        public GeoData.SearchService.FilterExpressionBase Filters {
             get {
                 return this.FiltersField;
             }
@@ -492,7 +492,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.ListingType ListingType {
+        public GeoData.SearchService.ListingType ListingType {
             get {
                 return this.ListingTypeField;
             }
@@ -531,7 +531,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.SortOrder SortOrder {
+        public GeoData.SearchService.SortOrder SortOrder {
             get {
                 return this.SortOrderField;
             }
@@ -676,13 +676,13 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class UserLocation : PID773176.SearchService.Location {
+    public partial class UserLocation : GeoData.SearchService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Confidence ConfidenceField;
+        private GeoData.SearchService.Confidence ConfidenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Confidence Confidence {
+        public GeoData.SearchService.Confidence Confidence {
             get {
                 return this.ConfidenceField;
             }
@@ -699,9 +699,9 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShapeBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Rectangle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Polygon))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Circle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Rectangle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Polygon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Circle))]
     public partial class ShapeBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -814,8 +814,8 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.UserLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.UserLocation))]
     public partial class Location : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -893,7 +893,7 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeocodeLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class GeocodeLocation : PID773176.SearchService.Location {
+    public partial class GeocodeLocation : GeoData.SearchService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CalculationMethodField;
@@ -930,16 +930,16 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Rectangle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Rectangle : PID773176.SearchService.ShapeBase {
+    public partial class Rectangle : GeoData.SearchService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Location NortheastField;
+        private GeoData.SearchService.Location NortheastField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Location SouthwestField;
+        private GeoData.SearchService.Location SouthwestField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Location Northeast {
+        public GeoData.SearchService.Location Northeast {
             get {
                 return this.NortheastField;
             }
@@ -952,7 +952,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Location Southwest {
+        public GeoData.SearchService.Location Southwest {
             get {
                 return this.SouthwestField;
             }
@@ -969,13 +969,13 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Polygon", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Polygon : PID773176.SearchService.ShapeBase {
+    public partial class Polygon : GeoData.SearchService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Location[] VerticesField;
+        private GeoData.SearchService.Location[] VerticesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Location[] Vertices {
+        public GeoData.SearchService.Location[] Vertices {
             get {
                 return this.VerticesField;
             }
@@ -992,19 +992,19 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Circle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Circle : PID773176.SearchService.ShapeBase {
+    public partial class Circle : GeoData.SearchService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Location CenterField;
+        private GeoData.SearchService.Location CenterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.DistanceUnit DistanceUnitField;
+        private GeoData.SearchService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double RadiusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Location Center {
+        public GeoData.SearchService.Location Center {
             get {
                 return this.CenterField;
             }
@@ -1017,7 +1017,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.DistanceUnit DistanceUnit {
+        public GeoData.SearchService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -1047,8 +1047,8 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FilterExpressionBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpression))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionClause))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpression))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionClause))]
     public partial class FilterExpressionBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1114,72 +1114,72 @@ namespace PID773176.SearchService {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<PID773176.SearchService.Neighborhood, int>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<GeoData.SearchService.Neighborhood, int>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, object>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<int, PID773176.SearchService.CategorySpecificPropertySet>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchOptions))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ListingType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SortOrder))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.StructuredSearchQuery))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResponse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.QuerySuggestion))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultSet[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultSet))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRegion[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRegion))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AvailableFilter[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AvailableFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ValueListFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Neighborhood))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterValue))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Category))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.RangeFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategoryCount[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategoryCount))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Parse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultBase[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.LocationData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CommunityContentSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.BusinessSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Category[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategorySpecificPropertySet))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Neighborhood[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.PersonSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.RequestBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Credentials))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ExecutionOptions))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.UserProfile))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Heading))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.UserLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Location))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Confidence))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.DeviceType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.DistanceUnit))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ShapeBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Rectangle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Polygon))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Location[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Circle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SizeOfint))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.LogicalOperator))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CompareOperator))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionClause))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionBase[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseSummary))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AuthenticationResultCode))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseStatusCode))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Address))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeLocation[]))]
-    public partial class FilterExpression : PID773176.SearchService.FilterExpressionBase {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<int, GeoData.SearchService.CategorySpecificPropertySet>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchOptions))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ListingType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SortOrder))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.StructuredSearchQuery))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.QuerySuggestion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultSet[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultSet))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRegion[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRegion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AvailableFilter[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AvailableFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ValueListFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Neighborhood))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterValue))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Category))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.RangeFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategoryCount[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategoryCount))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Parse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultBase[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.LocationData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CommunityContentSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.BusinessSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Category[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategorySpecificPropertySet))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Neighborhood[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.PersonSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.RequestBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Credentials))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ExecutionOptions))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.UserProfile))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Heading))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.UserLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Location))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Confidence))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.DeviceType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.DistanceUnit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ShapeBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Rectangle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Polygon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Location[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Circle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SizeOfint))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.LogicalOperator))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CompareOperator))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionClause))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionBase[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseSummary))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AuthenticationResultCode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseStatusCode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Address))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeLocation[]))]
+    public partial class FilterExpression : GeoData.SearchService.FilterExpressionBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.CompareOperator CompareOperatorField;
+        private GeoData.SearchService.CompareOperator CompareOperatorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private object FilterValueField;
@@ -1188,7 +1188,7 @@ namespace PID773176.SearchService {
         private int PropertyIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.CompareOperator CompareOperator {
+        public GeoData.SearchService.CompareOperator CompareOperator {
             get {
                 return this.CompareOperatorField;
             }
@@ -1231,16 +1231,16 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FilterExpressionClause", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class FilterExpressionClause : PID773176.SearchService.FilterExpressionBase {
+    public partial class FilterExpressionClause : GeoData.SearchService.FilterExpressionBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.FilterExpressionBase[] ExpressionsField;
+        private GeoData.SearchService.FilterExpressionBase[] ExpressionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.LogicalOperator LogicalOperatorField;
+        private GeoData.SearchService.LogicalOperator LogicalOperatorField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.FilterExpressionBase[] Expressions {
+        public GeoData.SearchService.FilterExpressionBase[] Expressions {
             get {
                 return this.ExpressionsField;
             }
@@ -1253,7 +1253,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.LogicalOperator LogicalOperator {
+        public GeoData.SearchService.LogicalOperator LogicalOperator {
             get {
                 return this.LogicalOperatorField;
             }
@@ -1408,16 +1408,16 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchResponse", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    public partial class SearchResponse : PID773176.SearchService.ResponseBase {
+    public partial class SearchResponse : GeoData.SearchService.ResponseBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.QuerySuggestion QuerySuggestionField;
+        private GeoData.SearchService.QuerySuggestion QuerySuggestionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.SearchResultSet[] ResultSetsField;
+        private GeoData.SearchService.SearchResultSet[] ResultSetsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.QuerySuggestion QuerySuggestion {
+        public GeoData.SearchService.QuerySuggestion QuerySuggestion {
             get {
                 return this.QuerySuggestionField;
             }
@@ -1430,7 +1430,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.SearchResultSet[] ResultSets {
+        public GeoData.SearchService.SearchResultSet[] ResultSets {
             get {
                 return this.ResultSetsField;
             }
@@ -1456,7 +1456,7 @@ namespace PID773176.SearchService {
         private string QueryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.StructuredSearchQuery StructuredQueryField;
+        private GeoData.SearchService.StructuredSearchQuery StructuredQueryField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1482,7 +1482,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.StructuredSearchQuery StructuredQuery {
+        public GeoData.SearchService.StructuredSearchQuery StructuredQuery {
             get {
                 return this.StructuredQueryField;
             }
@@ -1514,13 +1514,13 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.SearchRegion[] AlternateSearchRegionsField;
+        private GeoData.SearchService.SearchRegion[] AlternateSearchRegionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.AvailableFilter[] AvailableFiltersField;
+        private GeoData.SearchService.AvailableFilter[] AvailableFiltersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.CategoryCount[] CategoryCountsField;
+        private GeoData.SearchService.CategoryCount[] CategoryCountsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int EstimatedMatchesField;
@@ -1529,19 +1529,19 @@ namespace PID773176.SearchService {
         private string ListingTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Parse ParseField;
+        private GeoData.SearchService.Parse ParseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Category QueryCategoryField;
+        private GeoData.SearchService.Category QueryCategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool QueryCorrectedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.SearchResultBase[] ResultsField;
+        private GeoData.SearchService.SearchResultBase[] ResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.SearchRegion SearchRegionField;
+        private GeoData.SearchService.SearchRegion SearchRegionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1554,7 +1554,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.SearchRegion[] AlternateSearchRegions {
+        public GeoData.SearchService.SearchRegion[] AlternateSearchRegions {
             get {
                 return this.AlternateSearchRegionsField;
             }
@@ -1567,7 +1567,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.AvailableFilter[] AvailableFilters {
+        public GeoData.SearchService.AvailableFilter[] AvailableFilters {
             get {
                 return this.AvailableFiltersField;
             }
@@ -1580,7 +1580,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.CategoryCount[] CategoryCounts {
+        public GeoData.SearchService.CategoryCount[] CategoryCounts {
             get {
                 return this.CategoryCountsField;
             }
@@ -1619,7 +1619,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Parse Parse {
+        public GeoData.SearchService.Parse Parse {
             get {
                 return this.ParseField;
             }
@@ -1632,7 +1632,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Category QueryCategory {
+        public GeoData.SearchService.Category QueryCategory {
             get {
                 return this.QueryCategoryField;
             }
@@ -1658,7 +1658,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.SearchResultBase[] Results {
+        public GeoData.SearchService.SearchResultBase[] Results {
             get {
                 return this.ResultsField;
             }
@@ -1671,7 +1671,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.SearchRegion SearchRegion {
+        public GeoData.SearchService.SearchRegion SearchRegion {
             get {
                 return this.SearchRegionField;
             }
@@ -1703,10 +1703,10 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.ShapeBase BoundingAreaField;
+        private GeoData.SearchService.ShapeBase BoundingAreaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.GeocodeResult GeocodeLocationField;
+        private GeoData.SearchService.GeocodeResult GeocodeLocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SourceField;
@@ -1722,7 +1722,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.ShapeBase BoundingArea {
+        public GeoData.SearchService.ShapeBase BoundingArea {
             get {
                 return this.BoundingAreaField;
             }
@@ -1735,7 +1735,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.GeocodeResult GeocodeLocation {
+        public GeoData.SearchService.GeocodeResult GeocodeLocation {
             get {
                 return this.GeocodeLocationField;
             }
@@ -1774,8 +1774,8 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AvailableFilter", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ValueListFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.RangeFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ValueListFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.RangeFilter))]
     public partial class AvailableFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1839,69 +1839,69 @@ namespace PID773176.SearchService {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<PID773176.SearchService.Neighborhood, int>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<GeoData.SearchService.Neighborhood, int>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, object>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<int, PID773176.SearchService.CategorySpecificPropertySet>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchOptions))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ListingType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SortOrder))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.StructuredSearchQuery))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResponse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.QuerySuggestion))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultSet[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultSet))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRegion[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRegion))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AvailableFilter[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AvailableFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Neighborhood))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterValue))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Category))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.RangeFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategoryCount[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategoryCount))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Parse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultBase[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.LocationData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CommunityContentSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.BusinessSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Category[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategorySpecificPropertySet))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Neighborhood[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.PersonSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.RequestBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Credentials))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ExecutionOptions))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.UserProfile))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Heading))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.UserLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Location))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Confidence))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.DeviceType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.DistanceUnit))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ShapeBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Rectangle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Polygon))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Location[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Circle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SizeOfint))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.LogicalOperator))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpression))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CompareOperator))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionClause))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionBase[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseSummary))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AuthenticationResultCode))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseStatusCode))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Address))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeLocation[]))]
-    public partial class ValueListFilter : PID773176.SearchService.AvailableFilter {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<int, GeoData.SearchService.CategorySpecificPropertySet>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchOptions))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ListingType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SortOrder))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.StructuredSearchQuery))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.QuerySuggestion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultSet[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultSet))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRegion[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRegion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AvailableFilter[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AvailableFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Neighborhood))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterValue))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Category))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.RangeFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategoryCount[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategoryCount))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Parse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultBase[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.LocationData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CommunityContentSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.BusinessSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Category[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategorySpecificPropertySet))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Neighborhood[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.PersonSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.RequestBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Credentials))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ExecutionOptions))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.UserProfile))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Heading))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.UserLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Location))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Confidence))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.DeviceType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.DistanceUnit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ShapeBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Rectangle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Polygon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Location[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Circle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SizeOfint))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.LogicalOperator))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpression))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CompareOperator))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionClause))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionBase[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseSummary))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AuthenticationResultCode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseStatusCode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Address))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeLocation[]))]
+    public partial class ValueListFilter : GeoData.SearchService.AvailableFilter {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private object[] ValuesField;
@@ -2048,69 +2048,69 @@ namespace PID773176.SearchService {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<PID773176.SearchService.Neighborhood, int>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<GeoData.SearchService.Neighborhood, int>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, object>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<int, PID773176.SearchService.CategorySpecificPropertySet>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchOptions))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ListingType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SortOrder))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.StructuredSearchQuery))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResponse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.QuerySuggestion))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultSet[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultSet))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRegion[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchRegion))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AvailableFilter[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AvailableFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ValueListFilter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Neighborhood))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterValue))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Category))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategoryCount[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategoryCount))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Parse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultBase[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResultBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.LocationData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CommunityContentSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.BusinessSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Category[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CategorySpecificPropertySet))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Neighborhood[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.PersonSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.RequestBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Credentials))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ExecutionOptions))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.UserProfile))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Heading))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.UserLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Location))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Confidence))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.DeviceType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.DistanceUnit))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ShapeBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Rectangle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Polygon))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Location[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Circle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SizeOfint))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.LogicalOperator))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpression))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CompareOperator))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionClause))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.FilterExpressionBase[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseBase))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseSummary))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.AuthenticationResultCode))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.ResponseStatusCode))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.Address))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.GeocodeLocation[]))]
-    public partial class RangeFilter : PID773176.SearchService.AvailableFilter {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<int, GeoData.SearchService.CategorySpecificPropertySet>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchOptions))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ListingType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SortOrder))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.StructuredSearchQuery))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.QuerySuggestion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultSet[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultSet))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRegion[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchRegion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AvailableFilter[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AvailableFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ValueListFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Neighborhood))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterValue))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Category))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategoryCount[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategoryCount))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Parse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultBase[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResultBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.LocationData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CommunityContentSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.BusinessSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Category[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CategorySpecificPropertySet))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Neighborhood[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.PersonSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.RequestBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Credentials))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ExecutionOptions))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.UserProfile))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Heading))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.UserLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Location))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Confidence))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.DeviceType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.DistanceUnit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ShapeBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Rectangle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Polygon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Location[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Circle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SizeOfint))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.LogicalOperator))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpression))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CompareOperator))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionClause))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.FilterExpressionBase[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseSummary))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.AuthenticationResultCode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.ResponseStatusCode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.Address))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.GeocodeLocation[]))]
+    public partial class RangeFilter : GeoData.SearchService.AvailableFilter {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private object MaximumValueField;
@@ -2155,13 +2155,13 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Category CategoryField;
+        private GeoData.SearchService.Category CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.Dictionary<PID773176.SearchService.Neighborhood, int> CountByNeighborhoodField;
+        private System.Collections.Generic.Dictionary<GeoData.SearchService.Neighborhood, int> CountByNeighborhoodField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2174,7 +2174,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Category Category {
+        public GeoData.SearchService.Category Category {
             get {
                 return this.CategoryField;
             }
@@ -2200,7 +2200,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<PID773176.SearchService.Neighborhood, int> CountByNeighborhood {
+        public System.Collections.Generic.Dictionary<GeoData.SearchService.Neighborhood, int> CountByNeighborhood {
             get {
                 return this.CountByNeighborhoodField;
             }
@@ -2232,7 +2232,7 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Address AddressField;
+        private GeoData.SearchService.Address AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
@@ -2254,7 +2254,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Address Address {
+        public GeoData.SearchService.Address Address {
             get {
                 return this.AddressField;
             }
@@ -2319,9 +2319,9 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchResultBase", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.CommunityContentSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.BusinessSearchResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.PersonSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.CommunityContentSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.BusinessSearchResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.PersonSearchResult))]
     public partial class SearchResultBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -2334,7 +2334,7 @@ namespace PID773176.SearchService {
         private string IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.LocationData LocationDataField;
+        private GeoData.SearchService.LocationData LocationDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -2376,7 +2376,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.LocationData LocationData {
+        public GeoData.SearchService.LocationData LocationData {
             get {
                 return this.LocationDataField;
             }
@@ -2421,10 +2421,10 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Confidence ConfidenceField;
+        private GeoData.SearchService.Confidence ConfidenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.GeocodeLocation[] LocationsField;
+        private GeoData.SearchService.GeocodeLocation[] LocationsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] MatchCodesField;
@@ -2440,7 +2440,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Confidence Confidence {
+        public GeoData.SearchService.Confidence Confidence {
             get {
                 return this.ConfidenceField;
             }
@@ -2453,7 +2453,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.GeocodeLocation[] Locations {
+        public GeoData.SearchService.GeocodeLocation[] Locations {
             get {
                 return this.LocationsField;
             }
@@ -2492,7 +2492,7 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CommunityContentSearchResult", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    public partial class CommunityContentSearchResult : PID773176.SearchService.SearchResultBase {
+    public partial class CommunityContentSearchResult : GeoData.SearchService.SearchResultBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.Dictionary<string, object> AdditionalPropertiesField;
@@ -2531,22 +2531,22 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BusinessSearchResult", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    public partial class BusinessSearchResult : PID773176.SearchService.SearchResultBase {
+    public partial class BusinessSearchResult : GeoData.SearchService.SearchResultBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.Dictionary<string, object> AdditionalPropertiesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Address AddressField;
+        private GeoData.SearchService.Address AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Category[] CategoriesField;
+        private GeoData.SearchService.Category[] CategoriesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.Dictionary<int, PID773176.SearchService.CategorySpecificPropertySet> CategorySpecificPropertiesField;
+        private System.Collections.Generic.Dictionary<int, GeoData.SearchService.CategorySpecificPropertySet> CategorySpecificPropertiesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Neighborhood[] NeighborhoodsField;
+        private GeoData.SearchService.Neighborhood[] NeighborhoodsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneNumberField;
@@ -2577,7 +2577,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Address Address {
+        public GeoData.SearchService.Address Address {
             get {
                 return this.AddressField;
             }
@@ -2590,7 +2590,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Category[] Categories {
+        public GeoData.SearchService.Category[] Categories {
             get {
                 return this.CategoriesField;
             }
@@ -2603,7 +2603,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<int, PID773176.SearchService.CategorySpecificPropertySet> CategorySpecificProperties {
+        public System.Collections.Generic.Dictionary<int, GeoData.SearchService.CategorySpecificPropertySet> CategorySpecificProperties {
             get {
                 return this.CategorySpecificPropertiesField;
             }
@@ -2616,7 +2616,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Neighborhood[] Neighborhoods {
+        public GeoData.SearchService.Neighborhood[] Neighborhoods {
             get {
                 return this.NeighborhoodsField;
             }
@@ -2698,16 +2698,16 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PersonSearchResult", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    public partial class PersonSearchResult : PID773176.SearchService.SearchResultBase {
+    public partial class PersonSearchResult : GeoData.SearchService.SearchResultBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Address AddressField;
+        private GeoData.SearchService.Address AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneNumberField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Address Address {
+        public GeoData.SearchService.Address Address {
             get {
                 return this.AddressField;
             }
@@ -2768,7 +2768,7 @@ namespace PID773176.SearchService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.SearchService.SearchResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.SearchService.SearchResponse))]
     public partial class ResponseBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -2778,7 +2778,7 @@ namespace PID773176.SearchService {
         private System.Uri BrandLogoUriField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.ResponseSummary ResponseSummaryField;
+        private GeoData.SearchService.ResponseSummary ResponseSummaryField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2804,7 +2804,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.ResponseSummary ResponseSummary {
+        public GeoData.SearchService.ResponseSummary ResponseSummary {
             get {
                 return this.ResponseSummaryField;
             }
@@ -2836,7 +2836,7 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.AuthenticationResultCode AuthenticationResultCodeField;
+        private GeoData.SearchService.AuthenticationResultCode AuthenticationResultCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CopyrightField;
@@ -2845,7 +2845,7 @@ namespace PID773176.SearchService {
         private string FaultReasonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.ResponseStatusCode StatusCodeField;
+        private GeoData.SearchService.ResponseStatusCode StatusCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TraceIdField;
@@ -2861,7 +2861,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.AuthenticationResultCode AuthenticationResultCode {
+        public GeoData.SearchService.AuthenticationResultCode AuthenticationResultCode {
             get {
                 return this.AuthenticationResultCodeField;
             }
@@ -2900,7 +2900,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.ResponseStatusCode StatusCode {
+        public GeoData.SearchService.ResponseStatusCode StatusCode {
             get {
                 return this.StatusCodeField;
             }
@@ -2982,13 +2982,13 @@ namespace PID773176.SearchService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Address AddressField;
+        private GeoData.SearchService.Address AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Rectangle BestViewField;
+        private GeoData.SearchService.Rectangle BestViewField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.Confidence ConfidenceField;
+        private GeoData.SearchService.Confidence ConfidenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DisplayNameField;
@@ -2997,7 +2997,7 @@ namespace PID773176.SearchService {
         private string EntityTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.SearchService.GeocodeLocation[] LocationsField;
+        private GeoData.SearchService.GeocodeLocation[] LocationsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] MatchCodesField;
@@ -3013,7 +3013,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Address Address {
+        public GeoData.SearchService.Address Address {
             get {
                 return this.AddressField;
             }
@@ -3026,7 +3026,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Rectangle BestView {
+        public GeoData.SearchService.Rectangle BestView {
             get {
                 return this.BestViewField;
             }
@@ -3039,7 +3039,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.Confidence Confidence {
+        public GeoData.SearchService.Confidence Confidence {
             get {
                 return this.ConfidenceField;
             }
@@ -3078,7 +3078,7 @@ namespace PID773176.SearchService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.SearchService.GeocodeLocation[] Locations {
+        public GeoData.SearchService.GeocodeLocation[] Locations {
             get {
                 return this.LocationsField;
             }
@@ -3277,18 +3277,18 @@ namespace PID773176.SearchService {
         [System.ServiceModel.OperationContractAttribute(Action="http://dev.virtualearth.net/webservices/v1/search/contracts/ISearchService/Search" +
             "", ReplyAction="http://dev.virtualearth.net/webservices/v1/search/contracts/ISearchService/Search" +
             "Response")]
-        [System.ServiceModel.FaultContractAttribute(typeof(PID773176.SearchService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/search/contracts/ISearchService/Search" +
+        [System.ServiceModel.FaultContractAttribute(typeof(GeoData.SearchService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/search/contracts/ISearchService/Search" +
             "ResponseSummaryFault", Name="ResponseSummary", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
-        PID773176.SearchService.SearchResponse Search(PID773176.SearchService.SearchRequest request);
+        GeoData.SearchService.SearchResponse Search(GeoData.SearchService.SearchRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public interface ISearchServiceChannel : PID773176.SearchService.ISearchService, System.ServiceModel.IClientChannel {
+    public interface ISearchServiceChannel : GeoData.SearchService.ISearchService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public partial class SearchServiceClient : System.ServiceModel.ClientBase<PID773176.SearchService.ISearchService>, PID773176.SearchService.ISearchService {
+    public partial class SearchServiceClient : System.ServiceModel.ClientBase<GeoData.SearchService.ISearchService>, GeoData.SearchService.ISearchService {
         
         public SearchServiceClient() {
         }
@@ -3309,7 +3309,7 @@ namespace PID773176.SearchService {
                 base(binding, remoteAddress) {
         }
         
-        public PID773176.SearchService.SearchResponse Search(PID773176.SearchService.SearchRequest request) {
+        public GeoData.SearchService.SearchResponse Search(GeoData.SearchService.SearchRequest request) {
             return base.Channel.Search(request);
         }
     }
