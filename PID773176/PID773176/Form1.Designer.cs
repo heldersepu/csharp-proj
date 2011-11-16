@@ -32,12 +32,13 @@
             this.txbAddress = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadFromTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromSQLStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OutputToTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OutputToSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFromTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXECUTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OutputToSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OutputToTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runUnattendedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -71,7 +72,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputToolStripMenuItem,
             this.eXECUTEToolStripMenuItem,
-            this.outputToolStripMenuItem});
+            this.outputToolStripMenuItem,
+            this.runUnattendedToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(594, 24);
@@ -87,6 +89,13 @@
             this.inputToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.inputToolStripMenuItem.Text = "&Input";
             // 
+            // loadFromSQLStripMenuItem
+            // 
+            this.loadFromSQLStripMenuItem.Name = "loadFromSQLStripMenuItem";
+            this.loadFromSQLStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.loadFromSQLStripMenuItem.Text = "Input from &SQL";
+            this.loadFromSQLStripMenuItem.Click += new System.EventHandler(this.loadFromSQLStripMenuItem_Click);
+            // 
             // loadFromTextFileToolStripMenuItem
             // 
             this.loadFromTextFileToolStripMenuItem.Name = "loadFromTextFileToolStripMenuItem";
@@ -94,12 +103,12 @@
             this.loadFromTextFileToolStripMenuItem.Text = "Input from &Text file";
             this.loadFromTextFileToolStripMenuItem.Click += new System.EventHandler(this.loadFromTextFileToolStripMenuItem_Click);
             // 
-            // loadFromSQLStripMenuItem
+            // eXECUTEToolStripMenuItem
             // 
-            this.loadFromSQLStripMenuItem.Name = "loadFromSQLStripMenuItem";
-            this.loadFromSQLStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.loadFromSQLStripMenuItem.Text = "Input from &SQL";
-            this.loadFromSQLStripMenuItem.Click += new System.EventHandler(this.loadFromSQLStripMenuItem_Click);
+            this.eXECUTEToolStripMenuItem.Name = "eXECUTEToolStripMenuItem";
+            this.eXECUTEToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.eXECUTEToolStripMenuItem.Text = "E&XECUTE";
+            this.eXECUTEToolStripMenuItem.Click += new System.EventHandler(this.eXECUTEToolStripMenuItem_Click);
             // 
             // outputToolStripMenuItem
             // 
@@ -111,13 +120,6 @@
             this.outputToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.outputToolStripMenuItem.Text = "&Output";
             // 
-            // OutputToTextFileToolStripMenuItem
-            // 
-            this.OutputToTextFileToolStripMenuItem.Name = "OutputToTextFileToolStripMenuItem";
-            this.OutputToTextFileToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.OutputToTextFileToolStripMenuItem.Text = "Output to &Text file";
-            this.OutputToTextFileToolStripMenuItem.Click += new System.EventHandler(this.OutputToTextFileToolStripMenuItem_Click);
-            // 
             // OutputToSQLToolStripMenuItem
             // 
             this.OutputToSQLToolStripMenuItem.Name = "OutputToSQLToolStripMenuItem";
@@ -125,12 +127,19 @@
             this.OutputToSQLToolStripMenuItem.Text = "Output to &SQL";
             this.OutputToSQLToolStripMenuItem.Click += new System.EventHandler(this.OutputToSQLToolStripMenuItem_Click);
             // 
-            // eXECUTEToolStripMenuItem
+            // OutputToTextFileToolStripMenuItem
             // 
-            this.eXECUTEToolStripMenuItem.Name = "eXECUTEToolStripMenuItem";
-            this.eXECUTEToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.eXECUTEToolStripMenuItem.Text = "E&XECUTE";
-            this.eXECUTEToolStripMenuItem.Click += new System.EventHandler(this.eXECUTEToolStripMenuItem_Click);
+            this.OutputToTextFileToolStripMenuItem.Name = "OutputToTextFileToolStripMenuItem";
+            this.OutputToTextFileToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.OutputToTextFileToolStripMenuItem.Text = "Output to &Text file";
+            this.OutputToTextFileToolStripMenuItem.Click += new System.EventHandler(this.OutputToTextFileToolStripMenuItem_Click);
+            // 
+            // runUnattendedToolStripMenuItem
+            // 
+            this.runUnattendedToolStripMenuItem.Name = "runUnattendedToolStripMenuItem";
+            this.runUnattendedToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.runUnattendedToolStripMenuItem.Text = "Run Unattended";
+            this.runUnattendedToolStripMenuItem.Click += new System.EventHandler(this.runUnattendedToolStripMenuItem_Click);
             // 
             // openFileDialog
             // 
@@ -189,6 +198,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 396);
             this.Name = "frmGeoData";
             this.Text = "GeoData";
+            this.Shown += new System.EventHandler(this.frmGeoData_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -215,6 +225,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Latitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn Longitude;
+        private System.Windows.Forms.ToolStripMenuItem runUnattendedToolStripMenuItem;
     }
 }
 

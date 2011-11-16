@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Threading;
 
 using GeoData.GeocodeService;
 using GeoData.SearchService;
@@ -19,9 +20,15 @@ namespace GeoData
 {    
     public partial class frmGeoData : Form
     {
-        public frmGeoData()
+        private bool runUnattended = false;
+        public frmGeoData(string[] args)
         {
             InitializeComponent();
+            if (args.Length > 0)
+            {
+                if (args[0].ToLower().Contains("rununattended"))
+                    runUnattended = true;                    
+            }
         }
 
         private GeocodeService.Location GeoCodeData(string address)
@@ -68,6 +75,22 @@ namespace GeoData
             outputToolStripMenuItem.Enabled = true;
         }
 
+        private void doEXECUTE()
+        {
+            foreach (DataGridViewRow rw in dataGridView.Rows)
+            {
+                if (rw.Cells[0].Value != null)
+                {
+                    GeocodeService.Location location = GeoCodeData(rw.Cells[0].Value.ToString());
+                    if (location != null)
+                    {
+                        rw.Cells["Latitude"].Value = location.Latitude;
+                        rw.Cells["Longitude"].Value = location.Longitude;
+                    }
+                }
+            }
+        }
+        
         private void eXECUTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -78,19 +101,7 @@ namespace GeoData
             }
             else
             {
-                foreach (DataGridViewRow rw in dataGridView.Rows)
-                {
-                    if (rw.Cells[0].Value != null)
-                    {
-                        GeocodeService.Location location = GeoCodeData(rw.Cells[0].Value.ToString());
-                        if (location != null)
-                        {
-                            rw.Cells["Latitude"].Value = location.Latitude;
-                            rw.Cells["Longitude"].Value = location.Longitude;
-                        }
-                        Refresh();
-                    }
-                }
+                doEXECUTE();
             }
             Cursor.Current = Cursors.Default;
         }
@@ -213,9 +224,46 @@ namespace GeoData
                 MessageBox.Show("Error: " + ex.Message);
             }
             finally
-            {
+            { 
                 if (conn != null) conn.Close();
             }	
+        }
+
+        private void runUnattendedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            long counter = 0;
+            long max = 5;
+            try
+            {
+                long temp = Convert.ToInt64(ConfigurationSettings.AppSettings["UnattendedLoops"]);
+                max = temp;
+            }
+            catch { }
+
+            do
+            {
+                loadFromSQLStripMenuItem_Click(sender, e);
+                Refresh();
+                eXECUTEToolStripMenuItem_Click(sender, e);
+                Refresh();
+                OutputToSQLToolStripMenuItem_Click(sender, e);
+                Refresh();
+                Thread.Sleep(250);
+                dataGridView.Rows.Clear();                
+                Refresh();
+                Thread.Sleep(250);
+                counter++;
+            }
+            while (counter < max);
+        }
+
+        private void frmGeoData_Shown(object sender, EventArgs e)
+        {
+            if (runUnattended)
+            {
+                runUnattendedToolStripMenuItem_Click(sender, e);
+                runUnattended = false;
+            }
         }
     }
 }
