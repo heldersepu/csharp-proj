@@ -13,6 +13,8 @@ https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData.png
 
 == Run Unattended ==
 This allows you to run in unattended mode. It will read and write to SQL<br>
+You can start this process directly from the command line or integrate in the Task Scheduler using:<br>
+GeoData.exe runUnattended<br>
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_Run_Unattended.png
 <br><br><br>
 
