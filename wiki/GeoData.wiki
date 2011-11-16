@@ -1,4 +1,5 @@
-#summary GeoData Info
+#summary GeoData project
+<wiki:toc max_depth="3" />
 
 = Introduction =
 GeoData uses Bing API to get the Latitude Longitude of a given address.
@@ -13,15 +14,15 @@ https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData.png
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_input.png
 <br><br><br>
 
-== The data is loaded and ready to EXECUTE == 
+== Ready to EXECUTE == 
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_exec.png
 <br><br><br>
 
-== The data after the EXECUTE ==
+== After EXECUTE ==
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_after_exec.png
 <br><br><br>
 
-== Finally we can output ==
+== Output Menu ==
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_output.png
 <br><br><br>
 
