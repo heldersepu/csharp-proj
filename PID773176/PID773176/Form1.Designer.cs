@@ -30,18 +30,22 @@
         {
             this.btnAdd = new System.Windows.Forms.Button();
             this.txbAddress = new System.Windows.Forms.TextBox();
-            this.txbAddressList = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fielToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromSQLStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OutputToTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OutputToSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXECUTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Latitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Longitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -62,24 +66,11 @@
             this.txbAddress.TabIndex = 0;
             this.txbAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbAddress_KeyDown);
             // 
-            // txbAddressList
-            // 
-            this.txbAddressList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbAddressList.BackColor = System.Drawing.SystemColors.Window;
-            this.txbAddressList.Location = new System.Drawing.Point(12, 68);
-            this.txbAddressList.Multiline = true;
-            this.txbAddressList.Name = "txbAddressList";
-            this.txbAddressList.ReadOnly = true;
-            this.txbAddressList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txbAddressList.Size = new System.Drawing.Size(567, 287);
-            this.txbAddressList.TabIndex = 2;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fielToolStripMenuItem,
-            this.editToolStripMenuItem,
+            this.inputToolStripMenuItem,
+            this.outputToolStripMenuItem,
             this.eXECUTEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -87,14 +78,14 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fielToolStripMenuItem
+            // inputToolStripMenuItem
             // 
-            this.fielToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadFromTextFileToolStripMenuItem,
             this.loadFromSQLStripMenuItem});
-            this.fielToolStripMenuItem.Name = "fielToolStripMenuItem";
-            this.fielToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
-            this.fielToolStripMenuItem.Text = "&Input";
+            this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
+            this.inputToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.inputToolStripMenuItem.Text = "&Input";
             // 
             // loadFromTextFileToolStripMenuItem
             // 
@@ -110,14 +101,15 @@
             this.loadFromSQLStripMenuItem.Text = "Input from &SQL";
             this.loadFromSQLStripMenuItem.Click += new System.EventHandler(this.loadFromSQLStripMenuItem_Click);
             // 
-            // editToolStripMenuItem
+            // outputToolStripMenuItem
             // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.outputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OutputToTextFileToolStripMenuItem,
             this.OutputToSQLToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.editToolStripMenuItem.Text = "&Output";
+            this.outputToolStripMenuItem.Enabled = false;
+            this.outputToolStripMenuItem.Name = "outputToolStripMenuItem";
+            this.outputToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.outputToolStripMenuItem.Text = "&Output";
             // 
             // OutputToTextFileToolStripMenuItem
             // 
@@ -148,12 +140,50 @@
             // 
             this.saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             // 
+            // dataGridView
+            // 
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Address,
+            this.Latitude,
+            this.Longitude});
+            this.dataGridView.Location = new System.Drawing.Point(24, 75);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.Size = new System.Drawing.Size(548, 271);
+            this.dataGridView.TabIndex = 4;
+            this.dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 254;
+            // 
+            // Latitude
+            // 
+            this.Latitude.HeaderText = "Latitude";
+            this.Latitude.Name = "Latitude";
+            this.Latitude.ReadOnly = true;
+            this.Latitude.Width = 125;
+            // 
+            // Longitude
+            // 
+            this.Longitude.HeaderText = "Longitude";
+            this.Longitude.Name = "Longitude";
+            this.Longitude.ReadOnly = true;
+            this.Longitude.Width = 125;
+            // 
             // frmGeoData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 371);
-            this.Controls.Add(this.txbAddressList);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.txbAddress);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.menuStrip1);
@@ -166,6 +196,7 @@
             this.Text = "GeoData";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,10 +206,9 @@
 
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txbAddress;
-        private System.Windows.Forms.TextBox txbAddressList;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fielToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem outputToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFromTextFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFromSQLStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OutputToTextFileToolStripMenuItem;
@@ -186,6 +216,10 @@
         private System.Windows.Forms.ToolStripMenuItem eXECUTEToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Latitude;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Longitude;
     }
 }
 

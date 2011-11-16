@@ -7,13 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
+
 using PID773176.GeocodeService;
 using PID773176.SearchService;
 using PID773176.ImageryService;
 using PID773176.RouteService;
 
 namespace PID773176
-{
+{    
     public partial class frmGeoData : Form
     {
         public frmGeoData()
@@ -21,38 +23,34 @@ namespace PID773176
             InitializeComponent();
         }
 
-        private String GeoCodeData(string address)
-        {
-            string result = "No GeoData";
+        private GeocodeService.Location GeoCodeData(string address)
+        {           
             try
             {
-                GeocodeRequest geocodeRequest = new GeocodeRequest();
-                geocodeRequest.Credentials = new GeocodeService.Credentials();
-                geocodeRequest.Credentials.ApplicationId = "Anuqkpthyvyu9ni3Lb6dH9tWjpzFEjCoUYgxKgk_FwdPpq1ErB7VBUkUrmQlAss4";
-                geocodeRequest.Query = address;
+                GeocodeRequest request = new GeocodeRequest();
+                request.Credentials = new GeocodeService.Credentials();
+                request.Credentials.ApplicationId = ConfigurationSettings.AppSettings["BingApiKey"];
+                request.Query = address;
                 ConfidenceFilter[] filters = new ConfidenceFilter[1];
                 filters[0] = new ConfidenceFilter();
                 filters[0].MinimumConfidence = GeocodeService.Confidence.High;
                 GeocodeOptions geocodeOptions = new GeocodeOptions();
                 geocodeOptions.Filters = filters;
-                geocodeRequest.Options = geocodeOptions;
+                request.Options = geocodeOptions;
                 GeocodeServiceClient geocodeService = new GeocodeServiceClient("BasicHttpBinding_IGeocodeService");
-                GeocodeResponse geocodeResponse = geocodeService.Geocode(geocodeRequest);
-                if (geocodeResponse.Results.Length > 0)
-                    result = String.Format("Lat: {0} Lon: {1}",
-                        geocodeResponse.Results[0].Locations[0].Latitude,
-                        geocodeResponse.Results[0].Locations[0].Longitude);
+                GeocodeResponse response = geocodeService.Geocode(request);
+                if (response.Results.Length > 0)
+                {
+                    return response.Results[0].Locations[0];
+                }
             }
-            catch { }             
-            return result;            
+            catch { }
+            return null;            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!txbAddressList.Text.Contains(txbAddress.Text + Environment.NewLine))
-            {                
-                txbAddressList.Text = txbAddress.Text + Environment.NewLine + txbAddressList.Text;                
-            }
+            dataGridView.Rows.Add(txbAddress.Text);
             txbAddress.Text = "";
         }
 
@@ -64,18 +62,28 @@ namespace PID773176
             }
         }
 
+        private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            outputToolStripMenuItem.Enabled = true;
+        }
+
         private void eXECUTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string temp = "";
-            for (int i=(txbAddressList.Lines.Count()-1); i>=0; i--)
+            Cursor.Current = Cursors.WaitCursor;
+            foreach (DataGridViewRow rw in dataGridView.Rows)
             {
-                if (txbAddressList.Lines[i].Length > 4)
+                if (rw.Cells[0].Value != null)
                 {
-                    temp = txbAddressList.Lines[i] + " = " + GeoCodeData(txbAddressList.Lines[i]) + Environment.NewLine + temp;
-                    this.Refresh();
+                    GeocodeService.Location location = GeoCodeData(rw.Cells[0].Value.ToString());
+                    if (location != null)
+                    {
+                        rw.Cells["Latitude"].Value = location.Latitude;
+                        rw.Cells["Longitude"].Value = location.Longitude;
+                    }
+                    Refresh();
                 }
             }
-            txbAddressList.Text = temp;         
+            Cursor.Current = Cursors.Default;
         }
 
         private void loadFromTextFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,7 +92,14 @@ namespace PID773176
             {
                 try
                 {
-                    txbAddressList.Text = File.ReadAllText(openFileDialog.FileName);
+                    string allText = File.ReadAllText(openFileDialog.FileName);
+                    foreach (string line in allText.Split('\r'))
+                    {
+                        if (line.Length > 4)
+                        {
+                            dataGridView.Rows.Add(line.Trim());
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -99,7 +114,18 @@ namespace PID773176
             {
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName, txbAddressList.Text);
+                    string strAddressList = "Address\tLatitude\tLongitude" + Environment.NewLine;
+                    foreach (DataGridViewRow rw in dataGridView.Rows)
+                    {                        
+                        if (rw.Cells[0].Value != null)
+                        {
+                            strAddressList += rw.Cells[0].Value + "\t" + 
+                                             rw.Cells[1].Value + "\t" + 
+                                             rw.Cells[2].Value + Environment.NewLine;
+                            Refresh();
+                        }
+                    }
+                    File.WriteAllText(saveFileDialog.FileName, strAddressList);
                 }
                 catch (Exception ex)
                 {
@@ -117,6 +143,5 @@ namespace PID773176
         {
             //To Do
         }
-
     }
 }
