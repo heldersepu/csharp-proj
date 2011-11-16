@@ -185,7 +185,7 @@ namespace GeoData
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    dataGridView.Rows.Add(rdr["ADDRESS"]);
+                    dataGridView.Rows.Add(rdr["ADDRESS"], null, null,rdr["PassthroughID"]);
                 }
             }
             catch (Exception ex)
@@ -215,6 +215,11 @@ namespace GeoData
                         cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param1"], rw.Cells[0].Value));
                         cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param2"], rw.Cells[1].Value));
                         cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param3"], rw.Cells[2].Value));
+                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param4"], rw.Cells[3].Value));
+                        foreach (SqlParameter Parameter in cmd.Parameters)
+                        {
+                            if (Parameter.Value == null) Parameter.Value = DBNull.Value;
+                        }
                         cmd.ExecuteNonQuery();
                     }
                 }

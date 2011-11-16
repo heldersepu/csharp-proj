@@ -8,7 +8,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 ALTER Procedure [dbo].[GetAddress]
 as
-	SELECT top 10 [ADDRESS1] + ', ' + [CITY] + ', ' + [STATE] + ' ' + [ZIP] as [ADDRESS]
+	SELECT top 10 [ADDRESS1] + ', ' + [CITY] + ', ' + [STATE] + ' ' + [ZIP] as [ADDRESS], Client_ID as PassthroughID
 	From CLNMAS
 	Where [STATE]= 'TX'
 
@@ -24,8 +24,9 @@ GO
 ALTER procedure [dbo].[SetAddress]
 	@Address varchar(250),
 	@Latitude varchar(250),
-	@Longitude varchar(250)
+	@Longitude varchar(250), 
+	@PassthroughID varchar(250)
 as
 	UPDATE CLNMAS
 	SET Latitude = @Latitude, Longitude	= @Longitude
-	WHERE [ADDRESS1] + ', ' + [CITY] + ', ' + [STATE] + ' ' + [ZIP] = @Address
+	WHERE str(Client_ID) = @PassthroughID
