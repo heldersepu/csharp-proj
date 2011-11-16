@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PID773176.ImageryService {
+namespace GeoData.ImageryService {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,24 +17,24 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.MapUriRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.ImageryMetadataRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.MapUriRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.ImageryMetadataRequest))]
     public partial class RequestBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Credentials CredentialsField;
+        private GeoData.ImageryService.Credentials CredentialsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CultureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ExecutionOptions ExecutionOptionsField;
+        private GeoData.ImageryService.ExecutionOptions ExecutionOptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.UserProfile UserProfileField;
+        private GeoData.ImageryService.UserProfile UserProfileField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -47,7 +47,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Credentials Credentials {
+        public GeoData.ImageryService.Credentials Credentials {
             get {
                 return this.CredentialsField;
             }
@@ -73,7 +73,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ExecutionOptions ExecutionOptions {
+        public GeoData.ImageryService.ExecutionOptions ExecutionOptions {
             get {
                 return this.ExecutionOptionsField;
             }
@@ -86,7 +86,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.UserProfile UserProfile {
+        public GeoData.ImageryService.UserProfile UserProfile {
             get {
                 return this.UserProfileField;
             }
@@ -224,25 +224,25 @@ namespace PID773176.ImageryService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Heading CurrentHeadingField;
+        private GeoData.ImageryService.Heading CurrentHeadingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.UserLocation CurrentLocationField;
+        private GeoData.ImageryService.UserLocation CurrentLocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.DeviceType DeviceTypeField;
+        private GeoData.ImageryService.DeviceType DeviceTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.DistanceUnit DistanceUnitField;
+        private GeoData.ImageryService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IPAddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ShapeBase MapViewField;
+        private GeoData.ImageryService.ShapeBase MapViewField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.SizeOfint ScreenSizeField;
+        private GeoData.ImageryService.SizeOfint ScreenSizeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -255,7 +255,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Heading CurrentHeading {
+        public GeoData.ImageryService.Heading CurrentHeading {
             get {
                 return this.CurrentHeadingField;
             }
@@ -268,7 +268,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.UserLocation CurrentLocation {
+        public GeoData.ImageryService.UserLocation CurrentLocation {
             get {
                 return this.CurrentLocationField;
             }
@@ -281,7 +281,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.DeviceType DeviceType {
+        public GeoData.ImageryService.DeviceType DeviceType {
             get {
                 return this.DeviceTypeField;
             }
@@ -294,7 +294,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.DistanceUnit DistanceUnit {
+        public GeoData.ImageryService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -320,7 +320,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ShapeBase MapView {
+        public GeoData.ImageryService.ShapeBase MapView {
             get {
                 return this.MapViewField;
             }
@@ -333,7 +333,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.SizeOfint ScreenSize {
+        public GeoData.ImageryService.SizeOfint ScreenSize {
             get {
                 return this.ScreenSizeField;
             }
@@ -359,22 +359,22 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MapUriRequest", Namespace="http://dev.virtualearth.net/webservices/v1/imagery")]
     [System.SerializableAttribute()]
-    public partial class MapUriRequest : PID773176.ImageryService.RequestBase {
+    public partial class MapUriRequest : GeoData.ImageryService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location CenterField;
+        private GeoData.ImageryService.Location CenterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location MajorRoutesDestinationField;
+        private GeoData.ImageryService.Location MajorRoutesDestinationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.MapUriOptions OptionsField;
+        private GeoData.ImageryService.MapUriOptions OptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Pushpin[] PushpinsField;
+        private GeoData.ImageryService.Pushpin[] PushpinsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location Center {
+        public GeoData.ImageryService.Location Center {
             get {
                 return this.CenterField;
             }
@@ -387,7 +387,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location MajorRoutesDestination {
+        public GeoData.ImageryService.Location MajorRoutesDestination {
             get {
                 return this.MajorRoutesDestinationField;
             }
@@ -400,7 +400,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.MapUriOptions Options {
+        public GeoData.ImageryService.MapUriOptions Options {
             get {
                 return this.OptionsField;
             }
@@ -413,7 +413,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Pushpin[] Pushpins {
+        public GeoData.ImageryService.Pushpin[] Pushpins {
             get {
                 return this.PushpinsField;
             }
@@ -430,16 +430,16 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImageryMetadataRequest", Namespace="http://dev.virtualearth.net/webservices/v1/imagery")]
     [System.SerializableAttribute()]
-    public partial class ImageryMetadataRequest : PID773176.ImageryService.RequestBase {
+    public partial class ImageryMetadataRequest : GeoData.ImageryService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ImageryMetadataOptions OptionsField;
+        private GeoData.ImageryService.ImageryMetadataOptions OptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.MapStyle StyleField;
+        private GeoData.ImageryService.MapStyle StyleField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ImageryMetadataOptions Options {
+        public GeoData.ImageryService.ImageryMetadataOptions Options {
             get {
                 return this.OptionsField;
             }
@@ -452,7 +452,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.MapStyle Style {
+        public GeoData.ImageryService.MapStyle Style {
             get {
                 return this.StyleField;
             }
@@ -475,16 +475,16 @@ namespace PID773176.ImageryService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Heading HeadingField;
+        private GeoData.ImageryService.Heading HeadingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location LocationField;
+        private GeoData.ImageryService.Location LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool ReturnImageryProvidersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.UriScheme UriSchemeField;
+        private GeoData.ImageryService.UriScheme UriSchemeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> ZoomLevelField;
@@ -500,7 +500,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Heading Heading {
+        public GeoData.ImageryService.Heading Heading {
             get {
                 return this.HeadingField;
             }
@@ -513,7 +513,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location Location {
+        public GeoData.ImageryService.Location Location {
             get {
                 return this.LocationField;
             }
@@ -539,7 +539,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.UriScheme UriScheme {
+        public GeoData.ImageryService.UriScheme UriScheme {
             get {
                 return this.UriSchemeField;
             }
@@ -661,13 +661,13 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class UserLocation : PID773176.ImageryService.Location {
+    public partial class UserLocation : GeoData.ImageryService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Confidence ConfidenceField;
+        private GeoData.ImageryService.Confidence ConfidenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Confidence Confidence {
+        public GeoData.ImageryService.Confidence Confidence {
             get {
                 return this.ConfidenceField;
             }
@@ -684,10 +684,10 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShapeBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.SearchPoint))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.Circle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.Rectangle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.Polygon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.SearchPoint))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.Circle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.Rectangle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.Polygon))]
     public partial class ShapeBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -800,8 +800,8 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.GeocodeLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.UserLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.GeocodeLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.UserLocation))]
     public partial class Location : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -879,7 +879,7 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeocodeLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class GeocodeLocation : PID773176.ImageryService.Location {
+    public partial class GeocodeLocation : GeoData.ImageryService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CalculationMethodField;
@@ -916,13 +916,13 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchPoint", Namespace="http://dev.virtualearth.net/webservices/v1/search")]
     [System.SerializableAttribute()]
-    public partial class SearchPoint : PID773176.ImageryService.ShapeBase {
+    public partial class SearchPoint : GeoData.ImageryService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location PointField;
+        private GeoData.ImageryService.Location PointField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location Point {
+        public GeoData.ImageryService.Location Point {
             get {
                 return this.PointField;
             }
@@ -939,19 +939,19 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Circle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Circle : PID773176.ImageryService.ShapeBase {
+    public partial class Circle : GeoData.ImageryService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location CenterField;
+        private GeoData.ImageryService.Location CenterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.DistanceUnit DistanceUnitField;
+        private GeoData.ImageryService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double RadiusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location Center {
+        public GeoData.ImageryService.Location Center {
             get {
                 return this.CenterField;
             }
@@ -964,7 +964,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.DistanceUnit DistanceUnit {
+        public GeoData.ImageryService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -994,16 +994,16 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Rectangle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Rectangle : PID773176.ImageryService.ShapeBase {
+    public partial class Rectangle : GeoData.ImageryService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location NortheastField;
+        private GeoData.ImageryService.Location NortheastField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location SouthwestField;
+        private GeoData.ImageryService.Location SouthwestField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location Northeast {
+        public GeoData.ImageryService.Location Northeast {
             get {
                 return this.NortheastField;
             }
@@ -1016,7 +1016,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location Southwest {
+        public GeoData.ImageryService.Location Southwest {
             get {
                 return this.SouthwestField;
             }
@@ -1033,13 +1033,13 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Polygon", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Polygon : PID773176.ImageryService.ShapeBase {
+    public partial class Polygon : GeoData.ImageryService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location[] VerticesField;
+        private GeoData.ImageryService.Location[] VerticesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location[] Vertices {
+        public GeoData.ImageryService.Location[] Vertices {
             get {
                 return this.VerticesField;
             }
@@ -1065,19 +1065,19 @@ namespace PID773176.ImageryService {
         private string[] DisplayLayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.SizeOfint ImageSizeField;
+        private GeoData.ImageryService.SizeOfint ImageSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ImageType ImageTypeField;
+        private GeoData.ImageryService.ImageType ImageTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool PreventIconCollisionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.MapStyle StyleField;
+        private GeoData.ImageryService.MapStyle StyleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.UriScheme UriSchemeField;
+        private GeoData.ImageryService.UriScheme UriSchemeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> ZoomLevelField;
@@ -1106,7 +1106,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.SizeOfint ImageSize {
+        public GeoData.ImageryService.SizeOfint ImageSize {
             get {
                 return this.ImageSizeField;
             }
@@ -1119,7 +1119,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ImageType ImageType {
+        public GeoData.ImageryService.ImageType ImageType {
             get {
                 return this.ImageTypeField;
             }
@@ -1145,7 +1145,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.MapStyle Style {
+        public GeoData.ImageryService.MapStyle Style {
             get {
                 return this.StyleField;
             }
@@ -1158,7 +1158,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.UriScheme UriScheme {
+        public GeoData.ImageryService.UriScheme UriScheme {
             get {
                 return this.UriSchemeField;
             }
@@ -1209,7 +1209,7 @@ namespace PID773176.ImageryService {
         private string LabelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Location LocationField;
+        private GeoData.ImageryService.Location LocationField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1248,7 +1248,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Location Location {
+        public GeoData.ImageryService.Location Location {
             get {
                 return this.LocationField;
             }
@@ -1302,8 +1302,8 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.MapUriResponse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.ImageryMetadataResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.MapUriResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.ImageryMetadataResponse))]
     public partial class ResponseBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1313,7 +1313,7 @@ namespace PID773176.ImageryService {
         private System.Uri BrandLogoUriField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ResponseSummary ResponseSummaryField;
+        private GeoData.ImageryService.ResponseSummary ResponseSummaryField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1339,7 +1339,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ResponseSummary ResponseSummary {
+        public GeoData.ImageryService.ResponseSummary ResponseSummary {
             get {
                 return this.ResponseSummaryField;
             }
@@ -1371,7 +1371,7 @@ namespace PID773176.ImageryService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.AuthenticationResultCode AuthenticationResultCodeField;
+        private GeoData.ImageryService.AuthenticationResultCode AuthenticationResultCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CopyrightField;
@@ -1380,7 +1380,7 @@ namespace PID773176.ImageryService {
         private string FaultReasonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ResponseStatusCode StatusCodeField;
+        private GeoData.ImageryService.ResponseStatusCode StatusCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TraceIdField;
@@ -1396,7 +1396,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.AuthenticationResultCode AuthenticationResultCode {
+        public GeoData.ImageryService.AuthenticationResultCode AuthenticationResultCode {
             get {
                 return this.AuthenticationResultCodeField;
             }
@@ -1435,7 +1435,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ResponseStatusCode StatusCode {
+        public GeoData.ImageryService.ResponseStatusCode StatusCode {
             get {
                 return this.StatusCodeField;
             }
@@ -1474,7 +1474,7 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MapUriResponse", Namespace="http://dev.virtualearth.net/webservices/v1/imagery")]
     [System.SerializableAttribute()]
-    public partial class MapUriResponse : PID773176.ImageryService.ResponseBase {
+    public partial class MapUriResponse : GeoData.ImageryService.ResponseBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UriField;
@@ -1497,13 +1497,13 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImageryMetadataResponse", Namespace="http://dev.virtualearth.net/webservices/v1/imagery")]
     [System.SerializableAttribute()]
-    public partial class ImageryMetadataResponse : PID773176.ImageryService.ResponseBase {
+    public partial class ImageryMetadataResponse : GeoData.ImageryService.ResponseBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ImageryMetadataResult[] ResultsField;
+        private GeoData.ImageryService.ImageryMetadataResult[] ResultsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ImageryMetadataResult[] Results {
+        public GeoData.ImageryService.ImageryMetadataResult[] Results {
             get {
                 return this.ResultsField;
             }
@@ -1520,14 +1520,14 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImageryMetadataResult", Namespace="http://dev.virtualearth.net/webservices/v1/imagery")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.ImageryService.ImageryMetadataBirdseyeResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.ImageryService.ImageryMetadataBirdseyeResult))]
     public partial class ImageryMetadataResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.SizeOfint ImageSizeField;
+        private GeoData.ImageryService.SizeOfint ImageSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImageUriField;
@@ -1536,13 +1536,13 @@ namespace PID773176.ImageryService {
         private string[] ImageUriSubdomainsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.ImageryProvider[] ImageryProvidersField;
+        private GeoData.ImageryService.ImageryProvider[] ImageryProvidersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.RangeOfdateTime VintageField;
+        private GeoData.ImageryService.RangeOfdateTime VintageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.RangeOfint ZoomRangeField;
+        private GeoData.ImageryService.RangeOfint ZoomRangeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1555,7 +1555,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.SizeOfint ImageSize {
+        public GeoData.ImageryService.SizeOfint ImageSize {
             get {
                 return this.ImageSizeField;
             }
@@ -1594,7 +1594,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.ImageryProvider[] ImageryProviders {
+        public GeoData.ImageryService.ImageryProvider[] ImageryProviders {
             get {
                 return this.ImageryProvidersField;
             }
@@ -1607,7 +1607,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.RangeOfdateTime Vintage {
+        public GeoData.ImageryService.RangeOfdateTime Vintage {
             get {
                 return this.VintageField;
             }
@@ -1620,7 +1620,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.RangeOfint ZoomRange {
+        public GeoData.ImageryService.RangeOfint ZoomRange {
             get {
                 return this.ZoomRangeField;
             }
@@ -1805,10 +1805,10 @@ namespace PID773176.ImageryService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImageryMetadataBirdseyeResult", Namespace="http://dev.virtualearth.net/webservices/v1/imagery")]
     [System.SerializableAttribute()]
-    public partial class ImageryMetadataBirdseyeResult : PID773176.ImageryService.ImageryMetadataResult {
+    public partial class ImageryMetadataBirdseyeResult : GeoData.ImageryService.ImageryMetadataResult {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Heading HeadingField;
+        private GeoData.ImageryService.Heading HeadingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TilesXField;
@@ -1817,7 +1817,7 @@ namespace PID773176.ImageryService {
         private int TilesYField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Heading Heading {
+        public GeoData.ImageryService.Heading Heading {
             get {
                 return this.HeadingField;
             }
@@ -1869,7 +1869,7 @@ namespace PID773176.ImageryService {
         private string AttributionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.CoverageArea[] CoverageAreasField;
+        private GeoData.ImageryService.CoverageArea[] CoverageAreasField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1895,7 +1895,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.CoverageArea[] CoverageAreas {
+        public GeoData.ImageryService.CoverageArea[] CoverageAreas {
             get {
                 return this.CoverageAreasField;
             }
@@ -1927,10 +1927,10 @@ namespace PID773176.ImageryService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.Rectangle BoundingRectangleField;
+        private GeoData.ImageryService.Rectangle BoundingRectangleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.ImageryService.RangeOfint ZoomRangeField;
+        private GeoData.ImageryService.RangeOfint ZoomRangeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1943,7 +1943,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.Rectangle BoundingRectangle {
+        public GeoData.ImageryService.Rectangle BoundingRectangle {
             get {
                 return this.BoundingRectangleField;
             }
@@ -1956,7 +1956,7 @@ namespace PID773176.ImageryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.ImageryService.RangeOfint ZoomRange {
+        public GeoData.ImageryService.RangeOfint ZoomRange {
             get {
                 return this.ZoomRangeField;
             }
@@ -1985,25 +1985,25 @@ namespace PID773176.ImageryService {
         [System.ServiceModel.OperationContractAttribute(Action="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetI" +
             "mageryMetadata", ReplyAction="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetI" +
             "mageryMetadataResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(PID773176.ImageryService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetI" +
+        [System.ServiceModel.FaultContractAttribute(typeof(GeoData.ImageryService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetI" +
             "mageryMetadataResponseSummaryFault", Name="ResponseSummary", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
-        PID773176.ImageryService.ImageryMetadataResponse GetImageryMetadata(PID773176.ImageryService.ImageryMetadataRequest request);
+        GeoData.ImageryService.ImageryMetadataResponse GetImageryMetadata(GeoData.ImageryService.ImageryMetadataRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetM" +
             "apUri", ReplyAction="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetM" +
             "apUriResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(PID773176.ImageryService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetM" +
+        [System.ServiceModel.FaultContractAttribute(typeof(GeoData.ImageryService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetM" +
             "apUriResponseSummaryFault", Name="ResponseSummary", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
-        PID773176.ImageryService.MapUriResponse GetMapUri(PID773176.ImageryService.MapUriRequest request);
+        GeoData.ImageryService.MapUriResponse GetMapUri(GeoData.ImageryService.MapUriRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public interface IImageryServiceChannel : PID773176.ImageryService.IImageryService, System.ServiceModel.IClientChannel {
+    public interface IImageryServiceChannel : GeoData.ImageryService.IImageryService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public partial class ImageryServiceClient : System.ServiceModel.ClientBase<PID773176.ImageryService.IImageryService>, PID773176.ImageryService.IImageryService {
+    public partial class ImageryServiceClient : System.ServiceModel.ClientBase<GeoData.ImageryService.IImageryService>, GeoData.ImageryService.IImageryService {
         
         public ImageryServiceClient() {
         }
@@ -2024,11 +2024,11 @@ namespace PID773176.ImageryService {
                 base(binding, remoteAddress) {
         }
         
-        public PID773176.ImageryService.ImageryMetadataResponse GetImageryMetadata(PID773176.ImageryService.ImageryMetadataRequest request) {
+        public GeoData.ImageryService.ImageryMetadataResponse GetImageryMetadata(GeoData.ImageryService.ImageryMetadataRequest request) {
             return base.Channel.GetImageryMetadata(request);
         }
         
-        public PID773176.ImageryService.MapUriResponse GetMapUri(PID773176.ImageryService.MapUriRequest request) {
+        public GeoData.ImageryService.MapUriResponse GetMapUri(GeoData.ImageryService.MapUriRequest request) {
             return base.Channel.GetMapUri(request);
         }
     }

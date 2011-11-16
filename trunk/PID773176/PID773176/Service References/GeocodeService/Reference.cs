@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PID773176.GeocodeService {
+namespace GeoData.GeocodeService {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,24 +17,24 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.ReverseGeocodeRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.GeocodeRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.ReverseGeocodeRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.GeocodeRequest))]
     public partial class RequestBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Credentials CredentialsField;
+        private GeoData.GeocodeService.Credentials CredentialsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CultureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.ExecutionOptions ExecutionOptionsField;
+        private GeoData.GeocodeService.ExecutionOptions ExecutionOptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.UserProfile UserProfileField;
+        private GeoData.GeocodeService.UserProfile UserProfileField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -47,7 +47,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Credentials Credentials {
+        public GeoData.GeocodeService.Credentials Credentials {
             get {
                 return this.CredentialsField;
             }
@@ -73,7 +73,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.ExecutionOptions ExecutionOptions {
+        public GeoData.GeocodeService.ExecutionOptions ExecutionOptions {
             get {
                 return this.ExecutionOptionsField;
             }
@@ -86,7 +86,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.UserProfile UserProfile {
+        public GeoData.GeocodeService.UserProfile UserProfile {
             get {
                 return this.UserProfileField;
             }
@@ -224,25 +224,25 @@ namespace PID773176.GeocodeService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Heading CurrentHeadingField;
+        private GeoData.GeocodeService.Heading CurrentHeadingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.UserLocation CurrentLocationField;
+        private GeoData.GeocodeService.UserLocation CurrentLocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.DeviceType DeviceTypeField;
+        private GeoData.GeocodeService.DeviceType DeviceTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.DistanceUnit DistanceUnitField;
+        private GeoData.GeocodeService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IPAddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.ShapeBase MapViewField;
+        private GeoData.GeocodeService.ShapeBase MapViewField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.SizeOfint ScreenSizeField;
+        private GeoData.GeocodeService.SizeOfint ScreenSizeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -255,7 +255,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Heading CurrentHeading {
+        public GeoData.GeocodeService.Heading CurrentHeading {
             get {
                 return this.CurrentHeadingField;
             }
@@ -268,7 +268,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.UserLocation CurrentLocation {
+        public GeoData.GeocodeService.UserLocation CurrentLocation {
             get {
                 return this.CurrentLocationField;
             }
@@ -281,7 +281,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.DeviceType DeviceType {
+        public GeoData.GeocodeService.DeviceType DeviceType {
             get {
                 return this.DeviceTypeField;
             }
@@ -294,7 +294,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.DistanceUnit DistanceUnit {
+        public GeoData.GeocodeService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -320,7 +320,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.ShapeBase MapView {
+        public GeoData.GeocodeService.ShapeBase MapView {
             get {
                 return this.MapViewField;
             }
@@ -333,7 +333,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.SizeOfint ScreenSize {
+        public GeoData.GeocodeService.SizeOfint ScreenSize {
             get {
                 return this.ScreenSizeField;
             }
@@ -359,13 +359,13 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReverseGeocodeRequest", Namespace="http://dev.virtualearth.net/webservices/v1/geocode")]
     [System.SerializableAttribute()]
-    public partial class ReverseGeocodeRequest : PID773176.GeocodeService.RequestBase {
+    public partial class ReverseGeocodeRequest : GeoData.GeocodeService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Location LocationField;
+        private GeoData.GeocodeService.Location LocationField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Location Location {
+        public GeoData.GeocodeService.Location Location {
             get {
                 return this.LocationField;
             }
@@ -382,19 +382,19 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeocodeRequest", Namespace="http://dev.virtualearth.net/webservices/v1/geocode")]
     [System.SerializableAttribute()]
-    public partial class GeocodeRequest : PID773176.GeocodeService.RequestBase {
+    public partial class GeocodeRequest : GeoData.GeocodeService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Address AddressField;
+        private GeoData.GeocodeService.Address AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.GeocodeOptions OptionsField;
+        private GeoData.GeocodeService.GeocodeOptions OptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string QueryField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Address Address {
+        public GeoData.GeocodeService.Address Address {
             get {
                 return this.AddressField;
             }
@@ -407,7 +407,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.GeocodeOptions Options {
+        public GeoData.GeocodeService.GeocodeOptions Options {
             get {
                 return this.OptionsField;
             }
@@ -603,7 +603,7 @@ namespace PID773176.GeocodeService {
         private System.Nullable<int> CountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.FilterBase[] FiltersField;
+        private GeoData.GeocodeService.FilterBase[] FiltersField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -629,7 +629,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.FilterBase[] Filters {
+        public GeoData.GeocodeService.FilterBase[] Filters {
             get {
                 return this.FiltersField;
             }
@@ -700,13 +700,13 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class UserLocation : PID773176.GeocodeService.Location {
+    public partial class UserLocation : GeoData.GeocodeService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Confidence ConfidenceField;
+        private GeoData.GeocodeService.Confidence ConfidenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Confidence Confidence {
+        public GeoData.GeocodeService.Confidence Confidence {
             get {
                 return this.ConfidenceField;
             }
@@ -723,9 +723,9 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShapeBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.Rectangle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.Circle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.Polygon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.Rectangle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.Circle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.Polygon))]
     public partial class ShapeBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -838,8 +838,8 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.GeocodeLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.UserLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.GeocodeLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.UserLocation))]
     public partial class Location : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -917,7 +917,7 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeocodeLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class GeocodeLocation : PID773176.GeocodeService.Location {
+    public partial class GeocodeLocation : GeoData.GeocodeService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CalculationMethodField;
@@ -954,16 +954,16 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Rectangle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Rectangle : PID773176.GeocodeService.ShapeBase {
+    public partial class Rectangle : GeoData.GeocodeService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Location NortheastField;
+        private GeoData.GeocodeService.Location NortheastField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Location SouthwestField;
+        private GeoData.GeocodeService.Location SouthwestField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Location Northeast {
+        public GeoData.GeocodeService.Location Northeast {
             get {
                 return this.NortheastField;
             }
@@ -976,7 +976,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Location Southwest {
+        public GeoData.GeocodeService.Location Southwest {
             get {
                 return this.SouthwestField;
             }
@@ -993,19 +993,19 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Circle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Circle : PID773176.GeocodeService.ShapeBase {
+    public partial class Circle : GeoData.GeocodeService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Location CenterField;
+        private GeoData.GeocodeService.Location CenterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.DistanceUnit DistanceUnitField;
+        private GeoData.GeocodeService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double RadiusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Location Center {
+        public GeoData.GeocodeService.Location Center {
             get {
                 return this.CenterField;
             }
@@ -1018,7 +1018,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.DistanceUnit DistanceUnit {
+        public GeoData.GeocodeService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -1048,13 +1048,13 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Polygon", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Polygon : PID773176.GeocodeService.ShapeBase {
+    public partial class Polygon : GeoData.GeocodeService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Location[] VerticesField;
+        private GeoData.GeocodeService.Location[] VerticesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Location[] Vertices {
+        public GeoData.GeocodeService.Location[] Vertices {
             get {
                 return this.VerticesField;
             }
@@ -1071,7 +1071,7 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FilterBase", Namespace="http://dev.virtualearth.net/webservices/v1/geocode")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.ConfidenceFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.ConfidenceFilter))]
     public partial class FilterBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1101,13 +1101,13 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConfidenceFilter", Namespace="http://dev.virtualearth.net/webservices/v1/geocode")]
     [System.SerializableAttribute()]
-    public partial class ConfidenceFilter : PID773176.GeocodeService.FilterBase {
+    public partial class ConfidenceFilter : GeoData.GeocodeService.FilterBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Confidence MinimumConfidenceField;
+        private GeoData.GeocodeService.Confidence MinimumConfidenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Confidence MinimumConfidence {
+        public GeoData.GeocodeService.Confidence MinimumConfidence {
             get {
                 return this.MinimumConfidenceField;
             }
@@ -1124,7 +1124,7 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.GeocodeService.GeocodeResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.GeocodeService.GeocodeResponse))]
     public partial class ResponseBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1134,7 +1134,7 @@ namespace PID773176.GeocodeService {
         private System.Uri BrandLogoUriField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.ResponseSummary ResponseSummaryField;
+        private GeoData.GeocodeService.ResponseSummary ResponseSummaryField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1160,7 +1160,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.ResponseSummary ResponseSummary {
+        public GeoData.GeocodeService.ResponseSummary ResponseSummary {
             get {
                 return this.ResponseSummaryField;
             }
@@ -1192,7 +1192,7 @@ namespace PID773176.GeocodeService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.AuthenticationResultCode AuthenticationResultCodeField;
+        private GeoData.GeocodeService.AuthenticationResultCode AuthenticationResultCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CopyrightField;
@@ -1201,7 +1201,7 @@ namespace PID773176.GeocodeService {
         private string FaultReasonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.ResponseStatusCode StatusCodeField;
+        private GeoData.GeocodeService.ResponseStatusCode StatusCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TraceIdField;
@@ -1217,7 +1217,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.AuthenticationResultCode AuthenticationResultCode {
+        public GeoData.GeocodeService.AuthenticationResultCode AuthenticationResultCode {
             get {
                 return this.AuthenticationResultCodeField;
             }
@@ -1256,7 +1256,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.ResponseStatusCode StatusCode {
+        public GeoData.GeocodeService.ResponseStatusCode StatusCode {
             get {
                 return this.StatusCodeField;
             }
@@ -1295,13 +1295,13 @@ namespace PID773176.GeocodeService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeocodeResponse", Namespace="http://dev.virtualearth.net/webservices/v1/geocode")]
     [System.SerializableAttribute()]
-    public partial class GeocodeResponse : PID773176.GeocodeService.ResponseBase {
+    public partial class GeocodeResponse : GeoData.GeocodeService.ResponseBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.GeocodeResult[] ResultsField;
+        private GeoData.GeocodeService.GeocodeResult[] ResultsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.GeocodeResult[] Results {
+        public GeoData.GeocodeService.GeocodeResult[] Results {
             get {
                 return this.ResultsField;
             }
@@ -1324,13 +1324,13 @@ namespace PID773176.GeocodeService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Address AddressField;
+        private GeoData.GeocodeService.Address AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Rectangle BestViewField;
+        private GeoData.GeocodeService.Rectangle BestViewField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.Confidence ConfidenceField;
+        private GeoData.GeocodeService.Confidence ConfidenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DisplayNameField;
@@ -1339,7 +1339,7 @@ namespace PID773176.GeocodeService {
         private string EntityTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.GeocodeService.GeocodeLocation[] LocationsField;
+        private GeoData.GeocodeService.GeocodeLocation[] LocationsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] MatchCodesField;
@@ -1355,7 +1355,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Address Address {
+        public GeoData.GeocodeService.Address Address {
             get {
                 return this.AddressField;
             }
@@ -1368,7 +1368,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Rectangle BestView {
+        public GeoData.GeocodeService.Rectangle BestView {
             get {
                 return this.BestViewField;
             }
@@ -1381,7 +1381,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.Confidence Confidence {
+        public GeoData.GeocodeService.Confidence Confidence {
             get {
                 return this.ConfidenceField;
             }
@@ -1420,7 +1420,7 @@ namespace PID773176.GeocodeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.GeocodeService.GeocodeLocation[] Locations {
+        public GeoData.GeocodeService.GeocodeLocation[] Locations {
             get {
                 return this.LocationsField;
             }
@@ -1499,25 +1499,25 @@ namespace PID773176.GeocodeService {
         [System.ServiceModel.OperationContractAttribute(Action="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Geoc" +
             "ode", ReplyAction="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Geoc" +
             "odeResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(PID773176.GeocodeService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Geoc" +
+        [System.ServiceModel.FaultContractAttribute(typeof(GeoData.GeocodeService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Geoc" +
             "odeResponseSummaryFault", Name="ResponseSummary", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
-        PID773176.GeocodeService.GeocodeResponse Geocode(PID773176.GeocodeService.GeocodeRequest request);
+        GeoData.GeocodeService.GeocodeResponse Geocode(GeoData.GeocodeService.GeocodeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Reve" +
             "rseGeocode", ReplyAction="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Reve" +
             "rseGeocodeResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(PID773176.GeocodeService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Reve" +
+        [System.ServiceModel.FaultContractAttribute(typeof(GeoData.GeocodeService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/geocode/contracts/IGeocodeService/Reve" +
             "rseGeocodeResponseSummaryFault", Name="ResponseSummary", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
-        PID773176.GeocodeService.GeocodeResponse ReverseGeocode(PID773176.GeocodeService.ReverseGeocodeRequest request);
+        GeoData.GeocodeService.GeocodeResponse ReverseGeocode(GeoData.GeocodeService.ReverseGeocodeRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public interface IGeocodeServiceChannel : PID773176.GeocodeService.IGeocodeService, System.ServiceModel.IClientChannel {
+    public interface IGeocodeServiceChannel : GeoData.GeocodeService.IGeocodeService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public partial class GeocodeServiceClient : System.ServiceModel.ClientBase<PID773176.GeocodeService.IGeocodeService>, PID773176.GeocodeService.IGeocodeService {
+    public partial class GeocodeServiceClient : System.ServiceModel.ClientBase<GeoData.GeocodeService.IGeocodeService>, GeoData.GeocodeService.IGeocodeService {
         
         public GeocodeServiceClient() {
         }
@@ -1538,11 +1538,11 @@ namespace PID773176.GeocodeService {
                 base(binding, remoteAddress) {
         }
         
-        public PID773176.GeocodeService.GeocodeResponse Geocode(PID773176.GeocodeService.GeocodeRequest request) {
+        public GeoData.GeocodeService.GeocodeResponse Geocode(GeoData.GeocodeService.GeocodeRequest request) {
             return base.Channel.Geocode(request);
         }
         
-        public PID773176.GeocodeService.GeocodeResponse ReverseGeocode(PID773176.GeocodeService.ReverseGeocodeRequest request) {
+        public GeoData.GeocodeService.GeocodeResponse ReverseGeocode(GeoData.GeocodeService.ReverseGeocodeRequest request) {
             return base.Channel.ReverseGeocode(request);
         }
     }

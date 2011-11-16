@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PID773176.RouteService {
+namespace GeoData.RouteService {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,24 +17,24 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.MajorRoutesRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.RouteRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.MajorRoutesRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.RouteRequest))]
     public partial class RequestBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Credentials CredentialsField;
+        private GeoData.RouteService.Credentials CredentialsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CultureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ExecutionOptions ExecutionOptionsField;
+        private GeoData.RouteService.ExecutionOptions ExecutionOptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.UserProfile UserProfileField;
+        private GeoData.RouteService.UserProfile UserProfileField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -47,7 +47,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Credentials Credentials {
+        public GeoData.RouteService.Credentials Credentials {
             get {
                 return this.CredentialsField;
             }
@@ -73,7 +73,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ExecutionOptions ExecutionOptions {
+        public GeoData.RouteService.ExecutionOptions ExecutionOptions {
             get {
                 return this.ExecutionOptionsField;
             }
@@ -86,7 +86,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.UserProfile UserProfile {
+        public GeoData.RouteService.UserProfile UserProfile {
             get {
                 return this.UserProfileField;
             }
@@ -224,25 +224,25 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Heading CurrentHeadingField;
+        private GeoData.RouteService.Heading CurrentHeadingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.UserLocation CurrentLocationField;
+        private GeoData.RouteService.UserLocation CurrentLocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.DeviceType DeviceTypeField;
+        private GeoData.RouteService.DeviceType DeviceTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.DistanceUnit DistanceUnitField;
+        private GeoData.RouteService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IPAddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ShapeBase MapViewField;
+        private GeoData.RouteService.ShapeBase MapViewField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.SizeOfint ScreenSizeField;
+        private GeoData.RouteService.SizeOfint ScreenSizeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -255,7 +255,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Heading CurrentHeading {
+        public GeoData.RouteService.Heading CurrentHeading {
             get {
                 return this.CurrentHeadingField;
             }
@@ -268,7 +268,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.UserLocation CurrentLocation {
+        public GeoData.RouteService.UserLocation CurrentLocation {
             get {
                 return this.CurrentLocationField;
             }
@@ -281,7 +281,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.DeviceType DeviceType {
+        public GeoData.RouteService.DeviceType DeviceType {
             get {
                 return this.DeviceTypeField;
             }
@@ -294,7 +294,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.DistanceUnit DistanceUnit {
+        public GeoData.RouteService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -320,7 +320,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ShapeBase MapView {
+        public GeoData.RouteService.ShapeBase MapView {
             get {
                 return this.MapViewField;
             }
@@ -333,7 +333,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.SizeOfint ScreenSize {
+        public GeoData.RouteService.SizeOfint ScreenSize {
             get {
                 return this.ScreenSizeField;
             }
@@ -359,16 +359,16 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MajorRoutesRequest", Namespace="http://dev.virtualearth.net/webservices/v1/route")]
     [System.SerializableAttribute()]
-    public partial class MajorRoutesRequest : PID773176.RouteService.RequestBase {
+    public partial class MajorRoutesRequest : GeoData.RouteService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Waypoint DestinationField;
+        private GeoData.RouteService.Waypoint DestinationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.MajorRoutesOptions OptionsField;
+        private GeoData.RouteService.MajorRoutesOptions OptionsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Waypoint Destination {
+        public GeoData.RouteService.Waypoint Destination {
             get {
                 return this.DestinationField;
             }
@@ -381,7 +381,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.MajorRoutesOptions Options {
+        public GeoData.RouteService.MajorRoutesOptions Options {
             get {
                 return this.OptionsField;
             }
@@ -398,16 +398,16 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RouteRequest", Namespace="http://dev.virtualearth.net/webservices/v1/route")]
     [System.SerializableAttribute()]
-    public partial class RouteRequest : PID773176.RouteService.RequestBase {
+    public partial class RouteRequest : GeoData.RouteService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteOptions OptionsField;
+        private GeoData.RouteService.RouteOptions OptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Waypoint[] WaypointsField;
+        private GeoData.RouteService.Waypoint[] WaypointsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteOptions Options {
+        public GeoData.RouteService.RouteOptions Options {
             get {
                 return this.OptionsField;
             }
@@ -420,7 +420,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Waypoint[] Waypoints {
+        public GeoData.RouteService.Waypoint[] Waypoints {
             get {
                 return this.WaypointsField;
             }
@@ -437,23 +437,23 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RouteOptions", Namespace="http://dev.virtualearth.net/webservices/v1/route")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.MajorRoutesOptions))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.MajorRoutesOptions))]
     public partial class RouteOptions : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.TravelMode ModeField;
+        private GeoData.RouteService.TravelMode ModeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteOptimization OptimizationField;
+        private GeoData.RouteService.RouteOptimization OptimizationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RoutePathType RoutePathTypeField;
+        private GeoData.RouteService.RoutePathType RoutePathTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.TrafficUsage TrafficUsageField;
+        private GeoData.RouteService.TrafficUsage TrafficUsageField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -466,7 +466,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.TravelMode Mode {
+        public GeoData.RouteService.TravelMode Mode {
             get {
                 return this.ModeField;
             }
@@ -479,7 +479,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteOptimization Optimization {
+        public GeoData.RouteService.RouteOptimization Optimization {
             get {
                 return this.OptimizationField;
             }
@@ -492,7 +492,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RoutePathType RoutePathType {
+        public GeoData.RouteService.RoutePathType RoutePathType {
             get {
                 return this.RoutePathTypeField;
             }
@@ -505,7 +505,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.TrafficUsage TrafficUsage {
+        public GeoData.RouteService.TrafficUsage TrafficUsage {
             get {
                 return this.TrafficUsageField;
             }
@@ -540,7 +540,7 @@ namespace PID773176.RouteService {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location LocationField;
+        private GeoData.RouteService.Location LocationField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -566,7 +566,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location Location {
+        public GeoData.RouteService.Location Location {
             get {
                 return this.LocationField;
             }
@@ -637,13 +637,13 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class UserLocation : PID773176.RouteService.Location {
+    public partial class UserLocation : GeoData.RouteService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Confidence ConfidenceField;
+        private GeoData.RouteService.Confidence ConfidenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Confidence Confidence {
+        public GeoData.RouteService.Confidence Confidence {
             get {
                 return this.ConfidenceField;
             }
@@ -660,9 +660,9 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShapeBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.Rectangle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.Circle))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.Polygon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.Rectangle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.Circle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.Polygon))]
     public partial class ShapeBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -775,8 +775,8 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.GeocodeLocation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.UserLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.GeocodeLocation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.UserLocation))]
     public partial class Location : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -854,7 +854,7 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeocodeLocation", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class GeocodeLocation : PID773176.RouteService.Location {
+    public partial class GeocodeLocation : GeoData.RouteService.Location {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CalculationMethodField;
@@ -891,16 +891,16 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Rectangle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Rectangle : PID773176.RouteService.ShapeBase {
+    public partial class Rectangle : GeoData.RouteService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location NortheastField;
+        private GeoData.RouteService.Location NortheastField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location SouthwestField;
+        private GeoData.RouteService.Location SouthwestField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location Northeast {
+        public GeoData.RouteService.Location Northeast {
             get {
                 return this.NortheastField;
             }
@@ -913,7 +913,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location Southwest {
+        public GeoData.RouteService.Location Southwest {
             get {
                 return this.SouthwestField;
             }
@@ -930,19 +930,19 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Circle", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Circle : PID773176.RouteService.ShapeBase {
+    public partial class Circle : GeoData.RouteService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location CenterField;
+        private GeoData.RouteService.Location CenterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.DistanceUnit DistanceUnitField;
+        private GeoData.RouteService.DistanceUnit DistanceUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double RadiusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location Center {
+        public GeoData.RouteService.Location Center {
             get {
                 return this.CenterField;
             }
@@ -955,7 +955,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.DistanceUnit DistanceUnit {
+        public GeoData.RouteService.DistanceUnit DistanceUnit {
             get {
                 return this.DistanceUnitField;
             }
@@ -985,13 +985,13 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Polygon", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    public partial class Polygon : PID773176.RouteService.ShapeBase {
+    public partial class Polygon : GeoData.RouteService.ShapeBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location[] VerticesField;
+        private GeoData.RouteService.Location[] VerticesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location[] Vertices {
+        public GeoData.RouteService.Location[] Vertices {
             get {
                 return this.VerticesField;
             }
@@ -1008,7 +1008,7 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MajorRoutesOptions", Namespace="http://dev.virtualearth.net/webservices/v1/route")]
     [System.SerializableAttribute()]
-    public partial class MajorRoutesOptions : PID773176.RouteService.RouteOptions {
+    public partial class MajorRoutesOptions : GeoData.RouteService.RouteOptions {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool ReturnRoutesField;
@@ -1078,8 +1078,8 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.MajorRoutesResponse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PID773176.RouteService.RouteResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.MajorRoutesResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GeoData.RouteService.RouteResponse))]
     public partial class ResponseBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1089,7 +1089,7 @@ namespace PID773176.RouteService {
         private System.Uri BrandLogoUriField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ResponseSummary ResponseSummaryField;
+        private GeoData.RouteService.ResponseSummary ResponseSummaryField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1115,7 +1115,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ResponseSummary ResponseSummary {
+        public GeoData.RouteService.ResponseSummary ResponseSummary {
             get {
                 return this.ResponseSummaryField;
             }
@@ -1147,7 +1147,7 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.AuthenticationResultCode AuthenticationResultCodeField;
+        private GeoData.RouteService.AuthenticationResultCode AuthenticationResultCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CopyrightField;
@@ -1156,7 +1156,7 @@ namespace PID773176.RouteService {
         private string FaultReasonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ResponseStatusCode StatusCodeField;
+        private GeoData.RouteService.ResponseStatusCode StatusCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TraceIdField;
@@ -1172,7 +1172,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.AuthenticationResultCode AuthenticationResultCode {
+        public GeoData.RouteService.AuthenticationResultCode AuthenticationResultCode {
             get {
                 return this.AuthenticationResultCodeField;
             }
@@ -1211,7 +1211,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ResponseStatusCode StatusCode {
+        public GeoData.RouteService.ResponseStatusCode StatusCode {
             get {
                 return this.StatusCodeField;
             }
@@ -1250,16 +1250,16 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MajorRoutesResponse", Namespace="http://dev.virtualearth.net/webservices/v1/route")]
     [System.SerializableAttribute()]
-    public partial class MajorRoutesResponse : PID773176.RouteService.ResponseBase {
+    public partial class MajorRoutesResponse : GeoData.RouteService.ResponseBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteResult[] RoutesField;
+        private GeoData.RouteService.RouteResult[] RoutesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Waypoint[] StartingPointsField;
+        private GeoData.RouteService.Waypoint[] StartingPointsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteResult[] Routes {
+        public GeoData.RouteService.RouteResult[] Routes {
             get {
                 return this.RoutesField;
             }
@@ -1272,7 +1272,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Waypoint[] StartingPoints {
+        public GeoData.RouteService.Waypoint[] StartingPoints {
             get {
                 return this.StartingPointsField;
             }
@@ -1289,13 +1289,13 @@ namespace PID773176.RouteService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RouteResponse", Namespace="http://dev.virtualearth.net/webservices/v1/route")]
     [System.SerializableAttribute()]
-    public partial class RouteResponse : PID773176.RouteService.ResponseBase {
+    public partial class RouteResponse : GeoData.RouteService.ResponseBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteResult ResultField;
+        private GeoData.RouteService.RouteResult ResultField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteResult Result {
+        public GeoData.RouteService.RouteResult Result {
             get {
                 return this.ResultField;
             }
@@ -1318,13 +1318,13 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteLeg[] LegsField;
+        private GeoData.RouteService.RouteLeg[] LegsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RoutePath RoutePathField;
+        private GeoData.RouteService.RoutePath RoutePathField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteSummary SummaryField;
+        private GeoData.RouteService.RouteSummary SummaryField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1337,7 +1337,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteLeg[] Legs {
+        public GeoData.RouteService.RouteLeg[] Legs {
             get {
                 return this.LegsField;
             }
@@ -1350,7 +1350,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RoutePath RoutePath {
+        public GeoData.RouteService.RoutePath RoutePath {
             get {
                 return this.RoutePathField;
             }
@@ -1363,7 +1363,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteSummary Summary {
+        public GeoData.RouteService.RouteSummary Summary {
             get {
                 return this.SummaryField;
             }
@@ -1432,7 +1432,7 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location[] PointsField;
+        private GeoData.RouteService.Location[] PointsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1445,7 +1445,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location[] Points {
+        public GeoData.RouteService.Location[] Points {
             get {
                 return this.PointsField;
             }
@@ -1477,7 +1477,7 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Rectangle BoundingRectangleField;
+        private GeoData.RouteService.Rectangle BoundingRectangleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double DistanceField;
@@ -1496,7 +1496,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Rectangle BoundingRectangle {
+        public GeoData.RouteService.Rectangle BoundingRectangle {
             get {
                 return this.BoundingRectangleField;
             }
@@ -1554,16 +1554,16 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location ActualEndField;
+        private GeoData.RouteService.Location ActualEndField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location ActualStartField;
+        private GeoData.RouteService.Location ActualStartField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ItineraryItem[] ItineraryField;
+        private GeoData.RouteService.ItineraryItem[] ItineraryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteSummary SummaryField;
+        private GeoData.RouteService.RouteSummary SummaryField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1576,7 +1576,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location ActualEnd {
+        public GeoData.RouteService.Location ActualEnd {
             get {
                 return this.ActualEndField;
             }
@@ -1589,7 +1589,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location ActualStart {
+        public GeoData.RouteService.Location ActualStart {
             get {
                 return this.ActualStartField;
             }
@@ -1602,7 +1602,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ItineraryItem[] Itinerary {
+        public GeoData.RouteService.ItineraryItem[] Itinerary {
             get {
                 return this.ItineraryField;
             }
@@ -1615,7 +1615,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteSummary Summary {
+        public GeoData.RouteService.RouteSummary Summary {
             get {
                 return this.SummaryField;
             }
@@ -1650,22 +1650,22 @@ namespace PID773176.RouteService {
         private string CompassDirectionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ItineraryItemHint[] HintsField;
+        private GeoData.RouteService.ItineraryItemHint[] HintsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.Location LocationField;
+        private GeoData.RouteService.Location LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ManeuverType ManeuverTypeField;
+        private GeoData.RouteService.ManeuverType ManeuverTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.RouteSummary SummaryField;
+        private GeoData.RouteService.RouteSummary SummaryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ItineraryItemWarning[] WarningsField;
+        private GeoData.RouteService.ItineraryItemWarning[] WarningsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1691,7 +1691,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ItineraryItemHint[] Hints {
+        public GeoData.RouteService.ItineraryItemHint[] Hints {
             get {
                 return this.HintsField;
             }
@@ -1704,7 +1704,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.Location Location {
+        public GeoData.RouteService.Location Location {
             get {
                 return this.LocationField;
             }
@@ -1717,7 +1717,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ManeuverType ManeuverType {
+        public GeoData.RouteService.ManeuverType ManeuverType {
             get {
                 return this.ManeuverTypeField;
             }
@@ -1730,7 +1730,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.RouteSummary Summary {
+        public GeoData.RouteService.RouteSummary Summary {
             get {
                 return this.SummaryField;
             }
@@ -1756,7 +1756,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ItineraryItemWarning[] Warnings {
+        public GeoData.RouteService.ItineraryItemWarning[] Warnings {
             get {
                 return this.WarningsField;
             }
@@ -1788,7 +1788,7 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ItineraryItemHintType HintTypeField;
+        private GeoData.RouteService.ItineraryItemHintType HintTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
@@ -1804,7 +1804,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ItineraryItemHintType HintType {
+        public GeoData.RouteService.ItineraryItemHintType HintType {
             get {
                 return this.HintTypeField;
             }
@@ -2034,13 +2034,13 @@ namespace PID773176.RouteService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ItineraryWarningSeverity SeverityField;
+        private GeoData.RouteService.ItineraryWarningSeverity SeverityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PID773176.RouteService.ItineraryWarningType WarningTypeField;
+        private GeoData.RouteService.ItineraryWarningType WarningTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2053,7 +2053,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ItineraryWarningSeverity Severity {
+        public GeoData.RouteService.ItineraryWarningSeverity Severity {
             get {
                 return this.SeverityField;
             }
@@ -2079,7 +2079,7 @@ namespace PID773176.RouteService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PID773176.RouteService.ItineraryWarningType WarningType {
+        public GeoData.RouteService.ItineraryWarningType WarningType {
             get {
                 return this.WarningTypeField;
             }
@@ -2240,25 +2240,25 @@ namespace PID773176.RouteService {
         [System.ServiceModel.OperationContractAttribute(Action="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
             "eRoute", ReplyAction="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
             "eRouteResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(PID773176.RouteService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
+        [System.ServiceModel.FaultContractAttribute(typeof(GeoData.RouteService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
             "eRouteResponseSummaryFault", Name="ResponseSummary", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
-        PID773176.RouteService.RouteResponse CalculateRoute(PID773176.RouteService.RouteRequest request);
+        GeoData.RouteService.RouteResponse CalculateRoute(GeoData.RouteService.RouteRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
             "eRoutesFromMajorRoads", ReplyAction="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
             "eRoutesFromMajorRoadsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(PID773176.RouteService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
+        [System.ServiceModel.FaultContractAttribute(typeof(GeoData.RouteService.ResponseSummary), Action="http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/Calculat" +
             "eRoutesFromMajorRoadsResponseSummaryFault", Name="ResponseSummary", Namespace="http://dev.virtualearth.net/webservices/v1/common")]
-        PID773176.RouteService.MajorRoutesResponse CalculateRoutesFromMajorRoads(PID773176.RouteService.MajorRoutesRequest request);
+        GeoData.RouteService.MajorRoutesResponse CalculateRoutesFromMajorRoads(GeoData.RouteService.MajorRoutesRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public interface IRouteServiceChannel : PID773176.RouteService.IRouteService, System.ServiceModel.IClientChannel {
+    public interface IRouteServiceChannel : GeoData.RouteService.IRouteService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    public partial class RouteServiceClient : System.ServiceModel.ClientBase<PID773176.RouteService.IRouteService>, PID773176.RouteService.IRouteService {
+    public partial class RouteServiceClient : System.ServiceModel.ClientBase<GeoData.RouteService.IRouteService>, GeoData.RouteService.IRouteService {
         
         public RouteServiceClient() {
         }
@@ -2279,11 +2279,11 @@ namespace PID773176.RouteService {
                 base(binding, remoteAddress) {
         }
         
-        public PID773176.RouteService.RouteResponse CalculateRoute(PID773176.RouteService.RouteRequest request) {
+        public GeoData.RouteService.RouteResponse CalculateRoute(GeoData.RouteService.RouteRequest request) {
             return base.Channel.CalculateRoute(request);
         }
         
-        public PID773176.RouteService.MajorRoutesResponse CalculateRoutesFromMajorRoads(PID773176.RouteService.MajorRoutesRequest request) {
+        public GeoData.RouteService.MajorRoutesResponse CalculateRoutesFromMajorRoads(GeoData.RouteService.MajorRoutesRequest request) {
             return base.Channel.CalculateRoutesFromMajorRoads(request);
         }
     }

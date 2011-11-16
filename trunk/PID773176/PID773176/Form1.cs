@@ -10,12 +10,12 @@ using System.Text;
 using System.Windows.Forms;
 using System.Configuration;
 
-using PID773176.GeocodeService;
-using PID773176.SearchService;
-using PID773176.ImageryService;
-using PID773176.RouteService;
+using GeoData.GeocodeService;
+using GeoData.SearchService;
+using GeoData.ImageryService;
+using GeoData.RouteService;
 
-namespace PID773176
+namespace GeoData
 {    
     public partial class frmGeoData : Form
     {
