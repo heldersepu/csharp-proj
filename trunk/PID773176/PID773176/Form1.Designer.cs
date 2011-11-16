@@ -142,7 +142,6 @@
             // 
             // dataGridView
             // 
-            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -152,7 +151,6 @@
             this.Longitude});
             this.dataGridView.Location = new System.Drawing.Point(24, 75);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(548, 271);
             this.dataGridView.TabIndex = 4;
             this.dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
@@ -161,21 +159,18 @@
             // 
             this.Address.HeaderText = "Address";
             this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
             this.Address.Width = 254;
             // 
             // Latitude
             // 
             this.Latitude.HeaderText = "Latitude";
             this.Latitude.Name = "Latitude";
-            this.Latitude.ReadOnly = true;
             this.Latitude.Width = 125;
             // 
             // Longitude
             // 
             this.Longitude.HeaderText = "Longitude";
             this.Longitude.Name = "Longitude";
-            this.Longitude.ReadOnly = true;
             this.Longitude.Width = 125;
             // 
             // frmGeoData
