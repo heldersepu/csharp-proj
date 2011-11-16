@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -136,7 +137,25 @@ namespace PID773176
 
         private void loadFromSQLStripMenuItem_Click(object sender, EventArgs e)
         {
-            //To Do
+            SqlConnection conn = null;
+            SqlDataReader rdr = null;
+            try
+            {
+                conn = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(ConfigurationSettings.AppSettings["inputSPname"], conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    dataGridView.Rows.Add(rdr["ADDRESS"]);
+                }
+            }
+            finally
+            {
+                if (conn != null) conn.Close();
+                if (rdr != null) rdr.Close();
+            }
         }
         
         private void OutputToSQLToolStripMenuItem_Click(object sender, EventArgs e)
