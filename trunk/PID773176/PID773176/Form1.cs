@@ -70,18 +70,26 @@ namespace PID773176
 
         private void eXECUTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             Cursor.Current = Cursors.WaitCursor;
-            foreach (DataGridViewRow rw in dataGridView.Rows)
+            if (dataGridView.Rows.Count == 1)
             {
-                if (rw.Cells[0].Value != null)
+                testConnString();
+            }
+            else
+            {
+                foreach (DataGridViewRow rw in dataGridView.Rows)
                 {
-                    GeocodeService.Location location = GeoCodeData(rw.Cells[0].Value.ToString());
-                    if (location != null)
+                    if (rw.Cells[0].Value != null)
                     {
-                        rw.Cells["Latitude"].Value = location.Latitude;
-                        rw.Cells["Longitude"].Value = location.Longitude;
+                        GeocodeService.Location location = GeoCodeData(rw.Cells[0].Value.ToString());
+                        if (location != null)
+                        {
+                            rw.Cells["Latitude"].Value = location.Latitude;
+                            rw.Cells["Longitude"].Value = location.Longitude;
+                        }
+                        Refresh();
                     }
-                    Refresh();
                 }
             }
             Cursor.Current = Cursors.Default;
@@ -135,13 +143,31 @@ namespace PID773176
             }            
         }
 
+        private void testConnString()
+        {
+            SqlConnection conn = null;
+            try
+            {
+                conn = new SqlConnection(ConfigurationSettings.AppSettings["inputConnString"]);
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: With the connection " + ex.Message);
+            }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
+        }
+
         private void loadFromSQLStripMenuItem_Click(object sender, EventArgs e)
         {
             SqlConnection conn = null;
             SqlDataReader rdr = null;
             try
             {
-                conn = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]);
+                conn = new SqlConnection(ConfigurationSettings.AppSettings["inputConnString"]);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(ConfigurationSettings.AppSettings["inputSPname"], conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -150,6 +176,10 @@ namespace PID773176
                 {
                     dataGridView.Rows.Add(rdr["ADDRESS"]);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {
@@ -160,7 +190,32 @@ namespace PID773176
         
         private void OutputToSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //To Do
+            SqlConnection conn = null;
+            try
+            {
+                conn = new SqlConnection(ConfigurationSettings.AppSettings["outputConnString"]);
+                conn.Open();
+                foreach (DataGridViewRow rw in dataGridView.Rows)
+                {
+                    if (rw.Cells[0].Value != null)
+                    {
+                        SqlCommand cmd = new SqlCommand(ConfigurationSettings.AppSettings["outputSPname"], conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param1"], rw.Cells[0].Value));
+                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param2"], rw.Cells[1].Value));
+                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param3"], rw.Cells[2].Value));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }	
         }
     }
 }

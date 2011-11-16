@@ -70,8 +70,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputToolStripMenuItem,
-            this.outputToolStripMenuItem,
-            this.eXECUTEToolStripMenuItem});
+            this.eXECUTEToolStripMenuItem,
+            this.outputToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(594, 24);
@@ -81,8 +81,8 @@
             // inputToolStripMenuItem
             // 
             this.inputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadFromTextFileToolStripMenuItem,
-            this.loadFromSQLStripMenuItem});
+            this.loadFromSQLStripMenuItem,
+            this.loadFromTextFileToolStripMenuItem});
             this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
             this.inputToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.inputToolStripMenuItem.Text = "&Input";
@@ -104,8 +104,8 @@
             // outputToolStripMenuItem
             // 
             this.outputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OutputToTextFileToolStripMenuItem,
-            this.OutputToSQLToolStripMenuItem});
+            this.OutputToSQLToolStripMenuItem,
+            this.OutputToTextFileToolStripMenuItem});
             this.outputToolStripMenuItem.Enabled = false;
             this.outputToolStripMenuItem.Name = "outputToolStripMenuItem";
             this.outputToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
