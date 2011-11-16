@@ -7,13 +7,17 @@ GeoData uses Bing API to get the Latitude Longitude of a given address.
 
 = Details =
 
-
+Main Screen
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData.png
 
+Input Menu
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_input.png
 
+The data is loaded and ready to EXECUTE
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_exec.png
 
+The data after the EXECUTE
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_after_exec.png
 
+Finally we can output
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_output.png
