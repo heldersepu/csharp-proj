@@ -7,22 +7,27 @@ GeoData uses Bing API to get the Latitude Longitude of a given address.
 = Details =
 
 == Main Screen ==
+This is the main screen as it looks the first time it opens.<br>
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData.png
 <br><br><br>
 
 == Input Menu == 
+The first step should be to load the data, you can enter it manually or use the input menu.<br>
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_input.png
 <br><br><br>
 
 == Ready to EXECUTE == 
+The addresses are loaded in the grid view, now you can click the EXECUTE, it might take a few seconds to update it all depends on your connection speed and how many items to process.<br>
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_exec.png
 <br><br><br>
 
 == After EXECUTE ==
+After the execution completes the latitude and longitude will be populated; those that have no lat/lon is because we did not receive a response from the Bing Api (potentially an incorrect address)<br>
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_after_exec.png
 <br><br><br>
 
 == Output Menu ==
+And the last step will be to store the data, via output menu.
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_output.png
 <br><br><br>
 
