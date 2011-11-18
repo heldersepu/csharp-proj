@@ -26,7 +26,7 @@ namespace GeoData
             InitializeComponent();
             if (args.Length > 0)
             {
-                if (args[0].ToLower().Contains("rununattended"))
+                if (args[0].ToLower().Contains("rununattended")) 
                     runUnattended = true;                    
             }
         }
@@ -260,6 +260,10 @@ namespace GeoData
                 counter++;
             }
             while (counter < max);
+            if (ConfigurationSettings.AppSettings["UnattendedClose"] == "yes")
+            {
+                this.Close();
+            }
         }
 
         private void frmGeoData_Shown(object sender, EventArgs e)
