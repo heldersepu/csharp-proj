@@ -77,36 +77,36 @@ namespace PjtDailyTask
             return output;
         }
 
-        public void CreateNewTask()
+        public void CreateNewTask(string title, string desc)
         {
-            //{
-            //    "Title": "My New Card",
-            //    "Description": "New Description",
-            //    "TypeId": 101304, //from GetBoardIdentifiers
-            //    "Priority": 0, //from GetBoardIdentifiers
-            //    "Size": 2,
-            //    "IsBlocked": false,
-            //    "BlockReason": "",  //must specify if Card is blocked
-            //    "DueDate": "01/01/2020", //In the API user's specified format
-            //    "ExternalSystemName": "Tracking",
-            //    "ExternalSystemUrl": "http://ourcompanycms.com/1234", //must be valid URL
-            //    "Tags": "small,UI",  //comma separated
-            //    "ClassOfServiceId": 123222, //from GetBoardIdentifiers, ignored if Class of Service not enabled
-            //    "ExternalCardID": "DSA-111",  //Ignored if not enabled for board
-            //    "AssignedUserIds": [111,1112,2211] //array of Ids for each board user to assign, get from GetBoardIdentifiers
-            // }
-           
-            // DoWebRequest(API_URL + "/Board" + BOARD_ID + "/AddCard", "POST");
+            string body = "{" +
+               "\"Title\": \"" + title + "\"," +
+               "\"Description\": \"" + desc + "\"," +
+               "\"TypeId\": 18352071," +
+               "\"Priority\": 1," +
+               "\"Size\": 0," +
+               "\"IsBlocked\": false," +
+               "\"BlockReason\": \"\"," +
+               "\"DueDate\": \"\"," +
+               "\"ExternalSystemName\": \"Tracking\"," +
+               "\"ExternalSystemUrl\": \"\"," +
+               "\"Tags\": \"\"," +
+               "\"ClassOfServiceId\": 0," +
+               "\"ExternalCardID\": \"\"," +
+               "\"AssignedUserIds\": []}";
+            DoWebRequest(API_URL + "/Board/" + BOARD_ID + "/AddCard/Lane/18356118/Position/0", "POST", body);
         }
 
         public string GetBoardIdentifiers()
         {
+        
             return DoWebRequest(API_URL + "/Board/" + BOARD_ID + "/GetBoardIdentifiers", "GET");
         }
         
         public void test()
         {
-            Console.WriteLine(GetBoardIdentifiers());
+            CreateNewTask("title","description");
+            //Console.WriteLine(GetBoardIdentifiers());
         }
     }
 }
