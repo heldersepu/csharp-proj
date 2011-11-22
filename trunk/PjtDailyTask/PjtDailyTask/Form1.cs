@@ -152,10 +152,11 @@ namespace PjtDailyTask
             IE.CloseWebPage();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnKanban_Click(object sender, EventArgs e)
         {
+            leankitkanban kanban = new leankitkanban();
+            kanban.test();
+        }       
 
-        }
-       
     }
 }

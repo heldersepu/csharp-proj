@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSave = new System.Windows.Forms.TextBox();
+            this.btnKanban = new System.Windows.Forms.Button();
             this.lbldescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             // cmdCreateAce
             // 
-            this.cmdCreateAce.Location = new System.Drawing.Point(378, 55);
+            this.cmdCreateAce.Location = new System.Drawing.Point(372, 100);
             this.cmdCreateAce.Name = "cmdCreateAce";
             this.cmdCreateAce.Size = new System.Drawing.Size(152, 29);
             this.cmdCreateAce.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             // cmdOpen
             // 
-            this.cmdOpen.Location = new System.Drawing.Point(378, 187);
+            this.cmdOpen.Location = new System.Drawing.Point(372, 183);
             this.cmdOpen.Name = "cmdOpen";
             this.cmdOpen.Size = new System.Drawing.Size(152, 30);
             this.cmdOpen.TabIndex = 2;
@@ -71,7 +72,7 @@
             // 
             // cmdTemplate
             // 
-            this.cmdTemplate.Location = new System.Drawing.Point(378, 121);
+            this.cmdTemplate.Location = new System.Drawing.Point(372, 140);
             this.cmdTemplate.Name = "cmdTemplate";
             this.cmdTemplate.Size = new System.Drawing.Size(152, 32);
             this.cmdTemplate.TabIndex = 3;
@@ -91,18 +92,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Select From Date";
+            this.label1.Text = "Select from date";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 249);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Save Report To";
+            this.label2.Text = "Save report to:";
             // 
             // txtSave
             // 
@@ -111,6 +112,16 @@
             this.txtSave.Size = new System.Drawing.Size(224, 20);
             this.txtSave.TabIndex = 9;
             this.txtSave.Text = "C:\\";
+            // 
+            // btnKanban
+            // 
+            this.btnKanban.Location = new System.Drawing.Point(372, 60);
+            this.btnKanban.Name = "btnKanban";
+            this.btnKanban.Size = new System.Drawing.Size(152, 29);
+            this.btnKanban.TabIndex = 10;
+            this.btnKanban.Text = "Create Kanban Ticket";
+            this.btnKanban.UseVisualStyleBackColor = true;
+            this.btnKanban.Click += new System.EventHandler(this.btnKanban_Click);
             // 
             // lbldescription
             // 
@@ -125,6 +136,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 404);
+            this.Controls.Add(this.btnKanban);
             this.Controls.Add(this.lbldescription);
             this.Controls.Add(this.txtSave);
             this.Controls.Add(this.label2);
@@ -136,7 +148,6 @@
             this.Controls.Add(this.cmdReport);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +163,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSave;
+        private System.Windows.Forms.Button btnKanban;
         private System.Windows.Forms.Label lbldescription;
     }
 }
