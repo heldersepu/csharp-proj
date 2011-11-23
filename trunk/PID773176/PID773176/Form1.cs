@@ -17,7 +17,7 @@ using GeoData.ImageryService;
 using GeoData.RouteService;
 
 namespace GeoData
-{    
+{
     public partial class frmGeoData : Form
     {
         private bool runUnattended = false;
@@ -26,13 +26,13 @@ namespace GeoData
             InitializeComponent();
             if (args.Length > 0)
             {
-                if (args[0].ToLower().Contains("rununattended")) 
-                    runUnattended = true;                    
+                if (args[0].ToLower().Contains("rununattended"))
+                    runUnattended = true;
             }
         }
 
-        private GeocodeService.Location GeoCodeData(string address)
-        {           
+        private GeocodeResponse GeoCodeData(string address)
+        {
             try
             {
                 GeocodeRequest request = new GeocodeRequest();
@@ -49,11 +49,11 @@ namespace GeoData
                 GeocodeResponse response = geocodeService.Geocode(request);
                 if (response.Results.Length > 0)
                 {
-                    return response.Results[0].Locations[0];
+                    return response;
                 }
             }
             catch { }
-            return null;            
+            return null;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -81,19 +81,19 @@ namespace GeoData
             {
                 if (rw.Cells[0].Value != null)
                 {
-                    GeocodeService.Location location = GeoCodeData(rw.Cells[0].Value.ToString());
-                    if (location != null)
+                    GeocodeResponse response = GeoCodeData(rw.Cells[0].Value.ToString());
+                    if (response != null)
                     {
-                        rw.Cells["Latitude"].Value = location.Latitude;
-                        rw.Cells["Longitude"].Value = location.Longitude;
+                        rw.Cells["Latitude"].Value = response.Results[0].Locations[0].Latitude;
+                        rw.Cells["Longitude"].Value = response.Results[0].Locations[0].Longitude;
                     }
                 }
             }
         }
-        
+
         private void eXECUTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             Cursor.Current = Cursors.WaitCursor;
             if (dataGridView.Rows.Count == 1)
             {
@@ -136,11 +136,11 @@ namespace GeoData
                 {
                     string strAddressList = "Address\tLatitude\tLongitude" + Environment.NewLine;
                     foreach (DataGridViewRow rw in dataGridView.Rows)
-                    {                        
+                    {
                         if (rw.Cells[0].Value != null)
                         {
-                            strAddressList += rw.Cells[0].Value + "\t" + 
-                                             rw.Cells[1].Value + "\t" + 
+                            strAddressList += rw.Cells[0].Value + "\t" +
+                                             rw.Cells[1].Value + "\t" +
                                              rw.Cells[2].Value + Environment.NewLine;
                             Refresh();
                         }
@@ -151,7 +151,7 @@ namespace GeoData
                 {
                     MessageBox.Show("Error: Could not Write file to disk. Original error: " + ex.Message);
                 }
-            }            
+            }
         }
 
         private void testConnString()
@@ -198,7 +198,7 @@ namespace GeoData
                 if (rdr != null) rdr.Close();
             }
         }
-        
+
         private void OutputToSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SqlConnection conn = null;
@@ -229,9 +229,9 @@ namespace GeoData
                 MessageBox.Show("Error: " + ex.Message);
             }
             finally
-            { 
+            {
                 if (conn != null) conn.Close();
-            }	
+            }
         }
 
         private void runUnattendedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -254,7 +254,7 @@ namespace GeoData
                 OutputToSQLToolStripMenuItem_Click(sender, e);
                 Refresh();
                 Thread.Sleep(250);
-                dataGridView.Rows.Clear();                
+                dataGridView.Rows.Clear();
                 Refresh();
                 Thread.Sleep(250);
                 counter++;
