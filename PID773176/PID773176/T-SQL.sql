@@ -26,8 +26,8 @@ ALTER procedure [dbo].[SetAddress]
     @Address varchar(250),
     @Latitude varchar(250),
     @Longitude varchar(250),
-    @PassthroughID varchar(250)
-    @Confidence varchar(250)
+    @PassthroughID varchar(250),
+    @Confidence varchar(250),
     @CalculationMethod varchar(250)
 as
     UPDATE CLNMAS
