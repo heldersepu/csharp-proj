@@ -6,6 +6,11 @@ GeoData uses Bing API to get the Latitude Longitude of a given address.
 
 = Details =
 
+== Accuracy fields ==
+Main Screen showing new fields (Confidence, CalculationMethod)
+https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData_2011-11-23_12-30-51.png
+<br><br><br>
+
 == Main Screen ==
 This is the main screen as it looks the first time it opens.<br>
 https://csharp-proj.googlecode.com/svn/wiki/PID773176/GeoData.png
