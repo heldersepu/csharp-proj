@@ -97,7 +97,7 @@ namespace GeoData
                     {
                         rw.Cells["Latitude"].Value = response.Results[0].Locations[0].Latitude;
                         rw.Cells["Longitude"].Value = response.Results[0].Locations[0].Longitude;
-                        rw.Cells["Confidence"].Value = response.Results[0].Confidence;
+                        rw.Cells["Confidence"].Value = response.Results[0].Confidence.ToString();
                         rw.Cells["CalculationMethod"].Value = response.Results[0].Locations[0].CalculationMethod;
                     }
                 }
@@ -229,7 +229,7 @@ namespace GeoData
                         cmd.CommandType = CommandType.StoredProcedure;
                         for (int i = 0; i < rw.Cells.Count; i++)
                         {
-                            cmd.Parameters.Add(new SqlParameter(getConfig("outputSP_param"+i), rw.Cells[i].Value));
+                            cmd.Parameters.Add(new SqlParameter(getConfig("outputSP_param"+(i+1)), rw.Cells[i].Value));
                         }
                         foreach (SqlParameter Parameter in cmd.Parameters)
                         {

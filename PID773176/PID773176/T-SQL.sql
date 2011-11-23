@@ -8,7 +8,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 ALTER Procedure [dbo].[GetAddress]
 as
-    SELECT TOP 10 [ADDRESS1] + ', ' + [CITY] + ', ' + [STATE] + ' ' + [ZIP] as [ADDRESS], 
+    SELECT TOP 10 [ADDRESS1] + ', ' + [CITY] + ', ' + [STATE] + ' ' + [ZIP] as [ADDRESS],
         Client_ID as PassthroughID
     FROM CLNMAS
     WHERE [STATE]= 'TX'
@@ -24,13 +24,13 @@ SET QUOTED_IDENTIFIER ON
 GO
 ALTER procedure [dbo].[SetAddress]
     @Address varchar(250),
-    @Latitude varchar(250),
-    @Longitude varchar(250),
-    @PassthroughID varchar(250),
+    @Latitude float,
+    @Longitude float,
+    @PassthroughID int,
     @Confidence varchar(250),
     @CalculationMethod varchar(250)
 as
     UPDATE CLNMAS
-    SET Latitude = @Latitude, Longitude = @Longitude,
+    SET Latitu = @Latitude, Longit = @Longitude,
         Confidence = @Confidence, CalculationMethod = @CalculationMethod
-    WHERE str(Client_ID) = @PassthroughID
+    WHERE Client_ID = @PassthroughID
