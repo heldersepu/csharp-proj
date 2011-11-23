@@ -46,6 +46,9 @@
             this.Latitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Longitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Confidence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CalculationMethod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.verInfo = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -152,7 +155,8 @@
             // 
             // dataGridView
             // 
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeight = 20;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -160,7 +164,9 @@
             this.Address,
             this.Latitude,
             this.Longitude,
-            this.ID});
+            this.ID,
+            this.Confidence,
+            this.CalculationMethod});
             this.dataGridView.Location = new System.Drawing.Point(24, 75);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(548, 271);
@@ -189,22 +195,44 @@
             this.ID.Name = "ID";
             this.ID.Width = 50;
             // 
+            // Confidence
+            // 
+            this.Confidence.HeaderText = "Confidence";
+            this.Confidence.Name = "Confidence";
+            // 
+            // CalculationMethod
+            // 
+            this.CalculationMethod.HeaderText = "CalculationMethod";
+            this.CalculationMethod.Name = "CalculationMethod";
+            // 
+            // verInfo
+            // 
+            this.verInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.verInfo.AutoSize = true;
+            this.verInfo.Enabled = false;
+            this.verInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verInfo.Location = new System.Drawing.Point(557, 358);
+            this.verInfo.Name = "verInfo";
+            this.verInfo.Size = new System.Drawing.Size(33, 9);
+            this.verInfo.TabIndex = 5;
+            this.verInfo.Text = "v 0.0.0.0";
+            // 
             // frmGeoData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 371);
+            this.Controls.Add(this.verInfo);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.txbAddress);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(600, 396);
+            this.MaximumSize = new System.Drawing.Size(802, 600);
             this.MinimumSize = new System.Drawing.Size(600, 396);
             this.Name = "frmGeoData";
             this.Text = "GeoData";
+            this.Load += new System.EventHandler(this.frmGeoData_Load);
             this.Shown += new System.EventHandler(this.frmGeoData_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -234,6 +262,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Latitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn Longitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Confidence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CalculationMethod;
+        private System.Windows.Forms.Label verInfo;
     }
 }
 

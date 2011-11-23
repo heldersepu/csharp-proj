@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Threading;
+using System.Reflection;
 
 using GeoData.GeocodeService;
 using GeoData.SearchService;
@@ -21,6 +22,16 @@ namespace GeoData
     public partial class frmGeoData : Form
     {
         private bool runUnattended = false;
+        private string getConfig(string strValue) 
+        {
+            try
+            {
+                return ConfigurationSettings.AppSettings[strValue];
+            }
+            catch { }
+            return null;
+        }
+
         public frmGeoData(string[] args)
         {
             InitializeComponent();
@@ -37,7 +48,7 @@ namespace GeoData
             {
                 GeocodeRequest request = new GeocodeRequest();
                 request.Credentials = new GeocodeService.Credentials();
-                request.Credentials.ApplicationId = ConfigurationSettings.AppSettings["BingApiKey"];
+                request.Credentials.ApplicationId = getConfig("BingApiKey");
                 request.Query = address;
                 ConfidenceFilter[] filters = new ConfidenceFilter[1];
                 filters[0] = new ConfidenceFilter();
@@ -86,6 +97,8 @@ namespace GeoData
                     {
                         rw.Cells["Latitude"].Value = response.Results[0].Locations[0].Latitude;
                         rw.Cells["Longitude"].Value = response.Results[0].Locations[0].Longitude;
+                        rw.Cells["Confidence"].Value = response.Results[0].Confidence;
+                        rw.Cells["CalculationMethod"].Value = response.Results[0].Locations[0].CalculationMethod;
                     }
                 }
             }
@@ -134,14 +147,16 @@ namespace GeoData
             {
                 try
                 {
-                    string strAddressList = "Address\tLatitude\tLongitude" + Environment.NewLine;
+                    string strAddressList = "Address\tLatitude\tLongitude\tConfidence\tCalculationMethod" + Environment.NewLine;
                     foreach (DataGridViewRow rw in dataGridView.Rows)
                     {
                         if (rw.Cells[0].Value != null)
                         {
-                            strAddressList += rw.Cells[0].Value + "\t" +
-                                             rw.Cells[1].Value + "\t" +
-                                             rw.Cells[2].Value + Environment.NewLine;
+                            for (int i = 0; i < rw.Cells.Count; i++)
+                            {
+                                strAddressList += rw.Cells[i].Value + "\t";
+                            }
+                            strAddressList += Environment.NewLine;
                             Refresh();
                         }
                     }
@@ -159,7 +174,7 @@ namespace GeoData
             SqlConnection conn = null;
             try
             {
-                conn = new SqlConnection(ConfigurationSettings.AppSettings["inputConnString"]);
+                conn = new SqlConnection(getConfig("inputConnString"));
                 conn.Open();
             }
             catch (Exception ex)
@@ -178,9 +193,9 @@ namespace GeoData
             SqlDataReader rdr = null;
             try
             {
-                conn = new SqlConnection(ConfigurationSettings.AppSettings["inputConnString"]);
+                conn = new SqlConnection(getConfig("inputConnString"));
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(ConfigurationSettings.AppSettings["inputSPname"], conn);
+                SqlCommand cmd = new SqlCommand(getConfig("inputSPname"), conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -204,18 +219,18 @@ namespace GeoData
             SqlConnection conn = null;
             try
             {
-                conn = new SqlConnection(ConfigurationSettings.AppSettings["outputConnString"]);
+                conn = new SqlConnection(getConfig("outputConnString"));
                 conn.Open();
                 foreach (DataGridViewRow rw in dataGridView.Rows)
                 {
                     if (rw.Cells[0].Value != null)
                     {
-                        SqlCommand cmd = new SqlCommand(ConfigurationSettings.AppSettings["outputSPname"], conn);
+                        SqlCommand cmd = new SqlCommand(getConfig("outputSPname"), conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param1"], rw.Cells[0].Value));
-                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param2"], rw.Cells[1].Value));
-                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param3"], rw.Cells[2].Value));
-                        cmd.Parameters.Add(new SqlParameter(ConfigurationSettings.AppSettings["outputSP_param4"], rw.Cells[3].Value));
+                        for (int i = 0; i < rw.Cells.Count; i++)
+                        {
+                            cmd.Parameters.Add(new SqlParameter(getConfig("outputSP_param"+i), rw.Cells[i].Value));
+                        }
                         foreach (SqlParameter Parameter in cmd.Parameters)
                         {
                             if (Parameter.Value == null) Parameter.Value = DBNull.Value;
@@ -240,7 +255,7 @@ namespace GeoData
             long max = 5;
             try
             {
-                long temp = Convert.ToInt64(ConfigurationSettings.AppSettings["UnattendedLoops"]);
+                long temp = Convert.ToInt64(getConfig("UnattendedLoops"));
                 max = temp;
             }
             catch { }
@@ -260,10 +275,8 @@ namespace GeoData
                 counter++;
             }
             while (counter < max);
-            if (ConfigurationSettings.AppSettings["UnattendedClose"] == "yes")
-            {
-                this.Close();
-            }
+
+            if (getConfig("UnattendedClose") == "yes") this.Close();
         }
 
         private void frmGeoData_Shown(object sender, EventArgs e)
@@ -273,6 +286,13 @@ namespace GeoData
                 runUnattendedToolStripMenuItem_Click(sender, e);
                 runUnattended = false;
             }
+        }
+
+        private void frmGeoData_Load(object sender, EventArgs e)
+        {
+            Assembly thisAssem = Assembly.GetExecutingAssembly();
+            string ver = thisAssem.GetName().Version.ToString();
+            verInfo.Text = "v " + ver;
         }
     }
 }
