@@ -1,0 +1,10 @@
+E:\csharp-proj\DeCryptImages\DeCryptImages\bin\Debug\DeCryptImages.exe
+E:\csharp-proj\DeCryptImages\DeCryptImages\bin\Debug\DeCryptImages.pdb
+E:\csharp-proj\DeCryptImages\DeCryptImages\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\csharp-proj\DeCryptImages\DeCryptImages\obj\x86\Debug\DeCryptImages.Form1.resources
+E:\csharp-proj\DeCryptImages\DeCryptImages\obj\x86\Debug\DeCryptImages.Properties.Resources.resources
+E:\csharp-proj\DeCryptImages\DeCryptImages\obj\x86\Debug\ResGen.read.1.tlog
+E:\csharp-proj\DeCryptImages\DeCryptImages\obj\x86\Debug\ResGen.write.1.tlog
+E:\csharp-proj\DeCryptImages\DeCryptImages\obj\x86\Debug\DeCryptImages.exe
+E:\csharp-proj\DeCryptImages\DeCryptImages\obj\x86\Debug\DeCryptImages.pdb
+E:\csharp-proj\DeCryptImages\DeCryptImages\bin\Debug\eBridge.Crypto.AES.dll
