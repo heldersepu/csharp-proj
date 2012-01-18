@@ -144,6 +144,8 @@
             this.Controls.Add(this.txbSource);
             this.Controls.Add(this.btnDeCrypt);
             this.Controls.Add(this.lblStatus);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "DeCrypt Images";
             this.ResumeLayout(false);
