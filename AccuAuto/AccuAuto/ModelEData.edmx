@@ -1,0 +1,1424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QFWinData_QQ004756Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="QFWinData_QQ004756ModelStoreContainer">
+          <EntitySet Name="CLNMAS" EntityType="QFWinData_QQ004756Model.Store.CLNMAS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company" EntityType="QFWinData_QQ004756Model.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Images" EntityType="QFWinData_QQ004756Model.Store.Images" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MEMOMAS" EntityType="QFWinData_QQ004756Model.Store.MEMOMAS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="POLMAS" EntityType="QFWinData_QQ004756Model.Store.POLMAS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rolodex_Main" EntityType="QFWinData_QQ004756Model.Store.Rolodex_Main" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Images_CLNMAS" Association="QFWinData_QQ004756Model.Store.FK_Images_CLNMAS">
+            <End Role="CLNMAS" EntitySet="CLNMAS" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Memomas_CLNMAS" Association="QFWinData_QQ004756Model.Store.FK_Memomas_CLNMAS">
+            <End Role="CLNMAS" EntitySet="CLNMAS" />
+            <End Role="MEMOMAS" EntitySet="MEMOMAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polmas_CLNMAS" Association="QFWinData_QQ004756Model.Store.FK_Polmas_CLNMAS">
+            <End Role="CLNMAS" EntitySet="CLNMAS" />
+            <End Role="POLMAS" EntitySet="POLMAS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CLNMAS">
+          <Key>
+            <PropertyRef Name="Client_ID" />
+          </Key>
+          <Property Name="Client_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Old_Client_ID" Type="int" />
+          <Property Name="UNIQUE" Type="varchar" MaxLength="15" />
+          <Property Name="LASTUPDATE" Type="datetime" />
+          <Property Name="LASTFUNC" Type="varchar" MaxLength="1" />
+          <Property Name="CID" Type="varchar" MaxLength="50" />
+          <Property Name="CSTATUS" Type="varchar" MaxLength="1" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="80" />
+          <Property Name="LNAME" Type="varchar" MaxLength="50" />
+          <Property Name="FNAME" Type="varchar" MaxLength="28" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="40" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="31" />
+          <Property Name="CITY" Type="varchar" MaxLength="30" />
+          <Property Name="STATE" Type="varchar" MaxLength="3" />
+          <Property Name="ZIP" Type="varchar" MaxLength="10" />
+          <Property Name="HPHONE" Type="varchar" MaxLength="20" />
+          <Property Name="WPHONE" Type="varchar" MaxLength="20" />
+          <Property Name="Cell" Type="varchar" MaxLength="20" />
+          <Property Name="Beeper" Type="varchar" MaxLength="20" />
+          <Property Name="Phone2" Type="varchar" MaxLength="20" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="SALUTATION" Type="varchar" MaxLength="28" />
+          <Property Name="LANGUAGE" Type="varchar" MaxLength="1" />
+          <Property Name="SOURCE" Type="varchar" MaxLength="50" />
+          <Property Name="AGENCY" Type="varchar" MaxLength="50" />
+          <Property Name="AGENT" Type="varchar" MaxLength="50" />
+          <Property Name="BILLTOTAL" Type="money" />
+          <Property Name="LASTBILL" Type="datetime" />
+          <Property Name="ISQUOTE" Type="bit" />
+          <Property Name="ISAPP" Type="bit" />
+          <Property Name="ISMEMO" Type="bit" />
+          <Property Name="ISHOME" Type="bit" />
+          <Property Name="SPOUSE" Type="varchar" MaxLength="28" />
+          <Property Name="SPOUSE_DOB" Type="datetime" />
+          <Property Name="PHONETYPE" Type="varchar" MaxLength="1" />
+          <Property Name="POWER10" Type="varchar" MaxLength="10" />
+          <Property Name="isCOMMERCIAL" Type="bit" />
+          <Property Name="X_ADDRESS1" Type="varchar" MaxLength="40" />
+          <Property Name="X_ADDRESS2" Type="varchar" MaxLength="31" />
+          <Property Name="X_CITY" Type="varchar" MaxLength="30" />
+          <Property Name="X_STATE" Type="varchar" MaxLength="3" />
+          <Property Name="X_ZIP" Type="varchar" MaxLength="10" />
+          <Property Name="LETTER_TO" Type="varchar" MaxLength="3" />
+          <Property Name="X_ADD_TYPE" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DUMMY1" Type="varchar" MaxLength="10" />
+          <Property Name="DUMMY2" Type="varchar" MaxLength="15" />
+          <Property Name="DUMMY3" Type="varchar" MaxLength="20" />
+          <Property Name="DUMMY4" Type="varchar" MaxLength="125" />
+          <Property Name="DUMMY5" Type="money" />
+          <Property Name="DUMMY6" Type="float" />
+          <Property Name="DUMMY7" Type="datetime" />
+          <Property Name="ISDUMMY1" Type="bit" />
+          <Property Name="ISDUMMY2" Type="bit" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="DateMigrated" Type="datetime" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="time_stamp" Type="datetime" />
+          <Property Name="Fields_Added_3_1" Type="bit" />
+          <Property Name="Fields_Started_3_1" Type="bit" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+          <Property Name="HyphenatedLast" Type="varchar" MaxLength="50" />
+          <Property Name="SpousesMiddleName" Type="varchar" MaxLength="25" />
+          <Property Name="SpousesHyphenatedLast" Type="varchar" MaxLength="50" />
+          <Property Name="CSR_Clnmas" Type="varchar" MaxLength="50" />
+          <Property Name="DBA" Type="varchar" MaxLength="75" />
+          <Property Name="Referer" Type="varchar" MaxLength="50" />
+          <Property Name="Source2" Type="varchar" MaxLength="50" />
+          <Property Name="DateSold" Type="datetime" />
+          <Property Name="MrMrs" Type="varchar" MaxLength="25" />
+          <Property Name="Sex" Type="varchar" MaxLength="1" />
+          <Property Name="Email2" Type="varchar" MaxLength="50" />
+          <Property Name="Attention" Type="varchar" MaxLength="50" />
+          <Property Name="TypeOfBusiness" Type="varchar" MaxLength="35" />
+          <Property Name="ClientType" Type="varchar" MaxLength="1" />
+          <Property Name="Occupation" Type="varchar" MaxLength="25" />
+          <Property Name="SpousesOccupation" Type="varchar" MaxLength="25" />
+          <Property Name="FEIN" Type="varchar" MaxLength="11" />
+          <Property Name="HasLife" Type="bit" />
+          <Property Name="HasHome" Type="bit" />
+          <Property Name="TimeAdded" Type="datetime" />
+          <Property Name="DialStyle" Type="varchar" MaxLength="1" />
+          <Property Name="SOURCE_DETAIL" Type="varchar" MaxLength="50" />
+          <Property Name="DBA_Name" Type="varchar" MaxLength="50" />
+          <Property Name="strDriverLicenseNamedInsured" Type="varchar" MaxLength="50" />
+          <Property Name="strDriverLicenseSpouse" Type="varchar" MaxLength="50" />
+          <Property Name="strDrvLicNamedInsuredState" Type="varchar" MaxLength="2" />
+          <Property Name="strDrvLicSpouseState" Type="varchar" MaxLength="2" />
+          <Property Name="strURL" Type="varchar" MaxLength="200" />
+          <Property Name="strPhoneType6" Type="varchar" MaxLength="50" />
+          <Property Name="strPhone6" Type="varchar" MaxLength="20" />
+          <Property Name="strPhoneType7" Type="varchar" MaxLength="50" />
+          <Property Name="strPhone7" Type="varchar" MaxLength="20" />
+          <Property Name="strPhoneType8" Type="varchar" MaxLength="50" />
+          <Property Name="strPhone8" Type="varchar" MaxLength="20" />
+          <Property Name="strImage" Type="varchar" MaxLength="50" />
+          <Property Name="strImageDirectory" Type="varchar" MaxLength="200" />
+          <Property Name="intLastPage" Type="tinyint" />
+          <Property Name="intBusinessType" Type="smallint" />
+          <Property Name="strEmergencyContact" Type="varchar" MaxLength="50" />
+          <Property Name="datXDate" Type="datetime" />
+          <Property Name="xDate" Type="datetime" />
+          <Property Name="strXDateComm" Type="ntext" />
+          <Property Name="strImageFileName" Type="varbinary" MaxLength="20" />
+          <Property Name="strQFversion" Type="varchar" MaxLength="50" />
+          <Property Name="CrossReferenceID" Type="uniqueidentifier" />
+          <Property Name="Old_AGENCY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Random" />
+          </Key>
+          <Property Name="ListOrder" Type="smallint" />
+          <Property Name="Random" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Company" Type="varchar" MaxLength="50" />
+          <Property Name="LOB" Type="varchar" MaxLength="50" />
+          <Property Name="QQC" Type="varchar" MaxLength="10" />
+          <Property Name="Agency" Type="varchar" MaxLength="50" />
+          <Property Name="NaicCode" Type="varchar" MaxLength="6" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NAIC" Type="varchar" MaxLength="15" />
+          <Property Name="FEIN" Type="varchar" MaxLength="11" />
+          <Property Name="Coverage" Type="varchar" MaxLength="50" />
+          <Property Name="downloadCommission" Type="bit" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Images_ID" />
+          </Key>
+          <Property Name="Images_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Old_Images_ID" Type="int" />
+          <Property Name="Old_Client_ID" Type="int" />
+          <Property Name="Old_Policy_ID" Type="int" />
+          <Property Name="Client_ID" Type="int" Nullable="false" />
+          <Property Name="Policy_ID" Type="int" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="TheOle" Type="image" />
+          <Property Name="Description" Type="varchar" MaxLength="125" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Directory" Type="varchar" MaxLength="50" />
+          <Property Name="FileDate" Type="datetime" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateEntered" Type="datetime" />
+          <Property Name="TimeEntered" Type="datetime" />
+          <Property Name="CSR_Images" Type="varchar" MaxLength="50" />
+          <Property Name="strQFVersion" Type="varchar" MaxLength="255" />
+          <Property Name="strPCName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="MEMOMAS">
+          <Key>
+            <PropertyRef Name="MEMO_ID" />
+          </Key>
+          <Property Name="Gen_MEMOLINE" Type="int" />
+          <Property Name="Old_Memo_ID" Type="int" />
+          <Property Name="Old_Client_ID" Type="int" />
+          <Property Name="Old_Policy_ID" Type="int" />
+          <Property Name="MEMO_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CLIENT_ID" Type="int" Nullable="false" />
+          <Property Name="POLICY_ID" Type="int" />
+          <Property Name="UNIQUE" Type="varchar" MaxLength="15" />
+          <Property Name="LASTFUNC" Type="varchar" MaxLength="1" />
+          <Property Name="MEMODATE" Type="datetime" />
+          <Property Name="MEMOLINE" Type="varchar" MaxLength="7500" />
+          <Property Name="REMDATE" Type="datetime" />
+          <Property Name="CSR" Type="varchar" MaxLength="50" />
+          <Property Name="MEMOTYPE" Type="varchar" MaxLength="15" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Flag" Type="char" MaxLength="1" />
+          <Property Name="Mpos" Type="char" MaxLength="2" />
+          <Property Name="IsDaylight" Type="int" />
+          <Property Name="VoidDate" Type="datetime" />
+          <Property Name="UnvoidDate" Type="datetime" />
+          <Property Name="DateEntered" Type="datetime" />
+          <Property Name="TimeEntered" Type="datetime" />
+          <Property Name="Dummy1" Type="varchar" MaxLength="10" />
+          <Property Name="Dummy2" Type="varchar" MaxLength="15" />
+          <Property Name="Dummy3" Type="datetime" />
+          <Property Name="IsNewMemo" Type="int" />
+          <Property Name="ShowMemo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POLMAS">
+          <Key>
+            <PropertyRef Name="POLICY_ID" />
+          </Key>
+          <Property Name="CLIENT_ID" Type="int" Nullable="false" />
+          <Property Name="POLICY_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Old_Policy_ID" Type="int" />
+          <Property Name="Old_Client_ID" Type="int" />
+          <Property Name="Endorsement_policy_id" Type="int" />
+          <Property Name="Split_policy_id" Type="int" />
+          <Property Name="UNIQUE" Type="varchar" MaxLength="15" />
+          <Property Name="LASTUPDATE" Type="datetime" />
+          <Property Name="LASTFUNC" Type="varchar" MaxLength="1" />
+          <Property Name="PPOS" Type="varchar" MaxLength="4" />
+          <Property Name="CSTATUS" Type="varchar" MaxLength="1" />
+          <Property Name="PSTATUS" Type="varchar" MaxLength="1" />
+          <Property Name="POLICY_NUM" Type="varchar" MaxLength="35" />
+          <Property Name="CSR" Type="varchar" MaxLength="50" />
+          <Property Name="BINDER_NUM" Type="varchar" MaxLength="50" />
+          <Property Name="BINDER_DAT" Type="datetime" />
+          <Property Name="EFFECTIVE" Type="datetime" />
+          <Property Name="EXPIRATION" Type="datetime" />
+          <Property Name="PERIOD" Type="varchar" MaxLength="15" />
+          <Property Name="COVERAGE" Type="varchar" MaxLength="50" />
+          <Property Name="COMPANY" Type="varchar" MaxLength="50" />
+          <Property Name="QQC" Type="varchar" MaxLength="10" />
+          <Property Name="PQUOTED" Type="money" />
+          <Property Name="PISSUED" Type="money" />
+          <Property Name="PEARNED" Type="money" />
+          <Property Name="PFEE" Type="money" />
+          <Property Name="CQUOTED" Type="money" />
+          <Property Name="CISSUED" Type="money" />
+          <Property Name="CEARNED" Type="money" />
+          <Property Name="CRATE" Type="float" />
+          <Property Name="CINC" Type="bit" />
+          <Property Name="CTAX" Type="bit" />
+          <Property Name="CFUL" Type="bit" />
+          <Property Name="FINCOMPANY" Type="varchar" MaxLength="50" />
+          <Property Name="DN_PAYMENT" Type="money" />
+          <Property Name="IOU" Type="money" />
+          <Property Name="AGENCY_FEE" Type="money" />
+          <Property Name="MVR_FEE" Type="money" />
+          <Property Name="WARNING" Type="datetime" />
+          <Property Name="OPT_COV" Type="varchar" MaxLength="50" />
+          <Property Name="OPT_AMT" Type="money" />
+          <Property Name="OPT_COM" Type="money" />
+          <Property Name="OPT_CRATE" Type="float" />
+          <Property Name="DESCOFRISK" Type="varchar" MaxLength="750" />
+          <Property Name="MPAY_AMT" Type="money" />
+          <Property Name="MPAY_NUM" Type="int" />
+          <Property Name="MPAY_DUE" Type="datetime" />
+          <Property Name="ADD_COV" Type="varchar" MaxLength="50" />
+          <Property Name="ADD_AMT" Type="money" />
+          <Property Name="ADD_COM" Type="money" />
+          <Property Name="ADD_CRATE" Type="float" />
+          <Property Name="LOB" Type="varchar" MaxLength="50" />
+          <Property Name="AGENT_COMM" Type="money" />
+          <Property Name="AGENTLEVEL" Type="varchar" MaxLength="10" />
+          <Property Name="CASH_CHECK" Type="varchar" MaxLength="25" />
+          <Property Name="NET_GROSS" Type="varchar" MaxLength="1" />
+          <Property Name="FEE2" Type="money" />
+          <Property Name="FEE3" Type="money" />
+          <Property Name="FEEDESC2" Type="varchar" MaxLength="10" />
+          <Property Name="FEEDESC3" Type="varchar" MaxLength="10" />
+          <Property Name="RECONCILE" Type="varchar" MaxLength="1" />
+          <Property Name="CHECK_NUM" Type="varchar" MaxLength="15" />
+          <Property Name="ENDORSE" Type="varchar" MaxLength="1" />
+          <Property Name="END_FROM" Type="varchar" MaxLength="4" />
+          <Property Name="ENDORSERSN" Type="varchar" MaxLength="10" />
+          <Property Name="SPLIT" Type="varchar" MaxLength="1" />
+          <Property Name="SPLIT_FROM" Type="varchar" MaxLength="4" />
+          <Property Name="IOUREASON" Type="varchar" MaxLength="10" />
+          <Property Name="DIR_BILL" Type="varchar" MaxLength="1" />
+          <Property Name="PRO_SHORT" Type="varchar" MaxLength="1" />
+          <Property Name="OPT_INFO" Type="varchar" MaxLength="10" />
+          <Property Name="ADD_INFO" Type="varchar" MaxLength="10" />
+          <Property Name="AG_RNL_SRC" Type="varchar" MaxLength="15" />
+          <Property Name="WARN_RSN" Type="varchar" MaxLength="3" />
+          <Property Name="BILL_MGEE" Type="varchar" MaxLength="1" />
+          <Property Name="POWER10" Type="varchar" MaxLength="10" />
+          <Property Name="OPT_DOWN" Type="money" />
+          <Property Name="ADD_DOWN" Type="money" />
+          <Property Name="CUST_NUM" Type="varchar" MaxLength="20" />
+          <Property Name="COMM_PAID" Type="money" />
+          <Property Name="UCOMM_PAID" Type="money" />
+          <Property Name="DRAFT_NUM" Type="varchar" MaxLength="20" />
+          <Property Name="CONTRACTNO" Type="varchar" MaxLength="20" />
+          <Property Name="SR22" Type="money" />
+          <Property Name="CANCEL_DAT" Type="datetime" />
+          <Property Name="AMT_FIN" Type="money" />
+          <Property Name="RECEIPT_NO" Type="varchar" MaxLength="10" />
+          <Property Name="FLAG" Type="varchar" MaxLength="8" />
+          <Property Name="MPAY_1" Type="money" />
+          <Property Name="MPAY_2" Type="money" />
+          <Property Name="MPAY_3" Type="money" />
+          <Property Name="MPAY_4" Type="money" />
+          <Property Name="MPAY_5" Type="money" />
+          <Property Name="MPAY_6" Type="money" />
+          <Property Name="MPAY_7" Type="money" />
+          <Property Name="MPAY_8" Type="money" />
+          <Property Name="MPAY_9" Type="money" />
+          <Property Name="MPAY_10" Type="money" />
+          <Property Name="MPAY_11" Type="money" />
+          <Property Name="MPAY_12" Type="money" />
+          <Property Name="CPAY_1" Type="money" />
+          <Property Name="CPAY_2" Type="money" />
+          <Property Name="CPAY_3" Type="money" />
+          <Property Name="CPAY_4" Type="money" />
+          <Property Name="CPAY_5" Type="money" />
+          <Property Name="CPAY_6" Type="money" />
+          <Property Name="CPAY_7" Type="money" />
+          <Property Name="CPAY_8" Type="money" />
+          <Property Name="CPAY_9" Type="money" />
+          <Property Name="CPAY_10" Type="money" />
+          <Property Name="CPAY_11" Type="money" />
+          <Property Name="CPAY_12" Type="money" />
+          <Property Name="DUMMY1" Type="varchar" MaxLength="10" />
+          <Property Name="DUMMY2" Type="varchar" MaxLength="15" />
+          <Property Name="DUMMY3" Type="varchar" MaxLength="20" />
+          <Property Name="DUMMY4" Type="varchar" MaxLength="25" />
+          <Property Name="DUMMY5" Type="float" />
+          <Property Name="DUMMY6" Type="money" />
+          <Property Name="DUMMY7" Type="datetime" />
+          <Property Name="G_ADDRESS1" Type="varchar" MaxLength="40" />
+          <Property Name="G_ADDRESS2" Type="varchar" MaxLength="31" />
+          <Property Name="G_CITY" Type="varchar" MaxLength="30" />
+          <Property Name="G_STATE" Type="varchar" MaxLength="3" />
+          <Property Name="G_ZIP" Type="varchar" MaxLength="10" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="old_endorsement_policy_ID" Type="int" />
+          <Property Name="old_split_policy_ID" Type="int" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="time_stamp" Type="datetime" />
+          <Property Name="Agent_Polmas" Type="varchar" MaxLength="50" />
+          <Property Name="DateEntered" Type="datetime" />
+          <Property Name="TimeEntered" Type="datetime" />
+          <Property Name="NAIC" Type="varchar" MaxLength="15" />
+          <Property Name="Broker" Type="varchar" MaxLength="50" />
+          <Property Name="Wholesaler" Type="varchar" MaxLength="50" />
+          <Property Name="PersComm" Type="varchar" MaxLength="1" />
+          <Property Name="TypeOfBus" Type="varchar" MaxLength="75" />
+          <Property Name="MGA" Type="varchar" MaxLength="50" />
+          <Property Name="CovDesc" Type="varchar" MaxLength="75" />
+          <Property Name="Plan" Type="varchar" MaxLength="50" />
+          <Property Name="BillingType" Type="varchar" MaxLength="1" />
+          <Property Name="MvrCost" Type="money" />
+          <Property Name="MvrComm" Type="money" />
+          <Property Name="SR22_CaseNum" Type="varchar" MaxLength="10" />
+          <Property Name="Opt_Contract_Num" Type="varchar" MaxLength="20" />
+          <Property Name="Opt_Desc" Type="varchar" MaxLength="25" />
+          <Property Name="Add_Contract_Num" Type="varchar" MaxLength="20" />
+          <Property Name="Add_Desc" Type="varchar" MaxLength="25" />
+          <Property Name="Reinst_Date" Type="datetime" />
+          <Property Name="Reinst_Amout" Type="money" />
+          <Property Name="Reinst_Lapse" Type="int" />
+          <Property Name="Escrow_Bill_Rnl" Type="bit" />
+          <Property Name="MPAY_13" Type="money" />
+          <Property Name="MPAY_14" Type="money" />
+          <Property Name="MPAY_15" Type="money" />
+          <Property Name="MPAY_16" Type="money" />
+          <Property Name="intAddressID" Type="int" />
+          <Property Name="intMGA" Type="int" />
+          <Property Name="intLastPage" Type="tinyint" />
+          <Property Name="intBasePremium" Type="money" />
+          <Property Name="intCommPremium" Type="money" />
+          <Property Name="curBaseNonComPremium" Type="money" />
+          <Property Name="curTowingRental" Type="money" />
+          <Property Name="bolFromRater" Type="bit" />
+          <Property Name="LastReceipt" Type="int" />
+          <Property Name="PSource" Type="varchar" MaxLength="50" />
+          <Property Name="intPackage" Type="int" />
+          <Property Name="CrossReferenceID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Rolodex_Main">
+          <Key>
+            <PropertyRef Name="Random" />
+          </Key>
+          <Property Name="Random" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ListOrder" Type="int" />
+          <Property Name="COMPANY" Type="varchar" MaxLength="50" />
+          <Property Name="ContactName" Type="varchar" MaxLength="50" />
+          <Property Name="ABBR" Type="varchar" MaxLength="4" />
+          <Property Name="NAIC" Type="varchar" MaxLength="5" />
+          <Property Name="BrokerID" Type="varchar" MaxLength="10" />
+          <Property Name="RATING" Type="varchar" MaxLength="2" />
+          <Property Name="ADMITTED" Type="varchar" MaxLength="3" />
+          <Property Name="M_G_A_" Type="varchar" MaxLength="50" />
+          <Property Name="RolodexTypeChar" Type="varchar" MaxLength="1" />
+          <Property Name="Line1" Type="varchar" MaxLength="50" />
+          <Property Name="Line2" Type="varchar" MaxLength="50" />
+          <Property Name="Line3" Type="varchar" MaxLength="50" />
+          <Property Name="Line4" Type="varchar" MaxLength="50" />
+          <Property Name="Line5" Type="varchar" MaxLength="50" />
+          <Property Name="Line6" Type="text" />
+          <Property Name="NoticeDays" Type="varchar" MaxLength="3" />
+          <Property Name="StrikeEndeavor" Type="bit" />
+          <Property Name="StrikeFailure" Type="bit" />
+          <Property Name="AcordOnly" Type="bit" />
+          <Property Name="Address" Type="varchar" MaxLength="40" />
+          <Property Name="Suite" Type="varchar" MaxLength="31" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="State" Type="varchar" MaxLength="3" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="ClaimsPhone" Type="varchar" MaxLength="20" />
+          <Property Name="TollFree" Type="varchar" MaxLength="20" />
+          <Property Name="CellPhone" Type="varchar" MaxLength="20" />
+          <Property Name="AddlPhoneType1" Type="varchar" MaxLength="20" />
+          <Property Name="AddlPhoneNum1" Type="varchar" MaxLength="20" />
+          <Property Name="AddlPhoneType2" Type="varchar" MaxLength="20" />
+          <Property Name="AddlPhoneNum2" Type="varchar" MaxLength="20" />
+          <Property Name="Email1" Type="varchar" MaxLength="50" />
+          <Property Name="Email2" Type="varchar" MaxLength="50" />
+          <Property Name="Web" Type="varchar" MaxLength="150" />
+          <Property Name="WebLogin" Type="varchar" MaxLength="150" />
+          <Property Name="PolicyInquiry" Type="varchar" MaxLength="150" />
+          <Property Name="BillingInquiry" Type="varchar" MaxLength="150" />
+          <Property Name="ClaimsInquiry" Type="varchar" MaxLength="150" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="UseUserName" Type="bit" />
+          <Property Name="UsePassword" Type="bit" />
+          <Property Name="UseBrokerID" Type="bit" />
+          <Property Name="FEIN" Type="varchar" MaxLength="15" />
+          <Property Name="PosOne" Type="varchar" MaxLength="10" />
+          <Property Name="PosTwo" Type="varchar" MaxLength="10" />
+          <Property Name="PosThree" Type="varchar" MaxLength="10" />
+          <Property Name="Agency" Type="varchar" MaxLength="50" />
+          <Property Name="bolIsMGA" Type="bit" />
+          <Property Name="CrossReferenceID" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_Images_CLNMAS">
+          <End Role="CLNMAS" Type="QFWinData_QQ004756Model.Store.CLNMAS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="QFWinData_QQ004756Model.Store.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLNMAS">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Memomas_CLNMAS">
+          <End Role="CLNMAS" Type="QFWinData_QQ004756Model.Store.CLNMAS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MEMOMAS" Type="QFWinData_QQ004756Model.Store.MEMOMAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLNMAS">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="MEMOMAS">
+              <PropertyRef Name="CLIENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polmas_CLNMAS">
+          <End Role="CLNMAS" Type="QFWinData_QQ004756Model.Store.CLNMAS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="POLMAS" Type="QFWinData_QQ004756Model.Store.POLMAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLNMAS">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="POLMAS">
+              <PropertyRef Name="CLIENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QFWinData_QQ004756Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="QFWinData_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLNMAS" EntityType="QFWinData_QQ004756Model.CLNMA" />
+          <EntitySet Name="Companies" EntityType="QFWinData_QQ004756Model.Company" />
+          <EntitySet Name="Images" EntityType="QFWinData_QQ004756Model.Image" />
+          <EntitySet Name="MEMOMAS" EntityType="QFWinData_QQ004756Model.MEMOMA" />
+          <EntitySet Name="POLMAS" EntityType="QFWinData_QQ004756Model.POLMA" />
+          <EntitySet Name="Rolodex_Main" EntityType="QFWinData_QQ004756Model.Rolodex_Main" />
+          <AssociationSet Name="FK_Images_CLNMAS" Association="QFWinData_QQ004756Model.FK_Images_CLNMAS">
+            <End Role="CLNMAS" EntitySet="CLNMAS" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Memomas_CLNMAS" Association="QFWinData_QQ004756Model.FK_Memomas_CLNMAS">
+            <End Role="CLNMAS" EntitySet="CLNMAS" />
+            <End Role="MEMOMAS" EntitySet="MEMOMAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polmas_CLNMAS" Association="QFWinData_QQ004756Model.FK_Polmas_CLNMAS">
+            <End Role="CLNMAS" EntitySet="CLNMAS" />
+            <End Role="POLMAS" EntitySet="POLMAS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CLNMA">
+          <Key>
+            <PropertyRef Name="Client_ID" />
+          </Key>
+          <Property Name="Client_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Old_Client_ID" Type="Int32" />
+          <Property Name="UNIQUE" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LASTUPDATE" Type="DateTime" />
+          <Property Name="LASTFUNC" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="CID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CSTATUS" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+          <Property Name="LNAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FNAME" Type="String" MaxLength="28" Unicode="false" FixedLength="false" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="31" Unicode="false" FixedLength="false" />
+          <Property Name="CITY" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="STATE" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="ZIP" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="HPHONE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="WPHONE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Cell" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Beeper" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Phone2" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DOB" Type="DateTime" />
+          <Property Name="SALUTATION" Type="String" MaxLength="28" Unicode="false" FixedLength="false" />
+          <Property Name="LANGUAGE" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="SOURCE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AGENCY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AGENT" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BILLTOTAL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LASTBILL" Type="DateTime" />
+          <Property Name="ISQUOTE" Type="Boolean" />
+          <Property Name="ISAPP" Type="Boolean" />
+          <Property Name="ISMEMO" Type="Boolean" />
+          <Property Name="ISHOME" Type="Boolean" />
+          <Property Name="SPOUSE" Type="String" MaxLength="28" Unicode="false" FixedLength="false" />
+          <Property Name="SPOUSE_DOB" Type="DateTime" />
+          <Property Name="PHONETYPE" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="POWER10" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="isCOMMERCIAL" Type="Boolean" />
+          <Property Name="X_ADDRESS1" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="X_ADDRESS2" Type="String" MaxLength="31" Unicode="false" FixedLength="false" />
+          <Property Name="X_CITY" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="X_STATE" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="X_ZIP" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="LETTER_TO" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="X_ADD_TYPE" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY1" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY3" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY4" Type="String" MaxLength="125" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY5" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DUMMY6" Type="Double" />
+          <Property Name="DUMMY7" Type="DateTime" />
+          <Property Name="ISDUMMY1" Type="Boolean" />
+          <Property Name="ISDUMMY2" Type="Boolean" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DateMigrated" Type="DateTime" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="time_stamp" Type="DateTime" />
+          <Property Name="Fields_Added_3_1" Type="Boolean" />
+          <Property Name="Fields_Started_3_1" Type="Boolean" />
+          <Property Name="MiddleName" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="HyphenatedLast" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SpousesMiddleName" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="SpousesHyphenatedLast" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CSR_Clnmas" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DBA" Type="String" MaxLength="75" Unicode="false" FixedLength="false" />
+          <Property Name="Referer" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Source2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DateSold" Type="DateTime" />
+          <Property Name="MrMrs" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Email2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Attention" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TypeOfBusiness" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="ClientType" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Occupation" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="SpousesOccupation" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="FEIN" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="HasLife" Type="Boolean" />
+          <Property Name="HasHome" Type="Boolean" />
+          <Property Name="TimeAdded" Type="DateTime" />
+          <Property Name="DialStyle" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="SOURCE_DETAIL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DBA_Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strDriverLicenseNamedInsured" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strDriverLicenseSpouse" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strDrvLicNamedInsuredState" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="strDrvLicSpouseState" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="strURL" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="strPhoneType6" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strPhone6" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="strPhoneType7" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strPhone7" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="strPhoneType8" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strPhone8" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="strImage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strImageDirectory" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="intLastPage" Type="Byte" />
+          <Property Name="intBusinessType" Type="Int16" />
+          <Property Name="strEmergencyContact" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="datXDate" Type="DateTime" />
+          <Property Name="xDate" Type="DateTime" />
+          <Property Name="strXDateComm" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="strImageFileName" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="strQFversion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CrossReferenceID" Type="Guid" />
+          <Property Name="Old_AGENCY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Images" Relationship="QFWinData_QQ004756Model.FK_Images_CLNMAS" FromRole="CLNMAS" ToRole="Images" />
+          <NavigationProperty Name="MEMOMAS" Relationship="QFWinData_QQ004756Model.FK_Memomas_CLNMAS" FromRole="CLNMAS" ToRole="MEMOMAS" />
+          <NavigationProperty Name="POLMAS" Relationship="QFWinData_QQ004756Model.FK_Polmas_CLNMAS" FromRole="CLNMAS" ToRole="POLMAS" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Random" />
+          </Key>
+          <Property Name="ListOrder" Type="Int16" />
+          <Property Name="Random" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LOB" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="QQC" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Agency" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NaicCode" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="NAIC" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FEIN" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="Coverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="downloadCommission" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Images_ID" />
+          </Key>
+          <Property Name="Images_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Old_Images_ID" Type="Int32" />
+          <Property Name="Old_Client_ID" Type="Int32" />
+          <Property Name="Old_Policy_ID" Type="Int32" />
+          <Property Name="Client_ID" Type="Int32" Nullable="false" />
+          <Property Name="Policy_ID" Type="Int32" />
+          <Property Name="FileName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TheOle" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="125" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Directory" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FileDate" Type="DateTime" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="DateEntered" Type="DateTime" />
+          <Property Name="TimeEntered" Type="DateTime" />
+          <Property Name="CSR_Images" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="strQFVersion" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="strPCName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CLNMA" Relationship="QFWinData_QQ004756Model.FK_Images_CLNMAS" FromRole="Images" ToRole="CLNMAS" />
+        </EntityType>
+        <EntityType Name="MEMOMA">
+          <Key>
+            <PropertyRef Name="MEMO_ID" />
+          </Key>
+          <Property Name="Gen_MEMOLINE" Type="Int32" />
+          <Property Name="Old_Memo_ID" Type="Int32" />
+          <Property Name="Old_Client_ID" Type="Int32" />
+          <Property Name="Old_Policy_ID" Type="Int32" />
+          <Property Name="MEMO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLIENT_ID" Type="Int32" Nullable="false" />
+          <Property Name="POLICY_ID" Type="Int32" />
+          <Property Name="UNIQUE" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LASTFUNC" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="MEMODATE" Type="DateTime" />
+          <Property Name="MEMOLINE" Type="String" MaxLength="7500" Unicode="false" FixedLength="false" />
+          <Property Name="REMDATE" Type="DateTime" />
+          <Property Name="CSR" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MEMOTYPE" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="Flag" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Mpos" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="IsDaylight" Type="Int32" />
+          <Property Name="VoidDate" Type="DateTime" />
+          <Property Name="UnvoidDate" Type="DateTime" />
+          <Property Name="DateEntered" Type="DateTime" />
+          <Property Name="TimeEntered" Type="DateTime" />
+          <Property Name="Dummy1" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Dummy2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Dummy3" Type="DateTime" />
+          <Property Name="IsNewMemo" Type="Int32" />
+          <Property Name="ShowMemo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CLNMA" Relationship="QFWinData_QQ004756Model.FK_Memomas_CLNMAS" FromRole="MEMOMAS" ToRole="CLNMAS" />
+        </EntityType>
+        <EntityType Name="POLMA">
+          <Key>
+            <PropertyRef Name="POLICY_ID" />
+          </Key>
+          <Property Name="CLIENT_ID" Type="Int32" Nullable="false" />
+          <Property Name="POLICY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Old_Policy_ID" Type="Int32" />
+          <Property Name="Old_Client_ID" Type="Int32" />
+          <Property Name="Endorsement_policy_id" Type="Int32" />
+          <Property Name="Split_policy_id" Type="Int32" />
+          <Property Name="UNIQUE" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LASTUPDATE" Type="DateTime" />
+          <Property Name="LASTFUNC" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="PPOS" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="CSTATUS" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="PSTATUS" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="POLICY_NUM" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="CSR" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BINDER_NUM" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BINDER_DAT" Type="DateTime" />
+          <Property Name="EFFECTIVE" Type="DateTime" />
+          <Property Name="EXPIRATION" Type="DateTime" />
+          <Property Name="PERIOD" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="COVERAGE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="COMPANY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="QQC" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="PQUOTED" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PISSUED" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PEARNED" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PFEE" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CQUOTED" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CISSUED" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CEARNED" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CRATE" Type="Double" />
+          <Property Name="CINC" Type="Boolean" />
+          <Property Name="CTAX" Type="Boolean" />
+          <Property Name="CFUL" Type="Boolean" />
+          <Property Name="FINCOMPANY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DN_PAYMENT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IOU" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AGENCY_FEE" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MVR_FEE" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WARNING" Type="DateTime" />
+          <Property Name="OPT_COV" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OPT_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OPT_COM" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OPT_CRATE" Type="Double" />
+          <Property Name="DESCOFRISK" Type="String" MaxLength="750" Unicode="false" FixedLength="false" />
+          <Property Name="MPAY_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_NUM" Type="Int32" />
+          <Property Name="MPAY_DUE" Type="DateTime" />
+          <Property Name="ADD_COV" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ADD_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ADD_COM" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ADD_CRATE" Type="Double" />
+          <Property Name="LOB" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AGENT_COMM" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AGENTLEVEL" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="CASH_CHECK" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="NET_GROSS" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="FEE2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FEE3" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FEEDESC2" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="FEEDESC3" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="RECONCILE" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="CHECK_NUM" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="ENDORSE" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="END_FROM" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="ENDORSERSN" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="SPLIT" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="SPLIT_FROM" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="IOUREASON" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DIR_BILL" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="PRO_SHORT" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="OPT_INFO" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ADD_INFO" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="AG_RNL_SRC" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="WARN_RSN" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="BILL_MGEE" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="POWER10" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="OPT_DOWN" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ADD_DOWN" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CUST_NUM" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="COMM_PAID" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UCOMM_PAID" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DRAFT_NUM" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CONTRACTNO" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="SR22" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CANCEL_DAT" Type="DateTime" />
+          <Property Name="AMT_FIN" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RECEIPT_NO" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="FLAG" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="MPAY_1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_3" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_4" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_5" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_6" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_7" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_8" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_9" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_10" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_11" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_12" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_3" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_4" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_5" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_6" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_7" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_8" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_9" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_10" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_11" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CPAY_12" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DUMMY1" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY3" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY4" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="DUMMY5" Type="Double" />
+          <Property Name="DUMMY6" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DUMMY7" Type="DateTime" />
+          <Property Name="G_ADDRESS1" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="G_ADDRESS2" Type="String" MaxLength="31" Unicode="false" FixedLength="false" />
+          <Property Name="G_CITY" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="G_STATE" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="G_ZIP" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="old_endorsement_policy_ID" Type="Int32" />
+          <Property Name="old_split_policy_ID" Type="Int32" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="time_stamp" Type="DateTime" />
+          <Property Name="Agent_Polmas" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DateEntered" Type="DateTime" />
+          <Property Name="TimeEntered" Type="DateTime" />
+          <Property Name="NAIC" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Broker" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Wholesaler" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PersComm" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="TypeOfBus" Type="String" MaxLength="75" Unicode="false" FixedLength="false" />
+          <Property Name="MGA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CovDesc" Type="String" MaxLength="75" Unicode="false" FixedLength="false" />
+          <Property Name="Plan" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BillingType" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="MvrCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MvrComm" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SR22_CaseNum" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Opt_Contract_Num" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Opt_Desc" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Add_Contract_Num" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Add_Desc" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Reinst_Date" Type="DateTime" />
+          <Property Name="Reinst_Amout" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Reinst_Lapse" Type="Int32" />
+          <Property Name="Escrow_Bill_Rnl" Type="Boolean" />
+          <Property Name="MPAY_13" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_14" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_15" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MPAY_16" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="intAddressID" Type="Int32" />
+          <Property Name="intMGA" Type="Int32" />
+          <Property Name="intLastPage" Type="Byte" />
+          <Property Name="intBasePremium" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="intCommPremium" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="curBaseNonComPremium" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="curTowingRental" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="bolFromRater" Type="Boolean" />
+          <Property Name="LastReceipt" Type="Int32" />
+          <Property Name="PSource" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="intPackage" Type="Int32" />
+          <Property Name="CrossReferenceID" Type="Guid" />
+          <NavigationProperty Name="CLNMA" Relationship="QFWinData_QQ004756Model.FK_Polmas_CLNMAS" FromRole="POLMAS" ToRole="CLNMAS" />
+        </EntityType>
+        <EntityType Name="Rolodex_Main">
+          <Key>
+            <PropertyRef Name="Random" />
+          </Key>
+          <Property Name="Random" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="COMPANY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ContactName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ABBR" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="NAIC" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="BrokerID" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="RATING" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="ADMITTED" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="M_G_A_" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="RolodexTypeChar" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Line1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Line2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Line3" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Line4" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Line5" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Line6" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="NoticeDays" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="StrikeEndeavor" Type="Boolean" />
+          <Property Name="StrikeFailure" Type="Boolean" />
+          <Property Name="AcordOnly" Type="Boolean" />
+          <Property Name="Address" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="Suite" Type="String" MaxLength="31" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Department" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ClaimsPhone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TollFree" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CellPhone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="AddlPhoneType1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="AddlPhoneNum1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="AddlPhoneType2" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="AddlPhoneNum2" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Email1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Web" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="WebLogin" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="PolicyInquiry" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="BillingInquiry" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="ClaimsInquiry" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UseUserName" Type="Boolean" />
+          <Property Name="UsePassword" Type="Boolean" />
+          <Property Name="UseBrokerID" Type="Boolean" />
+          <Property Name="FEIN" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="PosOne" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="PosTwo" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="PosThree" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Agency" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="bolIsMGA" Type="Boolean" />
+          <Property Name="CrossReferenceID" Type="Guid" />
+        </EntityType>
+        <Association Name="FK_Images_CLNMAS">
+          <End Role="CLNMAS" Type="QFWinData_QQ004756Model.CLNMA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="QFWinData_QQ004756Model.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLNMAS">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Memomas_CLNMAS">
+          <End Role="CLNMAS" Type="QFWinData_QQ004756Model.CLNMA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MEMOMAS" Type="QFWinData_QQ004756Model.MEMOMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLNMAS">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="MEMOMAS">
+              <PropertyRef Name="CLIENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polmas_CLNMAS">
+          <End Role="CLNMAS" Type="QFWinData_QQ004756Model.CLNMA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="POLMAS" Type="QFWinData_QQ004756Model.POLMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLNMAS">
+              <PropertyRef Name="Client_ID" />
+            </Principal>
+            <Dependent Role="POLMAS">
+              <PropertyRef Name="CLIENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QFWinData_QQ004756ModelStoreContainer" CdmEntityContainer="QFWinData_Entities">
+          <EntitySetMapping Name="CLNMAS"><EntityTypeMapping TypeName="QFWinData_QQ004756Model.CLNMA"><MappingFragment StoreEntitySet="CLNMAS">
+            <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+            <ScalarProperty Name="Old_Client_ID" ColumnName="Old_Client_ID" />
+            <ScalarProperty Name="UNIQUE" ColumnName="UNIQUE" />
+            <ScalarProperty Name="LASTUPDATE" ColumnName="LASTUPDATE" />
+            <ScalarProperty Name="LASTFUNC" ColumnName="LASTFUNC" />
+            <ScalarProperty Name="CID" ColumnName="CID" />
+            <ScalarProperty Name="CSTATUS" ColumnName="CSTATUS" />
+            <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+            <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+            <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+            <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+            <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+            <ScalarProperty Name="CITY" ColumnName="CITY" />
+            <ScalarProperty Name="STATE" ColumnName="STATE" />
+            <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+            <ScalarProperty Name="HPHONE" ColumnName="HPHONE" />
+            <ScalarProperty Name="WPHONE" ColumnName="WPHONE" />
+            <ScalarProperty Name="Cell" ColumnName="Cell" />
+            <ScalarProperty Name="Beeper" ColumnName="Beeper" />
+            <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+            <ScalarProperty Name="DOB" ColumnName="DOB" />
+            <ScalarProperty Name="SALUTATION" ColumnName="SALUTATION" />
+            <ScalarProperty Name="LANGUAGE" ColumnName="LANGUAGE" />
+            <ScalarProperty Name="SOURCE" ColumnName="SOURCE" />
+            <ScalarProperty Name="AGENCY" ColumnName="AGENCY" />
+            <ScalarProperty Name="AGENT" ColumnName="AGENT" />
+            <ScalarProperty Name="BILLTOTAL" ColumnName="BILLTOTAL" />
+            <ScalarProperty Name="LASTBILL" ColumnName="LASTBILL" />
+            <ScalarProperty Name="ISQUOTE" ColumnName="ISQUOTE" />
+            <ScalarProperty Name="ISAPP" ColumnName="ISAPP" />
+            <ScalarProperty Name="ISMEMO" ColumnName="ISMEMO" />
+            <ScalarProperty Name="ISHOME" ColumnName="ISHOME" />
+            <ScalarProperty Name="SPOUSE" ColumnName="SPOUSE" />
+            <ScalarProperty Name="SPOUSE_DOB" ColumnName="SPOUSE_DOB" />
+            <ScalarProperty Name="PHONETYPE" ColumnName="PHONETYPE" />
+            <ScalarProperty Name="POWER10" ColumnName="POWER10" />
+            <ScalarProperty Name="isCOMMERCIAL" ColumnName="isCOMMERCIAL" />
+            <ScalarProperty Name="X_ADDRESS1" ColumnName="X_ADDRESS1" />
+            <ScalarProperty Name="X_ADDRESS2" ColumnName="X_ADDRESS2" />
+            <ScalarProperty Name="X_CITY" ColumnName="X_CITY" />
+            <ScalarProperty Name="X_STATE" ColumnName="X_STATE" />
+            <ScalarProperty Name="X_ZIP" ColumnName="X_ZIP" />
+            <ScalarProperty Name="LETTER_TO" ColumnName="LETTER_TO" />
+            <ScalarProperty Name="X_ADD_TYPE" ColumnName="X_ADD_TYPE" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="DUMMY1" ColumnName="DUMMY1" />
+            <ScalarProperty Name="DUMMY2" ColumnName="DUMMY2" />
+            <ScalarProperty Name="DUMMY3" ColumnName="DUMMY3" />
+            <ScalarProperty Name="DUMMY4" ColumnName="DUMMY4" />
+            <ScalarProperty Name="DUMMY5" ColumnName="DUMMY5" />
+            <ScalarProperty Name="DUMMY6" ColumnName="DUMMY6" />
+            <ScalarProperty Name="DUMMY7" ColumnName="DUMMY7" />
+            <ScalarProperty Name="ISDUMMY1" ColumnName="ISDUMMY1" />
+            <ScalarProperty Name="ISDUMMY2" ColumnName="ISDUMMY2" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="DateMigrated" ColumnName="DateMigrated" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="time_stamp" ColumnName="time_stamp" />
+            <ScalarProperty Name="Fields_Added_3_1" ColumnName="Fields_Added_3_1" />
+            <ScalarProperty Name="Fields_Started_3_1" ColumnName="Fields_Started_3_1" />
+            <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+            <ScalarProperty Name="HyphenatedLast" ColumnName="HyphenatedLast" />
+            <ScalarProperty Name="SpousesMiddleName" ColumnName="SpousesMiddleName" />
+            <ScalarProperty Name="SpousesHyphenatedLast" ColumnName="SpousesHyphenatedLast" />
+            <ScalarProperty Name="CSR_Clnmas" ColumnName="CSR_Clnmas" />
+            <ScalarProperty Name="DBA" ColumnName="DBA" />
+            <ScalarProperty Name="Referer" ColumnName="Referer" />
+            <ScalarProperty Name="Source2" ColumnName="Source2" />
+            <ScalarProperty Name="DateSold" ColumnName="DateSold" />
+            <ScalarProperty Name="MrMrs" ColumnName="MrMrs" />
+            <ScalarProperty Name="Sex" ColumnName="Sex" />
+            <ScalarProperty Name="Email2" ColumnName="Email2" />
+            <ScalarProperty Name="Attention" ColumnName="Attention" />
+            <ScalarProperty Name="TypeOfBusiness" ColumnName="TypeOfBusiness" />
+            <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+            <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+            <ScalarProperty Name="SpousesOccupation" ColumnName="SpousesOccupation" />
+            <ScalarProperty Name="FEIN" ColumnName="FEIN" />
+            <ScalarProperty Name="HasLife" ColumnName="HasLife" />
+            <ScalarProperty Name="HasHome" ColumnName="HasHome" />
+            <ScalarProperty Name="TimeAdded" ColumnName="TimeAdded" />
+            <ScalarProperty Name="DialStyle" ColumnName="DialStyle" />
+            <ScalarProperty Name="SOURCE_DETAIL" ColumnName="SOURCE_DETAIL" />
+            <ScalarProperty Name="DBA_Name" ColumnName="DBA_Name" />
+            <ScalarProperty Name="strDriverLicenseNamedInsured" ColumnName="strDriverLicenseNamedInsured" />
+            <ScalarProperty Name="strDriverLicenseSpouse" ColumnName="strDriverLicenseSpouse" />
+            <ScalarProperty Name="strDrvLicNamedInsuredState" ColumnName="strDrvLicNamedInsuredState" />
+            <ScalarProperty Name="strDrvLicSpouseState" ColumnName="strDrvLicSpouseState" />
+            <ScalarProperty Name="strURL" ColumnName="strURL" />
+            <ScalarProperty Name="strPhoneType6" ColumnName="strPhoneType6" />
+            <ScalarProperty Name="strPhone6" ColumnName="strPhone6" />
+            <ScalarProperty Name="strPhoneType7" ColumnName="strPhoneType7" />
+            <ScalarProperty Name="strPhone7" ColumnName="strPhone7" />
+            <ScalarProperty Name="strPhoneType8" ColumnName="strPhoneType8" />
+            <ScalarProperty Name="strPhone8" ColumnName="strPhone8" />
+            <ScalarProperty Name="strImage" ColumnName="strImage" />
+            <ScalarProperty Name="strImageDirectory" ColumnName="strImageDirectory" />
+            <ScalarProperty Name="intLastPage" ColumnName="intLastPage" />
+            <ScalarProperty Name="intBusinessType" ColumnName="intBusinessType" />
+            <ScalarProperty Name="strEmergencyContact" ColumnName="strEmergencyContact" />
+            <ScalarProperty Name="datXDate" ColumnName="datXDate" />
+            <ScalarProperty Name="xDate" ColumnName="xDate" />
+            <ScalarProperty Name="strXDateComm" ColumnName="strXDateComm" />
+            <ScalarProperty Name="strImageFileName" ColumnName="strImageFileName" />
+            <ScalarProperty Name="strQFversion" ColumnName="strQFversion" />
+            <ScalarProperty Name="CrossReferenceID" ColumnName="CrossReferenceID" />
+            <ScalarProperty Name="Old_AGENCY" ColumnName="Old_AGENCY" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Companies"><EntityTypeMapping TypeName="QFWinData_QQ004756Model.Company"><MappingFragment StoreEntitySet="Company">
+            <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+            <ScalarProperty Name="Random" ColumnName="Random" />
+            <ScalarProperty Name="Company1" ColumnName="Company" />
+            <ScalarProperty Name="LOB" ColumnName="LOB" />
+            <ScalarProperty Name="QQC" ColumnName="QQC" />
+            <ScalarProperty Name="Agency" ColumnName="Agency" />
+            <ScalarProperty Name="NaicCode" ColumnName="NaicCode" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="NAIC" ColumnName="NAIC" />
+            <ScalarProperty Name="FEIN" ColumnName="FEIN" />
+            <ScalarProperty Name="Coverage" ColumnName="Coverage" />
+            <ScalarProperty Name="downloadCommission" ColumnName="downloadCommission" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Images"><EntityTypeMapping TypeName="QFWinData_QQ004756Model.Image"><MappingFragment StoreEntitySet="Images">
+            <ScalarProperty Name="Images_ID" ColumnName="Images_ID" />
+            <ScalarProperty Name="Old_Images_ID" ColumnName="Old_Images_ID" />
+            <ScalarProperty Name="Old_Client_ID" ColumnName="Old_Client_ID" />
+            <ScalarProperty Name="Old_Policy_ID" ColumnName="Old_Policy_ID" />
+            <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+            <ScalarProperty Name="Policy_ID" ColumnName="Policy_ID" />
+            <ScalarProperty Name="FileName" ColumnName="FileName" />
+            <ScalarProperty Name="TheOle" ColumnName="TheOle" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="Directory" ColumnName="Directory" />
+            <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="DateEntered" ColumnName="DateEntered" />
+            <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+            <ScalarProperty Name="CSR_Images" ColumnName="CSR_Images" />
+            <ScalarProperty Name="strQFVersion" ColumnName="strQFVersion" />
+            <ScalarProperty Name="strPCName" ColumnName="strPCName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MEMOMAS"><EntityTypeMapping TypeName="QFWinData_QQ004756Model.MEMOMA"><MappingFragment StoreEntitySet="MEMOMAS">
+            <ScalarProperty Name="Gen_MEMOLINE" ColumnName="Gen_MEMOLINE" />
+            <ScalarProperty Name="Old_Memo_ID" ColumnName="Old_Memo_ID" />
+            <ScalarProperty Name="Old_Client_ID" ColumnName="Old_Client_ID" />
+            <ScalarProperty Name="Old_Policy_ID" ColumnName="Old_Policy_ID" />
+            <ScalarProperty Name="MEMO_ID" ColumnName="MEMO_ID" />
+            <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+            <ScalarProperty Name="POLICY_ID" ColumnName="POLICY_ID" />
+            <ScalarProperty Name="UNIQUE" ColumnName="UNIQUE" />
+            <ScalarProperty Name="LASTFUNC" ColumnName="LASTFUNC" />
+            <ScalarProperty Name="MEMODATE" ColumnName="MEMODATE" />
+            <ScalarProperty Name="MEMOLINE" ColumnName="MEMOLINE" />
+            <ScalarProperty Name="REMDATE" ColumnName="REMDATE" />
+            <ScalarProperty Name="CSR" ColumnName="CSR" />
+            <ScalarProperty Name="MEMOTYPE" ColumnName="MEMOTYPE" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="Flag" ColumnName="Flag" />
+            <ScalarProperty Name="Mpos" ColumnName="Mpos" />
+            <ScalarProperty Name="IsDaylight" ColumnName="IsDaylight" />
+            <ScalarProperty Name="VoidDate" ColumnName="VoidDate" />
+            <ScalarProperty Name="UnvoidDate" ColumnName="UnvoidDate" />
+            <ScalarProperty Name="DateEntered" ColumnName="DateEntered" />
+            <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+            <ScalarProperty Name="Dummy1" ColumnName="Dummy1" />
+            <ScalarProperty Name="Dummy2" ColumnName="Dummy2" />
+            <ScalarProperty Name="Dummy3" ColumnName="Dummy3" />
+            <ScalarProperty Name="IsNewMemo" ColumnName="IsNewMemo" />
+            <ScalarProperty Name="ShowMemo" ColumnName="ShowMemo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="POLMAS"><EntityTypeMapping TypeName="QFWinData_QQ004756Model.POLMA"><MappingFragment StoreEntitySet="POLMAS">
+            <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+            <ScalarProperty Name="POLICY_ID" ColumnName="POLICY_ID" />
+            <ScalarProperty Name="Old_Policy_ID" ColumnName="Old_Policy_ID" />
+            <ScalarProperty Name="Old_Client_ID" ColumnName="Old_Client_ID" />
+            <ScalarProperty Name="Endorsement_policy_id" ColumnName="Endorsement_policy_id" />
+            <ScalarProperty Name="Split_policy_id" ColumnName="Split_policy_id" />
+            <ScalarProperty Name="UNIQUE" ColumnName="UNIQUE" />
+            <ScalarProperty Name="LASTUPDATE" ColumnName="LASTUPDATE" />
+            <ScalarProperty Name="LASTFUNC" ColumnName="LASTFUNC" />
+            <ScalarProperty Name="PPOS" ColumnName="PPOS" />
+            <ScalarProperty Name="CSTATUS" ColumnName="CSTATUS" />
+            <ScalarProperty Name="PSTATUS" ColumnName="PSTATUS" />
+            <ScalarProperty Name="POLICY_NUM" ColumnName="POLICY_NUM" />
+            <ScalarProperty Name="CSR" ColumnName="CSR" />
+            <ScalarProperty Name="BINDER_NUM" ColumnName="BINDER_NUM" />
+            <ScalarProperty Name="BINDER_DAT" ColumnName="BINDER_DAT" />
+            <ScalarProperty Name="EFFECTIVE" ColumnName="EFFECTIVE" />
+            <ScalarProperty Name="EXPIRATION" ColumnName="EXPIRATION" />
+            <ScalarProperty Name="PERIOD" ColumnName="PERIOD" />
+            <ScalarProperty Name="COVERAGE" ColumnName="COVERAGE" />
+            <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+            <ScalarProperty Name="QQC" ColumnName="QQC" />
+            <ScalarProperty Name="PQUOTED" ColumnName="PQUOTED" />
+            <ScalarProperty Name="PISSUED" ColumnName="PISSUED" />
+            <ScalarProperty Name="PEARNED" ColumnName="PEARNED" />
+            <ScalarProperty Name="PFEE" ColumnName="PFEE" />
+            <ScalarProperty Name="CQUOTED" ColumnName="CQUOTED" />
+            <ScalarProperty Name="CISSUED" ColumnName="CISSUED" />
+            <ScalarProperty Name="CEARNED" ColumnName="CEARNED" />
+            <ScalarProperty Name="CRATE" ColumnName="CRATE" />
+            <ScalarProperty Name="CINC" ColumnName="CINC" />
+            <ScalarProperty Name="CTAX" ColumnName="CTAX" />
+            <ScalarProperty Name="CFUL" ColumnName="CFUL" />
+            <ScalarProperty Name="FINCOMPANY" ColumnName="FINCOMPANY" />
+            <ScalarProperty Name="DN_PAYMENT" ColumnName="DN_PAYMENT" />
+            <ScalarProperty Name="IOU" ColumnName="IOU" />
+            <ScalarProperty Name="AGENCY_FEE" ColumnName="AGENCY_FEE" />
+            <ScalarProperty Name="MVR_FEE" ColumnName="MVR_FEE" />
+            <ScalarProperty Name="WARNING" ColumnName="WARNING" />
+            <ScalarProperty Name="OPT_COV" ColumnName="OPT_COV" />
+            <ScalarProperty Name="OPT_AMT" ColumnName="OPT_AMT" />
+            <ScalarProperty Name="OPT_COM" ColumnName="OPT_COM" />
+            <ScalarProperty Name="OPT_CRATE" ColumnName="OPT_CRATE" />
+            <ScalarProperty Name="DESCOFRISK" ColumnName="DESCOFRISK" />
+            <ScalarProperty Name="MPAY_AMT" ColumnName="MPAY_AMT" />
+            <ScalarProperty Name="MPAY_NUM" ColumnName="MPAY_NUM" />
+            <ScalarProperty Name="MPAY_DUE" ColumnName="MPAY_DUE" />
+            <ScalarProperty Name="ADD_COV" ColumnName="ADD_COV" />
+            <ScalarProperty Name="ADD_AMT" ColumnName="ADD_AMT" />
+            <ScalarProperty Name="ADD_COM" ColumnName="ADD_COM" />
+            <ScalarProperty Name="ADD_CRATE" ColumnName="ADD_CRATE" />
+            <ScalarProperty Name="LOB" ColumnName="LOB" />
+            <ScalarProperty Name="AGENT_COMM" ColumnName="AGENT_COMM" />
+            <ScalarProperty Name="AGENTLEVEL" ColumnName="AGENTLEVEL" />
+            <ScalarProperty Name="CASH_CHECK" ColumnName="CASH_CHECK" />
+            <ScalarProperty Name="NET_GROSS" ColumnName="NET_GROSS" />
+            <ScalarProperty Name="FEE2" ColumnName="FEE2" />
+            <ScalarProperty Name="FEE3" ColumnName="FEE3" />
+            <ScalarProperty Name="FEEDESC2" ColumnName="FEEDESC2" />
+            <ScalarProperty Name="FEEDESC3" ColumnName="FEEDESC3" />
+            <ScalarProperty Name="RECONCILE" ColumnName="RECONCILE" />
+            <ScalarProperty Name="CHECK_NUM" ColumnName="CHECK_NUM" />
+            <ScalarProperty Name="ENDORSE" ColumnName="ENDORSE" />
+            <ScalarProperty Name="END_FROM" ColumnName="END_FROM" />
+            <ScalarProperty Name="ENDORSERSN" ColumnName="ENDORSERSN" />
+            <ScalarProperty Name="SPLIT" ColumnName="SPLIT" />
+            <ScalarProperty Name="SPLIT_FROM" ColumnName="SPLIT_FROM" />
+            <ScalarProperty Name="IOUREASON" ColumnName="IOUREASON" />
+            <ScalarProperty Name="DIR_BILL" ColumnName="DIR_BILL" />
+            <ScalarProperty Name="PRO_SHORT" ColumnName="PRO_SHORT" />
+            <ScalarProperty Name="OPT_INFO" ColumnName="OPT_INFO" />
+            <ScalarProperty Name="ADD_INFO" ColumnName="ADD_INFO" />
+            <ScalarProperty Name="AG_RNL_SRC" ColumnName="AG_RNL_SRC" />
+            <ScalarProperty Name="WARN_RSN" ColumnName="WARN_RSN" />
+            <ScalarProperty Name="BILL_MGEE" ColumnName="BILL_MGEE" />
+            <ScalarProperty Name="POWER10" ColumnName="POWER10" />
+            <ScalarProperty Name="OPT_DOWN" ColumnName="OPT_DOWN" />
+            <ScalarProperty Name="ADD_DOWN" ColumnName="ADD_DOWN" />
+            <ScalarProperty Name="CUST_NUM" ColumnName="CUST_NUM" />
+            <ScalarProperty Name="COMM_PAID" ColumnName="COMM_PAID" />
+            <ScalarProperty Name="UCOMM_PAID" ColumnName="UCOMM_PAID" />
+            <ScalarProperty Name="DRAFT_NUM" ColumnName="DRAFT_NUM" />
+            <ScalarProperty Name="CONTRACTNO" ColumnName="CONTRACTNO" />
+            <ScalarProperty Name="SR22" ColumnName="SR22" />
+            <ScalarProperty Name="CANCEL_DAT" ColumnName="CANCEL_DAT" />
+            <ScalarProperty Name="AMT_FIN" ColumnName="AMT_FIN" />
+            <ScalarProperty Name="RECEIPT_NO" ColumnName="RECEIPT_NO" />
+            <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+            <ScalarProperty Name="MPAY_1" ColumnName="MPAY_1" />
+            <ScalarProperty Name="MPAY_2" ColumnName="MPAY_2" />
+            <ScalarProperty Name="MPAY_3" ColumnName="MPAY_3" />
+            <ScalarProperty Name="MPAY_4" ColumnName="MPAY_4" />
+            <ScalarProperty Name="MPAY_5" ColumnName="MPAY_5" />
+            <ScalarProperty Name="MPAY_6" ColumnName="MPAY_6" />
+            <ScalarProperty Name="MPAY_7" ColumnName="MPAY_7" />
+            <ScalarProperty Name="MPAY_8" ColumnName="MPAY_8" />
+            <ScalarProperty Name="MPAY_9" ColumnName="MPAY_9" />
+            <ScalarProperty Name="MPAY_10" ColumnName="MPAY_10" />
+            <ScalarProperty Name="MPAY_11" ColumnName="MPAY_11" />
+            <ScalarProperty Name="MPAY_12" ColumnName="MPAY_12" />
+            <ScalarProperty Name="CPAY_1" ColumnName="CPAY_1" />
+            <ScalarProperty Name="CPAY_2" ColumnName="CPAY_2" />
+            <ScalarProperty Name="CPAY_3" ColumnName="CPAY_3" />
+            <ScalarProperty Name="CPAY_4" ColumnName="CPAY_4" />
+            <ScalarProperty Name="CPAY_5" ColumnName="CPAY_5" />
+            <ScalarProperty Name="CPAY_6" ColumnName="CPAY_6" />
+            <ScalarProperty Name="CPAY_7" ColumnName="CPAY_7" />
+            <ScalarProperty Name="CPAY_8" ColumnName="CPAY_8" />
+            <ScalarProperty Name="CPAY_9" ColumnName="CPAY_9" />
+            <ScalarProperty Name="CPAY_10" ColumnName="CPAY_10" />
+            <ScalarProperty Name="CPAY_11" ColumnName="CPAY_11" />
+            <ScalarProperty Name="CPAY_12" ColumnName="CPAY_12" />
+            <ScalarProperty Name="DUMMY1" ColumnName="DUMMY1" />
+            <ScalarProperty Name="DUMMY2" ColumnName="DUMMY2" />
+            <ScalarProperty Name="DUMMY3" ColumnName="DUMMY3" />
+            <ScalarProperty Name="DUMMY4" ColumnName="DUMMY4" />
+            <ScalarProperty Name="DUMMY5" ColumnName="DUMMY5" />
+            <ScalarProperty Name="DUMMY6" ColumnName="DUMMY6" />
+            <ScalarProperty Name="DUMMY7" ColumnName="DUMMY7" />
+            <ScalarProperty Name="G_ADDRESS1" ColumnName="G_ADDRESS1" />
+            <ScalarProperty Name="G_ADDRESS2" ColumnName="G_ADDRESS2" />
+            <ScalarProperty Name="G_CITY" ColumnName="G_CITY" />
+            <ScalarProperty Name="G_STATE" ColumnName="G_STATE" />
+            <ScalarProperty Name="G_ZIP" ColumnName="G_ZIP" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="old_endorsement_policy_ID" ColumnName="old_endorsement_policy_ID" />
+            <ScalarProperty Name="old_split_policy_ID" ColumnName="old_split_policy_ID" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="time_stamp" ColumnName="time_stamp" />
+            <ScalarProperty Name="Agent_Polmas" ColumnName="Agent_Polmas" />
+            <ScalarProperty Name="DateEntered" ColumnName="DateEntered" />
+            <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+            <ScalarProperty Name="NAIC" ColumnName="NAIC" />
+            <ScalarProperty Name="Broker" ColumnName="Broker" />
+            <ScalarProperty Name="Wholesaler" ColumnName="Wholesaler" />
+            <ScalarProperty Name="PersComm" ColumnName="PersComm" />
+            <ScalarProperty Name="TypeOfBus" ColumnName="TypeOfBus" />
+            <ScalarProperty Name="MGA" ColumnName="MGA" />
+            <ScalarProperty Name="CovDesc" ColumnName="CovDesc" />
+            <ScalarProperty Name="Plan" ColumnName="Plan" />
+            <ScalarProperty Name="BillingType" ColumnName="BillingType" />
+            <ScalarProperty Name="MvrCost" ColumnName="MvrCost" />
+            <ScalarProperty Name="MvrComm" ColumnName="MvrComm" />
+            <ScalarProperty Name="SR22_CaseNum" ColumnName="SR22_CaseNum" />
+            <ScalarProperty Name="Opt_Contract_Num" ColumnName="Opt_Contract_Num" />
+            <ScalarProperty Name="Opt_Desc" ColumnName="Opt_Desc" />
+            <ScalarProperty Name="Add_Contract_Num" ColumnName="Add_Contract_Num" />
+            <ScalarProperty Name="Add_Desc" ColumnName="Add_Desc" />
+            <ScalarProperty Name="Reinst_Date" ColumnName="Reinst_Date" />
+            <ScalarProperty Name="Reinst_Amout" ColumnName="Reinst_Amout" />
+            <ScalarProperty Name="Reinst_Lapse" ColumnName="Reinst_Lapse" />
+            <ScalarProperty Name="Escrow_Bill_Rnl" ColumnName="Escrow_Bill_Rnl" />
+            <ScalarProperty Name="MPAY_13" ColumnName="MPAY_13" />
+            <ScalarProperty Name="MPAY_14" ColumnName="MPAY_14" />
+            <ScalarProperty Name="MPAY_15" ColumnName="MPAY_15" />
+            <ScalarProperty Name="MPAY_16" ColumnName="MPAY_16" />
+            <ScalarProperty Name="intAddressID" ColumnName="intAddressID" />
+            <ScalarProperty Name="intMGA" ColumnName="intMGA" />
+            <ScalarProperty Name="intLastPage" ColumnName="intLastPage" />
+            <ScalarProperty Name="intBasePremium" ColumnName="intBasePremium" />
+            <ScalarProperty Name="intCommPremium" ColumnName="intCommPremium" />
+            <ScalarProperty Name="curBaseNonComPremium" ColumnName="curBaseNonComPremium" />
+            <ScalarProperty Name="curTowingRental" ColumnName="curTowingRental" />
+            <ScalarProperty Name="bolFromRater" ColumnName="bolFromRater" />
+            <ScalarProperty Name="LastReceipt" ColumnName="LastReceipt" />
+            <ScalarProperty Name="PSource" ColumnName="PSource" />
+            <ScalarProperty Name="intPackage" ColumnName="intPackage" />
+            <ScalarProperty Name="CrossReferenceID" ColumnName="CrossReferenceID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Rolodex_Main"><EntityTypeMapping TypeName="QFWinData_QQ004756Model.Rolodex_Main"><MappingFragment StoreEntitySet="Rolodex_Main">
+            <ScalarProperty Name="Random" ColumnName="Random" />
+            <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+            <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+            <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+            <ScalarProperty Name="ABBR" ColumnName="ABBR" />
+            <ScalarProperty Name="NAIC" ColumnName="NAIC" />
+            <ScalarProperty Name="BrokerID" ColumnName="BrokerID" />
+            <ScalarProperty Name="RATING" ColumnName="RATING" />
+            <ScalarProperty Name="ADMITTED" ColumnName="ADMITTED" />
+            <ScalarProperty Name="M_G_A_" ColumnName="M_G_A_" />
+            <ScalarProperty Name="RolodexTypeChar" ColumnName="RolodexTypeChar" />
+            <ScalarProperty Name="Line1" ColumnName="Line1" />
+            <ScalarProperty Name="Line2" ColumnName="Line2" />
+            <ScalarProperty Name="Line3" ColumnName="Line3" />
+            <ScalarProperty Name="Line4" ColumnName="Line4" />
+            <ScalarProperty Name="Line5" ColumnName="Line5" />
+            <ScalarProperty Name="Line6" ColumnName="Line6" />
+            <ScalarProperty Name="NoticeDays" ColumnName="NoticeDays" />
+            <ScalarProperty Name="StrikeEndeavor" ColumnName="StrikeEndeavor" />
+            <ScalarProperty Name="StrikeFailure" ColumnName="StrikeFailure" />
+            <ScalarProperty Name="AcordOnly" ColumnName="AcordOnly" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Suite" ColumnName="Suite" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+            <ScalarProperty Name="Department" ColumnName="Department" />
+            <ScalarProperty Name="Fax" ColumnName="Fax" />
+            <ScalarProperty Name="ClaimsPhone" ColumnName="ClaimsPhone" />
+            <ScalarProperty Name="TollFree" ColumnName="TollFree" />
+            <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+            <ScalarProperty Name="AddlPhoneType1" ColumnName="AddlPhoneType1" />
+            <ScalarProperty Name="AddlPhoneNum1" ColumnName="AddlPhoneNum1" />
+            <ScalarProperty Name="AddlPhoneType2" ColumnName="AddlPhoneType2" />
+            <ScalarProperty Name="AddlPhoneNum2" ColumnName="AddlPhoneNum2" />
+            <ScalarProperty Name="Email1" ColumnName="Email1" />
+            <ScalarProperty Name="Email2" ColumnName="Email2" />
+            <ScalarProperty Name="Web" ColumnName="Web" />
+            <ScalarProperty Name="WebLogin" ColumnName="WebLogin" />
+            <ScalarProperty Name="PolicyInquiry" ColumnName="PolicyInquiry" />
+            <ScalarProperty Name="BillingInquiry" ColumnName="BillingInquiry" />
+            <ScalarProperty Name="ClaimsInquiry" ColumnName="ClaimsInquiry" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="UseUserName" ColumnName="UseUserName" />
+            <ScalarProperty Name="UsePassword" ColumnName="UsePassword" />
+            <ScalarProperty Name="UseBrokerID" ColumnName="UseBrokerID" />
+            <ScalarProperty Name="FEIN" ColumnName="FEIN" />
+            <ScalarProperty Name="PosOne" ColumnName="PosOne" />
+            <ScalarProperty Name="PosTwo" ColumnName="PosTwo" />
+            <ScalarProperty Name="PosThree" ColumnName="PosThree" />
+            <ScalarProperty Name="Agency" ColumnName="Agency" />
+            <ScalarProperty Name="bolIsMGA" ColumnName="bolIsMGA" />
+            <ScalarProperty Name="CrossReferenceID" ColumnName="CrossReferenceID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ModelEData">
+        <EntityTypeShape EntityType="QFWinData_QQ004756Model.CLNMA" Width="1.5" PointX="0.875" PointY="0.5" Height="19.013123372395832" IsExpanded="true" />
+        <EntityTypeShape EntityType="QFWinData_QQ004756Model.Company" Width="1.5" PointX="3.125" PointY="8.125" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="QFWinData_QQ004756Model.Image" Width="1.5" PointX="3" PointY="0.5" Height="3.8931689453124996" IsExpanded="true" />
+        <EntityTypeShape EntityType="QFWinData_QQ004756Model.MEMOMA" Width="1.5" PointX="5.125" PointY="0.5" Height="5.5366422526041656" IsExpanded="true" />
+        <EntityTypeShape EntityType="QFWinData_QQ004756Model.POLMA" Width="1.5" PointX="7.25" PointY="0.5" Height="28.709615885416671" IsExpanded="true" />
+        <EntityTypeShape EntityType="QFWinData_QQ004756Model.Rolodex_Main" Width="1.5" PointX="5" PointY="8.125" Height="9.8096728515625031" IsExpanded="true" />
+        <AssociationConnector Association="QFWinData_QQ004756Model.FK_Images_CLNMAS" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.375" PointY="2.44658447265625" />
+          <ConnectorPoint PointX="3" PointY="2.44658447265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="QFWinData_QQ004756Model.FK_Memomas_CLNMAS" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.375" PointY="5.3283292643229156" />
+          <ConnectorPoint PointX="5.125" PointY="5.3283292643229156" />
+        </AssociationConnector>
+        <AssociationConnector Association="QFWinData_QQ004756Model.FK_Polmas_CLNMAS" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.375" PointY="7.2254947916666659" />
+          <ConnectorPoint PointX="7.25" PointY="7.2254947916666659" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
