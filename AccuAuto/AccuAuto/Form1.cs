@@ -21,6 +21,7 @@ namespace AccuAuto
     public partial class Form1 : Form
     {
         private ClassClient client = new ClassClient();
+        private QFWinData_Entities db;
         private string connString = @"metadata=res://*/ModelEData.csdl|res://*/ModelEData.ssdl|res://*/ModelEData.msl; provider=System.Data.SqlClient; provider connection string="" Data Source={0}; Initial Catalog={1}; Persist Security Info=True; User ID={2}; Password={3}; MultipleActiveResultSets=True""";
         public Form1()
         {
@@ -28,6 +29,7 @@ namespace AccuAuto
             lblFile.Text = "";
             lblGroup.Text = "";
             lblCounter.Text = "";
+            client.add("asfd", 34);
         }
 
         private void updGroup(string strText, int intCounter)
@@ -41,8 +43,12 @@ namespace AccuAuto
 
         private void updFile(string strText)
         {
-            lblCounter.Text  = (Convert.ToInt32(lblCounter.Text) -1).ToString();
-            lblCounter.Refresh();
+            try
+            {
+                lblCounter.Text = (Convert.ToInt32(lblCounter.Text) - 1).ToString();
+                lblCounter.Refresh();
+            }
+            catch { }
             lblFile.Text = strText;
             lblFile.Refresh(); 
         }
@@ -57,13 +63,30 @@ namespace AccuAuto
             var DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text);
             if (DirInfo.Exists)
             {
+                db = new QFWinData_Entities(connString);            
                 DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Client");
                 if (DirInfo.Exists)
                 {                    
                     btnImport.Enabled = false;                    
                     
-                    updGroup("Client", DirInfo.GetFiles().Length);
+                    updGroup("Importing Clients", DirInfo.GetFiles().Length);
                     doClients(DirInfo);
+                    DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy");
+                    if (DirInfo.Exists)
+                    {
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\PersAutoPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroup("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
+                            doPolicies(DirInfo, "AUTO");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\BoatPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroup("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
+                            doPolicies(DirInfo, "BOAT");
+                        }
+                    }
 
                     updGroup("  All Done! ", 0);                    
                 }
@@ -76,8 +99,7 @@ namespace AccuAuto
         }
 
         private void doClients(System.IO.DirectoryInfo migrationDir)
-        {            
-            QFWinData_Entities db = new QFWinData_Entities(connString);            
+        {                        
             var files = migrationDir.GetFiles();
             DateTime myDM = DateTime.Now;
             foreach (var file in files)
@@ -96,11 +118,15 @@ namespace AccuAuto
                             CompanyName = json.DisplayName,
                             LNAME = json.Name.LastName,
                             FNAME = json.Name.FirstName,
-                            MiddleName = json.Name.MiddleName,
-                            //DOB = json.BirthDate,
+                            MiddleName = json.Name.MiddleName,                            
                             SOURCE = json.Source,
                             CSTATUS = (json.ClientStatus == "Prospect") ? "P" : "A",                        
                         };
+                        try
+                        {
+                            item.DOB = json.BirthDate.Substring(0, 10);
+                        }
+                        catch { }
                         try
                         {
                             item.ADDRESS1 = json.Addresses[0].Line1;
@@ -118,9 +144,34 @@ namespace AccuAuto
             }
         }
 
-        private void doPolicies(System.IO.DirectoryInfo migrationDir)
-        {
-
+        private void doPolicies(System.IO.DirectoryInfo migrationDir, string lob)
+        {           
+            var files = migrationDir.GetFiles();
+            foreach (var file in files)
+            {
+                updFile(file.Name);
+                try
+                {
+                    using (var t = new StreamReader(file.FullName))
+                    {
+                        var bits = t.ReadToEnd();
+                        dynamic json = JsonHelper.Decode(bits);
+                        int clientID = client.getID(json.NamedInsured.Id + ".json");
+                        if (clientID > 0)
+                        {
+                            POLMA item = new POLMA()
+                            {
+                                CLIENT_ID = clientID,
+                                POLICY_NUM = json.PolicyNumber,
+                                LOB = lob
+                            };
+                            db.POLMAS.AddObject(item);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+                catch { }
+            }
         }
     }
 }

@@ -34,14 +34,14 @@
             this.lblGroup = new System.Windows.Forms.Label();
             this.lblFile = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbServer = new System.Windows.Forms.TextBox();
-            this.txbDB = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txbUser = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txbPassw = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txbUser = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txbDB = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txbServer = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblCounter = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -107,39 +107,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SQL Server";
             // 
-            // label2
+            // txbPassw
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Server Name:";
+            this.txbPassw.Location = new System.Drawing.Point(256, 82);
+            this.txbPassw.Name = "txbPassw";
+            this.txbPassw.Size = new System.Drawing.Size(100, 20);
+            this.txbPassw.TabIndex = 7;
+            this.txbPassw.Text = "Ncnysn4378$";
             // 
-            // txbServer
+            // label5
             // 
-            this.txbServer.Location = new System.Drawing.Point(101, 31);
-            this.txbServer.Name = "txbServer";
-            this.txbServer.Size = new System.Drawing.Size(255, 20);
-            this.txbServer.TabIndex = 1;
-            this.txbServer.Text = "iprodhost.prod.qq\\iprod04,32459";
-            // 
-            // txbDB
-            // 
-            this.txbDB.Location = new System.Drawing.Point(101, 57);
-            this.txbDB.Name = "txbDB";
-            this.txbDB.Size = new System.Drawing.Size(255, 20);
-            this.txbDB.TabIndex = 3;
-            this.txbDB.Text = "QFWinData_QQ999999";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "DB Name:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(215, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Passw:";
             // 
             // txbUser
             // 
@@ -158,26 +141,43 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "User:";
             // 
-            // txbPassw
+            // txbDB
             // 
-            this.txbPassw.Location = new System.Drawing.Point(256, 82);
-            this.txbPassw.Name = "txbPassw";
-            this.txbPassw.Size = new System.Drawing.Size(100, 20);
-            this.txbPassw.TabIndex = 7;
-            this.txbPassw.Text = "Ncnysn4378$";
+            this.txbDB.Location = new System.Drawing.Point(101, 57);
+            this.txbDB.Name = "txbDB";
+            this.txbDB.Size = new System.Drawing.Size(255, 20);
+            this.txbDB.TabIndex = 3;
+            this.txbDB.Text = "QFWinData_QQ999999";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(215, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Passw:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(45, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "DB Name:";
+            // 
+            // txbServer
+            // 
+            this.txbServer.Location = new System.Drawing.Point(101, 31);
+            this.txbServer.Name = "txbServer";
+            this.txbServer.Size = new System.Drawing.Size(255, 20);
+            this.txbServer.TabIndex = 1;
+            this.txbServer.Text = "iprodhost.prod.qq\\iprod04,32459";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Server Name:";
             // 
             // lblCounter
             // 
-            this.lblCounter.Location = new System.Drawing.Point(48, 227);
+            this.lblCounter.Location = new System.Drawing.Point(71, 227);
             this.lblCounter.Name = "lblCounter";
             this.lblCounter.Size = new System.Drawing.Size(62, 14);
             this.lblCounter.TabIndex = 6;
