@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassClient.cs" />
+    <Compile Include="ClassConvert.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
