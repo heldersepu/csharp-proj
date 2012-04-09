@@ -65,17 +65,71 @@ namespace AccuAuto
                     DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy");
                     if (DirInfo.Exists)
                     {
-                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\PersAutoPolicy");
-                        if (DirInfo.Exists)
-                        {
-                            updGroupLabel("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
-                            convert.doPolicies(this, DirInfo, "AUTO");
-                        }
                         DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\BoatPolicy");
                         if (DirInfo.Exists)
                         {
                             updGroupLabel("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
                             convert.doPolicies(this, DirInfo, "BOAT");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\CommercialAutoPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing CommercialAutoPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "AUTOB");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\ExcessLiabilityPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing ExcessLiabilityPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "ELIAB");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\FireDwellingPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing FireDwellingPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "DFIRE");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\GeneralLiabilityPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing GeneralLiabilityPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "CGL");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\GenericPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing GenericPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "GenericPolicy");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\HomePolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing HomePolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "HOME");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\LifePolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing GenericPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "LIFE");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\MobileHomePolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing HomePolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "MHOME");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\MotorcyclePolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "AUTO");
+                        }
+                        DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\PersAutoPolicy");
+                        if (DirInfo.Exists)
+                        {
+                            updGroupLabel("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
+                            convert.doPolicies(this, DirInfo, "AUTO");
                         }
                     }
 
