@@ -124,7 +124,7 @@ namespace AccuAuto
                         };
                         try
                         {
-                            item.DOB = json.BirthDate.Substring(0, 10);
+                            item.DOB = Convert.ToDateTime(json.BirthDate.Substring(0, 10));
                         }
                         catch { }
                         try
@@ -166,6 +166,24 @@ namespace AccuAuto
                                 POLICY_NUM = json.PolicyNumber,
                                 LOB = lob
                             };
+                            try
+                            {
+                                item.EFFECTIVE = Convert.ToDateTime(json.EffectiveDate.Substring(0, 10));
+                                item.EXPIRATION = Convert.ToDateTime(json.RenewDate.Substring(0, 10));                                
+                            }
+                            catch { }
+                            try
+                            {
+                                item.CSR = json.Producer;
+                                item.EXPIRATION = json.RenewDate;
+                                item.BINDER_NUM = json.BinderNumber;
+                                item.COMPANY = json.CompanyName;
+                                item.PISSUED = json.CurrentTermAmount;
+                                item.PQUOTED = json.CurrentTermAmount;
+                                item.PERIOD = json.ContractTerm;
+                                item.PSTATUS = (json.Status == "Expired") ? "X" : "A";
+                            }
+                            catch { }
                             db.POLMAS.AddObject(item);
                             db.SaveChanges();
                         }
