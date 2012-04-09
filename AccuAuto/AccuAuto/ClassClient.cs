@@ -38,5 +38,10 @@ namespace AccuAuto
             int index = clientList.FindIndex(item => item.OldId == strOldId);
             return clientList[index].clientID;
         }
+        
+        public int count()
+        {
+            return clientList.Count;
+        }
     }
 }

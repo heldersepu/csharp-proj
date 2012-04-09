@@ -53,6 +53,33 @@ namespace AccuAuto
                             item.CITY = json.Addresses[0].City;
                             item.STATE = json.Addresses[0].State;
                             item.ZIP = json.Addresses[0].Zip;
+                            item.ADDRESS2 = json.Addresses[0].Line2;
+                        }
+                        catch { }
+                        try
+                        {
+                            if (json.Contacts.Count > 0)
+                            {
+                                foreach (dynamic Contact in json.Contacts)
+                                {
+                                    if (Contact.ContactType == "HomePhone")
+                                    {
+                                        item.HPHONE = Contact.Value;
+                                    }
+                                    else if (Contact.ContactType == "WorkPhone")
+                                    {
+                                        item.WPHONE = Contact.Value;
+                                    }
+                                    else if (Contact.ContactType == "MobilePhone")
+                                    {
+                                        item.Cell = Contact.Value;
+                                    }
+                                    else if (Contact.ContactType == "Email")
+                                    {
+                                        item.Email = Contact.Value;
+                                    }
+                                }
+                            }
                         }
                         catch { }
                         try
@@ -69,6 +96,7 @@ namespace AccuAuto
                         db.CLNMAS.AddObject(item);
                         db.SaveChanges();
                         client.add(file.Name, item.Client_ID, strOldID);
+                        if (client.count() > 1000) break;
                     }
                 }
                 catch { }
@@ -105,14 +133,13 @@ namespace AccuAuto
                             try
                             {
                                 item.CSR = json.Producer;
-                                item.EXPIRATION = json.RenewDate;
                                 item.BINDER_NUM = json.BinderNumber;
                                 item.COMPANY = json.CompanyName;
-                                item.PISSUED = json.CurrentTermAmount;
-                                item.PQUOTED = json.CurrentTermAmount;
-                                item.PERIOD = json.ContractTerm;
+                                item.PISSUED = Convert.ToDecimal(json.CurrentTermAmount);
+                                item.PQUOTED = item.PISSUED;
+                                item.PERIOD = Convert.ToString(json.ContractTerm);
                                 item.PSTATUS = (json.Status == "Expired") ? "X" : "A";
-                                item.CEARNED = json.CommissionAmount;
+                                item.CEARNED = Convert.ToDecimal(json.CommissionAmount);
                             }
                             catch { }
                             db.POLMAS.AddObject(item);
