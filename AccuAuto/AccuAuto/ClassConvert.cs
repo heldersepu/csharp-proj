@@ -85,7 +85,7 @@ namespace AccuAuto
                         catch { }
                         try
                         {
-                            item.datXDate = Convert.ToDateTime(json.Comments[0].ModifiedDate.Substring(0, 10));
+                            item.datXDate = Convert.ToDateTime(json.Comments[0].ModifiedDate);
                             item.strXDateComm = json.Comments[0].Text;
                         }
                         catch { }
@@ -96,7 +96,7 @@ namespace AccuAuto
                         catch { }
                         try
                         {
-                            item.DOB = Convert.ToDateTime(json.BirthDate.Substring(0, 10));
+                            item.DOB = Convert.ToDateTime(json.BirthDate);
                         }
                         catch { }
                         try
@@ -138,8 +138,8 @@ namespace AccuAuto
                             };
                             try
                             {
-                                item.EFFECTIVE = Convert.ToDateTime(json.EffectiveDate.Substring(0, 10));
-                                item.EXPIRATION = Convert.ToDateTime(json.RenewDate.Substring(0, 10));
+                                item.EFFECTIVE = Convert.ToDateTime(json.EffectiveDate);
+                                item.EXPIRATION = Convert.ToDateTime(json.RenewDate);
                             }
                             catch { }
                             try
@@ -188,7 +188,7 @@ namespace AccuAuto
                             try
                             {
                                 item.CSR_Images = json.CreatedBy;
-                                item.DateEntered = Convert.ToDateTime(json.CreatedDate.Substring(0, 10));
+                                item.DateEntered = Convert.ToDateTime(json.CreatedDate);
                                 item.FileDate = item.DateEntered;
                                 item.TimeEntered = item.DateEntered;
                             }
