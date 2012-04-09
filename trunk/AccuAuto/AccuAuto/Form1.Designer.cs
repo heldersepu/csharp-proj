@@ -76,17 +76,17 @@
             // 
             // lblGroup
             // 
-            this.lblGroup.Location = new System.Drawing.Point(48, 205);
+            this.lblGroup.Location = new System.Drawing.Point(32, 205);
             this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(109, 13);
+            this.lblGroup.Size = new System.Drawing.Size(147, 13);
             this.lblGroup.TabIndex = 3;
             this.lblGroup.Text = "---";
             // 
             // lblFile
             // 
-            this.lblFile.Location = new System.Drawing.Point(163, 205);
+            this.lblFile.Location = new System.Drawing.Point(185, 205);
             this.lblFile.Name = "lblFile";
-            this.lblFile.Size = new System.Drawing.Size(301, 13);
+            this.lblFile.Size = new System.Drawing.Size(258, 13);
             this.lblFile.TabIndex = 4;
             this.lblFile.Text = "---";
             // 
