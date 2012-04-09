@@ -29,10 +29,9 @@ namespace AccuAuto
             lblFile.Text = "";
             lblGroup.Text = "";
             lblCounter.Text = "";
-            client.add("asfd", 34);
         }
 
-        private void updGroup(string strText, int intCounter)
+        private void updGroupLabel(string strText, int intCounter)
         {
             lblGroup.Text = strText;
             lblCounter.Text  = intCounter.ToString();
@@ -41,7 +40,7 @@ namespace AccuAuto
             System.Threading.Thread.Sleep(1000);            
         }
 
-        private void updFile(string strText)
+        private void updFileLabel(string strText)
         {
             try
             {
@@ -69,26 +68,34 @@ namespace AccuAuto
                 {                    
                     btnImport.Enabled = false;                    
                     
-                    updGroup("Importing Clients", DirInfo.GetFiles().Length);
+                    updGroupLabel("Importing Clients", DirInfo.GetFiles().Length);
                     doClients(DirInfo);
+
                     DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy");
                     if (DirInfo.Exists)
                     {
                         DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\PersAutoPolicy");
                         if (DirInfo.Exists)
                         {
-                            updGroup("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
-                            doPolicies(DirInfo, "AUTO");
+                            updGroupLabel("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
+                            //doPolicies(DirInfo, "AUTO");
                         }
                         DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\Policy\BoatPolicy");
                         if (DirInfo.Exists)
                         {
-                            updGroup("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
-                            doPolicies(DirInfo, "BOAT");
+                            updGroupLabel("Importing PersAutoPolicy Policies", DirInfo.GetFiles().Length);
+                            //doPolicies(DirInfo, "BOAT");
                         }
                     }
 
-                    updGroup("  All Done! ", 0);                    
+                    DirInfo = new System.IO.DirectoryInfo(txbDirectory.Text + @"\FileAttachment");
+                    if (DirInfo.Exists)
+                    {
+                        updGroupLabel("Importing Images", DirInfo.GetFiles().Length);
+                        doImages(DirInfo);
+                    }
+
+                    updGroupLabel("  All Done! ", 0);                    
                 }
             }
             else
@@ -104,16 +111,18 @@ namespace AccuAuto
             DateTime myDM = DateTime.Now;
             foreach (var file in files)
             {
-                updFile(file.Name);
+                updFileLabel(file.Name);
                 try
                 {
                     using (var t = new StreamReader(file.FullName))
                     {                    
+                        string strOldID = "";
                         var bits = t.ReadToEnd();
                         dynamic json = JsonHelper.Decode(bits);
                         CLNMA item = new CLNMA()
                         {
                             UNIQUE = "AccuAuto",
+                            DBA = file.Name,
                             DateMigrated = myDM,
                             CompanyName = json.DisplayName,
                             LNAME = json.Name.LastName,
@@ -124,21 +133,26 @@ namespace AccuAuto
                         };
                         try
                         {
+                            item.ADDRESS1 = json.Addresses[0].Line1;
+                            item.CITY = json.Addresses[0].City;
+                            item.STATE = json.Addresses[0].State;
+                            item.ZIP = json.Addresses[0].Zip;
+                        }
+                        catch { }
+                        try
+                        {
                             item.DOB = Convert.ToDateTime(json.BirthDate.Substring(0, 10));
                         }
                         catch { }
                         try
                         {
-                            item.ADDRESS1 = json.Addresses[0].Line1;
-                            item.CITY = json.Addresses[0].City;
-                            item.STATE = json.Addresses[0].State;
-                            item.ZIP = json.Addresses[0].Zip;
-                        }                              
+                            strOldID = json.OldId;
+                        }
                         catch { }
 
                         db.CLNMAS.AddObject(item);
                         db.SaveChanges();
-                        client.add(file.Name, item.Client_ID);
+                        client.add(file.Name, item.Client_ID, strOldID);
                     }
                 }
                 catch { }
@@ -150,7 +164,7 @@ namespace AccuAuto
             var files = migrationDir.GetFiles();
             foreach (var file in files)
             {
-                updFile(file.Name);
+                updFileLabel(file.Name);
                 try
                 {
                     using (var t = new StreamReader(file.FullName))
@@ -182,9 +196,49 @@ namespace AccuAuto
                                 item.PQUOTED = json.CurrentTermAmount;
                                 item.PERIOD = json.ContractTerm;
                                 item.PSTATUS = (json.Status == "Expired") ? "X" : "A";
+                                item.CEARNED = json.CommissionAmount;
                             }
                             catch { }
                             db.POLMAS.AddObject(item);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private void doImages(System.IO.DirectoryInfo migrationDir)
+        {
+            var files = migrationDir.GetFiles();
+            foreach (var file in files)
+            {
+                updFileLabel(file.Name);
+                try
+                {
+                    using (var t = new StreamReader(file.FullName))
+                    {
+                        var bits = t.ReadToEnd();
+                        dynamic json = JsonHelper.Decode(bits);
+                        int clientID = client.getID2(json.ClientId);
+                        if (clientID > 0)
+                        {
+                            Image item = new Image()
+                            {
+                                Client_ID = clientID,
+                                Policy_ID = 0,
+                                Directory = "QQ",
+                                Description = json.FileName
+                            };
+                            try
+                            {
+                                item.CSR_Images = json.CreatedBy;
+                                item.DateEntered = Convert.ToDateTime(json.CreatedDate.Substring(0, 10));
+                                item.FileDate = item.DateEntered; 
+                                item.TimeEntered = item.DateEntered; 
+                            }
+                            catch { }
+                            db.Images.AddObject(item);
                             db.SaveChanges();
                         }
                     }

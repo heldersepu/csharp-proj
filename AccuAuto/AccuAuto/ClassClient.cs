@@ -9,20 +9,22 @@ namespace AccuAuto
     {
         public string fileName;
         public int clientID;
-        public myClient(string fName, int cID)
+        public string OldId;
+        public myClient(string fName, int cID, string strOldId)
         {
             fileName = fName;
             clientID = cID;
+            OldId = strOldId;
         }
     }
 
     class ClassClient
     {
         private List<myClient> clientList = new List<myClient>();
-        
-        public void add(string fileName, int clientID)
+
+        public void add(string fileName, int clientID, string strOldId)
         {
-            clientList.Add(new myClient(fileName, clientID));
+            clientList.Add(new myClient(fileName, clientID, strOldId));
         }
 
         public int getID(string fileName)
@@ -31,5 +33,10 @@ namespace AccuAuto
             return clientList[index].clientID; 
         }
 
+        public int getID2(string strOldId)
+        {
+            int index = clientList.FindIndex(item => item.OldId == strOldId);
+            return clientList[index].clientID;
+        }
     }
 }
