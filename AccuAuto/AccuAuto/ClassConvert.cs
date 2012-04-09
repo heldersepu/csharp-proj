@@ -44,6 +44,7 @@ namespace AccuAuto
                             LNAME = json.Name.LastName,
                             FNAME = json.Name.FirstName,
                             MiddleName = json.Name.MiddleName,
+                            SALUTATION = json.Name.Title,
                             SOURCE = json.Source,
                             CSTATUS = (json.ClientStatus == "Prospect") ? "P" : "A",
                         };
@@ -80,6 +81,17 @@ namespace AccuAuto
                                     }
                                 }
                             }
+                        }
+                        catch { }
+                        try
+                        {
+                            item.datXDate = Convert.ToDateTime(json.Comments[0].ModifiedDate.Substring(0, 10));
+                            item.strXDateComm = json.Comments[0].Text;
+                        }
+                        catch { }
+                        try
+                        {
+                            item.isCOMMERCIAL = (json.ClientType == "Commercial");
                         }
                         catch { }
                         try
