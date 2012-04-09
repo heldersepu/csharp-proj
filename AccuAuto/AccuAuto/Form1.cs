@@ -135,6 +135,7 @@ namespace AccuAuto
                             item.ZIP = json.Addresses[0].Zip;
                         }                              
                         catch { }
+
                         db.CLNMAS.AddObject(item);
                         db.SaveChanges();
                         client.add(file.Name, item.Client_ID);
