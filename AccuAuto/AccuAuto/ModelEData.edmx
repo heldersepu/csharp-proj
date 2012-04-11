@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QFWinData_QQ004756Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="QFWinData_QQ004756Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="QFWinData_QQ004756ModelStoreContainer">
           <EntitySet Name="CLNMAS" EntityType="QFWinData_QQ004756Model.Store.CLNMAS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Company" EntityType="QFWinData_QQ004756Model.Store.Company" store:Type="Tables" Schema="dbo" />

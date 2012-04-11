@@ -30,13 +30,19 @@ namespace AccuAuto
         public int getID(string fileName)
         {
             int index = clientList.FindIndex(item => item.fileName == fileName);
-            return clientList[index].clientID; 
+            if (index > 0)
+                return clientList[index].clientID;
+            else
+                return index;
         }
 
         public int getID2(string strOldId)
         {
             int index = clientList.FindIndex(item => item.OldId == strOldId);
-            return clientList[index].clientID;
+            if (index > 0)
+                return clientList[index].clientID;
+            else
+                return index;
         }
         
         public int count()
