@@ -90,6 +90,7 @@ namespace AccuAuto
                                 if (json.Comments.Count > 0)
                                 {
                                     item.datXDate = Convert.ToDateTime(json.Comments[0].ModifiedDate.Substring(0, 10));
+                                    if (item.datXDate < Convert.ToDateTime("1800-01-01")) item.datXDate = null;
                                     item.strXDateComm = json.Comments[0].Text;
                                 }
                             }
@@ -103,6 +104,7 @@ namespace AccuAuto
                         try
                         {
                             item.DOB = Convert.ToDateTime(json.BirthDate.Substring(0, 10));
+                            if (item.DOB < Convert.ToDateTime("1800-01-01")) item.DOB = null;
                         }
                         catch { }
                         try
@@ -152,7 +154,9 @@ namespace AccuAuto
                             try
                             {
                                 item.EFFECTIVE = Convert.ToDateTime(json.EffectiveDate.Substring(0, 10));
+                                if (item.EFFECTIVE < Convert.ToDateTime("1800-01-01")) item.EFFECTIVE = null;
                                 item.EXPIRATION = Convert.ToDateTime(json.RenewDate.Substring(0, 10));
+                                if (item.EXPIRATION < Convert.ToDateTime("1800-01-01")) item.EXPIRATION = null;
                             }
                             catch { }
                             try
@@ -203,6 +207,7 @@ namespace AccuAuto
                             {
                                 item.CSR_Images = json.CreatedBy;
                                 item.DateEntered = Convert.ToDateTime(json.CreatedDate.Substring(0, 10));
+                                if (item.DateEntered < Convert.ToDateTime("1800-01-01")) item.DateEntered = null;
                                 item.FileDate = item.DateEntered;
                                 item.TimeEntered = item.DateEntered;
                             }
