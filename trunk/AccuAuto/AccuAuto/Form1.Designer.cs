@@ -76,17 +76,17 @@
             // 
             // lblGroup
             // 
-            this.lblGroup.Location = new System.Drawing.Point(32, 205);
+            this.lblGroup.Location = new System.Drawing.Point(27, 194);
             this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(147, 13);
+            this.lblGroup.Size = new System.Drawing.Size(355, 19);
             this.lblGroup.TabIndex = 3;
             this.lblGroup.Text = "---";
             // 
             // lblFile
             // 
-            this.lblFile.Location = new System.Drawing.Point(185, 205);
+            this.lblFile.Location = new System.Drawing.Point(200, 213);
             this.lblFile.Name = "lblFile";
-            this.lblFile.Size = new System.Drawing.Size(258, 13);
+            this.lblFile.Size = new System.Drawing.Size(268, 13);
             this.lblFile.TabIndex = 4;
             this.lblFile.Text = "---";
             // 
@@ -113,7 +113,7 @@
             this.txbPassw.Name = "txbPassw";
             this.txbPassw.Size = new System.Drawing.Size(100, 20);
             this.txbPassw.TabIndex = 7;
-            this.txbPassw.Text = "Ncnysn4378$";
+            this.txbPassw.Text = "Aw53x9as$";
             // 
             // label5
             // 
@@ -130,7 +130,7 @@
             this.txbUser.Name = "txbUser";
             this.txbUser.Size = new System.Drawing.Size(108, 20);
             this.txbUser.TabIndex = 5;
-            this.txbUser.Text = "QQ999999";
+            this.txbUser.Text = "QQ999997";
             // 
             // label4
             // 
@@ -147,7 +147,7 @@
             this.txbDB.Name = "txbDB";
             this.txbDB.Size = new System.Drawing.Size(255, 20);
             this.txbDB.TabIndex = 3;
-            this.txbDB.Text = "QFWinData_QQ999999";
+            this.txbDB.Text = "QFWinData_QQ999997";
             // 
             // label3
             // 
@@ -177,7 +177,7 @@
             // 
             // lblCounter
             // 
-            this.lblCounter.Location = new System.Drawing.Point(71, 227);
+            this.lblCounter.Location = new System.Drawing.Point(77, 238);
             this.lblCounter.Name = "lblCounter";
             this.lblCounter.Size = new System.Drawing.Size(62, 14);
             this.lblCounter.TabIndex = 6;
