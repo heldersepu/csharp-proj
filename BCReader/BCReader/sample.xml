@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<store>
-  <api>as234asd5467fdf6789as90df</api>
-  <url>https://store-t82s1.mybigcommerce.com</url>
-</store>
-<sms>
-  <url>http://www.smsglobal.com/http-api.php?</url>
-  <user>abc</user>
-  <pass>123</pass>
-</sms>
+<data>
+  <store>
+    <api>as234asd5467fdf6789as90df</api>
+    <url>https://store-t82s1.mybigcommerce.com</url>
+  </store>
+  <sms>
+    <url>http://www.smsglobal.com/http-api.php?</url>
+    <user>abc</user>
+    <pass>123</pass>
+  </sms>
+</data>
