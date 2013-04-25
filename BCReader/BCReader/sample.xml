@@ -1,8 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <store>
-    <api>as234asd5467fdf6789as90df</api>
+    <name>PizzaPizza</name>
+    <phone>123-456-7890</phone>
+    <user>helder</user>
+    <api>d070aa143ff8290e1a5d692f9d1a45c8</api>
     <url>https://store-t82s1.mybigcommerce.com</url>
+    <orders>
+      <lastid>1017</lastid>
+    </orders>
   </store>
   <sms>
     <url>http://www.smsglobal.com/http-api.php?</url>
