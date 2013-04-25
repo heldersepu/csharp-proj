@@ -6,9 +6,22 @@ namespace BCReader
 {
     class BC
     {
-        public BC()
+        private string api;
+        private string url;
+
+        public BC(string _api, string _url)
         {
-            throw new System.NotImplementedException();
+            api = _api;
+            url = _url;
         }
+
+        public Boolean newOrder
+        { 
+            get
+            {
+                return true; 
+            }
+        }
+
     }
 }
