@@ -3,8 +3,8 @@
   <store>
     <name>PizzaPizza</name>
     <phone>123-456-7890</phone>
-    <user>helder</user>
-    <api>d070aa143ff8290e1a5d692f9d1a45c8</api>
+    <user>myUser</user>
+    <api>d070aa1-8290e1-5d692f9d-45c8</api>
     <url>https://store-t82s1.mybigcommerce.com</url>
     <orders>
       <lastid>1017</lastid>
@@ -12,7 +12,7 @@
   </store>
   <sms>
     <url>http://www.smsglobal.com/http-api.php?</url>
-    <user>abc</user>
-    <pass>123</pass>
+    <user>mc247</user>
+    <pass>pizzamen</pass>
   </sms>
 </data>
