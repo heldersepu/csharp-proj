@@ -116,7 +116,6 @@ namespace BCReader
 
                     // Create a trigger that will fire the task at this time every day & every 2 mins
                     BootTrigger dTrigger = (BootTrigger)td.Triggers.Add(new BootTrigger { });
-                    dTrigger.Delay = TimeSpan.FromMinutes(2);
                     dTrigger.Repetition.Interval = TimeSpan.FromMinutes(2);
                     td.Actions.Add(new ExecAction(strActionPath, strXMLFile, null));
                     td.Settings.Hidden = true;
