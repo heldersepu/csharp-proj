@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Threading;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace BCReader
 {
@@ -28,6 +30,75 @@ namespace BCReader
         public static string onlyNumbers(string myString)
         {
             return Regex.Replace(myString, "[^0-9]", "");
+        }
+        
+        public static string Encrypt(string strText) 
+        {
+            string text1;
+            if (strText == String.Empty)
+            {
+                return strText;
+            }
+            byte[] buffer2 = GetCryptArr();
+            try
+            {
+                byte[] buffer1 = Encoding.UTF8.GetBytes(GetCryptKey().Substring(0,8));
+                DESCryptoServiceProvider provider1 =  new DESCryptoServiceProvider();
+                byte[] buffer3 = Encoding.UTF8.GetBytes(strText);
+                MemoryStream stream2 = new MemoryStream();
+                using (CryptoStream stream1 = new CryptoStream(stream2, provider1.CreateEncryptor(buffer1, buffer2), CryptoStreamMode.Write))
+                {
+                    stream1.Write(buffer3, 0, buffer3.Length);
+                    stream1.FlushFinalBlock();
+                    text1 = Convert.ToBase64String(stream2.ToArray());
+                }
+            }
+            catch 
+            {
+                return "Error";
+            }
+            return text1;
+        }
+
+        public static string Decrypt(string strText)
+        {
+            string text1;
+            if (strText == String.Empty)
+            {
+                return strText;
+            }
+            byte[] buffer1;            
+            byte[] buffer2;
+            byte[] buffer3 = GetCryptArr();
+            try
+            {
+                buffer1 = Encoding.UTF8.GetBytes(GetCryptKey().Substring(0,8));
+                DESCryptoServiceProvider provider1 =  new DESCryptoServiceProvider();
+                buffer2 = Convert.FromBase64String(strText);
+                MemoryStream stream2 = new MemoryStream();
+                using (CryptoStream stream1 = new CryptoStream(stream2, provider1.CreateDecryptor(buffer1, buffer3), CryptoStreamMode.Write))
+                {
+                    stream1.Write(buffer2, 0, buffer2.Length);
+                    stream1.FlushFinalBlock();
+                    text1 = Encoding.UTF8.GetString(stream2.ToArray());
+                }
+            }
+            catch
+            {
+                return "Error";
+            }
+            return text1;
+        }
+
+
+        private static string GetCryptKey() 
+        {
+            return "BCReaderCrypto";
+        }
+
+        private static byte[] GetCryptArr() 
+        {
+            return new byte[] { 18, 52, 86, 120, 111, 171, 205, 239 };
         }
     }
 }

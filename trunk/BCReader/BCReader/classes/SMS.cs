@@ -44,7 +44,6 @@ namespace BCReader
 
         private string SendSms(string smsUrl, string postData)
         {
-
             System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
             byte[] data = encoding.GetBytes(postData);
 
@@ -65,8 +64,6 @@ namespace BCReader
             smsResponse.Close();
 
             return encoding.GetString(responseBuffer);
-
         }
-
     }
 }

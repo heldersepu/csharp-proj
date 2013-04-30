@@ -9,6 +9,7 @@ namespace BCReader
     {
         private XmlDocument doc;
         private string FileName;
+        private bool encrypt;
         public config(string strFile)
         {
             try
@@ -16,24 +17,32 @@ namespace BCReader
                 FileName = strFile;
                 doc = new XmlDocument();
                 doc.Load(strFile);
+                encrypt = (getnode("/ncrypt").ToLower() == "true");
             }
             catch
             {
             }
         }
 
-        private string getnode(string xpath)
+        private string getnode(string xpath, bool isEncrypted = false)
         {
-                string strnode = "";
-                try
+            string strnode = "";
+            try
+            {
+                XmlNode node = doc.SelectSingleNode("/data" + xpath);
+                if (isEncrypted)
                 {
-                    XmlNode node = doc.SelectSingleNode("/data" + xpath);
+                    strnode = Utils.Decrypt(node.InnerText);
+                }
+                else
+                {
                     strnode = node.InnerText;
                 }
-                catch
-                {
-                }
-                return strnode;
+            }
+            catch
+            {
+            }
+            return strnode;
         }
 
         public string store_lastid
@@ -55,7 +64,7 @@ namespace BCReader
         {
             get
             {
-                return getnode("/store/user");
+                return getnode("/store/user", encrypt);
             }
 
         }
@@ -64,7 +73,7 @@ namespace BCReader
         {
             get
             {
-                return getnode("/store/api");
+                return getnode("/store/api", encrypt);
             }
 
         }
@@ -104,7 +113,7 @@ namespace BCReader
         {
             get
             {
-                return getnode("/sms/user");
+                return getnode("/sms/user", encrypt);
             }
         }
 
@@ -112,9 +121,16 @@ namespace BCReader
         {
             get
             {
-                return getnode("/sms/pass");
+                return getnode("/sms/pass", encrypt);
             }
         }
 
+        public bool active
+        {
+            get
+            {
+                return (getnode("/active").ToLower() == "true");
+            }
+        }
     }
 }
