@@ -5,6 +5,7 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using Microsoft.Win32.TaskScheduler;
 
 namespace BCReader
 {
@@ -31,7 +32,8 @@ namespace BCReader
         {
             return Regex.Replace(myString, "[^0-9]", "");
         }
-        
+
+        #region " Crypto "
         public static string Encrypt(string strText) 
         {
             string text1;
@@ -90,7 +92,6 @@ namespace BCReader
             return text1;
         }
 
-
         private static string GetCryptKey() 
         {
             return "BCReaderCrypto";
@@ -100,5 +101,30 @@ namespace BCReader
         {
             return new byte[] { 18, 52, 86, 120, 111, 171, 205, 239 };
         }
+        #endregion " Crypto "
+
+        public static void AddStores2TaskScheduler(string strStoresPath, string strActionPath)
+        {
+            string[] strXMLFiles = Directory.GetFiles(strStoresPath, "*.xml");
+            foreach (string strXMLFile in strXMLFiles)
+            {            
+                using (TaskService ts = new TaskService())
+                {
+                    string storeName = Path.GetFileName(strXMLFile);
+                    TaskDefinition td = ts.NewTask();
+                    td.RegistrationInfo.Description = "Check orders for store: " + storeName;
+
+                    // Create a trigger that will fire the task at this time every day & every 2 mins
+                    BootTrigger dTrigger = (BootTrigger)td.Triggers.Add(new BootTrigger { });
+                    dTrigger.Delay = TimeSpan.FromMinutes(2);
+                    dTrigger.Repetition.Interval = TimeSpan.FromMinutes(2);
+                    td.Actions.Add(new ExecAction(strActionPath, strXMLFile, null));
+                    td.Settings.Hidden = true;
+
+                    // Register the task in the root folder
+                    ts.RootFolder.RegisterTaskDefinition(@"BC Store " + storeName, td);
+                }
+            }
+        }        
     }
 }

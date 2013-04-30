@@ -12,11 +12,13 @@ namespace BCReader
     {
         public long id;
         public string phone;
+        public double total;
 
-        public order(string str_id, string str_phone) 
+        public order(string str_id, string str_phone, string str_total) 
         {
             id = Convert.ToInt64(str_id);
             phone = "1" + Utils.onlyNumbers(str_phone);
+            total = Convert.ToDouble(str_total);
         }
     }
     class BC
@@ -39,6 +41,8 @@ namespace BCReader
         private void getOrders()
         {
             string strUrl = url + "/api/v2/orders.xml?min_id=" + lastid;
+            // Retrieve orders only from today with min_date_created
+            //strUrl = strUrl + "&min_date_created=" + DateTime.Now.ToString("ddd, dd MMM yyyy 00:00:00 0000");
             HttpWebRequest GETRequest = (HttpWebRequest)WebRequest.Create(strUrl);
             GETRequest.Headers.Add("Authorization", "Basic key");
             GETRequest.Method = "GET";
@@ -61,7 +65,8 @@ namespace BCReader
                 {
                     XmlNode nID = node.SelectSingleNode("id");
                     XmlNode nPhone = node.SelectSingleNode("billing_address/phone");
-                    orders.Add(new order(nID.InnerText, nPhone.InnerText));
+                    XmlNode nTotal = node.SelectSingleNode("total_inc_tax");
+                    orders.Add(new order(nID.InnerText, nPhone.InnerText, nTotal.InnerText));
                 }
             }
         }

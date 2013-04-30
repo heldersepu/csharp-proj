@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
-  <active>True</active>
-  <ncrypt>True</ncrypt>
+  <active>False</active>
+  <ncrypt>False</ncrypt>
   <store>
-    <name>Dino's Pizza</name>
-    <phone>718-545-4775</phone>
-    <user>3WDx4oU898I=</user>
-    <api>MW0z0zkia6w73r/dmitGwPO9z1+aADwPD6B+AISp2/vl0BV58MBRzQ==</api>
-    <url>https://store-t82s1.mybigcommerce.com</url>
+    <name>Gigi's Pizza</name>
+    <phone>718-333-4444</phone>
+    <user>Luigino</user>
+    <api>d170aa243ff8290f1a5d692f9d3a45c8</api>
+    <url>https://store-t32x5.mybigcommerce.com</url>
     <orders>
-      <lastid>1018</lastid>
+      <lastid>10</lastid>
     </orders>
   </store>
   <sms>
     <url>http://www.smsglobal.com/http-api.php?</url>
-    <user>d/17vxHFC5E=</user>
-    <pass>vP/p/VVIEi1Yac0mON9hLw==</pass>
+    <user>smsglobal_user</user>
+    <pass>smsglobal_pass</pass>
   </sms>
 </data>
