@@ -16,6 +16,16 @@ namespace BCReader
                     doFile(args[i]);
                 }
             }
+            if (args.Length == 0)
+            {
+                string strFilePath = System.Reflection.Assembly.GetEntryAssembly().Location;
+                string strDirPath = Path.GetDirectoryName(strFilePath);
+                if (Directory.Exists(strDirPath + "\\Stores"))
+                {
+                    Utils.AddStores2TaskScheduler(strDirPath + "\\Stores", strFilePath);
+                }
+                showHelp();
+            }
             Utils.doSleep();
         }
 
@@ -46,6 +56,19 @@ namespace BCReader
             {
                 Console.WriteLine("File not Found: " + strFile);
             }
+        }
+
+        static void showHelp()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("      BCReader was sucessfully installed! ");
+            Console.WriteLine("---------------------------------------------------- ");
+            Console.WriteLine("  Now you should configure your stores (XML files)   ");
+            Console.WriteLine("  and always confirm in the windows Task Scheduler   ");
+            Console.WriteLine("---------------------------------------------------- ");
+            Console.WriteLine("");
+            Console.Write("Press ENTER to exit. ");
+            Console.ReadLine();
         }
     }
 }
