@@ -107,23 +107,14 @@ namespace BCReader
         {
             string[] strXMLFiles = Directory.GetFiles(strStoresPath, "*.xml");
             foreach (string strXMLFile in strXMLFiles)
-            {            
-                using (TaskService ts = new TaskService())
-                {
-                    string storeName = Path.GetFileName(strXMLFile);
-                    TaskDefinition td = ts.NewTask();
-                    td.RegistrationInfo.Description = "Check orders for store: " + storeName;
-
-                    // Create a trigger that will fire the task at this time every day & every 2 mins
-                    BootTrigger dTrigger = (BootTrigger)td.Triggers.Add(new BootTrigger { });
-                    dTrigger.Repetition.Interval = TimeSpan.FromMinutes(2);
-                    td.Actions.Add(new ExecAction(strActionPath, strXMLFile, null));
-                    td.Settings.Hidden = true;
-
-                    // Register the task in the root folder
-                    ts.RootFolder.RegisterTaskDefinition(@"BC Store " + storeName, td);
-                }
+            {
+                string storeName = Path.GetFileName(strXMLFile);
+                DailyTrigger dt = new DailyTrigger();
+                dt.StartBoundary = DateTime.Today.Date;
+                dt.Repetition.Duration = TimeSpan.FromMinutes(1430);
+                dt.Repetition.Interval = TimeSpan.FromMinutes(2);
+                new TaskService().AddTask(@"BC Store " + storeName, dt, new ExecAction(strActionPath, strXMLFile, null));
             }
-        }        
+        }
     }
 }
