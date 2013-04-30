@@ -25,18 +25,21 @@ namespace BCReader
             {
                 Console.WriteLine("Processing: " + strFile);
                 config conf = new config(strFile);
-                BC bigCommerce = new BC(conf.store_api, conf.store_user, conf.store_url, conf.store_lastid);
-                if (bigCommerce.newOrder)
+                if (conf.active)
                 {
-                    SMS smsOut = new SMS(conf.sms_user, conf.sms_pass, conf.sms_url);
-                    string strMessage = conf.store_name + " has received your order. Any questions please call " + conf.store_phone + ". Enjoy your food.";
-                    long store_lastid = Convert.ToInt64(conf.store_lastid);
-                    foreach (order dOrder in bigCommerce.orders)
+                    BC bigCommerce = new BC(conf.store_api, conf.store_user, conf.store_url, conf.store_lastid);
+                    if (bigCommerce.newOrder)
                     {
-                        Console.WriteLine(smsOut.send(dOrder.phone, strMessage));
-                        if (dOrder.id > store_lastid) store_lastid = dOrder.id;
+                        SMS smsOut = new SMS(conf.sms_user, conf.sms_pass, conf.sms_url);
+                        string strMessage = conf.store_name + " has received your order. Any questions please call " + conf.store_phone + ". Enjoy your food.";
+                        long store_lastid = Convert.ToInt64(conf.store_lastid);
+                        foreach (order dOrder in bigCommerce.orders)
+                        {
+                            Console.WriteLine(smsOut.send(dOrder.phone, strMessage));
+                            if (dOrder.id > store_lastid) store_lastid = dOrder.id;
+                        }
+                        conf.store_lastid = (store_lastid + 1).ToString();
                     }
-                    conf.store_lastid = (store_lastid + 1).ToString();
                 }
             }
             else
