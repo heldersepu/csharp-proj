@@ -42,7 +42,7 @@ namespace BCReader
         {
             string strUrl = url + "/api/v2/orders.xml?min_id=" + lastid;
             // Retrieve orders only from today with min_date_created
-            //strUrl = strUrl + "&min_date_created=" + DateTime.Now.ToString("ddd, dd MMM yyyy 00:00:00 0000");
+            strUrl = strUrl + "&min_date_created=" + DateTime.Now.ToString("ddd, dd MMM yyyy 00:00:00 EDT");
             HttpWebRequest GETRequest = (HttpWebRequest)WebRequest.Create(strUrl);
             GETRequest.Headers.Add("Authorization", "Basic key");
             GETRequest.Method = "GET";
