@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <active>False</active>
-  <ncrypt>False</ncrypt>
+  <ncrypt>False</ncrypt>  
   <store>
     <name>Gigi's Pizza</name>
     <phone>718-333-4444</phone>
@@ -13,6 +13,7 @@
     </orders>
   </store>
   <sms>
+    <message>@CUSTOMER_FIRST_NAME@, @STORE_NAME@ has your order for @ORDER_ITEMS_TOTAL@ items -> total of $@ORDER_TOTAL_INC_TAX@. Have ???, Call @STORE_PHONE@. Thank you! Please tell your friends about our new site.</message>
     <url>http://www.smsglobal.com/http-api.php?</url>
     <user>smsglobal_user</user>
     <pass>smsglobal_pass</pass>

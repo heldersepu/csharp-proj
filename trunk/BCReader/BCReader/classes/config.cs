@@ -19,8 +19,13 @@ namespace BCReader
                 doc.Load(strFile);
                 encrypt = (getnode("/ncrypt").ToLower() == "true");
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine("Can't read XML file!");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("");
+                Console.WriteLine("{0} Exception caught.", e);
+                Console.ReadLine();
             }
         }
 
@@ -30,13 +35,10 @@ namespace BCReader
             try
             {
                 XmlNode node = doc.SelectSingleNode("/data" + xpath);
+                strnode = node.InnerText;
                 if (isEncrypted)
                 {
-                    strnode = Utils.Decrypt(node.InnerText);
-                }
-                else
-                {
-                    strnode = node.InnerText;
+                    strnode = Utils.Decrypt(strnode);
                 }
             }
             catch
