@@ -11,14 +11,20 @@ namespace BCReader
     public struct order
     {
         public long id;
+        public string fname;
+        public string lname;
         public string phone;
         public double total;
+        public Int32 items;
 
-        public order(string str_id, string str_phone, string str_total) 
+        public order(string str_id, string str_phone, string str_total, string str_items, string str_fname, string str_lname) 
         {
             id = Convert.ToInt64(str_id);
             phone = "1" + Utils.onlyNumbers(str_phone);
             total = Convert.ToDouble(str_total);
+            items = Convert.ToInt32(str_items);
+            fname = str_fname;
+            lname = str_lname;
         }
     }
     class BC
@@ -65,8 +71,12 @@ namespace BCReader
                 {
                     XmlNode nID = node.SelectSingleNode("id");
                     XmlNode nPhone = node.SelectSingleNode("billing_address/phone");
+                    XmlNode nFname = node.SelectSingleNode("billing_address/first_name");
+                    XmlNode nLname = node.SelectSingleNode("billing_address/last_name");
                     XmlNode nTotal = node.SelectSingleNode("total_inc_tax");
-                    orders.Add(new order(nID.InnerText, nPhone.InnerText, nTotal.InnerText));
+                    XmlNode nItems = node.SelectSingleNode("items_total");
+
+                    orders.Add(new order(nID.InnerText, nPhone.InnerText, nTotal.InnerText, nItems.InnerText, nFname.InnerText, nLname.InnerText));
                 }
             }
         }

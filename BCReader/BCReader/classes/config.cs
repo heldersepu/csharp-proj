@@ -125,6 +125,14 @@ namespace BCReader
             }
         }
 
+        public string sms_message
+        {
+            get
+            {
+                return getnode("/sms/message");
+            }
+        }
+
         public bool active
         {
             get
