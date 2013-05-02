@@ -9,13 +9,6 @@ namespace BCReader
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < args.Length; i++)
-            {
-                if (args[i].ToLower().EndsWith(".xml"))
-                {
-                    doFile(args[i]);
-                }
-            }
             if (args.Length == 0)
             {
                 string strFilePath = System.Reflection.Assembly.GetEntryAssembly().Location;
@@ -25,6 +18,16 @@ namespace BCReader
                     Utils.AddStores2TaskScheduler(strDirPath + "\\Stores", strFilePath);
                 }
                 showHelp();
+            }
+            else
+            {
+                for (int i = 0; i < args.Length; i++)
+                {
+                    if (args[i].ToLower().EndsWith(".xml"))
+                    {
+                        doFile(args[i]);
+                    }
+                }
             }
             Utils.doSleep();
         }
@@ -41,14 +44,27 @@ namespace BCReader
                     if (bigCommerce.newOrder)
                     {
                         SMS smsOut = new SMS(conf.sms_user, conf.sms_pass, conf.sms_url);
-                        string strMessage = conf.store_name + " has received your order. Any questions please call " + conf.store_phone + ". Enjoy your food.";
                         long store_lastid = Convert.ToInt64(conf.store_lastid);
                         Boolean sendSMS = (store_lastid > 5); // Assume first 5 orders are tests 
                         foreach (order dOrder in bigCommerce.orders)
                         {
                             if (sendSMS)
                             {
-                                Console.WriteLine(smsOut.send(dOrder.phone, strMessage));
+                                string strMessage = conf.sms_message.Trim();
+                                strMessage = strMessage.Replace("@CUSTOMER_FIRST_NAME@", dOrder.fname);
+                                strMessage = strMessage.Replace("@CUSTOMER_LAST_NAME@", dOrder.lname);
+                                strMessage = strMessage.Replace("@CUSTOMER_PHONE@", dOrder.phone);
+                                strMessage = strMessage.Replace("@ORDER_ITEMS_TOTAL@", dOrder.items.ToString());
+                                strMessage = strMessage.Replace("@ORDER_TOTAL_INC_TAX@", dOrder.total.ToString());
+                                strMessage = strMessage.Replace("@STORE_PHONE@", conf.store_phone);
+                                strMessage = strMessage.Replace("@STORE_NAME@", conf.store_name);
+                                strMessage = strMessage.Replace("@STORE_URL@", conf.store_url);
+                                strMessage = strMessage.Trim();
+
+                                if (strMessage != "")
+                                {
+                                    Console.WriteLine(smsOut.send(dOrder.phone, strMessage));
+                                }
                             }
                             if (dOrder.id > store_lastid) store_lastid = dOrder.id;
                         }
