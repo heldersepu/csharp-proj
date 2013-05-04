@@ -1,5 +1,5 @@
 !define PRODUCT_NAME "BCReader"
-!define PRODUCT_VERSION "1.1.8.0"
+!define PRODUCT_VERSION "1.2.1.0"
 !define PRODUCT_WEB_SITE "http://www.pizzamenus.com/"
 !include nsDialogs.nsh
 
