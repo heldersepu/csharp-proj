@@ -40,6 +40,7 @@ namespace BCReader
                 config conf = new config(strFile);
                 if (conf.active)
                 {
+                    log myLog = new log(strFile);
                     BC bigCommerce = new BC(conf.store_api, conf.store_user, conf.store_url, conf.store_lastid);
                     if (bigCommerce.newOrder)
                     {
@@ -63,7 +64,9 @@ namespace BCReader
 
                                 if (strMessage != "")
                                 {
-                                    Console.WriteLine(smsOut.send(dOrder.phone, strMessage));
+                                    string smsResponse = smsOut.send(dOrder.phone, strMessage);
+                                    Console.WriteLine(smsResponse);
+                                    myLog.append(smsResponse, dOrder.phone, dOrder.id);
                                 }
                             }
                             if (dOrder.id > store_lastid) store_lastid = dOrder.id;
