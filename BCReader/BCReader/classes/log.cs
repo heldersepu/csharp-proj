@@ -10,7 +10,9 @@ namespace BCReader
         private string strFile = "";
         public log(string _strFile)
         {
-            if (File.Exists("dolog.txt"))
+            string strFilePath = System.Reflection.Assembly.GetEntryAssembly().Location;
+            string strDirPath = Path.GetDirectoryName(strFilePath);
+            if (File.Exists(strDirPath + "\\dolog.txt"))
             {
                 strFile = _strFile;
                 if (strFile.EndsWith(".log", true, null))
