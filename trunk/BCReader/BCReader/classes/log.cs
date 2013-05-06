@@ -15,7 +15,7 @@ namespace BCReader
             if (File.Exists(strDirPath + "\\dolog.txt"))
             {
                 strFile = _strFile;
-                if (strFile.EndsWith(".log", true, null))
+                if (!strFile.EndsWith(".log", true, null))
                 {
                     strFile += ".log";
                 }
