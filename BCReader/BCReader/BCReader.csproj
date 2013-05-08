@@ -45,6 +45,7 @@
     <Compile Include="classes\BC.cs" />
     <Compile Include="classes\config.cs" />
     <Compile Include="classes\log.cs" />
+    <Compile Include="classes\twitter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="classes\SMS.cs" />

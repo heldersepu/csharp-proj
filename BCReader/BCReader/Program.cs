@@ -9,6 +9,9 @@ namespace BCReader
     {
         static void Main(string[] args)
         {
+            twitter tw = new twitter("hj2HOF2lls1X5REebRXbjQ", "BmgzVRz4AIGLF13INwPnoaUqueF32yc981GqX74Sf6U"); //"pizza.menu@yahoo.com", "PizzaMenu123");
+            tw.SendTwitterMessage2("Hello World");
+
             if (args.Length == 0)
             {
                 string strFilePath = System.Reflection.Assembly.GetEntryAssembly().Location;
