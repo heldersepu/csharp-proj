@@ -44,8 +44,11 @@ Section "${PRODUCT_NAME} (required)"
     SetOutPath $INSTDIR
 
     ; Put files here
-    File /r "C:\${PRODUCT_NAME}\${PRODUCT_NAME}.exe"
+    SetOverwrite off
     File /r "C:\${PRODUCT_NAME}\*.xml"
+    SetOverwrite on
+
+    File /r "C:\${PRODUCT_NAME}\${PRODUCT_NAME}.exe"    
     File /r "C:\${PRODUCT_NAME}\*.dll"
     File /r "C:\${PRODUCT_NAME}\*.nsi"
 
