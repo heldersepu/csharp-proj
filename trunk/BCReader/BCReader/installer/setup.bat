@@ -20,6 +20,7 @@
 @COPY installer\setup.nsi C:\BCReader\
 @COPY *.xml C:\BCReader\Stores\
 @DEL C:\BCReader\Stores\Microsoft*.xml
+@DEL C:\BCReader\Stores\twitter.xml
 @COPY *.dll C:\BCReader\
 
 
