@@ -19,7 +19,8 @@ namespace BCReader
                 }
                 if (!File.Exists(strFile))
                 {
-                    File.CreateText(strFile);
+                    StreamWriter w = File.CreateText(strFile);
+                    w.Close();
                 }
             }
         }
