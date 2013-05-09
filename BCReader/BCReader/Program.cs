@@ -42,8 +42,7 @@ namespace BCReader
                 {
                     log myLog = new log(strFile, strDirPath);
                     BC bigCommerce = new BC(conf.store_api, conf.store_user, conf.store_url, conf.store_lastid);
-                    twitter tw = new twitter(strDirPath);
-                    tw.SendTwitterMessage("Hello World");
+                    twitter tw = new twitter(strDirPath);                    
                     if (bigCommerce.newOrder)
                     {
                         SMS smsOut = new SMS(conf.sms_user, conf.sms_pass, conf.sms_url);
@@ -69,6 +68,7 @@ namespace BCReader
                                     string smsResponse = smsOut.send(dOrder.phone, strMessage);
                                     Console.WriteLine(smsResponse);
                                     myLog.append(smsResponse, dOrder.phone, dOrder.id);
+                                    tw.SendUpdate(conf.store_name, dOrder, smsResponse);
                                 }
                             }
                             if (dOrder.id > store_lastid) store_lastid = dOrder.id;
