@@ -45,6 +45,7 @@
     <Compile Include="classes\BC.cs" />
     <Compile Include="classes\config.cs" />
     <Compile Include="classes\log.cs" />
+    <Compile Include="classes\OAuthBase.cs" />
     <Compile Include="classes\twitter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +59,7 @@
     <Content Include="sample.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="twitter.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
