@@ -13,14 +13,15 @@
 @ECHO.
 @PAUSE
 
-:: Copy all the image files
+:: Copy all the files
 @MD C:\BCReader
 @MD C:\BCReader\Stores
 @COPY bin\Debug\BCReader.exe C:\BCReader\
 @COPY installer\setup.nsi C:\BCReader\
 @COPY *.xml C:\BCReader\Stores\
 @DEL C:\BCReader\Stores\Microsoft*.xml
-@COPY Microsoft.Win32.TaskScheduler.* C:\BCReader\
+@COPY *.dll C:\BCReader\
+
 
 :: Launch the NSIS setup
 @COLOR 07
