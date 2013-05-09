@@ -25,7 +25,15 @@ namespace BCReader
                 {
                     if (args[i].ToLower().EndsWith(".xml"))
                     {
-                        doFile(args[i], strDirPath);
+                        try
+                        {
+                            doFile(args[i], strDirPath);
+                        }
+                        catch (Exception e)
+                        {
+                            log errLog = new log(strDirPath + "\\error_" + DateTime.Now.Ticks.ToString() + ".log", strDirPath);
+                            errLog.append(e.Message + "\r\n" + e.ToString(), "", 0);
+                        }
                     }
                 }
             }
