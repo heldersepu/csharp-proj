@@ -9,13 +9,10 @@ namespace BCReader
     {
         static void Main(string[] args)
         {
-            twitter tw = new twitter("hj2HOF2lls1X5REebRXbjQ", "BmgzVRz4AIGLF13INwPnoaUqueF32yc981GqX74Sf6U"); //"pizza.menu@yahoo.com", "PizzaMenu123");
-            tw.SendTwitterMessage2("Hello World");
-
+            string strFilePath = System.Reflection.Assembly.GetEntryAssembly().Location;
+            string strDirPath = Path.GetDirectoryName(strFilePath);
             if (args.Length == 0)
             {
-                string strFilePath = System.Reflection.Assembly.GetEntryAssembly().Location;
-                string strDirPath = Path.GetDirectoryName(strFilePath);
                 if (Directory.Exists(strDirPath + "\\Stores"))
                 {
                     Utils.AddStores2TaskScheduler(strDirPath + "\\Stores", strFilePath);
@@ -28,14 +25,14 @@ namespace BCReader
                 {
                     if (args[i].ToLower().EndsWith(".xml"))
                     {
-                        doFile(args[i]);
+                        doFile(args[i], strDirPath);
                     }
                 }
             }
             Utils.doSleep();
         }
 
-        static void doFile(string strFile)
+        static void doFile(string strFile, string strDirPath)
         {
             if (File.Exists(strFile))
             {
@@ -43,8 +40,10 @@ namespace BCReader
                 config conf = new config(strFile);
                 if (conf.active)
                 {
-                    log myLog = new log(strFile);
+                    log myLog = new log(strFile, strDirPath);
                     BC bigCommerce = new BC(conf.store_api, conf.store_user, conf.store_url, conf.store_lastid);
+                    twitter tw = new twitter(strDirPath);
+                    tw.SendTwitterMessage("Hello World");
                     if (bigCommerce.newOrder)
                     {
                         SMS smsOut = new SMS(conf.sms_user, conf.sms_pass, conf.sms_url);

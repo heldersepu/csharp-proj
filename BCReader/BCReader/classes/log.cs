@@ -8,10 +8,8 @@ namespace BCReader
     class log
     {
         private string strFile = "";
-        public log(string _strFile)
+        public log(string _strFile, string strDirPath)
         {
-            string strFilePath = System.Reflection.Assembly.GetEntryAssembly().Location;
-            string strDirPath = Path.GetDirectoryName(strFilePath);
             if (File.Exists(strDirPath + "\\dolog.txt"))
             {
                 strFile = _strFile;
