@@ -46,7 +46,7 @@ namespace BCReader
                     tweet += "; i:" + dOrder.items.ToString();
                     tweet += "; t:" + dOrder.total.ToString();
                     message = message.Replace("Sent queued message ID", "SentID");
-                    tweet += message.Replace("SMSGlobal","");
+                    tweet += "; " + message.Replace("SMSGlobal", "");
                     TwitterStatus.Update(tokens, tweet);
                 }
             }
