@@ -16,12 +16,13 @@
 :: Copy all the files
 @MD C:\BCReader
 @MD C:\BCReader\Stores
-@COPY bin\Debug\BCReader.exe C:\BCReader\
-@COPY installer\setup.nsi C:\BCReader\
 @COPY *.xml C:\BCReader\Stores\
 @DEL C:\BCReader\Stores\Microsoft*.xml
 @DEL C:\BCReader\Stores\twitter.xml
+@COPY twitter.xml C:\BCReader\
 @COPY *.dll C:\BCReader\
+@COPY installer\setup.nsi C:\BCReader\
+@COPY bin\Debug\BCReader.exe C:\BCReader\
 
 
 :: Launch the NSIS setup
