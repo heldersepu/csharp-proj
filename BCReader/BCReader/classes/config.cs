@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml;
 using System.Text;
+using System.Threading;
 using System.Collections.Generic;
 
 namespace BCReader
@@ -21,11 +22,12 @@ namespace BCReader
             }
             catch (Exception e)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Can't read XML file!");
                 Console.WriteLine(e.Message);
                 Console.WriteLine("");
                 Console.WriteLine("{0} Exception caught.", e);
-                Console.ReadLine();
+                Thread.Sleep(30000);
             }
         }
 
