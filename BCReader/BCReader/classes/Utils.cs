@@ -13,15 +13,17 @@ namespace BCReader
     {
         public static void doSleep()
         {
-            string[] chrs = { "\\", "|", "/", "*" };
+            string[] chrs = { "-", "\\", "|", "/", "-", "." };
             for (int i = 0; i < 60; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 foreach (string chr in chrs)
-                {
-                    Console.Write(chr);
-                    Thread.Sleep(10);
+                {                     
+                    Console.Write(chr);                     
+                    Thread.Sleep(20);
                     Console.Write((char)8);
                 }
+                Console.ForegroundColor = ConsoleColor.Green; 
                 Console.Write(".");
                 Thread.Sleep(5);
             }
