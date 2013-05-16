@@ -4,6 +4,7 @@ using System.Xml;
 using System.Net;
 using System.Web;
 using System.Text;
+using System.Threading;
 using System.Collections.Generic;
 
 namespace BCReader
@@ -49,15 +50,30 @@ namespace BCReader
             string strUrl = url + "/api/v2/orders.xml?min_id=" + lastid;
             // Retrieve orders only from today with min_date_created
             strUrl = strUrl + "&min_date_created=" + DateTime.Now.ToString("ddd, dd MMM yyyy 00:00:00 EDT");
-            HttpWebRequest GETRequest = (HttpWebRequest)WebRequest.Create(strUrl);
-            GETRequest.Headers.Add("Authorization", "Basic key");
-            GETRequest.Method = "GET";
-            NetworkCredential nc = new NetworkCredential(user, api);
-            GETRequest.Credentials = nc;
-            HttpWebResponse GETResponse = (HttpWebResponse)GETRequest.GetResponse();
-            Stream GETResponseStream = GETResponse.GetResponseStream();
-            StreamReader sr = new StreamReader(GETResponseStream);                        
-            loadOrders(sr.ReadToEnd());
+            try
+            {
+                HttpWebRequest GETRequest = (HttpWebRequest)WebRequest.Create(strUrl);
+                GETRequest.Headers.Add("Authorization", "Basic key");
+                GETRequest.Method = "GET";
+                NetworkCredential nc = new NetworkCredential(user, api);
+                GETRequest.Credentials = nc;
+                HttpWebResponse GETResponse = (HttpWebResponse)GETRequest.GetResponse();
+                Stream GETResponseStream = GETResponse.GetResponseStream();
+                StreamReader sr = new StreamReader(GETResponseStream);
+                loadOrders(sr.ReadToEnd());
+            }
+            catch (Exception e)
+            {
+                if (e.Message.Contains("(401) Unauthorized"))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Can't read from BC store!");
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("");
+                    Console.WriteLine("{0} Exception caught.", e);
+                    Thread.Sleep(30000);
+                }
+            }
         }
 
         private void loadOrders(string xmlOrders)
