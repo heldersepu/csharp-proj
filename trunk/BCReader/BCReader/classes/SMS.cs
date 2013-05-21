@@ -60,7 +60,13 @@ namespace BCReader
             WebResponse smsResponse = smsRequest.GetResponse();
 
             byte[] responseBuffer = new byte[smsResponse.ContentLength];
-            smsResponse.GetResponseStream().Read(responseBuffer, 0, (int)smsResponse.ContentLength - 1);
+            int count = int.MaxValue;
+            try
+            {
+                count = (int)smsResponse.ContentLength - 1;
+            }
+            catch { }
+            smsResponse.GetResponseStream().Read(responseBuffer, 0, count);
             smsResponse.Close();
 
             return encoding.GetString(responseBuffer);
