@@ -108,15 +108,32 @@ namespace BCReader
         public static void AddStores2TaskScheduler(string strStoresPath, string strActionPath)
         {
             string[] strXMLFiles = Directory.GetFiles(strStoresPath, "*.xml");
+            TaskService ts = new TaskService();            
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("");
+            Console.WriteLine("Adding stores to the Task Scheduler");
+            Console.ForegroundColor = ConsoleColor.Green;
             foreach (string strXMLFile in strXMLFiles)
             {
                 string storeName = Path.GetFileName(strXMLFile);
-                DailyTrigger dt = new DailyTrigger();
-                dt.StartBoundary = DateTime.Today.Date;
-                dt.Repetition.Duration = TimeSpan.FromMinutes(1430);
-                dt.Repetition.Interval = TimeSpan.FromMinutes(2);
-                new TaskService().AddTask(@"BC Store " + storeName, dt, new ExecAction(strActionPath, strXMLFile, null));
+                string taskName = @"BC Store " + storeName;
+                Task t = ts.FindTask(taskName);
+                if (t == null)
+                {                    
+                    Console.WriteLine("  + " + storeName);
+                    DailyTrigger dt = new DailyTrigger();
+                    dt.StartBoundary = DateTime.Today.Date;
+                    dt.Repetition.Duration = TimeSpan.FromMinutes(1430);
+                    dt.Repetition.Interval = TimeSpan.FromMinutes(2);
+                    ts.AddTask(taskName, dt, new ExecAction(strActionPath, strXMLFile, null));
+                    Thread.Sleep(2000);
+                }
             }
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("All stores added");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
