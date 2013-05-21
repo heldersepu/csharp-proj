@@ -126,7 +126,7 @@ namespace BCReader
                     dt.Repetition.Duration = TimeSpan.FromMinutes(1430);
                     dt.Repetition.Interval = TimeSpan.FromMinutes(2);
                     ts.AddTask(taskName, dt, new ExecAction(strActionPath, strXMLFile, null));
-                    Thread.Sleep(2000);
+                    Thread.Sleep(500);
                 }
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
