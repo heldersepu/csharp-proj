@@ -22,8 +22,17 @@ namespace BCReader
 
         internal string send(string Phone, string Message)
         {
-            string strData = SMSGlobalData(Phone, Phone, Message);
-            return SendSms(url, strData);
+            // THIS PROCESS MUST NOT CRASH 
+            // it might enter an infinife loop
+            try
+            {
+                string strData = SMSGlobalData(Phone, Phone, Message);
+                return SendSms(url, strData);
+            }
+            catch (Exception e)
+            {
+                return "error:" + e.Message;
+            }
         }
 
         private string SMSGlobalData(string sPhone, string dPhone, string Message)
