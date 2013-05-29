@@ -10,10 +10,10 @@ namespace regExport
     {
         static void Main(string[] args)
         {
-            ExportReg("HKEY_LOCAL_MACHINE\\Software\\RCI", "C:\\myLocal.reg");
+            ExportReg("HKEY_LOCAL_MACHINE\\Software\\RCI", "C:\\myLocal.reg", "ServerName");
         }
 
-        static public void ExportReg(string RegKey, string SavePath)
+        static public void ExportReg(string RegKey, string SavePath, string ServerName)
         {
             string path = "\"" + SavePath + "\"";
             string key = "\"" + RegKey + "\"";
