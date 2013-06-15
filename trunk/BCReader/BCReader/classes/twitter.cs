@@ -41,17 +41,25 @@ namespace BCReader
             {
                 if (doTweet)
                 {
-                    string tweet = store_name;
-                    tweet += ":" + dOrder.id.ToString();
-                    tweet += "; i:" + dOrder.items.ToString();
-                    tweet += "; t:" + dOrder.total.ToString();
+                    string strMsg = store_name;
+                    strMsg += ":" + dOrder.id.ToString();
+                    strMsg += "; i:" + dOrder.items.ToString();
+                    strMsg += "; t:" + dOrder.total.ToString();
                     message = message.Replace("Sent queued message ID", "SentID");
-                    tweet += "; " + message.Replace("SMSGlobal", "");
-                    TwitterStatus.Update(tokens, tweet);
+                    strMsg += "; " + message.Replace("SMSGlobal", "");
+                    tweet(strMsg);
                 }
             }
             catch
             { }
+        }
+
+        public string tweet(string message)
+        {
+            StatusUpdateOptions opt = new StatusUpdateOptions();
+            opt.APIBaseAddress = "http://api.twitter.com/1.1/";
+            TwitterResponse<TwitterStatus> tweetResponse = TwitterStatus.Update(tokens, message, opt);
+            return tweetResponse.Content;
         }
     }
 }
