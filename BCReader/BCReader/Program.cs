@@ -21,18 +21,26 @@ namespace BCReader
             }
             else
             {
-                for (int i = 0; i < args.Length; i++)
+                if (args[0].ToLower().StartsWith("tweet"))
                 {
-                    if (args[i].ToLower().EndsWith(".xml"))
+                    twitter tw = new twitter(strDirPath);
+                    Console.WriteLine(tw.tweet(DateTime.Now.ToString()));
+                }
+                else
+                {
+                    for (int i = 0; i < args.Length; i++)
                     {
-                        try
+                        if (args[i].ToLower().EndsWith(".xml"))
                         {
-                            doFile(args[i], strDirPath);
-                        }
-                        catch (Exception e)
-                        {
-                            log errLog = new log(strDirPath + "\\error_" + DateTime.Now.Ticks.ToString() + ".log", strDirPath);
-                            errLog.append(e.Message + "\r\n" + e.ToString(), "", 0);
+                            try
+                            {
+                                doFile(args[i], strDirPath);
+                            }
+                            catch (Exception e)
+                            {
+                                log errLog = new log(strDirPath + "\\error_" + DateTime.Now.Ticks.ToString() + ".log", strDirPath);
+                                errLog.append(e.Message + "\r\n" + e.ToString(), "", 0);
+                            }
                         }
                     }
                 }
@@ -50,7 +58,7 @@ namespace BCReader
                 {
                     log myLog = new log(strFile, strDirPath);
                     BC bigCommerce = new BC(conf.store_api, conf.store_user, conf.store_url, conf.store_lastid);
-                    twitter tw = new twitter(strDirPath);                    
+                    twitter tw = new twitter(strDirPath);
                     if (bigCommerce.newOrder)
                     {
                         SMS smsOut = new SMS(conf.sms_user, conf.sms_pass, conf.sms_url);
