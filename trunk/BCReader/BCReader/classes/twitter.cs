@@ -56,10 +56,22 @@ namespace BCReader
 
         public string tweet(string message)
         {
+            TwitterResponse<TwitterStatus> tweetResponse = null;
             StatusUpdateOptions opt = new StatusUpdateOptions();
             opt.APIBaseAddress = "http://api.twitter.com/1.1/";
-            TwitterResponse<TwitterStatus> tweetResponse = TwitterStatus.Update(tokens, message, opt);
-            return tweetResponse.Content;
+            try
+            {
+                tweetResponse = TwitterStatus.Update(tokens, message, opt);
+            }
+            catch {}
+            if (tweetResponse == null)
+            {
+                return "";
+            }
+            else
+            {
+                return tweetResponse.Content;
+            }
         }
     }
 }
