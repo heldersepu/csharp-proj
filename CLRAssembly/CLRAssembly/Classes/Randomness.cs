@@ -13,9 +13,9 @@ namespace CLRAssembly
                 int range = (DateTime.Today - start).Days;
                 return start.AddDays(gen.Next(range)).ToString("MM/dd/yyyy");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return "";
+                return "ERROR:" + e.Message;
             }
         }
 
@@ -27,9 +27,9 @@ namespace CLRAssembly
                 Random gen = new Random();
                 return start.AddSeconds(gen.Next(86400)).ToString("HH:mm:ss");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return "";
+                return "ERROR:" + e.Message;
             }
         }
     }

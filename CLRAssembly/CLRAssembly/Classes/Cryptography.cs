@@ -13,9 +13,9 @@ namespace CLRAssembly
             {
                 return Convert.ToBase64String(EncryptStringToBytes(input, Encoding.Default.GetBytes(dKey)));
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return "";
+                return "ERROR:" + e.Message;
             }
         }
         public static string Decrypt(string input, string dKey)
@@ -24,9 +24,9 @@ namespace CLRAssembly
             {
                 return DecryptStringFromBytes(Convert.FromBase64String(input), Encoding.Default.GetBytes(dKey));
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return "";
+                return "ERROR:" + e.Message;
             }
         }
 
