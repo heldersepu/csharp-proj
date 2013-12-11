@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Geom.cs" />
     <Compile Include="Classes\Randomness.cs" />
     <Compile Include="CLRAssembly.cs" />
     <Compile Include="Classes\Cryptography.cs" />
