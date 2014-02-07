@@ -27,14 +27,22 @@ namespace AssemblyInfo
                     Assembly assembly = Assembly.LoadFile(assemblyullName);
 
                     AssemblyInfoLoader aInfo = new AssemblyInfoLoader(assembly);
+                    Console.ForegroundColor = ConsoleColor.Cyan;                    
+                    Console.Write(filePath);
+
                     Console.ForegroundColor = ConsoleColor.Green;
                     if (aInfo.JitTrackingEnabled)
                         Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write(filePath);
                     Console.Write(" : Debug=");
                     Console.Write(aInfo.JitTrackingEnabled);
+                    
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    if (!aInfo.JitOptimized)
+                        Console.ForegroundColor = ConsoleColor.Red;                    
                     Console.Write(" Optimized=");
-                    Console.Write(aInfo.JitOptimized);                        
+                    Console.WriteLine(aInfo.JitOptimized);
+
+                    Console.ForegroundColor = ConsoleColor.Green;
                 }
                 catch (Exception ex)
                 {
