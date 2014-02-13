@@ -143,10 +143,10 @@ namespace AssemblyInfo {
         
         /// <summary>
         ///   Looks up a localized string similar to .NET Assembly Information
-        ///Displays information on a .NET Assembly.  Developed by Rotem Bloom &amp; Ashutosh Bhawasinka.
+        ///Displays information on a .NET Assembly. 
         ///
         ///Usage:
-        ///AssemblyInformation.exe &lt;assembly&gt;.
+        ///AssemblyInfo.exe &lt;assembly&gt;.
         /// </summary>
         internal static string UsageString {
             get {

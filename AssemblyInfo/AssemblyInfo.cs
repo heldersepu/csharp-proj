@@ -212,31 +212,6 @@ namespace AssemblyInfo
                 catch (BadImageFormatException) { }
             }
             return assembly;
-
-            //if (loaded && null != assembly) 
-            //{
-            //    foreach (AssemblyName referencedAssembly in assembly.GetReferencedAssemblies()) 
-            //    {
-            //        if (!bareMode) 
-            //        {
-            //            if (assemblyMap.ContainsKey(referencedAssembly.FullName)) return;
-            //            assemblyMap[referencedAssembly.FullName] = 1;
-            //        }
-            //        else 
-            //        {
-            //            if (assemblyMap.ContainsKey(referencedAssembly.Name)) return;
-            //            assemblyMap[referencedAssembly.Name] = 1;
-            //        }
-            //        if(recursive)
-            //        {
-            //            FindDependencies(referencedAssembly, true, ++level);
-            //        }
-            //    }
-            //}
-            //else 
-            //{
-            //    errors.Add("Failed to load: " + assName.FullName);
-            //}
         }   
 
         private void FindDependencies(Assembly assembly, bool recursive, int level)
