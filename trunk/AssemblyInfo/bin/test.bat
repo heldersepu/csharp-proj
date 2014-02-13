@@ -1,6 +1,5 @@
-@FOR %%F in (C:\SecretAgent\wwwroot\Common\BIN\*.DLL) DO @(
-    AssemblyInfo.exe %%F 
-)
+AssemblyInfo.exe C:\SecretAgent\wwwroot
+
 @ECHO.
 @ECHO.
 @PAUSE
