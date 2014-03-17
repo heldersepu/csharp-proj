@@ -16,19 +16,21 @@ namespace SampleList
                 new node("c", 6),
                 new node("b", 4)
             };
+
             foreach (node n in abc)
             {
-                Console.Write(n.value);
+                Console.Write("  ");
+                Console.Write(n.name);
+                Console.Write(" = ");
                 Console.Write(n.value);
                 Console.WriteLine("");
             }
             Console.ReadLine();
-
         }
 
         class myList : List<node>
         {
-
+            /** Add your code here **/
         }
 
         class node
