@@ -26,6 +26,8 @@ namespace SummationX
                 sum += i;
             for (int i = 0; i <= max; i += 5)
                 sum += i;
+            for (int i = 0; i <= max; i += 15)
+                sum -= i;
             
             return sum;
         }
