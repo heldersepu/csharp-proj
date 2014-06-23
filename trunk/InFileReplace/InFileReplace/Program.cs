@@ -26,21 +26,37 @@ namespace InFileReplace
             if (File.Exists(FileName))
             {
                 try
-                {
+                {                    
                     string readText = File.ReadAllText(FileName);
-                    File.Delete(FileName);
-                    Regex rgx = new Regex(search);
-                    readText = rgx.Replace(readText, replace);
-                    File.WriteAllText(FileName, readText);
+                    string newText = readText;                    
+                    try
+                    {
+                        Regex rgx = new Regex(search);
+                        newText = rgx.Replace(readText, replace);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Bad Regex replacement!");
+                        Console.WriteLine(e.Message);
+                        newText = readText;
+                    }
+                    if (newText != readText)
+                    {
+                        File.Delete(FileName);
+                        File.WriteAllText(FileName, newText);
+                    }
                 }
                 catch (Exception e)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("{0} Exception caught.", e);
                     Console.WriteLine(e.Message);
                 }
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Given file does not exist!");
             }
         }
