@@ -25,11 +25,19 @@ namespace InFileReplace
         {
             if (File.Exists(FileName))
             {
-                string readText = File.ReadAllText(FileName);
-                File.Delete(FileName);
-                Regex rgx = new Regex(search);
-                readText = rgx.Replace(readText, replace);
-                File.WriteAllText(FileName, readText);
+                try
+                {
+                    string readText = File.ReadAllText(FileName);
+                    File.Delete(FileName);
+                    Regex rgx = new Regex(search);
+                    readText = rgx.Replace(readText, replace);
+                    File.WriteAllText(FileName, readText);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("{0} Exception caught.", e);
+                    Console.WriteLine(e.Message);
+                }
             }
             else
             {
