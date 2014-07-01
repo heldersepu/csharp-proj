@@ -45,6 +45,7 @@ namespace InFileReplace
                     {
                         File.Delete(FileName);
                         File.WriteAllText(FileName, newText);
+                        Console.WriteLine("Replacement complete on: " + FileName);
                     }
                 }
                 catch (Exception e)
