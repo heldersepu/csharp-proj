@@ -50,6 +50,9 @@ namespace absToTango
             get { return _err; }
         }
 
+        /// <summary>
+        ///  initialise the dynamic JSON data
+        /// </summary>
         private void initJSON()
         {
             if (this._url != "")
