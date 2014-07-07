@@ -16,14 +16,17 @@ namespace absToTango
                     account = tangoReader.ReadAccount();
                     if (account != null)
                     {
-                        Console.WriteLine(account.name);
-                        Console.WriteLine(account.account_id);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(account.name + " ");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine(account.totango_id);
                     } else if (tangoReader.Error) {
                         Console.WriteLine(tangoReader.ErrorMessage);
                     }
                 }
                 while (account != null);
             }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("");
             Console.WriteLine("Press ENTER to continue...");
             Console.ReadLine();

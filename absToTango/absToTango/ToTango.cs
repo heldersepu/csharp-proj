@@ -12,12 +12,12 @@ namespace absToTango
         private string _token;
         private string _url = "";
         private string _err = "";
-        private Int64 _pos = 0;
-        private Int64 _length = 0;
-        private Int64 _offset = 0;
-        private Int64 _total_items = 0;
-        private Int64 _item_count = 0;
-        private Int64 _global_item_count = 0;
+        private int _pos = 0;
+        private int _length = 0;
+        private int _offset = 0;
+        private int _total_items = 0;
+        private int _item_count = 0;
+        private int _global_item_count = 0;
         private dynamic _dJSON;
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace absToTango
         {
             this._token = token;
             this._url = url.Trim();
-            this._length = length;
+            this._length = (length > 0) ? length : 100;
             this.initJSON();
         }
 
@@ -57,7 +57,7 @@ namespace absToTango
         {
             if (this._url != "")
             {
-                string url = this._url + "length=" + this._length + "&offset=" + this._offset;
+                string url = this._url + "&length=" + this._length.ToString() + "&offset=" + this._offset.ToString();
                 string json = "";
                 using (WebClient client = new WebClient())
                 {
