@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 
 
@@ -17,6 +18,11 @@ namespace ReadJSON
                 }
                 Console.ReadLine();
             }
+            else if (File.Exists("C:\\sample.json"))
+            {
+                parseJSON.dynamic(File.ReadAllText("C:\\sample.json"));
+            }
+
         }
 
         static string readUrl(string url)
