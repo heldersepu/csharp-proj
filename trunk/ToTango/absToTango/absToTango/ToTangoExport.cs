@@ -59,19 +59,35 @@ namespace absToTango
                     {
                         account = tangoReader.ReadAccount();
                         if (account != null)
-                        {
-                            string line = "";
-                            foreach (string attrib in this._headers.Split(','))
-                            {
-                                line += getAttrib(account, attrib) + ",";
-                            }
-                            lines.Add(line.TrimEnd(','));
-                        }
+                            lines.Add(concatAttribs(account));
                     }
                     while (account != null);
                 }
             }
-            File.WriteAllLines(outname, lines);
+            File.WriteAllLines(newName(outname), lines);
+        }
+
+        private string newName(string outname)
+        {
+            string dName = outname;
+            int i = 0;
+            while (File.Exists(outname))
+            {
+                string ext = Path.GetExtension(outname);
+                outname = dName.Replace(ext, "") + i.ToString() + ext;
+                i++;
+            }
+            return outname;
+        }
+        
+        private string concatAttribs(dynamic account)
+        {
+            string line = "";
+            foreach (string attrib in this._headers.Split(','))
+            {
+                line += getAttrib(account, attrib) + ",";
+            }
+            return line.TrimEnd(',');
         }
 
         private string getAttrib(dynamic account, string attrib)
