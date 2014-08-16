@@ -29,7 +29,7 @@ namespace absToTango
         public ToTangoReader(string token, string url, int length = 100)
         {
             this._token = token;
-            this._url = url.Trim();
+            this._url = url.Trim();            
             this._length = (length > 0) ? length : 100;
             this.initJSON();
         }
@@ -57,6 +57,7 @@ namespace absToTango
         {
             if (this._url != "")
             {
+                if (!this._url.Contains("?")) this._url += "?";
                 string url = this._url + "&length=" + this._length.ToString() + "&offset=" + this._offset.ToString();
                 string json = "";
                 using (WebClient client = new WebClient())
