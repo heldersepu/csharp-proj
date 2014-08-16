@@ -7,7 +7,7 @@ namespace absToTango
     /// <summary>
     /// Provides a simple abstraction layer to the ToTango API, making the pagination transparent.
     /// </summary>
-    class ToTangoReader : IDisposable
+    public class ToTangoReader : IDisposable
     {
         private string _token;
         private string _url = "";

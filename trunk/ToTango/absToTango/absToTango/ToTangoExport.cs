@@ -9,7 +9,7 @@ namespace absToTango
     /// <summary>
     /// Provides an easy way to export ToTango filters 
     /// </summary>
-    class ToTangoExport
+    public class ToTangoExport
     {
         private string _token;
         private string _headers = "";
@@ -67,6 +67,8 @@ namespace absToTango
             File.WriteAllLines(newName(outname), lines);
         }
 
+#region "  Private Methods  "
+
         private string newName(string outname)
         {
             string dName = outname;
@@ -100,5 +102,7 @@ namespace absToTango
             }
             return ret;
         }
+
+#endregion
     }
 }
