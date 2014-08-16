@@ -1,0 +1,9 @@
+#   This is the mapping file
+# Comments start with the number sign 
+# The first line is a comma separated list of the attributes as they are found in ToTango
+# The second line is the headers that will be added to the csv output file
+# Items can be tab separated for visibility.
+#
+
+MemberFullName,		MemberEmail,	MemberPhone
+name,				email,			phone
