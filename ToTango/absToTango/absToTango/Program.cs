@@ -8,13 +8,22 @@ namespace absToTango
         {            
             string token = "ab63b0d7e591ff0b8209ef9358478c4876c29787heldersepu@gmail.com";
 
-            if (args.Length == 0)
+            try
             {
-                TestReader(token);
+                if (args.Length == 0)
+                {
+                    TestReader(token);
+                }
+                else
+                {
+                    TestExport(token);
+                }
             }
-            else
+            catch (Exception e)
             {
-                TestExport(token);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("An Error has been raised");
+                Console.WriteLine(e.Message);
             }
 
             Console.ForegroundColor = ConsoleColor.White;
@@ -26,8 +35,8 @@ namespace absToTango
         static void TestExport(string token)
         {
             string url = "https://app.totango.com/api/v1/accounts/active_list/10010/current.json";
-            var tangoXport = new ToTangoExport(token);
-            tangoXport.Start(url);
+            var tangoXport = new ToTangoExport(token, "mapping.csv");
+            tangoXport.Start(url, "test.csv");
         }
 
         static void TestReader(string token)
