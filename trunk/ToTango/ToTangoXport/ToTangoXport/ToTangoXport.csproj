@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ToTangoExportUtil.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ToTangoXport.cs">
       <SubType>Form</SubType>
     </Compile>
