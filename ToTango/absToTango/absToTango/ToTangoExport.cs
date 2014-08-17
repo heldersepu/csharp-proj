@@ -46,7 +46,7 @@ namespace absToTango
         /// </summary>
         /// <param name="url">The Url to the API, something like: https://app.totango.com/api/v1/accounts/active_list/10010/current.json</param>        
         /// <param name="outname">The name of the output file</param> 
-        public void Start(string url, string outname)
+        public string Start(string url, string outname)
         {
             List<string> lines = new List<string>();
             lines.Add(this._aliasHead);
@@ -64,7 +64,9 @@ namespace absToTango
                     while (account != null);
                 }
             }
-            File.WriteAllLines(newName(outname), lines);
+            outname = newName(outname);
+            File.WriteAllLines(outname, lines);
+            return outname;
         }
 
 #region "  Private Methods  "
