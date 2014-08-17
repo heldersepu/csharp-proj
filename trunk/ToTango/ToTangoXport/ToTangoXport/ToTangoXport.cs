@@ -81,6 +81,14 @@ namespace ToTangoXport
 
         private void ToTangoXport_Load(object sender, EventArgs e)
         {
+            foreach (string arg in Environment.GetCommandLineArgs())
+            {
+                if (arg.StartsWith("url="))
+                {
+                    this.Download(arg.Replace("url=",""), "download.csv");
+                    this.Close();
+                }
+            }            
             string lastFile = ConfigurationManager.AppSettings.Get("LastOpenFile");
             if (lastFile != "")
                 this.loadFromFile(lastFile);
