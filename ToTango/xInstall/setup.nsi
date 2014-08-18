@@ -35,6 +35,9 @@ UninstPage instfiles
 ShowInstDetails show
 ShowUninstDetails show
 
+Function .onInstSuccess
+	Exec "$INSTDIR\ToTangoXport.exe"
+FunctionEnd
 
 ;--------------------------------
 ; The stuff to install
