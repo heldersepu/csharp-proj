@@ -55,9 +55,6 @@ Section "${PRODUCT_NAME} (required)"
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}" "NoModify" 1
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}" "NoRepair" 1
     WriteUninstaller "uninstall.exe"
-
-    ; Change the permissions of the install directory
-    AccessControl::GrantOnFile "$INSTDIR" "(BU)" "FullAccess"
 SectionEnd
 
 ; Optional Shortcuts sections (can be disabled by the user)
