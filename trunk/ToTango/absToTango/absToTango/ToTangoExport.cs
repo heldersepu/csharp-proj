@@ -14,15 +14,19 @@ namespace absToTango
         private string _token;
         private string _headers = "";
         private string _aliasHead = "";
+        private string[] _headArr;
+        private sql _sqlLog;
 
         /// <summary>
         /// Initializes a new instance of the ToTangoExport class.
         /// </summary>
         /// <param name="token">Your ToTango API authentication key.</param>        
         /// <param name="headerFile">Your Mapping file.</param>
-        public ToTangoExport(string token, string headerFile)
+        /// <param name="sqlConString">Optional SQL connection string</param>
+        public ToTangoExport(string token, string headerFile, string sqlConString = "")
         {            
             this._token = token;
+            this._sqlLog = new sql(sqlConString);
             foreach (string line in File.ReadAllLines(headerFile))
             {
                 if ((line.Trim().Length > 0) && (!line.StartsWith("#")))
@@ -30,6 +34,7 @@ namespace absToTango
                     if (this._headers == "")
                     {
                         this._headers = line.Replace("\t", "");
+                        this._headArr = this._headers.Split(',');
                         this._aliasHead = this._headers;
                     }
                     else
@@ -45,7 +50,7 @@ namespace absToTango
         /// Start the export on the given url
         /// </summary>
         /// <param name="url">The Url to the API, something like: https://app.totango.com/api/v1/accounts/active_list/10010/current.json</param>        
-        /// <param name="outname">The name of the output file</param> 
+        /// <param name="outname">The name of the output file</param>          
         public string Start(string url, string outname)
         {
             List<string> lines = new List<string>();
@@ -87,9 +92,10 @@ namespace absToTango
         private string concatAttribs(dynamic account)
         {
             string line = "";
-            foreach (string attrib in this._headers.Split(','))
+            foreach (string attrib in this._headArr)
             {
-                line += getAttrib(account, attrib) + ",";
+                string aValue = getAttrib(account, attrib);
+                line += aValue + ",";
             }
             return line.TrimEnd(',');
         }
@@ -103,7 +109,7 @@ namespace absToTango
                 ret = account.attributes[attrib].value;
             }
             return ret;
-        }
+        }        
 
 #endregion
     }
