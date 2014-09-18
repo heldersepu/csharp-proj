@@ -9,6 +9,13 @@
 @RMDIR /S /Q ToTangoXport\ToTangoXport\bin
 @RMDIR /S /Q ToTangoXport\ToTangoXport\obj
 
+@ECHO.
+@ECHO.
+@ECHO   CLEAN UP COMPLETE !!
+@ECHO.
+@PAUSE
+@CLS
+
 %DEVENV% absToTango\absToTango.sln /Build
 %DEVENV% ToTangoXport\ToTangoXport.sln /Build
 COPY  absToTango\absToTango\mapping.csv 			ToTangoXport\ToTangoXport\bin\Debug
