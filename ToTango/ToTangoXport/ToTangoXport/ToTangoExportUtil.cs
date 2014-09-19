@@ -17,6 +17,7 @@ namespace ToTangoXport
         private ToTangoExport toTango;
         private string token = "";
         private string headerFile = "";
+        private string baseUrl = "";
         
         public ToTangoXport()
         {
@@ -31,6 +32,7 @@ namespace ToTangoXport
             {
                 token = ConfigurationManager.AppSettings.Get("ToTangoToken");
                 headerFile = ConfigurationManager.AppSettings.Get("HeaderFile");
+                baseUrl = ConfigurationManager.AppSettings.Get("BaseConfirmUrl");
             }
             catch (Exception) { }
             if (!File.Exists(headerFile)) 
@@ -100,7 +102,7 @@ namespace ToTangoXport
             this.status.Text = "Downloading...";
             this.status2.Text = "";
             this.Refresh();
-            outname = this.toTango.Start(url, outname);
+            outname = this.toTango.Start(url, outname, baseUrl);
             this.status.Text = "Done!";
             this.status2.Text = outname;
         }
