@@ -101,5 +101,12 @@ namespace ToTangoXport
                 System.Diagnostics.Process.Start(this.status2.Text);
             }
         }
+
+        private void changeConfirmationURLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string input = Interaction.InputBox("ToTangoXport", "Enter the ToTango Base url for the confirmation call", token, 0, 0);
+            if (input != "")
+                this.UpdateSetting("BaseConfirmUrl", input);
+        }
     }
 }

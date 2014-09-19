@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace absToTango
 {
@@ -19,14 +19,50 @@ namespace absToTango
             this._sqlConn = sqlConString;
         }
 
-        public Int64 addCall()
+        public string addCall()
         {
-            return 0;
+            string id = "0";
+            if (!string.IsNullOrEmpty(_sqlConn))
+            {
+                using (SqlConnection conn = new SqlConnection(_sqlConn))
+                {
+                    SqlCommand command = new SqlCommand("sp", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    //command.Parameters.Add("@WebServerName", SqlDbType.Text);
+                    //command.Parameters["@WebServerName"].Value = args[i];
+                    conn.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        id = reader["id"].ToString();
+                    }
+                    reader.Close();
+                    conn.Close();
+                }
+            }
+            return id;
         }
 
-        public void addAttrib(Int64 id, string key, string value)
+        public void addAttrib(string id, string key, string value)
         {
-            
+            if (!string.IsNullOrEmpty(_sqlConn))
+            {
+                using (SqlConnection conn = new SqlConnection(_sqlConn))
+                {
+                    SqlCommand command = new SqlCommand("sp", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@id", SqlDbType.Text);
+                    command.Parameters["@id"].Value = id;
+                    command.Parameters.Add("@key", SqlDbType.Text);
+                    command.Parameters["@key"].Value = key;
+                    command.Parameters.Add("@value", SqlDbType.Text);
+                    command.Parameters["@value"].Value = value;
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
         }
     }
 }
