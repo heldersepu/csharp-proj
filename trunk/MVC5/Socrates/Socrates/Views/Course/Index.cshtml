@@ -15,7 +15,7 @@
                 {
                     <li>
                         <span style="color: red;">@course.Number:</span>
-                        @Html.ActionLink(course.Title, "Detail", new { id = course.Id })
+                        <a class="fancybox fancybox.ifram" data-fancybox-type="iframe" href="http://localhost:50551/Course/Detail/@course.Id">@course.Title</a>
                         [@course.Duration]
                     </li>
                 }
@@ -24,3 +24,4 @@
         </li>
     }
 </ul>
+
