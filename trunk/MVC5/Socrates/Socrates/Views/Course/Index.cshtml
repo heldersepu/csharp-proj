@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<ul>
+    @foreach (Department dept in Model)
+    {
+        <li><b>@dept.Name</b>
+            <ul>
+                @foreach (Course course in dept.Courses)
+                {
+                    <li>
+                        <span style="color: red;">@course.Number:</span>
+                        @Html.ActionLink(course.Title, "Detail", new { id = course.Id })
+                        [@course.Duration]
+                    </li>
+                }
+
+            </ul>
+        </li>
+    }
+</ul>
