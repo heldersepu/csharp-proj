@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>Acme Training</h2>
+    <p><a href="@Url.Action("about")" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Departments</h2>
+        <p>We offer this and that...</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Department")">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Courses</h2>
+        <p>All our courses are the best.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Course")">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Instructors</h2>
+        <p>All of our instructors are top notch .</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Instructors")">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+
