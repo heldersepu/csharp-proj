@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Socrates.Models;
