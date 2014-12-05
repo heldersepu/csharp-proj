@@ -21,7 +21,6 @@ namespace Socrates.Controllers
         public ActionResult Detail(int id=1)
         {
             var crs = context.Courses.SingleOrDefault(d => d.Id == id);
-            ViewBag.NoLayout = true;
             return View(crs);
         }
     }
