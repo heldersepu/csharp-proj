@@ -17,7 +17,7 @@ namespace SampleLinq
 
         public People Duplicates()
         {
-            /** Return a list of duplicates **/
+            /** Return a list of duplicates (based on Originals) **/
             return this;
         }
     }
