@@ -28,7 +28,7 @@ namespace SampleLinq
             Console.ReadLine();
         }
 
-        static void showList(string message, People people)
+        static void showList(string message, dynamic people)
         {            
             Console.WriteLine("");
             Console.WriteLine(message);
