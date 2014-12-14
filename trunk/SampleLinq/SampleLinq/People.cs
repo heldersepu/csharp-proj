@@ -9,13 +9,13 @@ namespace SampleLinq
     {
         /** USE LINQ for the following 2 Methods **/
 
-        public People Originals()
+        public dynamic Originals()
         {
             /** Return a list of unique based on Fname & Lname **/
             return this;
         }
 
-        public People Duplicates()
+        public dynamic Duplicates()
         {
             /** Return a list of duplicates (based on Originals) **/
             return this;
