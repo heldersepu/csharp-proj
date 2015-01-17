@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ToTango API</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function search(dForm) {
+            var queryURL = "Search/Email/" + $("#email").val();
+
+            $.ajax({
+                url: queryURL,
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    $("#result").empty();
+                    accounts = data.response.accounts.hits
+                    for (var i = 0; i < accounts.length; i++){
+                        $("#result").append(accounts[i].name + "<br />");
+                        $("#result").append(accounts[i].display_name + "<br />");
+                        $("#result").append(accounts[i].selected_fields[0] + "<br />");
+                        $("#result").append("<hr/>");
+                    }                    
+                }
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <h1>ToTango API</h1>
+    <hr />
+
+    <a href="Search/Email/abc">Sample Email Search</a><br />
+    <a href="Search/Company/abc">Sample Company Search</a><br />
+    <a href="Search/AccountId/103">Sample AccountId Search</a><br />
+    <br /><hr /><br />
+    
+    <div>
+        Email: <input type="text" id="email" value="wang">
+        <br><br>
+        <input type="submit" value="Search" onclick="search();">
+    </div>
+    
+    <br/><br/>
+    <div id="result" style="float: left;"></div>
+</body>
+</html>

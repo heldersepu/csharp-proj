@@ -7,15 +7,21 @@ using Newtonsoft.Json;
 
 namespace ToTangoAPI.Controllers
 {
-    public class BaseApiController : ApiController
+    public abstract class BaseApiController : ApiController
     {
-        protected string queryUrl(string searchTerm)
+        protected string QueryUrl(string searchTerm)
         {
             string url = ConfigurationManager.AppSettings.Get("ToTangoUrlBase");
             url += ConfigurationManager.AppSettings.Get(searchTerm);
             url += ConfigurationManager.AppSettings.Get("ToTangoUrlFields");
             url += ConfigurationManager.AppSettings.Get("ToTangoUrlCommon");
             return url.Replace('\'', '"'); 
+        }
+
+        protected IHttpActionResult Error(string message)
+        {
+            var error = new Dictionary<string, string> { { "Error", message } };
+            return Json(error);
         }
 
         protected IHttpActionResult ToTangoPost(string myQueryUrl)

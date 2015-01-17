@@ -3,18 +3,18 @@ using System.Web.Http;
 
 namespace ToTangoAPI.Controllers
 {
-    public class CompanyController : BaseApiController
+    public class AccountIdController : BaseApiController
     {
-        // GET: Search/Company
+        // GET: Search/AccountId
         public IHttpActionResult Get()
         {
-            return Error("You forgot to enter the company");
+            return Error("You forgot to enter the AccountId");            
         }
 
-        // GET: Search/Company/abc
+        // GET: Search/AccountId/123
         public IHttpActionResult Get(string id)
         {
-            string myQueryUrl = QueryUrl("ToTangoUrlCompanyQuery").Replace("@NAME@", id);
+            string myQueryUrl = QueryUrl("ToTangoUrlIDQuery").Replace("@ID@", id);
             return ToTangoPost(myQueryUrl);
         }
     }

@@ -8,14 +8,13 @@ namespace ToTangoAPI.Controllers
         // GET: Search/Email
         public IHttpActionResult Get()
         {
-            var error = new Dictionary<string, string> {{"Error", "You forgot to enter the email"}};
-            return Json(error);
+            return Error("You forgot to enter the email");
         }
 
         // GET: Search/Email/abc
         public IHttpActionResult Get(string id)
         {
-            string myQueryUrl = queryUrl("ToTangoUrlEmailQuery").Replace("@EMAIL@", id);
+            string myQueryUrl = QueryUrl("ToTangoUrlEmailQuery").Replace("@EMAIL@", id);
             return ToTangoPost(myQueryUrl);
         }
     }
