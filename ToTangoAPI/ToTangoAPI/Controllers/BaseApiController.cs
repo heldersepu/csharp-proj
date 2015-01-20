@@ -4,9 +4,11 @@ using System.Configuration;
 using System.Net;
 using System.Web.Http;
 using Newtonsoft.Json;
+using ToTangoAPI.Attributes;
 
 namespace ToTangoAPI.Controllers
 {
+    [AllowCrossSiteJson]
     public abstract class BaseApiController : ApiController
     {
         protected string QueryUrl(string searchTerm)
