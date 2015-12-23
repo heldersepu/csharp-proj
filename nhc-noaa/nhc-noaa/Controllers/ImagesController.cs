@@ -1,11 +1,13 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Collections.Generic;
 using System.Configuration;
 
 namespace nhc_noaa.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ImagesController : BaseController
     {
         [HttpGet]

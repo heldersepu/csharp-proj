@@ -1,38 +1,47 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<img src="page-loader.gif" id="loader" style="position: absolute;top: 160px;left: 500;">
-<img src="../goes_east_tatl_img/2015302_0015rb.jpg" id="map">
+<img src="page-loader.gif" id="loader" style="position: absolute;top: 160px;left: 500px;">
+<img src="http://az843447.vo.msecnd.net/goes_east_tatl_img/2015302_0015rb.jpg" id="map">
 <br>
-<div>
+<div id="controls">
 <input type="button" id="back" value="<<" style="width: 40px;">
 <input type="range" id="speed" value="50" style="width: 600px;position:relative;top:6px">
 <input type="button" id="forw" value=">>" style="width: 40px;">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" id="count" value="40" style="width: 40px; text-align: center;">
+<input type="text" id="count" value="100" style="width: 40px; text-align: center;">
 </div>
 <div id="images" style="display:none"></div>
 
 <script>
 var count = 1
 var paused = false;
-var images = ["2015302_0015rb.jpg", "2015302_0045rb.jpg", "2015302_0115rb.jpg", "2015302_0145rb.jpg"];
-addAllImages()
+var images = ["2015302_0015rb.jpg"];
+var cdn = "http://az843447.vo.msecnd.net";
 
 $(window).ready(function() { setTimeout(changeImage, 500); });
 $(window).load(function(){
+    count = 0;
+    changeCount();
+    $("#speed").val(10);
     $("#speed").click(function () { paused = false; changeImage(); });
     $("#back").click(function () { changePos(-2); });
     $("#forw").click(function () { changePos(2); });
-    $("#count").change(changeCount);
-    $("#loader").fadeOut("slow");
-	$("#speed").val(10)	
-	count = 0;
-	getImages(40);
+    $("#count").change(changeCount);     
 });
+
+function loading() {
+    $("#loader").show();
+    $("#controls input").prop( "disabled", true);
+}
+
+function loaded() {
+    $("#loader").fadeOut("slow");
+    $("#controls input").prop("disabled", false);
+}
 
 function changeCount() {
     var strCount = $("#count").val();
-    var intCount = 40
+    var intCount = 100
     if ($.isNumeric(strCount)) {
         intCount = parseInt(strCount);
     } else {
@@ -42,10 +51,10 @@ function changeCount() {
 }
 
 function getImages(count) {
-    $("#loader").show();
+    loading();
     $.ajax({
         type: "GET",
-        url: "/api/Images/EastAtlantic?count=" + count,
+        url: cdn + "/api/Images/EastAtlantic?count=" + count,
         cache: false,
         success: successFunc,
         error: errorFunc,
@@ -55,8 +64,7 @@ function getImages(count) {
 function successFunc(data) {
     images = data;
     images.reverse();
-    addAllImages();
-    $("#loader").fadeOut("slow");
+    addAllImages();    
 }
 
 function errorFunc(err) {
@@ -76,17 +84,26 @@ function changePos(pos){
 }
 
 function changeImage(){
-	$("#map").attr("src","../goes_east_tatl_img/" + images[count] );
-	count += 1
-	if (count >= images.length)
-		count = 0
-	if (!paused)
-		setTimeout(changeImage, $("#speed").val()*10);
+    if (images.length > 1) 
+        $("#map").attr("src", cdn + "/goes_east_tatl_img/" + images[count]);
+    count += 1
+    if (count >= images.length)
+        count = 0
+    if (!paused)
+        setTimeout(changeImage, $("#speed").val() * 10);
 }
 
 function addAllImages(){
-	for (i = 0; i < images.length; i++) {
-		$("#images").append('<img src="../goes_east_tatl_img/' + images[i] + '">');
-	}
+    $("#images").empty();
+    for (i = 0; i < images.length; i++) {
+		$("#images").append('<img id="img' + i + '" src="' + cdn + '/goes_east_tatl_img/' + images[i] + '">');
+    }
+    $('#img' + (images.length - 1)).on('load', function () {
+        var wait = 0
+        while (!document.getElementById('img' + (images.length - 1)).complete) {
+            wait += 1;
+        }
+        loaded();
+    });
 }
 </script>
