@@ -70,7 +70,7 @@ function showEmployee(id) {
         success: employeeShow,
         error: errorFunc,
     });
-} 
+}
 
 function loadEmployees() {
     $("#loading").show();
@@ -86,7 +86,7 @@ function loadEmployees() {
 }
 
 function doSave(e) {
-    $("#loading").show();    
+    $("#loading").show();
     var target = e.currentTarget.dataset.target;
     $.ajax({
         type: "POST",
@@ -102,14 +102,15 @@ function showDependentPopover() {
         title: "Add Dependent",
         template: $("#dependentForm").html(),
         placement: "left",
-        //trigger: "focus"
+        trigger: "manual"
     };
     $('#btnDependentPopover').popover(options);
     $('#btnDependentPopover').popover('show');
+    $("#addDependent input").val("");
 }
 
 function employeeShow(employee) {
-    var delIco = "<span class='glyphicon glyphicon-trash' style='color: red;'></span>";  
+    var delIco = "<span class='glyphicon glyphicon-trash' style='color: red;'></span>";
     $("#employeeModal #Name").val(employee.Name);
     $("#employeeModal #Email").val(employee.Email);
     $("#employeeModal #Age").val(employee.Age);
@@ -126,21 +127,22 @@ function employeeShow(employee) {
         depData += "&nbsp;&nbsp;&nbsp;" + dep.Name;
         if (dep.Age != null)
             depData += ", Age = " + dep.Age;
-        
+
         depData += "</div>";
         $("#employeeModal #employeeDependents").append(depData);
     }
+    $('#btnDependentPopover').popover('hide');
     $("#employeeModal").modal("show");
     $("#loading").hide();
 }
 
-function employeeChange() {    
+function employeeChange() {
     $("*").modal("hide");
     $("input").val("");
     loadEmployees();
 }
 
-function navClick(e) {    
+function navClick(e) {
     $(".navbar li").removeClass("active");
     e.currentTarget.parentNode.className = "active";
     var target = e.currentTarget.dataset.target;
@@ -151,7 +153,7 @@ function navClick(e) {
 }
 
 function createEmployeesTable(employees) {
-    if ($("#employeesTable tr").length > 0) {        
+    if ($("#employeesTable tr").length > 0) {
         $("#employeesTable").DataTable().destroy();
     }
     $("#employeesTable").empty();
