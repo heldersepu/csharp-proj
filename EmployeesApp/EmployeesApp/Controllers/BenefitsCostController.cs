@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Runtime.Caching;
 using EmployeesApp.Models;
 
 namespace EmployeesApp.Controllers
@@ -15,15 +16,26 @@ namespace EmployeesApp.Controllers
         /// <summary>
         /// Get the yearly cost of benefits
         /// </summary>
+        /// <param name="bypassCache">Option to bypass the cache (default = false)</param>
         /// <returns>Returns the yearly cost of benefits for employees and dependents</returns>
-        public BenefitsCost Get()
+        public BenefitsCost Get(bool bypassCache = false)
         {
             var response = new BenefitsCost();
             try
             {
-                using (var context = new DbModel())
+                var memCache = MemoryCache.Default.Get(Constants.Cache.BENEFITS_COST);
+                if ((bypassCache) || (memCache == null))
                 {
-                    response = context.CostOfBenefits.AsNoTracking().FirstOrDefault();
+                    using (var context = new DbModel())
+                    {
+                        response = context.CostOfBenefits.AsNoTracking().FirstOrDefault();
+                    }
+                    var policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
+                    MemoryCache.Default.Add(Constants.Cache.BENEFITS_COST, response, policy);
+                }
+                else
+                {
+                    response = (BenefitsCost)memCache;
                 }
             }
             catch (Exception e)
@@ -50,7 +62,7 @@ namespace EmployeesApp.Controllers
                     bCosts.Description = benefitsCost.Description;
                     context.SaveChanges();
                 }
-                return Ok();
+                return Ok(Get(true));
             }
             catch (Exception e)
             {

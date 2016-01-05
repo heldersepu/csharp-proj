@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
+using System.Runtime.Caching;
 using EmployeesApp.Models;
 
 namespace EmployeesApp.Controllers
@@ -16,15 +17,26 @@ namespace EmployeesApp.Controllers
         /// <summary>
         /// Get the yearly benefits discounts
         /// </summary>
+        /// <param name="bypassCache">Option to bypass the cache (default = false)</param>
         /// <returns>Returns the benefits discounts </returns>
-        public List<BenefitsDiscount> Get()
+        public List<BenefitsDiscount> Get(bool bypassCache = false)
         {
             var response = new List<BenefitsDiscount>();
             try
             {
-                using (var context = new DbModel())
+                var memCache = MemoryCache.Default.Get(Constants.Cache.BENEFITS_DISCOUNT);
+                if ((bypassCache) || (memCache == null))
                 {
-                    response = context.BenefitDiscounts.AsNoTracking().ToList();
+                    using (var context = new DbModel())
+                    {
+                        response = context.BenefitDiscounts.AsNoTracking().ToList();
+                    }
+                    var policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
+                    MemoryCache.Default.Add(Constants.Cache.BENEFITS_DISCOUNT, response, policy);
+                }
+                else
+                {
+                    response = (List<BenefitsDiscount>)memCache;
                 }
             }
             catch (Exception e)
@@ -78,7 +90,7 @@ namespace EmployeesApp.Controllers
                     );
                     context.SaveChanges();
                 }
-                return Ok();
+                return Ok(Get(true));
             }
             catch (Exception e)
             {
@@ -108,7 +120,7 @@ namespace EmployeesApp.Controllers
                     bd.Description = benefitsDiscount.Description;
                     context.SaveChanges();
                 }
-                return Ok();
+                return Ok(Get(true));
             }
             catch (Exception e)
             {
@@ -134,7 +146,7 @@ namespace EmployeesApp.Controllers
                     context.BenefitDiscounts.Remove(bd);
                     context.SaveChanges();
                 }
-                return Ok();
+                return Ok(Get(true));
             }
             catch (Exception e)
             {
