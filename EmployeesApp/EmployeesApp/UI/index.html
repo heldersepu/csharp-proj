@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees App</title>
+	<meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" >
+    <link rel="stylesheet" href="theme.css"  />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">                
+                <a class="navbar-brand" href="\">Employees App</a>
+                <span id="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#" data-target="employees">
+                            <span class='glyphicon glyphicon-home'></span>
+                            Employees
+                        </a>
+                    </li>
+					<li id="liReports" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class='glyphicon glyphicon-stats'></span>
+                            Reports <span class="caret"></span>
+                        </a>
+                        <ul id="reportsMenu" class="dropdown-menu">
+                            <li><a href="#AnnualBenefitsCost" data-target="reports">Annual Benefits Cost</a></li>
+                            <li><a href="#CumulativeMonthlyCost" data-target="reports">Cumulative Monthly Cost</a></li>
+                            <li><a href="#CumulativeMonthlyChart" data-target="reports">Cumulative Monthly Chart</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#admin" data-target="admin">
+                            <span class='glyphicon glyphicon-cog'></span>
+                            Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="employees" class="well well-lg">
+        <div id="divEmployeesTable" class="div-employees">
+            <button type="button" class="btn btn-info btn-add" data-toggle="modal" data-target="#addEmployeeModal" style="z-index: 100;">Add Employee</button>
+            <table id="employeesTable" class="display" cellspacing="0" width="95%"></table>
+        </div>
+    </div>
+
+    <div id="reports" class="well well-lg" style="display:none">
+        <div><h2 id="rptTitle" class="rpt-title"></h2></div>
+        <div><h3 id="rptHeader" class="text-center"></h3></div>
+        <div id="rptContent"></div>
+    </div>
+
+    <div id="admin" class="well well-lg" style="display:none">
+        <div>
+            <h2>BenefitsCost</h2>
+            <a target="_blank" href="/api/BenefitsCost">BenefitsCost</a><br>
+            <form id="BenefitsCost">
+                <input class="form-control small-input" id="Employee" name="Employee" placeholder="Employee" />
+                <input class="form-control small-input" id="Dependent" name="Dependent" placeholder="Dependent" />
+                <input class="form-control" id="Description" name="Description" placeholder="Description" />
+            </form>
+            <button data-target="BenefitsCost" class="btn btn-danger btn-lg" disabled>Update BenefitsCost</button>
+        </div><br>
+
+        <div>
+            <h2>BenefitsDiscounts</h2>
+            <a target="_blank" href="/api/BenefitsDiscounts">BenefitsDiscounts</a><br>
+            <form id="BenefitsDiscounts">
+                <input class="form-control small-input" id="Percentage" name="Percentage" placeholder="Percentage" />
+                <input class="form-control small-input" id="Type" name="Type" placeholder="Type" />
+                <input class="form-control small-input" id="Value" name="Value" placeholder="Value" />
+                <input class="form-control" id="Description" name="Description" placeholder="Description" />
+            </form>
+            <button data-target="BenefitsDiscounts" class="btn btn-danger btn-lg" disabled>Add BenefitsDiscounts</button>
+        </div><br>
+        
+        <div>
+            <h2>API Links</h2>
+            <a target="_blank" href="/api/Employees">Employees</a><br>
+            <a target="_blank" href="/api/Reports/?id=AnnualBenefitsCost">AnnualBenefitsCost</a><br>
+            <a target="_blank" href="/api/Reports/?id=CumulativeMonthlyCost">CumulativeMonthlyCost</a><br>
+        </div>
+    </div>	
+
+    <div id="addEmployeeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Employee</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addEmployee">
+                        <input class="form-control" id="Name" name="Name" placeholder="Full Name" />
+                        <input class="form-control" id="Email" name="Email" placeholder="Email" />
+                        <input class="form-control tiny-input" id="Age" name="Age" placeholder="Age" /><br>                       
+                        <input class="form-control small-input" id="PaycheckAmount" name="PaycheckAmount" placeholder="PaycheckAmount" />
+                        <input class="form-control small-input" id="PaychecksPerYear" name="PaychecksPerYear" placeholder="PaychecksPerYear" />
+                        <input class="form-control small-input" id="HireDate" name="HireDate" placeholder="HireDate" type="date" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btnAddEmployee" style="margin-right: 40px;">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="employeeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Employee Data</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="employeeData">
+                        <input class="form-control" id="Name" name="Name" placeholder="Full Name" disabled />
+                        <input class="form-control" id="Email" name="Email" placeholder="Email" disabled />
+                        <input class="form-control tiny-input" id="Age" name="Age" placeholder="Age" disabled /><br>
+                        <input class="form-control small-input" id="PaycheckAmount" name="PaycheckAmount" placeholder="PaycheckAmount" disabled />
+                        <input class="form-control small-input" id="PaychecksPerYear" name="PaychecksPerYear" placeholder="PaychecksPerYear" disabled />
+                        <input class="form-control small-input" id="HireDate" name="HireDate" placeholder="HireDate" type="date" disabled />
+                    </form>
+                    <hr>
+                    <div class="modal-dependents">
+                        <h4>Dependents</h4>
+                        <button type="button" class="btn btn-info" id="btnDependentPopover">Add Dependent</button>
+                        <div id="employeeDependents" style="margin: 10px;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnDelEmployee" style="margin-right: 40px;">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dependentForm" style="display:none">
+        <div class="popover" role="tooltip">
+            <div class="arrow"></div>
+            <h3 class="popover-title"></h3>
+            <div class="popover-content2">
+                <form id="addDependent">
+                    <input class="form-control" id="Name" name="Name" placeholder="Full Name" />
+                    <input class="form-control tiny-input" id="Age" name="Age" placeholder="Age" /><br>
+                </form>
+                <button type="button" onclick="addDependent()" class="btn btn-info" id="btnAddDependent" style="position:relative;left:200px">Add</button>
+            </div>
+        </div>        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+    <script src="employees.js"></script>
+    <script src="allreports.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace nhc_noaa
+namespace EmployeesApp
 {
     public static class WebApiConfig
     {
