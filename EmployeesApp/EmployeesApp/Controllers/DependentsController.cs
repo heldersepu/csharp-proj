@@ -1,6 +1,5 @@
 ﻿using NLog;
 using System;
-using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using EmployeesApp.Framework.DbSchema;
@@ -23,7 +22,7 @@ namespace EmployeesApp.Controllers
             var response = new Dependent();
             try
             {
-                response = Data.Dependents.Where(x => x.Id == id).FirstOrDefault();
+                response = Data.Dependent(id);
             }
             catch (Exception e)
             {

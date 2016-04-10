@@ -6,14 +6,11 @@ namespace EmployeesApp.DAL
 {
     public partial class Data
     {
-        public static IQueryable<Dependent> Dependents
+        public static Dependent Dependent(int id)
         {
-            get
+            using (var context = new DbModel())
             {
-                using (var context = new DbModel())
-                {
-                    return context.Dependents.AsNoTracking();
-                }
+                return context.Dependents.AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
             }
         }
        

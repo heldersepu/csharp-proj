@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using System.Data.Entity;
+using System.Collections.Generic;
 using EmployeesApp.Framework.DbSchema;
 
 namespace EmployeesApp.DAL
 {
     public partial class Data
     {
-        public static IQueryable<Employee> Employees
+        public static List<Employee> Employees
         {
             get
             {
@@ -14,8 +15,21 @@ namespace EmployeesApp.DAL
                 {
                     return context.Employees
                         .AsNoTracking()
-                        .Include(x => x.Dependents);
+                        .Include(x => x.Dependents)
+                        .ToList();
                 }
+            }
+        }
+
+        public static Employee Employee(int id)
+        {
+            using (var context = new DbModel())
+            {
+                return context.Employees
+                    .AsNoTracking()
+                    .Include(x => x.Dependents)
+                    .Where(x => x.Id == id)
+                    .FirstOrDefault();
             }
         }
 

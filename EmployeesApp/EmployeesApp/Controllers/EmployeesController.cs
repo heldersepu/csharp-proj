@@ -23,7 +23,7 @@ namespace EmployeesApp.Controllers
             var response = new List<Employee>();
             try
             {
-                response = Data.Employees.ToList();
+                response = Data.Employees;
             }
             catch (Exception e)
             {
@@ -42,7 +42,7 @@ namespace EmployeesApp.Controllers
             var response = new Employee();
             try
             {
-                Data.Employees.Where(x => x.Id == id).FirstOrDefault();
+                response = Data.Employee(id);
             }
             catch (Exception e)
             {
