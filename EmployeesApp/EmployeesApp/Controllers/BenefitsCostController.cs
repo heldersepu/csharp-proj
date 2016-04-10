@@ -1,10 +1,9 @@
 ﻿using NLog;
 using System;
-using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Runtime.Caching;
-using EmployeesApp.Models;
+using EmployeesApp.Framework.DbSchema;
+using EmployeesApp.DAL;
 
 namespace EmployeesApp.Controllers
 {
@@ -23,20 +22,7 @@ namespace EmployeesApp.Controllers
             var response = new BenefitsCost();
             try
             {
-                var memCache = MemoryCache.Default.Get(Constants.Cache.BENEFITS_COST);
-                if ((bypassCache) || (memCache == null))
-                {
-                    using (var context = new DbModel())
-                    {
-                        response = context.CostOfBenefits.AsNoTracking().FirstOrDefault();
-                    }
-                    var policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
-                    MemoryCache.Default.Add(Constants.Cache.BENEFITS_COST, response, policy);
-                }
-                else
-                {
-                    response = (BenefitsCost)memCache;
-                }
+                response = Data.Costs(bypassCache);
             }
             catch (Exception e)
             {
@@ -54,14 +40,7 @@ namespace EmployeesApp.Controllers
         {
             try
             {
-                using (var context = new DbModel())
-                {
-                    var bCosts = context.CostOfBenefits.FirstOrDefault();
-                    bCosts.Employee = benefitsCost.Employee;
-                    bCosts.Dependent = benefitsCost.Dependent;
-                    bCosts.Description = benefitsCost.Description;
-                    context.SaveChanges();
-                }
+                Data.UpdateCosts(benefitsCost);
                 return Ok(Get(true));
             }
             catch (Exception e)

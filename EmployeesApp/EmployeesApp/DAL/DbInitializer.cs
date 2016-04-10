@@ -1,6 +1,8 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using EmployeesApp.Framework.DbSchema;
 
-namespace EmployeesApp.Models
+namespace EmployeesApp.DAL
 {
     /// <summary>
     /// Initialize the database with the required values
@@ -9,7 +11,7 @@ namespace EmployeesApp.Models
     {
         protected override void Seed(DbModel context)
         {
-            context.CostOfBenefits.Add(
+            context.CostOfBenefits.AddOrUpdate(
                 new BenefitsCost
                 {
                     Id = 1,
@@ -18,7 +20,7 @@ namespace EmployeesApp.Models
                     Description = "Yearly Benefits cost (Default)."
                 }
             );
-            context.BenefitDiscounts.Add(
+            context.BenefitDiscounts.AddOrUpdate(
                 new BenefitsDiscount
                 {
                     Id = 1,
@@ -29,6 +31,15 @@ namespace EmployeesApp.Models
                 }
             );
             context.SaveChanges();
+        }
+    }
+
+    internal sealed class Configuration : DbMigrationsConfiguration<DbModel>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = false;
         }
     }
 }

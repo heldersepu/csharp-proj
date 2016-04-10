@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using System.Data.Entity;
-using EmployeesApp.Models;
+using EmployeesApp.DAL;
 
 namespace EmployeesApp
 {

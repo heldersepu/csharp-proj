@@ -1,9 +1,10 @@
 ﻿using NLog;
 using System;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
-using EmployeesApp.BussinessLogic;
+using EmployeesApp.Framework.Interfaces;
 using EmployeesApp.Models;
 
 namespace EmployeesApp.Controllers
@@ -41,16 +42,28 @@ namespace EmployeesApp.Controllers
             }
         }
 
+        private IBenefits Benefits()
+        {
+            var cost = new BenefitsCostController().Get();
+            var discounts = new BenefitsDiscountsController().Get();
+            string file = AppDomain.CurrentDomain.BaseDirectory + "bin\\BusinessLogic.dll";
+            Assembly assembly = Assembly.LoadFrom(file);
+            Type type = assembly.GetType("EmployeesApp.BusinessLogic.Benefits");
+            return (IBenefits)Activator.CreateInstance(type, cost, discounts);
+        }
+
         private List<ReportNode> AnnualBenefitsCost
         {
             get
             {
+                
                 var report = new List<ReportNode>();
                 var employees = new EmployeesController().Get();
+                var benefits = Benefits();
                 foreach (var employee in employees)
                 {
                     var salary = employee.PaycheckAmount * employee.PaychecksPerYear;
-                    var benefi = Deduction.Benefits(employee);
+                    var benefi = benefits.Deduction(employee);
                     report.Add(
                         new ReportNode
                         {
@@ -64,6 +77,7 @@ namespace EmployeesApp.Controllers
                 return report;
             }
         }
+
         private List<ReportNode> MonthlyBenefitsCost
         {
             get
@@ -71,10 +85,11 @@ namespace EmployeesApp.Controllers
                 double totalSalary = 0;
                 double totalBenefits = 0;
                 var employees = new EmployeesController().Get();
+                var benefits = Benefits();
                 foreach (var employee in employees)
                 {
                     totalSalary += employee.PaycheckAmount * employee.PaychecksPerYear;
-                    totalBenefits += Deduction.Benefits(employee);
+                    totalBenefits += benefits.Deduction(employee);
                 }
 
                 var report = new List<ReportNode>();

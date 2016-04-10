@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeesApp.Models
+namespace EmployeesApp.Framework.DbSchema
 {
     [DataContract(Namespace = "")]
     public class Employee

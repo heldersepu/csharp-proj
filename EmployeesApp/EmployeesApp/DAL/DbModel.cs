@@ -1,7 +1,8 @@
 ﻿using NLog;
 using System.Data.Entity;
+using EmployeesApp.Framework.DbSchema;
 
-namespace EmployeesApp.Models
+namespace EmployeesApp.DAL
 {
     public class DbModel : DbContext
     {

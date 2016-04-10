@@ -1,21 +1,18 @@
 ﻿using System.Runtime.Serialization;
 
-namespace EmployeesApp.Models
+namespace EmployeesApp.Framework.DbSchema
 {
     [DataContract(Namespace = "")]
-    public class BenefitsDiscount
+    public class BenefitsCost
     {
         [DataMember]
         public int Id { get; set; }
 
         [DataMember]
-        public double Percentage { get; set; }
+        public double Employee { get; set; }
 
         [DataMember]
-        public string Type { get; set; }
-
-        [DataMember]
-        public string Value { get; set; }
+        public double Dependent { get; set; }
 
         [DataMember]
         public string Description { get; set; }
