@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace EmployeesApp.Models
+namespace EmployeesApp.Framework.DbSchema
 {
     [DataContract(Namespace = "")]
     public class Dependent

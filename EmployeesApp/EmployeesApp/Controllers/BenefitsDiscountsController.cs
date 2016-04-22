@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
-using System.Runtime.Caching;
-using EmployeesApp.Models;
+using EmployeesApp.Framework.DbSchema;
+using EmployeesApp.DAL;
 
 namespace EmployeesApp.Controllers
 {
@@ -24,20 +24,7 @@ namespace EmployeesApp.Controllers
             var response = new List<BenefitsDiscount>();
             try
             {
-                var memCache = MemoryCache.Default.Get(Constants.Cache.BENEFITS_DISCOUNT);
-                if ((bypassCache) || (memCache == null))
-                {
-                    using (var context = new DbModel())
-                    {
-                        response = context.BenefitDiscounts.AsNoTracking().ToList();
-                    }
-                    var policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
-                    MemoryCache.Default.Add(Constants.Cache.BENEFITS_DISCOUNT, response, policy);
-                }
-                else
-                {
-                    response = (List<BenefitsDiscount>)memCache;
-                }
+                response = Data.Discounts(bypassCache);
             }
             catch (Exception e)
             {
@@ -56,10 +43,7 @@ namespace EmployeesApp.Controllers
             var response = new BenefitsDiscount();
             try
             {
-                using (var context = new DbModel())
-                {
-                    response = context.BenefitDiscounts.AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
-                }
+                response = Get(false).Where(x => x.Id == id).FirstOrDefault();
             }
             catch (Exception e)
             {
@@ -77,19 +61,7 @@ namespace EmployeesApp.Controllers
         {
             try
             {
-                using (var context = new DbModel())
-                {
-                    context.BenefitDiscounts.Add(
-                        new BenefitsDiscount
-                        {
-                            Percentage = benefitsDiscount.Percentage,
-                            Type = benefitsDiscount.Type,
-                            Value = benefitsDiscount.Value,
-                            Description = benefitsDiscount.Description
-                        }
-                    );
-                    context.SaveChanges();
-                }
+                Data.AddDiscount(benefitsDiscount);
                 return Ok(Get(true));
             }
             catch (Exception e)
@@ -109,17 +81,8 @@ namespace EmployeesApp.Controllers
         {
             try
             {
-                using (var context = new DbModel())
-                {
-                    var bd = context.BenefitDiscounts.Where(x => x.Id == id).FirstOrDefault();
-                    if (bd == null)
-                        return NotFound();
-                    bd.Percentage = benefitsDiscount.Percentage;
-                    bd.Type = benefitsDiscount.Type;
-                    bd.Value = benefitsDiscount.Value;
-                    bd.Description = benefitsDiscount.Description;
-                    context.SaveChanges();
-                }
+                if (Data.UpdateDiscount(id, benefitsDiscount) == null)
+                    return NotFound();
                 return Ok(Get(true));
             }
             catch (Exception e)
@@ -130,7 +93,7 @@ namespace EmployeesApp.Controllers
         }
 
         /// <summary>
-        /// Delete an existing benefit
+        /// Delete an existing benefit discount
         /// </summary>
         /// <param name="id">The unique identifier</param>
         /// <returns>Returns Status code 200 OK on success</returns>
@@ -138,14 +101,8 @@ namespace EmployeesApp.Controllers
         {
             try
             {
-                using (var context = new DbModel())
-                {
-                    var bd = context.BenefitDiscounts.Where(x => x.Id == id).FirstOrDefault();
-                    if (bd == null)
-                        return NotFound();
-                    context.BenefitDiscounts.Remove(bd);
-                    context.SaveChanges();
-                }
+                if (Data.DeleteDiscount(id) == null)
+                    return NotFound();
                 return Ok(Get(true));
             }
             catch (Exception e)

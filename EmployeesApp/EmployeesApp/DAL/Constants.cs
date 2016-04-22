@@ -1,4 +1,4 @@
-﻿namespace EmployeesApp.Controllers
+﻿namespace EmployeesApp.DAL
 {
     public struct Constants
     {

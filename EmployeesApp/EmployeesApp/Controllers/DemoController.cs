@@ -3,7 +3,8 @@ using System;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
-using EmployeesApp.Models;
+using EmployeesApp.Framework.DbSchema;
+using EmployeesApp.DAL;
 
 namespace EmployeesApp.Controllers
 {

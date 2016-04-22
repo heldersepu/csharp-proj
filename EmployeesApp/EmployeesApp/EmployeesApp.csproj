@@ -74,7 +74,6 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -172,26 +171,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Constants.cs" />
-    <Compile Include="BussinessLogic\Deduction.cs" />
-    <Compile Include="BussinessLogic\Discount.cs" />
+    <Compile Include="DAL\Constants.cs" />
     <Compile Include="Controllers\BenefitsDiscountsController.cs" />
     <Compile Include="Controllers\BenefitsCostController.cs" />
     <Compile Include="Controllers\DependentsController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="DAL\Data_BenefitsDiscounts.cs" />
+    <Compile Include="DAL\Data_BenefitsCost.cs" />
+    <Compile Include="DAL\Data_Dependents.cs" />
+    <Compile Include="DAL\Data_Employees.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Reports\ReportChart.cs" />
     <Compile Include="Models\Reports\ReportNode.cs" />
-    <Compile Include="Models\BenefitsDiscount.cs" />
-    <Compile Include="Models\DB\DbInitializer.cs" />
-    <Compile Include="Models\DB\DbModel.cs" />
-    <Compile Include="Models\BenefitsCost.cs" />
-    <Compile Include="Models\Dependent.cs" />
-    <Compile Include="Models\Employee.cs" />
+    <Compile Include="DAL\DbInitializer.cs" />
+    <Compile Include="DAL\DbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,10 +212,21 @@
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeesApp.BusinessLogic\EmployeesApp.BusinessLogic.csproj">
+      <Project>{bc9d1b82-717b-46ca-a381-c97d3ee47c73}</Project>
+      <Name>EmployeesApp.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeesApp.Framework\EmployeesApp.Framework.csproj">
+      <Project>{556e6935-6f5d-41d8-a4d8-0f6bed998cf8}</Project>
+      <Name>EmployeesApp.DbSchema</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

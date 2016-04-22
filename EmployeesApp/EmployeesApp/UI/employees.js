@@ -120,16 +120,18 @@ function employeeShow(employee) {
     $("#btnDelEmployee").data("id", employee.Id);
     $("#btnDependentPopover").data("id", employee.Id);
     $("#employeeModal #employeeDependents").empty();
-    for (var i = 0; i < employee.Dependents.length; i++) {
-        var dep = employee.Dependents[i];
-        var depData = "<div id='dependent_" + dep.Id + "'>";
-        depData += "<a href=# onclick='delDependent(" + dep.Id + ")'>" + delIco + "</a>";
-        depData += "&nbsp;&nbsp;&nbsp;" + dep.Name;
-        if (dep.Age != null)
-            depData += ", Age = " + dep.Age;
+    if (employee.Dependents != null) {
+        for (var i = 0; i < employee.Dependents.length; i++) {
+            var dep = employee.Dependents[i];
+            var depData = "<div id='dependent_" + dep.Id + "'>";
+            depData += "<a href=# onclick='delDependent(" + dep.Id + ")'>" + delIco + "</a>";
+            depData += "&nbsp;&nbsp;&nbsp;" + dep.Name;
+            if (dep.Age != null)
+                depData += ", Age = " + dep.Age;
 
-        depData += "</div>";
-        $("#employeeModal #employeeDependents").append(depData);
+            depData += "</div>";
+            $("#employeeModal #employeeDependents").append(depData);
+        }
     }
     $('#btnDependentPopover').popover('hide');
     $("#employeeModal").modal("show");

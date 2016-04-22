@@ -2,10 +2,10 @@
 using System;
 using System.Linq;
 using System.Web.Http;
-using System.Data.Entity;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
-using EmployeesApp.Models;
+using EmployeesApp.Framework.DbSchema;
+using EmployeesApp.DAL;
 
 namespace EmployeesApp.Controllers
 {
@@ -23,11 +23,7 @@ namespace EmployeesApp.Controllers
             var response = new List<Employee>();
             try
             {
-                using (var context = new DbModel())
-                {
-                    response = context.Employees.AsNoTracking()
-                        .Include(x => x.Dependents).ToList();
-                }
+                response = Data.Employees;
             }
             catch (Exception e)
             {
@@ -46,12 +42,7 @@ namespace EmployeesApp.Controllers
             var response = new Employee();
             try
             {
-                using (var context = new DbModel())
-                {
-                    response = context.Employees.AsNoTracking()
-                        .Include(x => x.Dependents)
-                        .Where(x => x.Id == id).FirstOrDefault();
-                }
+                response = Data.Employee(id);
             }
             catch (Exception e)
             {
@@ -68,23 +59,8 @@ namespace EmployeesApp.Controllers
         public IHttpActionResult Post([FromBody]Employee employee)
         {
             try
-            {
-                using (var context = new DbModel())
-                {                    
-                    context.Employees.Add(
-                        new Employee
-                        {
-                            Name = employee.Name,
-                            Email = employee.Email,
-                            Age = employee.Age,
-                            PaycheckAmount = employee.PaycheckAmount,
-                            PaychecksPerYear = employee.PaychecksPerYear,
-                            HireDate = employee.HireDate
-                        }
-                    );
-                    context.SaveChanges();
-                }
-                return Ok();
+            {                
+                return Ok(Data.AddEmployee(employee));
             }
             catch (Exception e)
             {
@@ -103,20 +79,10 @@ namespace EmployeesApp.Controllers
         {
             try
             {
-                using (var context = new DbModel())
-                {
-                    var emp = context.Employees.Where(x => x.Id == id).FirstOrDefault();
-                    if (emp == null)
-                        return NotFound();
-                    emp.Name = employee.Name;
-                    emp.Email = employee.Email;
-                    emp.Age = employee.Age;
-                    emp.PaycheckAmount = employee.PaycheckAmount;
-                    emp.PaychecksPerYear = employee.PaychecksPerYear;
-                    emp.HireDate = employee.HireDate;
-                    context.SaveChanges();
-                }
-                return Ok();
+                var emp = Data.UpdateEmployee(id, employee);
+                if (emp == null)
+                    return NotFound();
+                return Ok(emp);
             }
             catch (Exception e)
             {
@@ -133,15 +99,9 @@ namespace EmployeesApp.Controllers
         public IHttpActionResult Delete(int id)
         {
             try
-            {
-                using (var context = new DbModel())
-                {
-                    var emp = context.Employees.Where(x => x.Id == id).FirstOrDefault();
-                    if (emp == null)
-                        return NotFound();
-                    context.Employees.Remove(emp);
-                    context.SaveChanges();
-                }
+            {                
+               if (Data.DeleteEmployee(id) == null)
+                    return NotFound();
                 return Ok();
             }
             catch (Exception e)
