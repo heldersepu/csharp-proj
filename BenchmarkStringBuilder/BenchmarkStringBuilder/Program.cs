@@ -5,6 +5,14 @@ namespace BenchmarkStringBuilder
 {
     class Program
     {
+        static string concat(string a, char b)
+        {
+            var sb = new StringBuilder();
+            sb.Append(a);
+            sb.Append(b);
+            return sb.ToString();
+        }
+
         static void Main(string[] args)
         {
             const int Loops = 10000;
@@ -29,6 +37,11 @@ namespace BenchmarkStringBuilder
                     sb.Append(RandomLetter.Next());
                 sDest = sb.ToString();
                 Console.WriteLine(" StringBuilder: " + sTime.Diff());
+
+                sTime = DateTime.Now;
+                for (int i = 0; i < Loops * j; i++)
+                    sDest = concat(sDest, RandomLetter.Next());
+                Console.WriteLine(" StringBuilder2: " + sTime.Diff());
             }
 
             Console.WriteLine();
