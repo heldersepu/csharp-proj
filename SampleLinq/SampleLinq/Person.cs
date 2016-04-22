@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace SampleLinq
 {
     class Person
@@ -7,6 +8,7 @@ namespace SampleLinq
         public string Lname;
         public string Address;
         public string Phone;
+        public Guid Id;
 
         public Person(string name, string lname, string address, string phone)
         {
@@ -14,6 +16,7 @@ namespace SampleLinq
             this.Lname = lname;
             this.Address = address;
             this.Phone = phone;
+            this.Id = Guid.NewGuid();
         }
 
         public override string ToString()
