@@ -1,5 +1,5 @@
 {
-	'Email': 'jon.doe@test.com',
-	'Active': true,
-	'CreatedDate': '2013-01-20T00: 00: 00Z',	
+	"Email": "jon.doe@test.com",
+	"Active": true,
+	"CreatedDate": "2013-01-20T00: 00: 00Z",	
 }
