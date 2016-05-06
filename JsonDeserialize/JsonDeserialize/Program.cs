@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Diagnostics;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -16,34 +15,36 @@ namespace JsonDeserialize
 
         static void Main(string[] args)
         {
-            DoTest().Wait();
+            DoTest<BaseAccount>("BaseAccount.json").Wait();
+            Console.WriteLine("\n\n");
+            DoTest<Account>("Account.json").Wait();
+            Console.Read();
         }
 
-        static async Task DoTest()
+        static async Task DoTest<T>(string file)
         {
-            var account = UseNewtonsoft<Account>("Account.json");
-            Debug.WriteLine(account.Email);
-            account = await UseRestSharp<Account>(url, resource + "Account.json");
+            Console.ForegroundColor = ConsoleColor.White;
+            var x = UseNewtonsoft<T>(file);
+            Console.WriteLine(JsonConvert.SerializeObject(x));
 
-            BaseAccount baccount = UseNewtonsoft<BaseAccount>("BaseAccount.json");
-            Debug.WriteLine(baccount.Email);
-            baccount = await UseRestSharp<BaseAccount>(url, resource + "BaseAccount.json");
+            Console.ForegroundColor = ConsoleColor.Green;
+            x = await UseRestSharp<T>(resource + file);
+            Console.WriteLine((x == null) ? "No Data": JsonConvert.SerializeObject(x));
         }
 
-        static async Task<T> UseRestSharp<T>(string baseUrl, string resource)
+        static async Task<T> UseRestSharp<T>(string resource)
         {
             var request = new RestRequest(resource, Method.GET);
             request.RequestFormat = DataFormat.Json;
-            var client = new RestClient(baseUrl);
-            var resp = await client.ExecuteTaskAsync<T>(request);
-            
+            request.OnBeforeDeserialization = r => { r.ContentType = "application/json"; };
+            var resp = await new RestClient(url).ExecuteTaskAsync<T>(request);
             return resp.Data;
         }
 
         static T UseNewtonsoft<T>(string file)
         {
-            string json = File.ReadAllText(file, Encoding.UTF8); ;
-            return JsonConvert.DeserializeObject<T>(json);            
+            string json = File.ReadAllText(file, Encoding.UTF8);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 
@@ -56,7 +57,7 @@ namespace JsonDeserialize
     }
 
     public class Account: BaseAccount
-    {        
+    {
         public IList<string> Roles { get; set; }
         public Dictionary<int,string> Locations { get; set; }
     }
