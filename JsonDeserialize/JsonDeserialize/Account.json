@@ -2,8 +2,7 @@
 	'Email': 'james@example.com',
 	'Active': true,
 	'CreatedDate': '2013-01-20T00: 00: 00Z',
-	'Roles': ['User',
-	'Admin'],
+	'Roles': ['User','Admin'],
 	'Locations': {
 		'369': '',
 		'195': 'CMH',
