@@ -17,9 +17,7 @@ namespace JsonDeserialize
         {
             DoTest<BaseAccount>("BaseAccount.json").Wait();
             Console.WriteLine("\n\n");
-            DoTest<Account>("Account.json").Wait();
-            Console.WriteLine("\n\n");
-            DoTest<CompanyInfo>("CompanyInfo.json").Wait();
+            DoTest<BaseAccount2>("BaseAccount.json").Wait();
             Console.Read();
         }
 
