@@ -1,0 +1,31 @@
+{
+	"Id": 2,
+	"Name": "WestLand Co",
+	"Departments": {
+		"428": "",
+		"448": "C2C",
+		"197": "City of New York",
+		"224": "CORPORATE OFFICE",
+		"279": "Customer Serivce",
+		"455": "Front Office",
+		"342": "HIM",
+		"457": "IT",
+		"418": "Office",
+		"182": "Programs",
+		"264": "Sales",
+		"326": "Test & Quality Engineering"
+	},
+	"Locations": {
+		"369": "",
+		"195": "CMH",
+		"241": "CS Floor",
+		"399": "Front Office",
+		"406": "Main Office",
+		"158": "Minneapolis",
+		"296": "Olneyville",
+		"281": "Wallingford 1st Shift",
+		"253": "Waukesha",
+		"210": "Winston Salem, NC"
+	},
+	"EmployeeDirectory": []
+}

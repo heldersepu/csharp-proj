@@ -18,6 +18,8 @@ namespace JsonDeserialize
             DoTest<BaseAccount>("BaseAccount.json").Wait();
             Console.WriteLine("\n\n");
             DoTest<Account>("Account.json").Wait();
+            Console.WriteLine("\n\n");
+            DoTest<CompanyInfo>("CompanyInfo.json").Wait();
             Console.Read();
         }
 
@@ -46,19 +48,5 @@ namespace JsonDeserialize
             string json = File.ReadAllText(file, Encoding.UTF8);
             return JsonConvert.DeserializeObject<T>(json);
         }
-    }
-
-
-    public class BaseAccount
-    {
-        public string Email { get; set; }
-        public bool Active { get; set; }
-        public DateTime CreatedDate { get; set; }
-    }
-
-    public class Account: BaseAccount
-    {
-        public List<string> Roles { get; set; }
-        public Dictionary<int, string> Locations { get; set; }
     }
 }

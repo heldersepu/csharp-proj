@@ -1,0 +1,5 @@
+bin
+obj
+*.suo
+/JsonDeserialize/.vs/config
+/JsonDeserialize/packages
