@@ -25,11 +25,11 @@ namespace SaleforceValidator
             string responseString = "";
             try
             {
-                using (HttpClient authClient = new HttpClient())
+                using (var authClient = new HttpClient())
                 {
                     string loginPassword = passw + token;
 
-                    HttpContent content = new FormUrlEncodedContent(new Dictionary<string, string>
+                    var content = new FormUrlEncodedContent(new Dictionary<string, string>
                         {
                             { "grant_type", "password" },
                             { "client_id", key },
@@ -39,7 +39,7 @@ namespace SaleforceValidator
                         }
                     );
 
-                    HttpResponseMessage response = await authClient.PostAsync(domain + "/services/oauth2/token", content);
+                    var response = await authClient.PostAsync(domain + "/services/oauth2/token", content);
                     responseString = await response.Content.ReadAsStringAsync();
                 }
             }
@@ -48,6 +48,18 @@ namespace SaleforceValidator
                 throw e;
             }
             return responseString;
+        }
+
+        private void textBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            btnTest.Enabled = (
+                !string.IsNullOrEmpty(textBox_Key.Text) &&
+                !string.IsNullOrEmpty(textBox_Secret.Text) &&
+                !string.IsNullOrEmpty(textBox_User.Text) &&
+                !string.IsNullOrEmpty(textBox_Passw.Text) &&
+                !string.IsNullOrEmpty(textBox_Token.Text) &&
+                !string.IsNullOrEmpty(textBox_Domain.Text)
+            );
         }
     }
 }

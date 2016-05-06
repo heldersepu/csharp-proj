@@ -52,6 +52,7 @@
             this.textBox_Key.Name = "textBox_Key";
             this.textBox_Key.Size = new System.Drawing.Size(226, 20);
             this.textBox_Key.TabIndex = 0;
+            this.textBox_Key.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
             // textBox_Secret
             // 
@@ -61,6 +62,7 @@
             this.textBox_Secret.Name = "textBox_Secret";
             this.textBox_Secret.Size = new System.Drawing.Size(226, 20);
             this.textBox_Secret.TabIndex = 1;
+            this.textBox_Secret.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
             // textBox_User
             // 
@@ -70,6 +72,7 @@
             this.textBox_User.Name = "textBox_User";
             this.textBox_User.Size = new System.Drawing.Size(226, 20);
             this.textBox_User.TabIndex = 2;
+            this.textBox_User.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
             // textBox_Passw
             // 
@@ -79,6 +82,7 @@
             this.textBox_Passw.Name = "textBox_Passw";
             this.textBox_Passw.Size = new System.Drawing.Size(226, 20);
             this.textBox_Passw.TabIndex = 3;
+            this.textBox_Passw.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
             // textBox_Token
             // 
@@ -88,6 +92,7 @@
             this.textBox_Token.Name = "textBox_Token";
             this.textBox_Token.Size = new System.Drawing.Size(226, 20);
             this.textBox_Token.TabIndex = 4;
+            this.textBox_Token.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
             // textBox_Domain
             // 
@@ -97,6 +102,7 @@
             this.textBox_Domain.Name = "textBox_Domain";
             this.textBox_Domain.Size = new System.Drawing.Size(226, 20);
             this.textBox_Domain.TabIndex = 5;
+            this.textBox_Domain.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
             // label1
             // 
@@ -154,6 +160,8 @@
             // 
             // btnTest
             // 
+            this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTest.Enabled = false;
             this.btnTest.Location = new System.Drawing.Point(140, 226);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
@@ -179,7 +187,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(360, 279);
-            this.Controls.Add(this.textBox_Resp);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -193,6 +200,7 @@
             this.Controls.Add(this.textBox_User);
             this.Controls.Add(this.textBox_Secret);
             this.Controls.Add(this.textBox_Key);
+            this.Controls.Add(this.textBox_Resp);
             this.Name = "Form1";
             this.Text = "Salesforce Validator";
             this.ResumeLayout(false);
