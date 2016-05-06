@@ -1,0 +1,20 @@
+{
+	'Email': 'james@example.com',
+	'Active': true,
+	'CreatedDate': '2013-01-20T00: 00: 00Z',
+	'Roles': ['User',
+	'Admin'],
+	'Locations': {
+		'369': '',
+		'195': 'CMH',
+		'241': 'CSFloor',
+		'399': 'FrontOffice',
+		'406': 'MainOffice',
+		'158': 'Minneapolis',
+		'296': 'Olneyville',
+		'281': 'Wallingford1stShift',
+		'253': 'Waukesha',
+		'210': 'WinstonSalem,
+		NC'
+	}
+}
