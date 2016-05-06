@@ -58,7 +58,7 @@ namespace JsonDeserialize
 
     public class Account: BaseAccount
     {
-        public IList<string> Roles { get; set; }
-        public Dictionary<int,string> Locations { get; set; }
+        public List<string> Roles { get; set; }
+        public Dictionary<int, string> Locations { get; set; }
     }
 }
