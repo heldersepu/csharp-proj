@@ -8,6 +8,7 @@
 });
 
 function addEmployee() {
+    $("#btnAddEmployee").attr('disabled', 'disabled');
     $("#loading").show();
     $.ajax({
         type: "POST",
@@ -51,9 +52,10 @@ function addDependent() {
 function delDependent(id) {
     $("#loading").show();
     $("#dependent_" + id).hide();
+    var empid = $("#btnDependentPopover").data("id");
     $.ajax({
         type: "DELETE",
-        url: "/api/Dependents/?id=" + id,
+        url: "/api/Dependents/?empid=" + empid + "&id=" + id,
         success: function () {
             $("#loading").hide();
         },
@@ -110,6 +112,7 @@ function showDependentPopover() {
 }
 
 function employeeShow(employee) {
+    $("#btnAddEmployee").removeAttr('disabled');
     var delIco = "<span class='glyphicon glyphicon-trash' style='color: red;'></span>";
     $("#employeeModal #Name").val(employee.Name);
     $("#employeeModal #Email").val(employee.Email);
@@ -117,14 +120,14 @@ function employeeShow(employee) {
     $("#employeeModal #PaycheckAmount").val(employee.PaycheckAmount);
     $("#employeeModal #PaychecksPerYear").val(employee.PaychecksPerYear);
     $("#employeeModal #HireDate").val(employee.HireDate.substring(0, 10));
-    $("#btnDelEmployee").data("id", employee.Id);
-    $("#btnDependentPopover").data("id", employee.Id);
+    $("#btnDelEmployee").data("id", employee.id);
+    $("#btnDependentPopover").data("id", employee.id);
     $("#employeeModal #employeeDependents").empty();
     if (employee.Dependents != null) {
         for (var i = 0; i < employee.Dependents.length; i++) {
             var dep = employee.Dependents[i];
-            var depData = "<div id='dependent_" + dep.Id + "'>";
-            depData += "<a href=# onclick='delDependent(" + dep.Id + ")'>" + delIco + "</a>";
+            var depData = "<div id='dependent_" + dep.id + "'>";
+            depData += "<a href=# onclick='delDependent(\"" + dep.id + "\")'>" + delIco + "</a>";
             depData += "&nbsp;&nbsp;&nbsp;" + dep.Name;
             if (dep.Age != null)
                 depData += ", Age = " + dep.Age;
@@ -163,7 +166,7 @@ function createEmployeesTable(employees) {
     $("#employeesTable").append("<thead>" + row + "</thead>");
     $("#employeesTable").append("<tfoot>" + row + "</tfoot>");
     for (var i = 0; i < employees.length; i++) {
-        var row = "<tr><td><a href='#' onclick='showEmployee(" + employees[i].Id + ")'>" + employees[i].Name + "</a></td>";
+        var row = "<tr><td><a href='#' onclick='showEmployee(\"" + employees[i].id + "\")'>" + employees[i].Name + "</a></td>";
         row += "<td>" + employees[i].Email + "</td>";
         row += "<td>" + employees[i].Age + "</td>";
         row += "<td>" + employees[i].Dependents.length + "</td>";

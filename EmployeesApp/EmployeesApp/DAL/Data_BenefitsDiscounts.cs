@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.Caching;
 using System.Collections.Generic;
 using EmployeesApp.Framework.DbSchema;
+using System.Threading.Tasks;
 
 namespace EmployeesApp.DAL
 {
@@ -14,9 +15,9 @@ namespace EmployeesApp.DAL
             var memCache = MemoryCache.Default.Get(Constants.Cache.BENEFITS_DISCOUNT);
             if ((bypassCache) || (memCache == null))
             {
-                using (var context = new DbModel())
+                using (var context = new DbModel<BenefitsDiscount>())
                 {
-                    response = context.BenefitDiscounts.AsNoTracking().ToList();
+                    response = context.All.ToList();
                 }
                 var policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
                 MemoryCache.Default.Add(Constants.Cache.BENEFITS_DISCOUNT, response, policy);
@@ -28,49 +29,34 @@ namespace EmployeesApp.DAL
             return response;
         }
 
-        public static void AddDiscount(BenefitsDiscount benefitsDiscount)
+        public static async Task<BenefitsDiscount> AddDiscount(BenefitsDiscount benefitsDiscount)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<BenefitsDiscount>())
             {
-                context.BenefitDiscounts.Add(
-                    new BenefitsDiscount
-                    {
-                        Percentage = benefitsDiscount.Percentage,
-                        Type = benefitsDiscount.Type,
-                        Value = benefitsDiscount.Value,
-                        Description = benefitsDiscount.Description
-                    }
-                );
-                context.SaveChanges();
+                return await context.Add(benefitsDiscount);
             }
         }
 
-        public static int? UpdateDiscount(int id, BenefitsDiscount benefitsDiscount)
+        public static async Task<BenefitsDiscount> UpdateDiscount(string id, BenefitsDiscount benefitsDiscount)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<BenefitsDiscount>())
             {
-                var bd = context.BenefitDiscounts.Where(x => x.Id == id).FirstOrDefault();
+                var bd = context.Get(id);
                 if (bd == null)
                     return null;
                 bd.Percentage = benefitsDiscount.Percentage;
                 bd.Type = benefitsDiscount.Type;
                 bd.Value = benefitsDiscount.Value;
                 bd.Description = benefitsDiscount.Description;
-                context.SaveChanges();
-                return id;
+                return await context.Update(bd);
             }
         }
 
-        public static int? DeleteDiscount(int id)
+        public static async Task<string> DeleteDiscount(string id)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<BenefitsDiscount>())
             {
-                var bd = context.BenefitDiscounts.Where(x => x.Id == id).FirstOrDefault();
-                if (bd == null)
-                    return null;
-                context.BenefitDiscounts.Remove(bd);
-                context.SaveChanges();
-                return id;
+                return await context.Remove(id);
             }
         }
     }

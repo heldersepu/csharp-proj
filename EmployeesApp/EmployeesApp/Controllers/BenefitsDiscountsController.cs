@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using EmployeesApp.Framework.DbSchema;
 using EmployeesApp.DAL;
@@ -38,12 +39,12 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="id">The unique identifier</param>
         /// <returns>Returns the benefits discount data for the given id </returns>
-        public BenefitsDiscount Get(int id)
+        public BenefitsDiscount Get(string id)
         {
             var response = new BenefitsDiscount();
             try
             {
-                response = Get(false).Where(x => x.Id == id).FirstOrDefault();
+                response = Get(false).Where(x => x.id == id).FirstOrDefault();
             }
             catch (Exception e)
             {
@@ -57,11 +58,11 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="benefitsDiscount">The benefits discount data to add</param>
         /// <returns>Returns Status code 200 OK on success</returns>
-        public IHttpActionResult Post([FromBody]BenefitsDiscount benefitsDiscount)
+        public async Task<IHttpActionResult> Post([FromBody]BenefitsDiscount benefitsDiscount)
         {
             try
             {
-                Data.AddDiscount(benefitsDiscount);
+                await Data.AddDiscount(benefitsDiscount);
                 return Ok(Get(true));
             }
             catch (Exception e)
@@ -77,11 +78,11 @@ namespace EmployeesApp.Controllers
         /// <param name="id">The unique identifier</param>
         /// <param name="benefitsDiscount">The benefits discount data to update</param>
         /// <returns>Returns Status code 200 OK on success</returns>
-        public IHttpActionResult Put(int id, [FromBody]BenefitsDiscount benefitsDiscount)
+        public async Task<IHttpActionResult> Put(string id, [FromBody]BenefitsDiscount benefitsDiscount)
         {
             try
             {
-                if (Data.UpdateDiscount(id, benefitsDiscount) == null)
+                if (await Data.UpdateDiscount(id, benefitsDiscount) == null)
                     return NotFound();
                 return Ok(Get(true));
             }
@@ -97,7 +98,7 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="id">The unique identifier</param>
         /// <returns>Returns Status code 200 OK on success</returns>
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(string id)
         {
             try
             {

@@ -1,26 +1,24 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace EmployeesApp.Framework.DbSchema
 {
-    [DataContract(Namespace = "")]
-    public class Dependent
+    public class Dependent : IObj
     {
-        [DataMember]
-        public int Id { get; set; }
+        public Dependent()
+        {
+            id = Guid.NewGuid().ToString();
+        }
 
-        [DataMember]
+        [JsonProperty(PropertyName = "id")]
+        public string id { get; set; }
+        
         public string Name { get; set; }
-
-        [DataMember]
+        
         public string Relationship { get; set; }
-
-        [DataMember]
+        
         public string Email { get; set; }
-
-        [DataMember]
+        
         public int? Age { get; set; }
-
-        public Employee Employee { get; set; }
-
     }
 }

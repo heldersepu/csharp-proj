@@ -1,23 +1,18 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace EmployeesApp.Framework.DbSchema
 {
-    [DataContract(Namespace = "")]
-    public class BenefitsDiscount
+    public class BenefitsDiscount : IObj
     {
-        [DataMember]
-        public int Id { get; set; }
-
-        [DataMember]
+        [JsonProperty(PropertyName = "id")]
+        public string id { get; set; }
+        
         public double Percentage { get; set; }
-
-        [DataMember]
+        
         public string Type { get; set; }
-
-        [DataMember]
+        
         public string Value { get; set; }
-
-        [DataMember]
+        
         public string Description { get; set; }
     }
 }

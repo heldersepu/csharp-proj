@@ -2,6 +2,7 @@
 using System;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Threading.Tasks;
 using EmployeesApp.Framework.DbSchema;
 using EmployeesApp.DAL;
 
@@ -36,11 +37,11 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="benefitsCost">The new benefits </param>
         /// <returns>Return Status code 200 OK on success</returns>
-        public IHttpActionResult Post([FromBody]BenefitsCost benefitsCost)
+        public async Task<IHttpActionResult> Post([FromBody]BenefitsCost benefitsCost)
         {
             try
             {
-                Data.UpdateCosts(benefitsCost);
+                await Data.UpdateCosts(benefitsCost);
                 return Ok(Get(true));
             }
             catch (Exception e)

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using System.Data.Entity;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using EmployeesApp.Framework.DbSchema;
 
@@ -11,52 +11,36 @@ namespace EmployeesApp.DAL
         {
             get
             {
-                using (var context = new DbModel())
+                using (var context = new DbModel<Employee>())
                 {
-                    return context.Employees
-                        .AsNoTracking()
-                        .Include(x => x.Dependents)
-                        .ToList();
+                    return context.All.ToList();
                 }
             }
         }
 
-        public static Employee Employee(int id)
+        public static Employee Employee(string id)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Employee>())
             {
-                return context.Employees
-                    .AsNoTracking()
-                    .Include(x => x.Dependents)
-                    .Where(x => x.Id == id)
-                    .FirstOrDefault();
+                return context.Get(id);
             }
         }
 
-        public static Employee AddEmployee(Employee employee)
+        public static async Task<Employee> AddEmployee(Employee employee)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Employee>())
             {
-                var emp = new Employee
-                {
-                    Name = employee.Name,
-                    Email = employee.Email,
-                    Age = employee.Age,
-                    PaycheckAmount = employee.PaycheckAmount,
-                    PaychecksPerYear = employee.PaychecksPerYear,
-                    HireDate = employee.HireDate
-                };
-                context.Employees.Add(emp);
-                context.SaveChanges();
-                return emp;
+                if (employee.Dependents == null)
+                    employee.Dependents = new List<Dependent>();
+                return await context.Add(employee);
             }
         }
                 
-        public static Employee UpdateEmployee(int id, Employee employee)
+        public static async Task<Employee> UpdateEmployee(string id, Employee employee)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Employee>())
             {
-                var emp = context.Employees.Where(x => x.Id == id).FirstOrDefault();
+                var emp = context.Get(id);
                 if (emp == null)
                     return null;
                 emp.Name = employee.Name;
@@ -65,21 +49,15 @@ namespace EmployeesApp.DAL
                 emp.PaycheckAmount = employee.PaycheckAmount;
                 emp.PaychecksPerYear = employee.PaychecksPerYear;
                 emp.HireDate = employee.HireDate;
-                context.SaveChanges();
-                return emp;
+                return await context.Update(emp);
             }
         }
 
-        public static int? DeleteEmployee(int id)
+        public static async Task<string> DeleteEmployee(string id)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Employee>())
             {
-                var emp = context.Employees.Where(x => x.Id == id).FirstOrDefault();
-                if (emp == null)
-                    return null;
-                context.Employees.Remove(emp);
-                context.SaveChanges();
-                return id;
+                return await context.Remove(id);
             }
         }
     }
