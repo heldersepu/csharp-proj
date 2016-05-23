@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CallRecords</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; URL='\UI'" />
+</head>
+<body>
+    <div style="display:none">
+        <h1>Welcome to CallRecords</h1>
+        <a href='/api/calls?where=Id<50+AND+Id>30+OR+Id==6'>Filter by ID</a>
+        <br />
+        <a href='/api/calls?where=StartTime<DateTime(2000,1,1)'>Pre Y2K</a>
+        <br />
+        <a href='/api/calls?where=Name.Contains("Neil")+OR+Name.Contains("Lisa")'>Neil OR Lisa</a>
+        <br />
+        <a href='/api/calls?where=Duration<60'>Quick Calls</a>
+        <br />
+        <a href='/api/calls?where=Duration>300'>Long Calls</a>
+    </div>
+</body>
+</html>
