@@ -29,11 +29,12 @@ function createTable(test) {
     $("#testTable").append("<thead>" + row + "</thead>");
     $("#testName").html(test.Name);
     for (var i = 0; i < test.Questions.length; i++) {
-        var row = "<tr><td>" + (i + 1) + ". " + test.Questions[i].Detail + "";
-        var type = (test.Questions[i].SingleAnswer ? "radio" : "checkbox");
-        for (var j = 0; j < test.Questions[i].Choices.length; j++) {
-            var choice = test.Questions[i].Choices[j]            
-            row += "<br><input type=" + type + " name=check" + i + " value=" + choice.Id + ">"
+        var question = test.Questions[i];
+        var row = "<tr><td>" + (i + 1) + ". " + question.Detail + "";
+        var type = (question.SingleAnswer ? "radio" : "checkbox");
+        for (var j = 0; j < question.Choices.length; j++) {
+            var choice = question.Choices[j]
+            row += "<br><input type=" + type + " name=Q" + question.Id + " value=" + choice.Id + ">"
             row += "<span >" + choice.Detail + "</span>"
         }
         row += "</td><tr>";
