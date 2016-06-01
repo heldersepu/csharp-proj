@@ -46,8 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbSchema\BenefitsCost.cs" />
-    <Compile Include="DbSchema\BenefitsDiscount.cs" />
+    <Compile Include="DbSchema\Benefits.cs" />
     <Compile Include="DbSchema\Dependent.cs" />
     <Compile Include="DbSchema\Employee.cs" />
     <Compile Include="DbSchema\IObj.cs" />

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using EmployeesApp.Framework.DbSchema;
+using System.Collections.Generic;
 
 namespace EmployeesApp.DAL
 {
@@ -14,34 +15,50 @@ namespace EmployeesApp.DAL
             {
                 await context.Initialize();
             }
-            using (var context = new DbModel<BenefitsCost>())
+
+            using (var context = new DbModel<Benefits>())
             {
                 await context.Initialize();
                 await context.Update(
-                    new BenefitsCost
+                    new Benefits
                     {
                         id = "1",
-                        Employee = 1000.00,
-                        Dependent = 500.00,
-                        Description = "Yearly Benefits cost (Default)."
+                        Cost = initCost,
+                        Discounts = initDiscount
                     }
                 );
             }
-            using (var context = new DbModel<BenefitsDiscount>())
+        }
+
+        private static BenefitsCost initCost
+        {
+            get
             {
-                await context.Initialize();
-                await context.Add(
+                return new BenefitsCost
+                {
+                    Employee = 1000.00,
+                    Dependent = 500.00,
+                    Description = "Yearly Benefits cost (Default)."
+                };
+            }
+        }
+
+        private static List<BenefitsDiscount> initDiscount
+        {
+            get
+            {
+                return new List<BenefitsDiscount>
+                {
                     new BenefitsDiscount
                     {
-                        id = "1",
                         Percentage = 0.10,
                         Type = "StartsWith",
                         Value = "A",
                         Description = "Anyone whose name starts with ‘A’ gets a 10% discount."
                     }
-                );
+                };
             }
-            
         }
-    }    
+
+    }
 }
