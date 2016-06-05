@@ -52,8 +52,7 @@ namespace EmployeesApp.DAL
                     new BenefitsDiscount
                     {
                         Percentage = 0.10,
-                        Type = "StartsWith",
-                        Value = "A",
+                        Predicate = "Name.StartsWith(\"A\")",
                         Description = "Anyone whose name starts with ‘A’ gets a 10% discount."
                     }
                 };

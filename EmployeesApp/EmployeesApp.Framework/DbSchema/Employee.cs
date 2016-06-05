@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace EmployeesApp.Framework.DbSchema
 {
-    public class Employee : IObj
+    public class Employee : IObj, IPerson
     {
         public Employee()
         {

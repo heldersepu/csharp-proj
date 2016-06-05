@@ -28,8 +28,7 @@ namespace EmployeesApp.Framework.DbSchema
         }
         public string id { get; set; }
         public double Percentage { get; set; }
-        public string Type { get; set; }
-        public string Value { get; set; }
+        public string Predicate { get; set; }
         public string Description { get; set; }
     }
 }

@@ -31,8 +31,7 @@ namespace EmployeesApp.DAL
                 if (bd == null)
                     return null;
                 bd.Percentage = benefitsDiscount.Percentage;
-                bd.Type = benefitsDiscount.Type;
-                bd.Value = benefitsDiscount.Value;
+                bd.Predicate = benefitsDiscount.Predicate;
                 bd.Description = benefitsDiscount.Description;
                 return await context.Update(benef);
             }

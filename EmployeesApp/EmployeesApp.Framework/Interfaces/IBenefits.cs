@@ -4,6 +4,6 @@
     public interface IBenefits
     {
         double Deduction(Employee employee);
-        double Discount(string name);
+        double Discount(IPerson person);
     }
 }

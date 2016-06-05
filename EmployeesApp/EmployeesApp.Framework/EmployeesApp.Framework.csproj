@@ -49,7 +49,8 @@
     <Compile Include="DbSchema\Benefits.cs" />
     <Compile Include="DbSchema\Dependent.cs" />
     <Compile Include="DbSchema\Employee.cs" />
-    <Compile Include="DbSchema\IObj.cs" />
+    <Compile Include="Interfaces\IPerson.cs" />
+    <Compile Include="Interfaces\IObj.cs" />
     <Compile Include="Interfaces\IBenefits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
