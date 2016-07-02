@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace EmployeesApp.Framework.DbSchema
 {
-    public class Dependent : IObj
+    public class Dependent : IObj, IPerson
     {
         public Dependent()
         {

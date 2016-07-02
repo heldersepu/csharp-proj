@@ -4,8 +4,7 @@
     {
         public struct Cache
         {
-            public const string BENEFITS_COST = "BenefitsCost";
-            public const string BENEFITS_DISCOUNT = "BenefitsDiscount";
+            public const string BENEFITS = "Benefits";
         }
     }
 }

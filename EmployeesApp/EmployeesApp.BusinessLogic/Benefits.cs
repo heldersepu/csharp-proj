@@ -1,6 +1,8 @@
-﻿using EmployeesApp.Framework.Interfaces;
-using EmployeesApp.Framework.DbSchema;
+﻿using System.Linq;
+using System.Linq.Dynamic;
 using System.Collections.Generic;
+using EmployeesApp.Framework.Interfaces;
+using EmployeesApp.Framework.DbSchema;
 
 namespace EmployeesApp.BusinessLogic
 {
@@ -33,12 +35,12 @@ namespace EmployeesApp.BusinessLogic
             double amount = 0;
             if (cost != null)
             {
-                amount = cost.Employee * (1 - Discount(employee.Name));
+                amount = cost.Employee * (1 - Discount(employee));
                 if (employee.Dependents != null)
                 {
                     foreach (var dependent in employee.Dependents)
                     {
-                        amount += cost.Dependent * (1 - Discount(dependent.Name));
+                        amount += cost.Dependent * (1 - Discount(dependent));
                     }
                 }
             }
@@ -48,27 +50,22 @@ namespace EmployeesApp.BusinessLogic
         /// <summary>
         /// Logic for the Benefits discount
         /// </summary>
-        /// <param name="name">Name of person (Employee or Dependent)</param>
+        /// <param name="person">The Person (Employee or Dependent)</param>
         /// <returns>Returns discount percentage</returns>
-        public double Discount(string name)
+        public double Discount(IPerson person)
         {
             double percentage = 0;
-            if (!string.IsNullOrEmpty(name))
+            if (person != null)
             {
-                foreach (var discount in discounts)
+                var p = new List<IPerson> { person };
+                foreach (var d in discounts)
                 {
-                    switch (discount.Type)
+                    try
                     {
-                        case "StartsWith":
-                            percentage = (name.StartsWith(discount.Value)) ? discount.Percentage : 0;
-                            break;
-                        case "EndsWith":
-                            percentage = (name.EndsWith(discount.Value)) ? discount.Percentage : 0;
-                            break;
-                        case "Equals":
-                            percentage = (name.Equals(discount.Value)) ? discount.Percentage : 0;
-                            break;
+                        if (p.Where(d.Predicate).Any())
+                            return d.Percentage;
                     }
+                    catch { }
                 }
             }
             return percentage;

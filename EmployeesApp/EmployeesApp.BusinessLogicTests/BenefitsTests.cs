@@ -18,9 +18,20 @@ namespace EmployeesApp.BusinessLogic.Tests
         List<BenefitsDiscount> discounts = new List<BenefitsDiscount> {
             new BenefitsDiscount {
                 Percentage = percent,
-                Type = "StartsWith",
-                Value = "A",
-            }
+                Predicate = "Name.StartsWith(\"A\")"
+            },
+            new BenefitsDiscount {
+                Percentage = percent * 2,
+                Predicate = "Name.EndsWith(\"0\")"
+            },
+            new BenefitsDiscount {
+                Percentage = percent * 3,
+                Predicate = "Name.Contains(\"123\")"
+            },
+            new BenefitsDiscount {
+                Percentage = percent * 4,
+                Predicate = "Age > 65"
+            },
         };
 
         [TestMethod()]
@@ -51,13 +62,37 @@ namespace EmployeesApp.BusinessLogic.Tests
         }
 
         [TestMethod()]
-        public void DiscountTest()
+        public void DiscountTest1()
         {
             var benef = new Benefits(cost, discounts);
-            double discount = benef.Discount("Anton");
+            double discount = benef.Discount(new Employee { Name = "Anton" });
             Assert.AreEqual(discount, percent);
-            discount = benef.Discount("Mary");
+            discount = benef.Discount(new Employee { Name = "Mary" });
             Assert.AreEqual(discount, 0);
+        }
+
+        [TestMethod()]
+        public void DiscountTest2()
+        {
+            var benef = new Benefits(cost, discounts);
+            double discount = benef.Discount(new Employee { Name = "abc0" });
+            Assert.AreEqual(discount, percent * 2);            
+        }
+
+        [TestMethod()]
+        public void DiscountTest3()
+        {
+            var benef = new Benefits(cost, discounts);
+            double discount = benef.Discount(new Employee { Name = "x123y" });
+            Assert.AreEqual(discount, percent * 3);
+        }
+
+        [TestMethod()]
+        public void DiscountTest4()
+        {
+            var benef = new Benefits(cost, discounts);
+            double discount = benef.Discount(new Employee { Age = 78 });
+            Assert.AreEqual(discount, percent * 4);
         }
     }
 }
