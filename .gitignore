@@ -15,3 +15,5 @@ obj
 /RandTest/.vs
 /RandTest/RandTest/*.user
 /nhc-noaa/packages
+/bike-distributor-refactor/packages
+/bike-distributor-refactor/TestResults

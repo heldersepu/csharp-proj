@@ -1,5 +1,8 @@
 ﻿namespace BikeDistributor
 {
+    /// <summary>
+    /// Everything about the bicycles
+    /// </summary>
     public class Bike
     {
         public const int OneThousand = 1000;

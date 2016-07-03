@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Nustache.Core;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace BikeDistributor
 {
+    /// <summary>
+    /// Purchase Order
+    /// </summary>
     public class Order
     {
         private const double TaxRate = .0725d;
@@ -22,87 +25,57 @@ namespace BikeDistributor
             _lines.Add(line);
         }
 
-        public string Receipt()
+        /// <summary>
+        /// Create an object with everything we need for a receipt
+        /// </summary>
+        /// <returns>Return object with all the properties need for the Receipt</returns>
+        public object ReceiptData()
         {
             var totalAmount = 0d;
-            var result = new StringBuilder(string.Format("Order Receipt for {0}{1}", Company, Environment.NewLine));
-            foreach (var line in _lines)
-            {
-                var thisAmount = 0d;
-                switch (line.Bike.Price)
-                {
-                    case Bike.OneThousand:
-                        if (line.Quantity >= 20)
-                            thisAmount += line.Quantity * line.Bike.Price * .9d;
-                        else
-                            thisAmount += line.Quantity * line.Bike.Price;
-                        break;
-                    case Bike.TwoThousand:
-                        if (line.Quantity >= 10)
-                            thisAmount += line.Quantity * line.Bike.Price * .8d;
-                        else
-                            thisAmount += line.Quantity * line.Bike.Price;
-                        break;
-                    case Bike.FiveThousand:
-                        if (line.Quantity >= 5)
-                            thisAmount += line.Quantity * line.Bike.Price * .8d;
-                        else
-                            thisAmount += line.Quantity * line.Bike.Price;
-                        break;
-                }
-                result.AppendLine(string.Format("\t{0} x {1} {2} = {3}", line.Quantity, line.Bike.Brand, line.Bike.Model, thisAmount.ToString("C")));
-                totalAmount += thisAmount;
-            }
-            result.AppendLine(string.Format("Sub-Total: {0}", totalAmount.ToString("C")));
-            var tax = totalAmount * TaxRate;
-            result.AppendLine(string.Format("Tax: {0}", tax.ToString("C")));
-            result.Append(string.Format("Total: {0}", (totalAmount + tax).ToString("C")));
-            return result.ToString();
-        }
-
-        public string HtmlReceipt()
-        {
-            var totalAmount = 0d;
-            var result = new StringBuilder(string.Format("<html><body><h1>Order Receipt for {0}</h1>", Company));
+            List<object> lines = new List<object>();
             if (_lines.Any())
             {
-                result.Append("<ul>");
                 foreach (var line in _lines)
                 {
-                    var thisAmount = 0d;
-                    switch (line.Bike.Price)
+                    var thisAmount = line.Cost(Data.Discounts);
+                    lines.Add(new
                     {
-                        case Bike.OneThousand:
-                            if (line.Quantity >= 20)
-                                thisAmount += line.Quantity*line.Bike.Price*.9d;
-                            else
-                                thisAmount += line.Quantity*line.Bike.Price;
-                            break;
-                        case Bike.TwoThousand:
-                            if (line.Quantity >= 10)
-                                thisAmount += line.Quantity*line.Bike.Price*.8d;
-                            else
-                                thisAmount += line.Quantity*line.Bike.Price;
-                            break;
-                        case Bike.FiveThousand:
-                            if (line.Quantity >= 5)
-                                thisAmount += line.Quantity*line.Bike.Price*.8d;
-                            else
-                                thisAmount += line.Quantity*line.Bike.Price;
-                            break;
-                    }
-                    result.Append(string.Format("<li>{0} x {1} {2} = {3}</li>", line.Quantity, line.Bike.Brand, line.Bike.Model, thisAmount.ToString("C")));
+                        line.Quantity,
+                        Brand = line.Bike.Brand,
+                        Model = line.Bike.Model,
+                        Cost = thisAmount.ToString("C")
+                    });
                     totalAmount += thisAmount;
                 }
-                result.Append("</ul>");
             }
-            result.Append(string.Format("<h3>Sub-Total: {0}</h3>", totalAmount.ToString("C")));
             var tax = totalAmount * TaxRate;
-            result.Append(string.Format("<h3>Tax: {0}</h3>", tax.ToString("C")));
-            result.Append(string.Format("<h2>Total: {0}</h2>", (totalAmount + tax).ToString("C")));
-            result.Append("</body></html>");
-            return result.ToString();
+
+            return new
+            {
+                Company,
+                totalAmount = totalAmount.ToString("C"),
+                lines,
+                tax = tax.ToString("C"),
+                total = (totalAmount + tax).ToString("C")
+            };
         }
 
+        /// <summary>
+        /// Generate a text receipt
+        /// </summary>
+        /// <returns>Returns a text receipt</returns>
+        public string Receipt()
+        {
+            return Render.StringToString(File.ReadAllText(".\\Templates\\Receipt.txt"), ReceiptData());
+        }
+
+        /// <summary>
+        /// Generate an HTML receipt
+        /// </summary>
+        /// <returns>Returns a receipt in HTML format</returns>
+        public string HtmlReceipt()
+        {                    
+            return Render.StringToString(File.ReadAllText(".\\Templates\\Receipt.html"), ReceiptData());
+        }
     }
 }
