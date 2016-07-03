@@ -1,0 +1,7 @@
+bin
+obj
+*.suo
+*.csproj.user
+*.pubxml.user
+/bike-distributor-refactor/packages
+/bike-distributor-refactor/TestResults
