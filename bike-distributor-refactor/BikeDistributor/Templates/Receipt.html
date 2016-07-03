@@ -1,0 +1,11 @@
+﻿<html>
+<body>
+<h1>Order Receipt for {{Company}}</h1>
+<ul>
+{{#each lines}}<li>{{Quantity}} x {{Brand}} {{Model}} = {{Cost}}</li>{{/each}}
+</ul>
+<h3>Sub-Total: {{totalAmount}}</h3>
+<h3>Tax: {{tax}}</h3>
+<h2>Total: {{total}}</h2>
+</body>
+</html>
