@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.Caching;
+﻿using System.Threading.Tasks;
 using EmployeesApp.Framework.DbSchema;
 
 namespace EmployeesApp.DAL
@@ -9,33 +7,18 @@ namespace EmployeesApp.DAL
     {
         public static BenefitsCost Costs(bool bypassCache)
         {
-            var response = new BenefitsCost();
-            var memCache = MemoryCache.Default.Get(Constants.Cache.BENEFITS_COST);
-            if ((bypassCache) || (memCache == null))
-            {
-                using (var context = new DbModel())
-                {
-                    response = context.CostOfBenefits.AsNoTracking().FirstOrDefault();
-                }
-                var policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
-                MemoryCache.Default.Add(Constants.Cache.BENEFITS_COST, response, policy);
-            }
-            else
-            {
-                response = (BenefitsCost)memCache;
-            }
-            return response;
+            return Benefits(bypassCache).Cost;
         }
 
-        public static void UpdateCosts(BenefitsCost benefitsCost)
+        public static async Task<Benefits> UpdateCosts(BenefitsCost benefitsCost)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Benefits>())
             {
-                var bCosts = context.CostOfBenefits.FirstOrDefault();
-                bCosts.Employee = benefitsCost.Employee;
-                bCosts.Dependent = benefitsCost.Dependent;
-                bCosts.Description = benefitsCost.Description;
-                context.SaveChanges();
+                var benef = context.First();
+                benef.Cost.Employee = benefitsCost.Employee;
+                benef.Cost.Dependent = benefitsCost.Dependent;
+                benef.Cost.Description = benefitsCost.Description;
+                return await context.Update(benef);
             }
         }
        

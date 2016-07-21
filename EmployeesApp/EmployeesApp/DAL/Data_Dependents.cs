@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using EmployeesApp.Framework.DbSchema;
 
@@ -6,46 +7,40 @@ namespace EmployeesApp.DAL
 {
     public partial class Data
     {
-        public static Dependent Dependent(int id)
+        public static Dependent Dependent(string empid, string id)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Employee>())
             {
-                return context.Dependents.AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
+                var emp = context.Get(empid);
+                if (emp == null) return null;
+                return emp.Dependents.Where(x => x.id == id).FirstOrDefault();
             }
         }
        
-        public static Dependent AddDependent(int empid, Dependent dependent)
+        public static async Task<Employee> AddDependent(string empid, Dependent dependent)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Employee>())
             {
-                var emp = context.Employees.Where(x => x.Id == empid).FirstOrDefault();
+                var emp = context.Get(empid);
                 if (emp == null)
                     return null;
                 if (emp.Dependents == null)
                     emp.Dependents = new List<Dependent>();
-                var depend = new Dependent
-                {
-                    Name = dependent.Name,
-                    Relationship = dependent.Relationship,
-                    Age = dependent.Age,
-                    Email = dependent.Email
-                };
-                emp.Dependents.Add(depend);
-                context.SaveChanges();
-                return depend;
+                emp.Dependents.Add(dependent);
+                return await context.Update(emp);
             }
         }
 
-        public static int? DeleteDependent(int id)
+        public static async Task<Employee> DeleteDependent(string empid, string id)
         {
-            using (var context = new DbModel())
+            using (var context = new DbModel<Employee>())
             {
-                var dep = context.Dependents.Where(x => x.Id == id).FirstOrDefault();
-                if (dep == null)
-                    return null;
-                context.Dependents.Remove(dep);
-                context.SaveChanges();
-                return id;
+                var emp = context.Get(empid);
+                if (emp == null) return null;
+                var dep = emp.Dependents.Where(x => x.id == id).FirstOrDefault();
+                if (dep == null) return null;
+                emp.Dependents.Remove(dep);
+                return await context.Update(emp);
             }
         }
     }

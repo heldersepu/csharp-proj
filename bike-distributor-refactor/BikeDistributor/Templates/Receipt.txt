@@ -1,0 +1,5 @@
+﻿Order Receipt for {{Company}}
+	{{#each lines}}{{Quantity}} x {{Brand}} {{Model}} = {{Cost}}{{/each}}
+Sub-Total: {{totalAmount}}
+Tax: {{tax}}
+Total: {{total}}

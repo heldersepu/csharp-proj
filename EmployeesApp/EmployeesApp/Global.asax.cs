@@ -1,5 +1,4 @@
 ﻿using System.Web.Http;
-using System.Data.Entity;
 using EmployeesApp.DAL;
 
 namespace EmployeesApp
@@ -9,7 +8,7 @@ namespace EmployeesApp
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            Database.SetInitializer(new DbInitializer());
+            DbInitializer.Initialize().Wait();
         }
     }
 }

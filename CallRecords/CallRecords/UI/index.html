@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CallRecords App</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="\">CallRecords App</a>
+                <span id="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#" data-target="CallRecords">
+                            <span class='glyphicon glyphicon-home'></span>
+                            Calls
+                        </a>
+                    </li>                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#admin" data-target="admin">
+                            <span class='glyphicon glyphicon-cog'></span>
+                            Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="CallRecords" class="well well-lg">
+        <div id="divCallRecordsTable" class="div-CallRecords">
+            <button type="button" class="btn btn-info btn-add" data-toggle="modal" data-target="#filtersModal" style="z-index: 100;">Change Filters</button>
+            <table id="CallRecordsTable" class="display" cellspacing="0" width="95%"></table>
+        </div>
+    </div>
+
+    <div id="admin" class="well well-lg" style="display:none">
+        <div>
+            <h2>Sample API calls using where:</h2>
+            <a href='/api/calls?where=Id<50+AND+Id>30+OR+Id==6'>Filter by ID</a>
+            <br />
+            <a href='/api/calls?where=StartTime<DateTime(2000,1,1)'>StartTime Pre Y2K</a>
+            <br />
+            <a href='/api/calls?where=Name.Contains("Neil")+OR+Name.Contains("Lisa")'>Name Contains Neil OR Lisa</a>
+            <br />
+            <a href='/api/calls?where=Duration<60'>Quick Calls (Duration less than 60)</a>
+            <br />
+            <a href='/api/calls?where=Duration>300'>Long Calls (Duration greater than 300)</a>
+        </div>
+        <div>
+            <h2>Sample API calls using CallsView:</h2>
+            <a href='/api/CallsView?Id=2'>CallsView?Id=2</a>
+            <br />
+            <a href='/api/CallsView?Id=3'>CallsView?Id=3</a>
+            <br />
+            <a href='/api/CallsView?Id=4'>CallsView?Id=4</a>
+            <br />
+        </div>
+    </div>
+
+    <div id="filtersModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Filters</h4>
+                </div>
+                <div class="modal-body">
+                    <span id="CommonFilters"></span>
+                    <span id="CurrentFilters"><form id="addFilters"></form></span>                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btnApplyFilters" style="margin-right: 40px;">Apply</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="calls.js"></script>
+</body>
+</html>

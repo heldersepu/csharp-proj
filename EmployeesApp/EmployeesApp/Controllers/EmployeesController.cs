@@ -6,6 +6,7 @@ using System.Web.Http.Cors;
 using System.Collections.Generic;
 using EmployeesApp.Framework.DbSchema;
 using EmployeesApp.DAL;
+using System.Threading.Tasks;
 
 namespace EmployeesApp.Controllers
 {
@@ -37,7 +38,7 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="id">The unique identifier</param>
         /// <returns>Returns the employee data for the given id </returns>
-        public Employee Get(int id)
+        public Employee Get(string id)
         {
             var response = new Employee();
             try
@@ -56,11 +57,11 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="employee">The employee data to add</param>
         /// <returns>Returns Status code 200 OK on success</returns>
-        public IHttpActionResult Post([FromBody]Employee employee)
+        public async Task<IHttpActionResult> Post([FromBody]Employee employee)
         {
             try
             {                
-                return Ok(Data.AddEmployee(employee));
+                return Ok(await Data.AddEmployee(employee));
             }
             catch (Exception e)
             {
@@ -75,11 +76,11 @@ namespace EmployeesApp.Controllers
         /// <param name="id">The unique identifier</param>
         /// <param name="employee">The employee data to update</param>
         /// <returns>Returns Status code 200 OK on success</returns>
-        public IHttpActionResult Put(int id, [FromBody]Employee employee)
+        public async Task<IHttpActionResult> Put(string id, [FromBody]Employee employee)
         {
             try
             {
-                var emp = Data.UpdateEmployee(id, employee);
+                var emp = await Data.UpdateEmployee(id, employee);
                 if (emp == null)
                     return NotFound();
                 return Ok(emp);
@@ -96,11 +97,11 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="id">The unique identifier</param>
         /// <returns>Returns Status code 200 OK on success</returns>
-        public IHttpActionResult Delete(int id)
+        public async Task<IHttpActionResult> Delete(string id)
         {
             try
             {                
-               if (Data.DeleteEmployee(id) == null)
+               if (await Data.DeleteEmployee(id) == null)
                     return NotFound();
                 return Ok();
             }

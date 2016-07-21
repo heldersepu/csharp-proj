@@ -3,6 +3,7 @@ using System;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using EmployeesApp.Framework.DbSchema;
 using EmployeesApp.DAL;
 
@@ -26,14 +27,13 @@ namespace EmployeesApp.Controllers
         /// </summary>
         /// <param name="count">The count of employees to add (default = 10)</param>
         /// <returns>Returns a list of names for those employees added</returns>        
-        public IHttpActionResult Get(int count = 10)
+        public async Task<IHttpActionResult> Get(int count = 10)
         {
             try
             {
                 var employees = new List<string>();
-                using (var context = new DbModel())
+                using (var context = new DbModel<Employee>())
                 {
-                    context.Configuration.AutoDetectChangesEnabled = false;
                     for (int i = 0; i < count; i++)
                     {
                         string name = RandomName;
@@ -59,9 +59,8 @@ namespace EmployeesApp.Controllers
                             };
                             newEmployee.Dependents.Add(dependent);
                         }
-                        context.Employees.Add(newEmployee);
+                        await context.Add(newEmployee);
                     }
-                    context.SaveChanges();
                 }
                 return Ok(employees);
             }

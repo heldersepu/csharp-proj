@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "CallRecords"
+  },
+  "hostingPlanName": {
+    "value": "Default1"
+  },
+  "siteLocation": {
+    "value": "East US"
+  },
+  "sku": {
+    "value": "Basic"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "ed5f8696-9703-4819-9b9b-6ea07801d86f"
+  },
+  "resourceGroup": {
+    "value": "Default-Web-EastUS"
+  }
+}
