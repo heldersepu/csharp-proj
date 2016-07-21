@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiDimArray", "BiDimArray\BiDimArray.csproj", "{829B969F-A100-4C8E-B07D-C0B91535C5F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiDimArray.Test", "BiDimArray.Test\BiDimArray.Test.csproj", "{10F4A72F-EA81-4091-9049-E506991F1902}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{829B969F-A100-4C8E-B07D-C0B91535C5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829B969F-A100-4C8E-B07D-C0B91535C5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829B969F-A100-4C8E-B07D-C0B91535C5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829B969F-A100-4C8E-B07D-C0B91535C5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F4A72F-EA81-4091-9049-E506991F1902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F4A72F-EA81-4091-9049-E506991F1902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F4A72F-EA81-4091-9049-E506991F1902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F4A72F-EA81-4091-9049-E506991F1902}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
