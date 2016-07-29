@@ -23,7 +23,7 @@ namespace HighAndLow
                 else if (num < min)
                     min = num;
             }
-            return max.ToString() + " " + min.ToString();
+            return $"{max} {min}";
         }
     }
 }
