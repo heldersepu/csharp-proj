@@ -1,4 +1,4 @@
-﻿var count = 1
+﻿var count = 1;
 var paused = false;
 var images = ["2015302_0015rb.jpg"];
 var cdn = "http://az843447.vo.msecnd.net";
@@ -81,15 +81,14 @@ function changePos(pos) {
 function changeImage() {
     if (images.length > 1)
 	{
+        if (count >= images.length) count = 0;
         $("#map").attr("src", cdn + "/goes_east_tatl_img/" + images[count]);
 		$(".active").removeClass("active");
-		$("#img" + (count + 999)).addClass("active");
+		$("#img" + (count + 1000)).addClass("active");
+		count += 1;
+        if (!paused)
+            setTimeout(changeImage, $("#speed").val() * 10);
 	}
-    count += 1
-    if (count >= images.length)
-        count = 0
-    if (!paused)
-        setTimeout(changeImage, $("#speed").val() * 10);
 }
 
 function appendImage(i) {
