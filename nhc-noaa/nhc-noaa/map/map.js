@@ -48,11 +48,17 @@ function getImages(count) {
     });
 }
 
+function sprite(image) {
+    var imgTag = "<img class='sprite' style='background:url(" + cdn + "/goes_east_tatl_img/" + image + ") 0 -465px'>";
+    $("#data").append(imgTag);
+}
+
 function successFunc(data) {
     images = data;
     images.reverse();
-    console.log(images[0]);
-    console.log(images[images.length - 1]);
+    $("#data").empty();
+    sprite(images[0]);
+    sprite(images[images.length - 1]);
     addAllImages();
 }
 

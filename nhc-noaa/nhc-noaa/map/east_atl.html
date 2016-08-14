@@ -9,7 +9,7 @@
 		width: 600px;
 	}
 }
-div {padding: 10px}
+div {padding: 10px;max-width: 1400px;}
 input {width: 40px;}
 #count {text-align: center;}
 #speed {width: 900px;position:relative;top:6px;}
@@ -28,6 +28,10 @@ input {width: 40px;}
     border-radius: 50%;
     background: red;
 }
+.sprite {
+	height: 15px;
+	width: 1100px;
+}
 </style>
 
 <div>
@@ -43,7 +47,8 @@ input {width: 40px;}
 		<input title="amount of images" type="text" id="count" value="100">
 	</div>
 
-	<div id="images"></div>
+    <div id="images"></div>
+	<div id="data"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
