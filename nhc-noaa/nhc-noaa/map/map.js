@@ -3,15 +3,15 @@ var paused = false;
 var images = ["2015302_0015rb.jpg"];
 var cdn = "http://az843447.vo.msecnd.net";
 
-$(window).ready(function () { setTimeout(changeImage, 500); });
 $(window).load(function () {
     count = 0;
-    changeCount();
-    $("#speed").val(10);
+	var hash = window.location.hash.replace("#", "");
+	if ($.isNumeric(hash)) $("#count").val(hash);
     $("#speed").click(function () { paused = false; changeImage(); });
-    $("#back").click(function () { changePos(-2); });
-    $("#forw").click(function () { changePos(2); });
+    $("#back").click(function () { changePos(-3); });
+    $("#forw").click(function () { changePos(1); });
     $("#count").change(changeCount);
+    changeCount();
 });
 
 function loading() {
@@ -28,7 +28,8 @@ function changeCount() {
     var strCount = $("#count").val();
     var intCount = 100
     if ($.isNumeric(strCount)) {
-        intCount = parseInt(strCount);
+        history.pushState(null, null, '#' + strCount);
+		intCount = parseInt(strCount);
     } else {
         $("#count").val(intCount);
     }
@@ -37,6 +38,7 @@ function changeCount() {
 
 function getImages(count) {
     loading();
+	paused = true;
     $.ajax({
         type: "GET",
         url: cdn + "/api/Images/EastAtlantic?count=" + count,
@@ -49,6 +51,8 @@ function getImages(count) {
 function successFunc(data) {
     images = data;
     images.reverse();
+    console.log(images[0]);
+    console.log(images[images.length - 1]);
     addAllImages();
 }
 
@@ -70,29 +74,33 @@ function changePos(pos) {
 
 function changeImage() {
     if (images.length > 1)
+	{
         $("#map").attr("src", cdn + "/goes_east_tatl_img/" + images[count]);
+		$(".active").removeClass("active");
+		$("#img" + (count + 999)).addClass("active");
+	}
     count += 1
     if (count >= images.length)
         count = 0
-    //while (!document.getElementById('map').complete) {
-    //    if (!$("#loader").is(":visible"))
-    //        loading();
-    //}
-    //loaded();
     if (!paused)
         setTimeout(changeImage, $("#speed").val() * 10);
+}
+
+function appendImage(i) {
+	var imageTag = '<img id="img' + (i + 1000) + '" src="' +
+					cdn + '/goes_east_tatl_img/' + images[i] +
+					'" title="' + images[i] + '">';
+	$("#images").append(imageTag);
+	if (i+1 == images.length) {
+		loaded();
+		paused = false;
+		setTimeout(changeImage, 500)
+	}
 }
 
 function addAllImages() {
     $("#images").empty();
     for (i = 0; i < images.length; i++) {
-        $("#images").append('<img id="img' + i + '" src="' + cdn + '/goes_east_tatl_img/' + images[i] + '">');
+        setTimeout(appendImage.bind(null, i), i * 50);
     }
-    $('#img' + (images.length - 1)).on('load', function () {
-        var wait = 0
-        while (!document.getElementById('img' + (images.length - 1)).complete) {
-            wait += 1;
-        }
-        loaded();
-    });
 }

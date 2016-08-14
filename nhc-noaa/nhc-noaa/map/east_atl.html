@@ -1,15 +1,50 @@
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<img src="page-loader.gif" id="loader" style="position: absolute;top: 160px;left: 500px;">
-<img src="http://az843447.vo.msecnd.net/goes_east_tatl_img/2015302_0015rb.jpg" id="map">
-<br>
-<div id="controls">
-<input type="button" id="back" value="<<" style="width: 40px;">
-<input type="range" id="speed" value="50" style="width: 600px;position:relative;top:6px">
-<input type="button" id="forw" value=">>" style="width: 40px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" id="count" value="100" style="width: 40px; text-align: center;">
-</div>
-<div id="images" style="display:none"></div>
+<style>
+@keyframes anim {
+	0%, 100% {
+		position: absolute;
+		width: 20px;
+	}
+	50% {
+		position: absolute;
+		width: 600px;
+	}
+}
+div {padding: 10px}
+input {width: 40px;}
+#count {text-align: center;}
+#speed {width: 900px;position:relative;top:6px;}
+#images {width: 1000px; padding: 50px}
+#images img {
+	width: 20px;
+	padding-top: 1px;
+    padding-left: 1px;
+	animation-duration: 4s;
+	animation-iteration-count: 1;
+}
+#images img:hover {
+	animation-name: anim;
+}
+.active {
+    border-radius: 50%;
+    background: red;
+}
+</style>
 
+<div>
+	<img src="page-loader.gif" id="loader" style="position: absolute;top: 160px;left: 500px;">
+	<img src="http://az843447.vo.msecnd.net/goes_east_tatl_img/2015302_0015rb.jpg" id="map">
+
+	<div id="controls">
+		<input title="one back" type="button" id="back" value="<<">
+		<input title="animation speed" type="range" id="speed" value="10">
+		<input title="one forward" type="button" id="forw" value=">>">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input title="amount of images" type="text" id="count" value="100">
+	</div>
+
+	<div id="images"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="map.js"></script>
