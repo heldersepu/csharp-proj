@@ -11,7 +11,7 @@ namespace StockMarket
                 12, 14, 14, 15, 16, 14, 12, 10, 11, 12, 13, 14, 10, 11, 12, 17
             };
 
-            for (int i = 0; i < StockHistory.Count - 2; i++)
+            for (int i = 0; i < StockHistory.Count - 1; i++)
             {
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write(StockHistory[i]);
