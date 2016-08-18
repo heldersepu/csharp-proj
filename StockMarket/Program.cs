@@ -8,7 +8,7 @@ namespace StockMarket
         static void Main(string[] args)
         {
             var StockHistory = new List<int> {
-                12, 14, 14, 15, 16, 14, 12, 10, 11, 12, 13, 14, 10, 11, 12, 17
+                12, 14, 14, 15, 16, 14, 12, 12, 10, 11, 12, 12, 13, 14, 10, 11, 12, 17
             };
 
             for (int i = 0; i < StockHistory.Count - 1; i++)
@@ -16,7 +16,12 @@ namespace StockMarket
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write(StockHistory[i]);
 
-                if (StockHistory[i] > StockHistory[i + 1])
+                if (StockHistory[i] == StockHistory[i + 1])
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(" Hold");
+                }
+                else if (StockHistory[i] > StockHistory[i + 1])
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(" Sell");
