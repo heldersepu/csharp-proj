@@ -8,32 +8,36 @@ namespace StockMarket
         static void Main(string[] args)
         {
             var StockHistory = new List<int> {
-                12, 14, 14, 15, 16, 14, 12, 12, 10, 11, 12, 12, 13, 14, 10, 11, 12, 17
+                12,13,14,14,15,16,15,14,13,12,12,11,10,11,12,12,13,14,14,13,12,11,10,9,8,8,9,10,11,12,13,14,15,16,17,17,16,15,14
             };
 
+            ProcessStock(StockHistory);
+            StockHistory.Reverse();
+            ProcessStock(StockHistory);
+
+            for (int i = 0; i < 10; i++)
+                ProcessStock(Utils.RandomStock);
+        }
+
+        static void ProcessStock(List<int> StockHistory)
+        {
+            var stockDelta = new StockDelta(StockHistory);
+            Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i < StockHistory.Count - 1; i++)
             {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(StockHistory[i]);
+                Utils.WriteChart(i, StockHistory[i], StockHistory[i + 1]);                
 
-                if (StockHistory[i] == StockHistory[i + 1])
+                if (StockHistory[i] < stockDelta.start.value)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine(" Hold");
+                    stockDelta = new StockDelta(i, StockHistory[i]);
                 }
-                else if (StockHistory[i] > StockHistory[i + 1])
+                if (StockHistory[i] > stockDelta.end.value)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(" Sell");
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(" Buy");
-                }
-            }            
-
-            Console.ReadLine();
+                    stockDelta.end.position = i;
+                    stockDelta.end.value = StockHistory[i];
+                }                                
+            }
+            Utils.WriteResult(stockDelta);            
         }
     }
 }
