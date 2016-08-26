@@ -2,28 +2,28 @@
 using System;
 using System.IO;
 using System.Web.Http;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Configuration;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace nhc_noaa.Controllers
-{
+{    
     public class DownloadController : BaseController
     {
         [HttpGet]
-        public Dictionary<string, int> EastAtlantic()
+        public async Task<Images> EastAtlantic()
         {
             string year = DateTime.Now.Year.ToString();
-            return download(ConfigurationManager.AppSettings["DOMAIN"], 
+            return await download(ConfigurationManager.AppSettings["DOMAIN"], 
                 ConfigurationManager.AppSettings["EAST_ATL"], @">" + year + ".*rb.jpg");
         }
 
-        static private Dictionary<string, int> download(string domain, string path, string pattern)
+        static private async Task<Images> download(string domain, string path, string pattern)
         {
-            var result = new Dictionary<string, int>();
+            var result = new Images();
             var client = new RestClient(domain);
             var req = new RestRequest(path, Method.GET);
-            var response = client.Get(req);
+            var response = await client.ExecuteTaskAsync(req);
             string html = response.Content;
 
             string fld = baseDir(path);          
@@ -38,12 +38,12 @@ namespace nhc_noaa.Controllers
                         try
                         {
                             var img = new RestRequest(path + fileName, Method.GET);
-                            response = client.Get(img);
+                            response = await client.ExecuteTaskAsync(img);
                             result[fileName] = (int)response.StatusCode;
                             if (result[fileName] == 200)
                             {
                                 var fs = File.Create(fld + "\\" + fileName);
-                                fs.Write(response.RawBytes, 0, response.RawBytes.Length);
+                                await fs.WriteAsync(response.RawBytes, 0, response.RawBytes.Length);
                                 fs.Close();
                             }
                         }

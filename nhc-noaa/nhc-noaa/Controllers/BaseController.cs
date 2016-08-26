@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Web.Http;
+using System.Collections.Generic;
 
 namespace nhc_noaa.Controllers
 {
@@ -15,4 +16,6 @@ namespace nhc_noaa.Controllers
             return fld;
         }
     }
+
+    public class Images : Dictionary<string, int> { }
 }
