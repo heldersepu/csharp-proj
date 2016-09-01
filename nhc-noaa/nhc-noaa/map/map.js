@@ -38,9 +38,13 @@
             error: errorFunc
         });
     }
+    function imgSrc(image) {
+        return cdn + "/goes_east_tatl_img/" + image;
+    }
 
     function sprite(image) {
-        var imgTag = "<img class='sprite' style='background:url(" + cdn + "/goes_east_tatl_img/" + image + ") 0 -465px'>";
+        var imgTag = "<img class='sprite' style='background:url(" +
+                        imgSrc(image) + ") 0 -465px'>";
         $("#data").append(imgTag);
     }
 
@@ -70,7 +74,7 @@
     function showImage() {
         if (count < 0) count = images.length - 1;
         if (count >= images.length) count = 0;
-        $("#map").attr("src", cdn + "/goes_east_tatl_img/" + images[count]);
+        $("#map").attr("src", imgSrc(images[count]));
         $(".active").removeClass("active");
         $("#img" + (count + 1000)).addClass("active");
     }
@@ -83,14 +87,19 @@
     }
 
     function appendImage(i) {
-        var imageTag = '<img id="img' + (i + 1000) + '" src="' +
-                        cdn + '/goes_east_tatl_img/' + images[i] +
-                        '" title="' + images[i] + '">';
+        var imageTag = "<img id='img" + (i + 1000) + "' src='" +
+                        imgSrc(images[i]) + "' title='" + images[i] + "'>";
         $("#images").append(imageTag);
         if ($("#images img").length === images.length) {
             loaded();
             paused = false;
         }
+    }
+
+    function isCached(src) {
+        var image = new Image();
+        image.src = imgSrc(src);
+        return image.complete;
     }
 
     function getTitles(x, y) {
@@ -102,7 +111,8 @@
         $("#images").empty();
         for (var i = 0; i < images.length; i++) {
             var delay = i * 50;
-            if ($.inArray(images[i], imgs) > 0) delay = i * 8;
+            if (($.inArray(images[i], imgs) > 0) || (isCached(images[i])))
+                delay = i * 8;
             setTimeout(appendImage.bind(null, i), delay);
         }
     }
