@@ -17,9 +17,9 @@
 
     function changeCount() {
         var strCount = $("#count").val();
-        var intCount = 100
+        var intCount = 100;
         if ($.isNumeric(strCount)) {
-            history.pushState(null, null, '#' + strCount);
+            history.pushState(null, null, "#" + strCount);
             intCount = parseInt(strCount);
         } else {
             $("#count").val(intCount);
@@ -27,15 +27,15 @@
         getImages(intCount);
     }
 
-    function getImages(count) {
+    function getImages(intCount) {
         loading();
         paused = true;
         $.ajax({
             type: "GET",
-            url: cdn + "/api/Images/EastAtlantic?count=" + count,
+            url: cdn + "/api/Images/EastAtlantic?count=" + intCount,
             cache: false,
             success: successFunc,
-            error: errorFunc,
+            error: errorFunc
         });
     }
 
@@ -54,7 +54,7 @@
     }
 
     function errorFunc(err) {
-        if (err.responseText == "")
+        if (err.responseText === "")
             alert("Sorry the communication failed.");
         else
             alert(err.responseText);
@@ -86,16 +86,23 @@
                         cdn + '/goes_east_tatl_img/' + images[i] +
                         '" title="' + images[i] + '">';
         $("#images").append(imageTag);
-        if (i + 1 == images.length) {
+        if ($("#images img").length === images.length) {
             loaded();
             paused = false;
         }
     }
+    
+    function getTitles(x, y) {
+        return y.attributes.title.value;
+    }
 
     function addAllImages() {
+        var imgs = $("#images img").map(getTitles);
         $("#images").empty();
-        for (i = 0; i < images.length; i++) {
-            setTimeout(appendImage.bind(null, i), i * 50);
+        for (var i = 0; i < images.length; i++) {
+            var delay = i * 50;
+            if ($.inArray(images[i], imgs) > 0) delay = 10;
+            setTimeout(appendImage.bind(null, i), delay);
         }
     }
 
