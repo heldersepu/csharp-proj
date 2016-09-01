@@ -1,57 +1,56 @@
 ﻿using RestSharp;
 using System;
 using System.IO;
+using System.Net;
+using System.Dynamic;
 using System.Web.Http;
-using System.Configuration;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace nhc_noaa.Controllers
-{    
+{
     public class DownloadController : BaseController
     {
         [HttpGet]
-        public async Task<Images> EastAtlantic()
+        public async Task<dynamic> EastAtlantic()
         {
-            string year = DateTime.Now.Year.ToString();
-            return await download(ConfigurationManager.AppSettings["DOMAIN"], 
-                ConfigurationManager.AppSettings["EAST_ATL"], @">" + year + ".*rb.jpg");
+            DateTime sTime = DateTime.Now;
+            dynamic obj = new ExpandoObject();
+            obj.Images = await download(domain, east_atl_path, images);
+            obj.Time = sTime.Diff();
+            return Json(obj);
         }
 
         static private async Task<Images> download(string domain, string path, string pattern)
         {
             var result = new Images();
             var client = new RestClient(domain);
-            var req = new RestRequest(path, Method.GET);
-            var response = await client.ExecuteTaskAsync(req);
-            string html = response.Content;
+            var restTasks = new List<Task<IRestResponse>>();
+            var response = client.Get(new RestRequest(path, Method.GET));
 
-            string fld = baseDir(path);          
-            foreach (Match match in Regex.Matches(html, pattern))
+            foreach (Match match in Regex.Matches(response.Content, pattern))
             {
-                foreach (Capture capture in match.Captures)
+                string fileName = match.Captures[0].Value.Replace(">", "");
+                result.Add(fileName, 0);
+                if (!File.Exists(baseDir(path) + "\\" + fileName))
                 {
-                    string fileName = capture.Value.Replace(">", "");
-                    result.Add(fileName, 0);
-                    if (!File.Exists(fld + "\\" + fileName))
-                    {
-                        try
-                        {
-                            var img = new RestRequest(path + fileName, Method.GET);
-                            response = await client.ExecuteTaskAsync(img);
-                            result[fileName] = (int)response.StatusCode;
-                            if (result[fileName] == 200)
-                            {
-                                var fs = File.Create(fld + "\\" + fileName);
-                                await fs.WriteAsync(response.RawBytes, 0, response.RawBytes.Length);
-                                fs.Close();
-                            }
-                        }
-                        catch
-                        {
-                            result[fileName] = -3;
-                        }
-                    }
+                    var img = new RestRequest(path + fileName, Method.GET);
+                    img.AddParameter("fileName", fileName);
+                    restTasks.Add(client.ExecuteTaskAsync(img));
+                }
+            }
+
+            foreach (var restTask in restTasks)
+            {
+                response = await restTask;
+                string fileName = response.Request.Parameters[0].Value.ToString();
+                result[fileName] = (int)response.StatusCode;
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    var fs = File.Create(baseDir(path) + "\\" + fileName);
+                    await fs.WriteAsync(response.RawBytes, 0, response.RawBytes.Length);
+                    fs.Close();
                 }
             }
             return result;
