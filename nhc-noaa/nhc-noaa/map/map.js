@@ -1,7 +1,6 @@
 ﻿var Map = (function () {
     var interval;
     var count = 0;
-    var paused = true;
     var images = [];
     var cdn = "http://az843447.vo.msecnd.net";
 
@@ -29,7 +28,6 @@
 
     function getImages(intCount) {
         loading();
-        paused = true;
         $.ajax({
             type: "GET",
             url: cdn + "/api/Images/EastAtlantic?count=" + intCount,
@@ -52,6 +50,7 @@
         images = data;
         images.reverse();
         $("#data").empty();
+        clearInterval(interval);
         sprite(images[0]);
         sprite(images[images.length - 1]);
         addAllImages();
@@ -67,7 +66,7 @@
 
     function changePos(pos) {
         count += pos;
-        paused = true;
+        clearInterval(interval);
         showImage();
     }
 
@@ -80,7 +79,7 @@
     }
 
     function changeImage() {
-        if ((!paused) && (images.length > 1)) {
+        if (images.length > 1) {
             showImage();
             count += 1;
         }
@@ -91,8 +90,8 @@
                         imgSrc(images[i]) + "' title='" + images[i] + "'>";
         $("#images").append(imageTag);
         if ($("#images img").length === images.length) {
+            changeSpeed();
             loaded();
-            paused = false;
         }
     }
 
@@ -118,7 +117,6 @@
     }
 
     function changeSpeed() {
-        paused = false;
         clearInterval(interval);
         interval = setInterval(changeImage, $("#speed").val());
     }
@@ -142,7 +140,7 @@ $(window).load(function () {
 	if ($.isNumeric(hash)) $("#count").val(hash);
 	$("#back").click(function () { Map.changePos(-1); });
 	$("#forw").click(function () { Map.changePos(1); });
-	$("#speed").click(Map.changeSpeed);
+	$("#speed").change(Map.changeSpeed);
 	$("#count").change(Map.changeCount);
     Map.init();
 });
