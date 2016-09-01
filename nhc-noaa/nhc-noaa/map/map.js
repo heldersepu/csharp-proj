@@ -3,7 +3,7 @@
     var count = 0;
     var paused = true;
     var images = [];
-    var cdn = "http://az843447.vo.msecnd.net";    
+    var cdn = "http://az843447.vo.msecnd.net";
 
     function loading() {
         $("#loader").show();
@@ -61,7 +61,7 @@
     }
 
     function changePos(pos) {
-        count += pos;        
+        count += pos;
         paused = true;
         showImage();
     }
@@ -102,7 +102,7 @@
     function changeSpeed() {
         paused = false;
         clearInterval(interval);
-        interval = setInterval(changeImage, $("#speed").val() * 10);
+        interval = setInterval(changeImage, $("#speed").val());
     }
 
     function init() {
@@ -119,13 +119,12 @@
 })();
 
 
-$(window).load(function () {    
+$(window).load(function () {
     var hash = window.location.hash.replace("#", "");
 	if ($.isNumeric(hash)) $("#count").val(hash);
 	$("#back").click(function () { Map.changePos(-1); });
 	$("#forw").click(function () { Map.changePos(1); });
 	$("#speed").click(Map.changeSpeed);
 	$("#count").change(Map.changeCount);
-    Map.init();    
+    Map.init();
 });
-
