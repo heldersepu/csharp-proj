@@ -95,6 +95,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="map\east_atl.html" />
+    <Content Include="map\map.css" />
     <Content Include="map\map.js" />
     <Content Include="map\page-loader.gif" />
     <Content Include="Web.config" />
