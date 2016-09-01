@@ -27,7 +27,7 @@ namespace StockMarket
 
         public new string ToString()
         {
-            return string.Format("Start Index: {0} \nEnd Index: {1} \nBuy: {2} Sell: {3} \nProfit: {4}",  
+            return string.Format("Start Index: {0} \nEnd Index: {1} \nBuy: {2} Sell: {3} \nProfit: {4}",
                                     start.position, end.position, start.value, end.value, profit()) ;
         }
     }

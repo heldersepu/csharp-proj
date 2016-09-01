@@ -24,8 +24,8 @@ namespace StockMarket
             var stockDelta = new StockDelta(StockHistory);
             Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i < StockHistory.Count - 1; i++)
-            { //TODO : Check profit before changing 
-                Utils.WriteChart(i, StockHistory[i], StockHistory[i + 1]);                
+            { //TODO : Check profit before changing
+                Utils.WriteChart(i, StockHistory[i], StockHistory[i + 1]);
 
                 if (StockHistory[i] < stockDelta.start.value)
                 {
@@ -35,9 +35,9 @@ namespace StockMarket
                 {
                     stockDelta.end.position = i;
                     stockDelta.end.value = StockHistory[i];
-                }                                
+                }
             }
-            Utils.WriteResult(stockDelta);            
+            Utils.WriteResult(stockDelta);
         }
     }
 }

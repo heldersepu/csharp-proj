@@ -48,7 +48,7 @@ namespace StockMarket
             Console.ForegroundColor = ConsoleColor.Green;
             Console.CursorTop = 21 - stockDelta.start.value;
             for (int i = stockDelta.start.position; i <= stockDelta.end.position; i++)
-            {                
+            {
                 Console.CursorLeft = i;
                 Console.CursorTop = 21 - stockDelta.start.value;
                 Console.Write((char)9604);
@@ -59,13 +59,11 @@ namespace StockMarket
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorTop = 18;
-            Console.CursorLeft = 0;           
+            Console.CursorLeft = 0;
             Console.WriteLine(" Result");
             Console.WriteLine(stockDelta.ToString());
             Console.ReadLine();
             Console.Clear();
         }
-
-
     }
 }
