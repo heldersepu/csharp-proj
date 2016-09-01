@@ -51,6 +51,7 @@
         sprite(images[0]);
         sprite(images[images.length - 1]);
         addAllImages();
+        count = 0;
     }
 
     function errorFunc(err) {
@@ -91,7 +92,7 @@
             paused = false;
         }
     }
-    
+
     function getTitles(x, y) {
         return y.attributes.title.value;
     }
@@ -101,7 +102,7 @@
         $("#images").empty();
         for (var i = 0; i < images.length; i++) {
             var delay = i * 50;
-            if ($.inArray(images[i], imgs) > 0) delay = 10;
+            if ($.inArray(images[i], imgs) > 0) delay = i * 8;
             setTimeout(appendImage.bind(null, i), delay);
         }
     }

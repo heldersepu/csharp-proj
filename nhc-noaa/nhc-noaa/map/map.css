@@ -1,0 +1,33 @@
+﻿@keyframes anim {
+	0%, 100% {
+		position: absolute;
+		width: 20px;
+	}
+	50% {
+		position: absolute;
+		width: 600px;
+	}
+}
+div {padding: 10px;max-width: 1400px;}
+input {width: 40px;}
+#count {text-align: center;}
+#speed {width: 900px;position:relative;top:6px;}
+#images {width: 1000px; padding: 50px}
+#images img {
+	width: 20px;
+	padding-top: 1px;
+    padding-left: 1px;
+	animation-duration: 4s;
+	animation-iteration-count: 1;
+}
+#images img:hover {
+	animation-name: anim;
+}
+.active {
+    border-radius: 50%;
+    background: red;
+}
+.sprite {
+	height: 15px;
+	width: 1100px;
+}
