@@ -85,14 +85,28 @@
         }
     }
 
+    function sortImages() {
+        var sorted = true;
+        do {
+            sorted = true;
+            for (var i = 0; i < images.length -1; i++) {
+                var cimg = $("#img" + (i + 1000));
+                if (cimg[0].id > cimg.next()[0].id) {
+                    cimg.insertAfter(cimg.next());
+                    sorted = false;
+                }
+            }
+        } while (!sorted)
+        changeSpeed();
+        loaded();
+    }
+
     function appendImage(i) {
         var imageTag = "<img id='img" + (i + 1000) + "' src='" +
                         imgSrc(images[i]) + "' title='" + images[i] + "'>";
         $("#images").append(imageTag);
-        if ($("#images img").length === images.length) {
-            changeSpeed();
-            loaded();
-        }
+        if ($("#images img").length === images.length)
+            sortImages();
     }
 
     function isCached(src) {
