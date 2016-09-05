@@ -85,28 +85,19 @@
         }
     }
 
-    function sortImages() {
-        var sorted = true;
-        do {
-            sorted = true;
-            for (var i = 0; i < images.length -1; i++) {
-                var cimg = $("#img" + (i + 1000));
-                if (cimg[0].id > cimg.next()[0].id) {
-                    cimg.insertAfter(cimg.next());
-                    sorted = false;
-                }
-            }
-        } while (!sorted)
-        changeSpeed();
-        loaded();
+    function appendImage(i) {
+        var imageTag = "<img id='img" + (i + 1000) + "'>";
+        $("#images").append(imageTag);
     }
 
-    function appendImage(i) {
-        var imageTag = "<img id='img" + (i + 1000) + "' src='" +
-                        imgSrc(images[i]) + "' title='" + images[i] + "'>";
-        $("#images").append(imageTag);
-        if ($("#images img").length === images.length)
-            sortImages();
+    function updateImage(i) {
+        var image = $("#img" + (i + 1000));
+        image.attr("src", imgSrc(images[i]));
+        image.attr("title", images[i]);
+        if (i + 1 === images.length) {
+            changeSpeed();
+            loaded()
+        }
     }
 
     function isCached(src) {
@@ -123,10 +114,11 @@
         var imgs = $("#images img").map(getTitles);
         $("#images").empty();
         for (var i = 0; i < images.length; i++) {
+            appendImage(i);
             var delay = i * 50;
             if (($.inArray(images[i], imgs) > 0) || (isCached(images[i])))
                 delay = i * 8;
-            setTimeout(appendImage.bind(null, i), delay);
+            setTimeout(updateImage.bind(null, i), delay);
         }
     }
 
