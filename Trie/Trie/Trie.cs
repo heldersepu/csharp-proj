@@ -18,12 +18,13 @@ namespace Trie
         /// <param name="word">The word to add</param>
         public void Add(string word)
         {
+            Node next;
             var node = Root;
             foreach (var letter in word)
             {
-                if (!node.Leaves.ContainsKey(letter))
-                    node.Leaves.Add(letter, new Node());
-                node = node.Leaves[letter];
+                if (!node.Leaves.TryGetValue(letter, out next))
+                    node.Leaves.Add(letter, next = new Node());
+                node = next;
             }
         }
 
@@ -34,12 +35,13 @@ namespace Trie
         /// <returns>true if the Trit contains the specified word; otherwise, false.</returns>
         public bool Contains(string word)
         {
+            Node next;
             var node = Root;
             foreach (var letter in word)
             {
-                if (!node.Leaves.ContainsKey(letter))
+                if (!node.Leaves.TryGetValue(letter, out next))
                     return false;
-                node = node.Leaves[letter];
+                node = next;
             }
             return true;
         }
