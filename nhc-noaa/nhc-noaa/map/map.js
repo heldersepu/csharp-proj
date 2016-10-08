@@ -36,6 +36,7 @@
             error: errorFunc
         });
     }
+
     function imgSrc(image) {
         return cdn + "/goes_east_tatl_img/" + image;
     }
@@ -85,8 +86,14 @@
         }
     }
 
+    function setImage(x) {
+        clearInterval(interval);
+        count = x;
+        showImage();
+    }
+
     function appendImage(i) {
-        var imageTag = "<img id='img" + (i + 1000) + "'>";
+        var imageTag = "<img id='img" + (i + 1000) + "' onclick='Map.setImage(" + i + ")'>";
         $("#images").append(imageTag);
     }
 
@@ -136,6 +143,7 @@
         changeCount: changeCount,
         changeSpeed: changeSpeed,
         changePos: changePos,
+        setImage: setImage,
         init: init
     };
 })();
