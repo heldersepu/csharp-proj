@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+</head>
+<body>
+    <div id="rptContent" style="height:600px"></div>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "/api/TrieBenchmark?count=100000",
+            dataType: "json",
+            success: function (json) { showChart(json) },
+            error: errorFunc,
+        });
+
+        function showChart(json) {
+            var options = {lines: {show: true}, points: {show: true}};
+            $.plot("#rptContent", [json.TrieData, json.DictData], options);
+        }
+
+        function errorFunc(err) {
+            if (err.responseText == "")
+                alert("Sorry the communication failed.");
+            else
+                alert(err.responseText);
+        }
+    </script>
+</body>
+</html>
