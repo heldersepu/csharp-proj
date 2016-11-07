@@ -122,7 +122,7 @@
         $("#images").empty();
         for (var i = 0; i < images.length; i++) {
             appendImage(i);
-            var delay = i * 50;
+            var delay = i * 100;
             if (($.inArray(images[i], imgs) > 0) || (isCached(images[i])))
                 delay = i * 8;
             setTimeout(updateImage.bind(null, i), delay);
