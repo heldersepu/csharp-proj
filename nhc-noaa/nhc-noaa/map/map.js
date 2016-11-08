@@ -2,7 +2,7 @@
     var interval;
     var count = 0;
     var images = [];
-    var cdn = "http://az843447.vo.msecnd.net";
+    var cdn = "http://nhc{N}.azureedge.net";
 
     function loading() {
         $("#loader").show();
@@ -30,18 +30,18 @@
         loading();
         $.ajax({
             type: "GET",
-            url: cdn + "/api/Images/EastAtlantic?count=" + intCount,
+            url: "http://nhc-noaa.azurewebsites.net/api/Images/EastAtlantic?count=" + intCount,
             cache: false,
             success: successFunc,
             error: errorFunc
         });
     }
 
-    function imgSrc(image) {
-        return cdn + "/goes_east_tatl_img/" + image;
+    function imgSrc(image, id) {
+        return cdn.replace("{N}", (id%6)) + "/goes_east_tatl_img/" + image;
     }
 
-    function sprite(image) {
+    function sprite(image, id) {
         var imgTag = "<img class='sprite' style='background:url(" +
                         imgSrc(image) + ") 0 -465px'>";
         $("#data").append(imgTag);
@@ -52,8 +52,8 @@
         images.reverse();
         $("#data").empty();
         clearInterval(interval);
-        sprite(images[0]);
-        sprite(images[images.length - 1]);
+        sprite(images[0], 0);
+        sprite(images[images.length - 1], images.length - 1);
         addAllImages();
         count = 0;
     }
@@ -74,7 +74,7 @@
     function showImage() {
         if (count < 0) count = images.length - 1;
         if (count >= images.length) count = 0;
-        $("#map").attr("src", imgSrc(images[count]));
+        $("#map").attr("src", imgSrc(images[count], count));
         $(".active").removeClass("active");
         $("#img" + (count + 1000)).addClass("active");
     }
@@ -99,7 +99,7 @@
 
     function updateImage(i) {
         var image = $("#img" + (i + 1000));
-        image.attr("src", imgSrc(images[i]));
+        image.attr("src", imgSrc(images[i], i));
         image.attr("title", images[i]);
         if (i + 1 === images.length) {
             changeSpeed();
@@ -107,9 +107,9 @@
         }
     }
 
-    function isCached(src) {
+    function isCached(src, i) {
         var image = new Image();
-        image.src = imgSrc(src);
+        image.src = imgSrc(src, i);
         return image.complete;
     }
 
@@ -123,7 +123,7 @@
         for (var i = 0; i < images.length; i++) {
             appendImage(i);
             var delay = i * 100;
-            if (($.inArray(images[i], imgs) > 0) || (isCached(images[i])))
+            if (($.inArray(images[i], imgs) > 0) || (isCached(images[i], i)))
                 delay = i * 8;
             setTimeout(updateImage.bind(null, i), delay);
         }
