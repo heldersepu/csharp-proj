@@ -21,7 +21,7 @@ input {width: 40px;}
 @media (max-width : 1080px) {
 	div {padding: 0px;}
 	#map, #data img, #images { width: 100%; }
-	#images { width: 80%; }
+	#images { width: 80%; padding: 10%;}
 	#speed { width: 60%; }
 	body { margin: 0px;}
 }
