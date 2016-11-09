@@ -2,7 +2,7 @@
     var interval;
     var count = 0;
     var images = [];
-    var cdn = "http://nhc{N}.azureedge.net";
+    var cdn = "http://nhc0.azureedge.net";
 
     function loading() {
         $("#loader").show();
@@ -30,7 +30,7 @@
         loading();
         $.ajax({
             type: "GET",
-            url: "http://nhc-noaa.azurewebsites.net/api/Images/EastAtlantic?count=" + intCount,
+            url: cdn + "/api/Images/EastAtlantic?count=" + intCount,
             cache: false,
             success: successFunc,
             error: errorFunc
@@ -38,12 +38,12 @@
     }
 
     function imgSrc(image, id) {
-        return cdn.replace("{N}", (id%6)) + "/goes_east_tatl_img/" + image;
+        return cdn.replace("0", (id%10)) + "/goes_east_tatl_img/" + image;
     }
 
     function sprite(image, id) {
         var imgTag = "<img class='sprite' style='background:url(" +
-                        imgSrc(image) + ") 0 -465px'>";
+                        imgSrc(image, id) + ") 0 -465px'>";
         $("#data").append(imgTag);
     }
 
