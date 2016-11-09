@@ -17,3 +17,11 @@ input {width: 40px;}
 	height: 15px;
 	width: 1100px;
 }
+
+@media (max-width : 1080px) {
+	div {padding: 0px;}
+	#map, #data img, #images { width: 100%; }
+	#images { width: 80%; }
+	#speed { width: 60%; }
+	body { margin: 0px;}
+}
