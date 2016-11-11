@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
-using System.Configuration;
 
 namespace nhc_noaa.Controllers
 {
@@ -13,7 +12,7 @@ namespace nhc_noaa.Controllers
         [HttpGet]
         public List<string> EastAtlantic(int count = 20)
         {
-            return readDir(ConfigurationManager.AppSettings["EAST_ATL"], count);
+            return readDir(east_atl_path, count);
         }
 
         static private List<string> readDir(string path, int count)
