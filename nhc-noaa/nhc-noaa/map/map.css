@@ -31,3 +31,6 @@ input {width: 40px;}
 	#speed { width: 60%; }
 	body { margin: 0px;}
 }
+@media (max-width : 480px) {
+	#loader { top: 10px; left: 50px;	}
+}
