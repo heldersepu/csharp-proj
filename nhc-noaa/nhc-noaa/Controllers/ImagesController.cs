@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Collections.Generic;
@@ -19,7 +18,7 @@ namespace nhc_noaa.Controllers
         {
             var result = new List<string>();
             var dinfo = new DirectoryInfo(baseDir(path));
-            foreach (var file in dinfo.GetFiles().OrderByDescending(p => p.CreationTime).Take(count).ToArray())
+            foreach (var file in dinfo.GetLatestFiles(count))
                 result.Add(file.Name);
             return result;
         }

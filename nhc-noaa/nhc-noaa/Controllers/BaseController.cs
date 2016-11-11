@@ -3,6 +3,7 @@ using System.IO;
 using System.Web.Http;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 
 namespace nhc_noaa.Controllers
 {
@@ -28,6 +29,14 @@ namespace nhc_noaa.Controllers
         public static double Diff(this DateTime value)
         {
             return Math.Round((DateTime.Now - value).TotalMilliseconds);
+        }
+    }
+
+    public static class DirectoryInfoExtension
+    {
+        public static FileInfo[] GetLatestFiles(this DirectoryInfo value, int count)
+        {
+            return value.GetFiles().OrderByDescending(p => p.CreationTime).Take(count).ToArray();
         }
     }
 
