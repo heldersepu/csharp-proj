@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using Accord.Video.FFMPEG;
 using System.Drawing;
 using System.Drawing.Imaging;
+using AviFile;
 
 namespace nhc_noaa.Controllers
 {
@@ -13,20 +13,26 @@ namespace nhc_noaa.Controllers
         [HttpGet]
         public string EastAtlantic(int count = 20)
         {
+            string fileName = string.Empty;
             var dinfo = new DirectoryInfo(baseDir(east_atl_path));
-
-            var vFWriter = new VideoFileWriter();
-            vFWriter.Open("test.avi", 1120, 480, 25, VideoCodec.MPEG4);
-            var image = new Bitmap(1120, 480, PixelFormat.Format24bppRgb);
-
-            //foreach (var file in dinfo.GetLatestFiles(count))
-            for (int i = 0; i < 1000; i++)
+            var files = dinfo.GetLatestFiles(count);
+            if (files.Length > 1)
             {
-                image.SetPixel(i % 1120, i % 480, Color.Red);
-                vFWriter.WriteVideoFrame(image);
+                fileName = files[0].Name.Replace(".jpg", "") + "_" + files[files.Length-1].Name.Replace(".jpg", "") + ".avi";
+                var bmp = new Bitmap(1120, 480, PixelFormat.Format24bppRgb);
+                var aviManager = new AviManager(baseDir("videos\\") + fileName, false);
+                var aviStream = aviManager.AddVideoStream(true, 25, bmp);
+
+                foreach (var file in files)
+                {
+                    bmp = (Bitmap)Bitmap.FromFile(file.FullName);
+                    aviStream.AddFrame(bmp);
+                    bmp.Dispose();
+                }
+
+                aviManager.Close();
             }
-            vFWriter.Close();
-            return "VideosController";
+            return fileName;
         }
     }
 }
