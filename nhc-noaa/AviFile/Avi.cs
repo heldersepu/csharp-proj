@@ -21,7 +21,7 @@ namespace AviFile {
 		public static readonly int streamtypeAUDIO = mmioFOURCC('a', 'u', 'd', 's');
 		public static readonly int streamtypeMIDI = mmioFOURCC('m', 'i', 'd', 's');
 		public static readonly int streamtypeTEXT = mmioFOURCC('t', 'x', 't', 's');
-		
+
 		public const int OF_SHARE_DENY_WRITE = 32;
 		public const int OF_WRITE			 = 1;
 		public const int OF_READWRITE		 = 2;
@@ -48,12 +48,12 @@ namespace AviFile {
 		#region structure declarations
 
 		[StructLayout(LayoutKind.Sequential, Pack=1)]
-		public struct RECT{ 
-			public UInt32 left; 
-			public UInt32 top; 
-			public UInt32 right; 
-			public UInt32 bottom; 
-		} 		
+		public struct RECT{
+			public UInt32 left;
+			public UInt32 top;
+			public UInt32 right;
+			public UInt32 bottom;
+		}
 
 		[StructLayout(LayoutKind.Sequential, Pack=1)]
 		public struct BITMAPINFOHEADER {
@@ -77,7 +77,7 @@ namespace AviFile {
             public RGBQUAD[] bmiColors;
         }
 
-		[StructLayout(LayoutKind.Sequential)] 
+		[StructLayout(LayoutKind.Sequential)]
 		public struct PCMWAVEFORMAT {
 			public short wFormatTag;
 			public short nChannels;
@@ -119,7 +119,7 @@ namespace AviFile {
 			public Int32 bfOffBits;
 		}
 
-				
+
 		[StructLayout(LayoutKind.Sequential, Pack=1)]
 			public struct AVIFILEINFO{
 			public Int32 dwMaxBytesPerSecond;
@@ -186,7 +186,7 @@ namespace AviFile {
 		#endregion structure declarations
 
 		#region method declarations
-	
+
 		//Initialize the AVI library
 		[DllImport("avifil32.dll")]
 		public static extern void AVIFileInit();
@@ -203,8 +203,8 @@ namespace AviFile {
 		[DllImport("avifil32.dll")]
 		public static extern int AVIFileGetStream(
 			int pfile,
-			out IntPtr ppavi,  
-			int fccType,       
+			out IntPtr ppavi,
+			int fccType,
 			int lParam);
 
 		//Get the start position of a stream
@@ -238,7 +238,7 @@ namespace AviFile {
 		[DllImport("avifil32.dll")]
 		public static extern int AVIFileCreateStream(
 			int pfile,
-			out IntPtr ppavi, 
+			out IntPtr ppavi,
 			ref AVISTREAMINFO ptr_streaminfo);
 
         //Create an editable stream
@@ -295,17 +295,17 @@ namespace AviFile {
         //Set the format for a new stream
 		[DllImport("avifil32.dll")]
 		public static extern int AVIStreamSetFormat(
-			IntPtr aviStream, Int32 lPos, 
+			IntPtr aviStream, Int32 lPos,
 			//ref BITMAPINFOHEADER lpFormat,
-            ref BITMAPINFO lpFormat, 
+            ref BITMAPINFO lpFormat,
             Int32 cbFormat);
-		
+
 		//Set the format for a new stream
 		[DllImport("avifil32.dll")]
 		public static extern int AVIStreamSetFormat(
-			IntPtr aviStream, Int32 lPos, 
+			IntPtr aviStream, Int32 lPos,
 			ref PCMWAVEFORMAT lpFormat, Int32 cbFormat);
-		
+
 		//Read the format for a stream
 		[DllImport("avifil32.dll")]
 		public static extern int AVIStreamReadFormat(
@@ -319,7 +319,7 @@ namespace AviFile {
 			IntPtr aviStream, Int32 lPos,
 			int empty, ref Int32 cbFormat
 			);
-		
+
 		//Read the format for a stream
 		[DllImport("avifil32.dll")]
 		public static extern int AVIStreamReadFormat(
@@ -330,8 +330,8 @@ namespace AviFile {
 		//Write a sample to a stream
 		[DllImport("avifil32.dll")]
 		public static extern int AVIStreamWrite(
-			IntPtr aviStream, Int32 lStart, Int32 lSamples, 
-			IntPtr lpBuffer, Int32 cbBuffer, Int32 dwFlags, 
+			IntPtr aviStream, Int32 lStart, Int32 lSamples,
+			IntPtr lpBuffer, Int32 cbBuffer, Int32 dwFlags,
 			Int32 dummy1, Int32 dummy2);
 
 		//Release the GETFRAME object
@@ -353,27 +353,27 @@ namespace AviFile {
 
 		[DllImport("avifil32.dll")]
 		public static extern int AVIMakeCompressedStream(
-			out IntPtr ppsCompressed, IntPtr aviStream, 
+			out IntPtr ppsCompressed, IntPtr aviStream,
 			ref AVICOMPRESSOPTIONS ao, int dummy);
 
 		[DllImport("avifil32.dll")]
 		public static extern bool AVISaveOptions(
 			IntPtr hwnd,
-			UInt32 uiFlags,              
-			Int32 nStreams,                      
+			UInt32 uiFlags,
+			Int32 nStreams,
 			ref IntPtr ppavi,
-			ref AVICOMPRESSOPTIONS_CLASS plpOptions  
+			ref AVICOMPRESSOPTIONS_CLASS plpOptions
 			);
 
 		[DllImport("avifil32.dll")]
 		public static extern long AVISaveOptionsFree(
 			int nStreams,
-			ref AVICOMPRESSOPTIONS_CLASS plpOptions  
+			ref AVICOMPRESSOPTIONS_CLASS plpOptions
 			);
 
 		[DllImport("avifil32.dll")]
 		public static extern int AVIFileInfo(
-			int pfile, 
+			int pfile,
 			ref AVIFILEINFO pfi,
 			int lSize);
 
@@ -382,13 +382,13 @@ namespace AviFile {
 
 		[DllImport("avifil32.dll")]
 		public static extern int AVIStreamRead(
-			IntPtr pavi, 
-			Int32 lStart,     
-			Int32 lSamples,   
-			IntPtr lpBuffer, 
-			Int32 cbBuffer,   
-			Int32  plBytes,  
-			Int32  plSamples 
+			IntPtr pavi,
+			Int32 lStart,
+			Int32 lSamples,
+			IntPtr lpBuffer,
+			Int32 cbBuffer,
+			Int32  plBytes,
+			Int32  plSamples
 			);
 
 		[DllImport("avifil32.dll")]
