@@ -16,7 +16,7 @@ namespace nhc_noaa.Controllers
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         [HttpGet]
-        public dynamic EastAtlantic(int count = 20)
+        public dynamic EastAtlantic(int count = 20, bool isCompressed = true)
         {
             FileInfo f = null;
             DateTime sTime = DateTime.Now;
@@ -33,7 +33,7 @@ namespace nhc_noaa.Controllers
                 }
                 else
                 {
-                    CreateVideo(fileName, files);
+                    CreateVideo(fileName, files, isCompressed);
                 }
             }
             if (f == null) f = new FileInfo(fileName);
@@ -53,13 +53,13 @@ namespace nhc_noaa.Controllers
             return file;
         }
 
-        private void CreateVideo(string fileName, FileInfo[] files)
+        private void CreateVideo(string fileName, FileInfo[] files, bool isCompressed)
         {
             try
             {
                 var bmp = new Bitmap(1120, 480, PixelFormat.Format24bppRgb);
                 var aviManager = new AviManager(fileName, false);
-                var aviStream = aviManager.AddVideoStream(true, 25, bmp);
+                var aviStream = aviManager.AddVideoStream(isCompressed, 25, bmp);
                 foreach (var file in files)
                 {
                     bmp = (Bitmap)Bitmap.FromFile(file.FullName);
