@@ -1,12 +1,12 @@
-﻿using System.IO;
-using System.Web.Http;
-using System.Web.Http.Cors;
+﻿using AviFile;
+using NLog;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using AviFile;
-using System;
 using System.Dynamic;
-using NLog;
+using System.IO;
+using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace nhc_noaa.Controllers
 {
