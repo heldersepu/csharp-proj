@@ -90,7 +90,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Matrix.cs" />
+    <Compile Include="Utils\Data.cs" />
+    <Compile Include="Utils\DateTimeExtension.cs" />
+    <Compile Include="Utils\Matrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

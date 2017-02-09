@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Linq;
+using System.Web.Http;
 
 namespace PlayMatrix.Controllers
 {
@@ -8,19 +10,32 @@ namespace PlayMatrix.Controllers
 
         // GET: api/Matrix/Create
         [HttpGet]
-        public Matrix Create(int max)
+        public IHttpActionResult Create(int max)
         {
+            DateTime sTime = DateTime.Now;
             if (max > matrix.Count)
                 for (int i = matrix.Count; i < max; i++)
                     matrix.Add();
-            return matrix;
+            return Ok(
+                new Data {
+                    data = matrix.Count,
+                    milisec_elapsed = sTime.Diff() });
         }
 
         // GET: api/Matrix/Get
         [HttpGet]
-        public Matrix Get()
+        public IHttpActionResult Get(int take, int skip)
         {
-            return matrix;
+            if (take > 100000)
+                return BadRequest("You can NOT get more than 100000 records at a time");
+
+            DateTime sTime = DateTime.Now;
+            return Ok(
+                new Data
+                {
+                    data = matrix.Take(take).Skip(skip),
+                    milisec_elapsed = sTime.Diff()
+                });
         }
     }
 }
