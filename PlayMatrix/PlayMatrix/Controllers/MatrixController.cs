@@ -8,7 +8,7 @@ namespace PlayMatrix.Controllers
     {
         static private Matrix matrix = new Matrix();
 
-        // GET: api/Matrix/Create
+        // GET: api/Matrix/Create?max=100
         [HttpGet]
         public IHttpActionResult Create(int max)
         {
@@ -22,7 +22,7 @@ namespace PlayMatrix.Controllers
                     milisec_elapsed = sTime.Diff() });
         }
 
-        // GET: api/Matrix/Get
+        // GET: api/Matrix/Get?take=10&skip=0
         [HttpGet]
         public IHttpActionResult Get(int take, int skip)
         {
@@ -33,7 +33,7 @@ namespace PlayMatrix.Controllers
             return Ok(
                 new Data
                 {
-                    data = matrix.Take(take).Skip(skip),
+                    data = matrix.Skip(skip).Take(take),
                     milisec_elapsed = sTime.Diff()
                 });
         }
