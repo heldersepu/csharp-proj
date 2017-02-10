@@ -12,6 +12,9 @@ namespace PlayMatrix.Controllers
         [HttpGet]
         public IHttpActionResult Create(int max)
         {
+            if (max > 100000)
+                return BadRequest("Memory limitation: You can NOT create more than 100000 records");
+            
             DateTime sTime = DateTime.Now;
             if (max > matrix.Count)
                 for (int i = matrix.Count; i < max; i++)
