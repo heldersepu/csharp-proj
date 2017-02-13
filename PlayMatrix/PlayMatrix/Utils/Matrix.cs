@@ -10,9 +10,10 @@ namespace PlayMatrix
         public Matrix() : base() { }
         public Matrix(int capacity) : base(capacity) { }
 
-        public void Add()
+        public void Add(int length = 1)
         {
-            Add(Count, PseudRand(LastValue));
+            for (int i = 0; i < length; i++)
+                Add(Count, PseudRand(LastValue));
         }
 
         public int LastValue
