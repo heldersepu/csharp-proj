@@ -7,6 +7,9 @@ namespace PlayMatrix
     {
         static Random rnd = new Random();
 
+        public Matrix() : base() { }
+        public Matrix(int capacity) : base(capacity) { }
+
         public void Add()
         {
             Add(Count, PseudRand(LastValue));
