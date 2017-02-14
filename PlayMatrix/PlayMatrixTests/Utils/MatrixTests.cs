@@ -1,15 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PlayMatrix;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlayMatrix.Tests
 {
     [TestClass()]
-    public class MatrixTests
+    public class Matrix_Add_Tests
     {
         [TestMethod()]
         public void Test1_Add_10K()
@@ -54,6 +48,45 @@ namespace PlayMatrix.Tests
             var x = new Matrix(len +10);
             x.Add(len);
             Assert.AreEqual(len, x.Count);
+        }
+    }
+
+    [TestClass()]
+    public class Matrix_Find_Tests
+    {
+        const int len = 10000000;
+        static Matrix data = new Matrix(len + 10);
+
+        public Matrix_Find_Tests()
+        {
+            data.Add(len);
+        }
+
+        [TestMethod()]
+        public void Test1_FindValue_10M()
+        {
+            int value =  data.LastValue;
+            int find = data.Find(value);
+            Assert.AreEqual(value, find);
+        }
+
+        [TestMethod()]
+        public void Test2_FindValues_10M()
+        {
+            for (int i = 0; i < 10; i++)
+                data.Find(i + 5000);
+
+            int value = data.LastValue;
+            int find = data.Find(value);
+            Assert.AreEqual(value, find);
+        }
+
+        [TestMethod()]
+        public void Test3_FindKey_10M()
+        {
+            int value = data.LastValue;
+            int find = data[data.Count - 1];
+            Assert.AreEqual(value, find);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace PlayMatrix
@@ -14,6 +15,12 @@ namespace PlayMatrix
         {
             for (int i = 0; i < length; i++)
                 Add(Count, PseudRand(LastValue));
+        }
+
+        public int Find(int value)
+        {
+            var f = this.Where(x => x.Value == value).FirstOrDefault();
+            return f.Value;
         }
 
         public int LastValue
