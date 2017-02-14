@@ -17,12 +17,12 @@ namespace EmployeesApp.DAL
         static Logger logger = LogManager.GetCurrentClassLogger();
         DocumentClient client;
         string dbName = "DB_Employees";
-        FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };        
+        FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
         public DbModel()
         {
             string endpointUri = ConfigurationManager.AppSettings["EndPointUri"];
-            string primaryKey = ConfigurationManager.AppSettings["PrimaryKey"];           
+            string primaryKey = ConfigurationManager.AppSettings["PrimaryKey"];
             client = new DocumentClient(new Uri(endpointUri), primaryKey);
         }
 
@@ -61,7 +61,7 @@ namespace EmployeesApp.DAL
         }
 
         private async Task CreateDatabaseIfNotExists()
-        {            
+        {
             try
             {
                 await client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(dbName));
@@ -171,6 +171,6 @@ namespace EmployeesApp.DAL
                 logger.Error(e);
             }
             return id;
-        }       
+        }
     }
 }

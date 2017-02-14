@@ -56,7 +56,7 @@ namespace EmployeesApp.Controllers
         {
             get
             {
-                
+
                 var report = new List<ReportNode>();
                 var employees = new EmployeesController().Get();
                 var benefits = Benefits();
@@ -96,7 +96,7 @@ namespace EmployeesApp.Controllers
                 DateTime date = new DateTime(2010, 01, 01);
                 var sal_mnt = Math.Round(totalSalary / 12, 2);
                 var ben_mnt = Math.Round(totalBenefits / 12, 2);
-                                
+
                 for (int i = 1; i <= 11; i++)
                 {
                     double salary = sal_mnt * i;
@@ -127,7 +127,7 @@ namespace EmployeesApp.Controllers
 
         private ReportChart CumulativeMonthlyChart
         {
-            get 
+            get
             {
                 var report = new ReportChart
                 {
@@ -135,7 +135,7 @@ namespace EmployeesApp.Controllers
                     data = new List<List<int>>()
                 };
 
-                int count = 1;                
+                int count = 1;
                 foreach (var item in MonthlyBenefitsCost)
                 {
                     var data = new List<int>();

@@ -35,7 +35,7 @@ namespace EmployeesApp.DAL
                 return await context.Add(employee);
             }
         }
-                
+
         public static async Task<Employee> UpdateEmployee(string id, Employee employee)
         {
             using (var context = new DbModel<Employee>())

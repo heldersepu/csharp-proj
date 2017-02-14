@@ -60,7 +60,7 @@ namespace EmployeesApp.Controllers
         public async Task<IHttpActionResult> Post([FromBody]Employee employee)
         {
             try
-            {                
+            {
                 return Ok(await Data.AddEmployee(employee));
             }
             catch (Exception e)
@@ -100,7 +100,7 @@ namespace EmployeesApp.Controllers
         public async Task<IHttpActionResult> Delete(string id)
         {
             try
-            {                
+            {
                if (await Data.DeleteEmployee(id) == null)
                     return NotFound();
                 return Ok();

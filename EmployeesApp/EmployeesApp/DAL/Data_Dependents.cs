@@ -16,7 +16,7 @@ namespace EmployeesApp.DAL
                 return emp.Dependents.Where(x => x.id == id).FirstOrDefault();
             }
         }
-       
+
         public static async Task<Employee> AddDependent(string empid, Dependent dependent)
         {
             using (var context = new DbModel<Employee>())
