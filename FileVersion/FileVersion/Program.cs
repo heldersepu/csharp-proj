@@ -33,8 +33,8 @@ namespace FileVersion
             try
             {
                 var versionInfo = FileVersionInfo.GetVersionInfo(file);
-                Console.Write(versionInfo.FileName);
-                Console.Write(" ");
+                Console.Write(versionInfo.InternalName);
+                Console.Write(" \t");
                 Console.WriteLine(versionInfo.ProductVersion);
             }
             catch (Exception e)
