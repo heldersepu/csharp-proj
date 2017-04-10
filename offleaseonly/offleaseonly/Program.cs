@@ -15,7 +15,7 @@ namespace offleaseonly
 
             try
             {
-                cars = offlease.Cars.Get(1, 0, "make=1");
+                cars = offlease.Cars.Get(1, 0, "cleanCarFax=1");
             }
             catch (Exception ex)
             {
