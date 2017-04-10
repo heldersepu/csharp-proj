@@ -12,16 +12,34 @@ namespace FileVersion
             {
                 if (File.Exists(arg))
                 {
-                    try
+                    OutputVersion(arg);
+                }
+                else
+                {
+                    int pos = arg.LastIndexOf("\\");
+                    if (pos > 0)
                     {
-                        var versionInfo = FileVersionInfo.GetVersionInfo(arg);
-                        Console.WriteLine(versionInfo.ProductVersion);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("ERROR: " + e.Message);
+                        foreach (var file in Directory.GetFiles(arg.Substring(0,pos), arg.Substring(pos+1)))
+                        {
+                            OutputVersion(file);
+                        }
                     }
                 }
+            }
+        }
+
+        static void OutputVersion(string file)
+        {
+            try
+            {
+                var versionInfo = FileVersionInfo.GetVersionInfo(file);
+                Console.Write(versionInfo.FileName);
+                Console.Write(" ");
+                Console.WriteLine(versionInfo.ProductVersion);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR: " + e.Message);
             }
         }
     }
