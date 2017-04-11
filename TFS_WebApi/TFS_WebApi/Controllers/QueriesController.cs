@@ -1,13 +1,20 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 
 namespace TFS_WebApi.Controllers
 {
     public class QueriesController : BaseController
     {
-        // GET: api/Projects
-        public IHttpActionResult Get()
+        // GET: api/Queries?depth=2
+        public IHttpActionResult Get(int depth=2)
         {
-            return Json(witClient.GetQueriesAsync(teamProjectName, depth: 2).Result);
+            return Json(witClient.GetQueriesAsync(teamProjectName, depth: depth).Result);
+        }
+
+        // GET: api/Queries?queryid=2
+        public IHttpActionResult Get(string queryid)
+        {
+            return Json(witClient.QueryByIdAsync(new Guid(queryid)).Result);
         }
     }
 }
