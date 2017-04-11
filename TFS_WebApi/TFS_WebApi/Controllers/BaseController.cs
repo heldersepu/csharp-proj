@@ -10,7 +10,8 @@ namespace TFS_WebApi.Controllers
 {
     public abstract class BaseController : ApiController
     {
-        protected string collectionUri
+        #region private Properties
+        private string collectionUri
         {
             get
             {
@@ -18,13 +19,14 @@ namespace TFS_WebApi.Controllers
             }
         }
 
-        protected string accessToken
+        private string accessToken
         {
             get
             {
                 return ConfigurationManager.AppSettings["token"];
             }
         }
+        #endregion
 
         protected string teamProjectName
         {
