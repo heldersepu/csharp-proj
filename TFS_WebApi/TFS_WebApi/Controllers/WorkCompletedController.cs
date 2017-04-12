@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using TFS_WebApi.Models;
+using WebApi.OutputCache.V2;
 
 namespace TFS_WebApi.Controllers
 {
@@ -14,12 +15,14 @@ namespace TFS_WebApi.Controllers
         const string COMPLETE = "Microsoft.VSTS.Scheduling.CompletedWork";
 
         // GET: api/WorkItems?queryid=2
+        [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
         public IHttpActionResult Get(Guid queryid)
         {
             return Json(GetWork(queryid));
         }
 
         // GET: api/WorkItems?id=2
+        [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
         public IHttpActionResult Get(string name)
         {
             var q = witClient.GetQueriesAsync(teamProjectName, depth: 2).Result;
