@@ -12,9 +12,9 @@ namespace TFS_WebApi.Controllers
         }
 
         // GET: api/Queries?queryid=2
-        public IHttpActionResult Get(string queryid)
+        public IHttpActionResult Get(Guid queryid)
         {
-            return Json(witClient.QueryByIdAsync(new Guid(queryid)).Result);
+            return Json(witClient.QueryByIdAsync(queryid).Result);
         }
     }
 }
