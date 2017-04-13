@@ -14,14 +14,14 @@ namespace TFS_WebApi.Controllers
         const string REMAINIG = "Microsoft.VSTS.Scheduling.RemainingWork";
         const string COMPLETE = "Microsoft.VSTS.Scheduling.CompletedWork";
 
-        // GET: api/WorkItems?queryid=2
+        // GET: api/WorkItems/2
         [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
-        public IHttpActionResult Get(Guid queryid)
+        public IHttpActionResult Get(Guid id)
         {
-            return Json(GetWork(queryid));
+            return Json(GetWork(id));
         }
 
-        // GET: api/WorkItems?id=2
+        // GET: api/WorkItems?name=Sprint_2
         [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
         public IHttpActionResult Get(string name)
         {
