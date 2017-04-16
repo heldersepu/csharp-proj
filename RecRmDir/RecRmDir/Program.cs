@@ -44,13 +44,20 @@ namespace RecRmDir
 
         static void DeleteFiles(string directory)
         {
-            foreach (var file in Directory.EnumerateFiles(directory))
+            try
             {
-                try
+                foreach (var file in Directory.EnumerateFiles(directory))
                 {
-                    File.Delete(file);
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch { }
                 }
-                catch { }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
