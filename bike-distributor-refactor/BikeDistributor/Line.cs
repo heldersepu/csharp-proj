@@ -7,7 +7,7 @@ using NLog;
 namespace BikeDistributor
 {
     /// <summary>
-    /// A bicycle line 
+    /// A bicycle line
     /// </summary>
     public class Line
     {
@@ -42,7 +42,7 @@ namespace BikeDistributor
                     try
                     {
                         if (discount.Percentage > 0
-                            && !string.IsNullOrEmpty(discount.Condition) 
+                            && !string.IsNullOrEmpty(discount.Condition)
                             && obj.Where(discount.Condition).Any())
                         {
                             thisAmount *= discount.Percentage;
@@ -52,7 +52,7 @@ namespace BikeDistributor
                     catch (System.Exception e)
                     {
                         logger.Error(e);
-                    }                    
+                    }
                 }
             }
             return thisAmount;

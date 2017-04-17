@@ -3,5 +3,12 @@ obj
 *.suo
 *.csproj.user
 *.pubxml.user
-/bike-distributor-refactor/packages
-/bike-distributor-refactor/TestResults
+*/.vs
+*/packages
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Microsoft Fakes
+FakesAssemblies/

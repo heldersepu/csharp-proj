@@ -74,7 +74,7 @@ namespace BikeDistributor
         /// </summary>
         /// <returns>Returns a receipt in HTML format</returns>
         public string HtmlReceipt()
-        {                    
+        {
             return Render.StringToString(File.ReadAllText(".\\Templates\\Receipt.html"), ReceiptData());
         }
     }
