@@ -23,13 +23,13 @@ namespace TFS_WebApi.Controllers
 
         // GET: api/WorkItems?name=Sprint_2
         [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
-        public IHttpActionResult Get(string name)
+        public IHttpActionResult Get(string name, int depth = 2)
         {
-            var q = witClient.GetQueriesAsync(teamProjectName, depth: 2).Result;
+            var q = witClient.GetQueriesAsync(teamProjectName, depth: depth).Result;
             var item = q.WhereNameEquals(name);
             if (item == null)
                 return NotFound();
-            return Json(GetWork(item.Id));// GetWork(queryid));
+            return Json(GetWork(item.Id));
         }
 
         private SortedDictionary<string, Work> GetWork(Guid id)
