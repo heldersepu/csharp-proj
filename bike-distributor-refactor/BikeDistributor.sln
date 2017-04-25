@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeDistributor", "BikeDistributor\BikeDistributor.csproj", "{4FBA25B5-279C-4FD3-A904-FF88BEF4A480}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeDistributor.Test", "BikeDistributor.Test\BikeDistributor.Test.csproj", "{543D14A7-DC7A-4E49-9761-CA6B311DB0CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeDistributor.MockData", "BikeDistributor.MockData\BikeDistributor.MockData.csproj", "{4EFCA6AF-12E2-407A-A0AF-EF0F840EE0B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{1DCA47C7-40CC-44FF-9350-B6D5A85E0BC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{543D14A7-DC7A-4E49-9761-CA6B311DB0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{543D14A7-DC7A-4E49-9761-CA6B311DB0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{543D14A7-DC7A-4E49-9761-CA6B311DB0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFCA6AF-12E2-407A-A0AF-EF0F840EE0B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFCA6AF-12E2-407A-A0AF-EF0F840EE0B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFCA6AF-12E2-407A-A0AF-EF0F840EE0B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFCA6AF-12E2-407A-A0AF-EF0F840EE0B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCA47C7-40CC-44FF-9350-B6D5A85E0BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCA47C7-40CC-44FF-9350-B6D5A85E0BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCA47C7-40CC-44FF-9350-B6D5A85E0BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCA47C7-40CC-44FF-9350-B6D5A85E0BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

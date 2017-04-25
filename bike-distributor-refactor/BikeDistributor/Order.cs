@@ -29,7 +29,7 @@ namespace BikeDistributor
         /// Create an object with everything we need for a receipt
         /// </summary>
         /// <returns>Return object with all the properties need for the Receipt</returns>
-        public object ReceiptData()
+        public object ReceiptData(List<Discount> Discounts)
         {
             var totalAmount = 0d;
             List<object> lines = new List<object>();
@@ -37,7 +37,7 @@ namespace BikeDistributor
             {
                 foreach (var line in _lines)
                 {
-                    var thisAmount = line.Cost(Data.Discounts);
+                    var thisAmount = line.Cost(Discounts);
                     lines.Add(new
                     {
                         line.Quantity,
@@ -64,18 +64,18 @@ namespace BikeDistributor
         /// Generate a text receipt
         /// </summary>
         /// <returns>Returns a text receipt</returns>
-        public string Receipt()
+        public string Receipt(List<Discount> Discounts)
         {
-            return Render.StringToString(File.ReadAllText(".\\Templates\\Receipt.txt"), ReceiptData());
+            return Render.StringToString(File.ReadAllText(".\\Templates\\Receipt.txt"), ReceiptData(Discounts));
         }
 
         /// <summary>
         /// Generate an HTML receipt
         /// </summary>
         /// <returns>Returns a receipt in HTML format</returns>
-        public string HtmlReceipt()
+        public string HtmlReceipt(List<Discount> Discounts)
         {
-            return Render.StringToString(File.ReadAllText(".\\Templates\\Receipt.html"), ReceiptData());
+            return Render.StringToString(File.ReadAllText(".\\Templates\\Receipt.html"), ReceiptData(Discounts));
         }
     }
 }

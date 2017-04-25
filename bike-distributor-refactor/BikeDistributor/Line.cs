@@ -9,9 +9,11 @@ namespace BikeDistributor
     /// <summary>
     /// A bicycle line
     /// </summary>
-    public class Line
+    public class Line: IObj
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        public string id { get; set; }
 
         public Line(Bike bike, int quantity)
         {
@@ -37,7 +39,7 @@ namespace BikeDistributor
             if (discounts != null)
             {
                 var obj = new List<Line> { this };
-                foreach (var discount in discounts.OrderBy(x => x.Id))
+                foreach (var discount in discounts.OrderBy(x => x.id))
                 {
                     try
                     {

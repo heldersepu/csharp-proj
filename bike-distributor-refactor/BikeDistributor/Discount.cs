@@ -1,8 +1,8 @@
 ﻿namespace BikeDistributor
 {
-    public class Discount
+    public class Discount: IObj
     {
-        public int Id { get; set; }
+        public string id { get; set; }
         public string Condition { get; set; }
         public double Percentage { get; set; }
     }

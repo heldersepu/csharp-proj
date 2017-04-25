@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using Microsoft.QualityTools.Testing.Fakes;
+using BikeDistributor.MockData;
 
 namespace BikeDistributor.Test
 {
@@ -18,7 +19,7 @@ namespace BikeDistributor.Test
         public void DiscountBlank()
         {
             var disc = new List<Discount> {
-                new Discount { Id = 1, Condition = "", Percentage = .5d }
+                new Discount { id = "1", Condition = "", Percentage = .5d }
             };
             var line = new Line(Data.Bikes.TrekTF, 1);
             Assert.Equal(Bike.FiveThousand, line.Cost(disc));
@@ -28,7 +29,7 @@ namespace BikeDistributor.Test
         public void DiscountBad()
         {
             var disc = new List<Discount> {
-                new Discount { Id = 1, Condition = "BAD_DISCOUNT", Percentage = .5d }
+                new Discount { id = "1", Condition = "BAD_DISCOUNT", Percentage = .5d }
             };
             var line = new Line(Data.Bikes.TrekTF, 1);
             Assert.Equal(Bike.FiveThousand, line.Cost(disc));
@@ -38,7 +39,7 @@ namespace BikeDistributor.Test
         public void DiscountNegative()
         {
             var disc = new List<Discount> {
-                new Discount { Id = 1, Condition = "Bike.Brand == \"Trek\"", Percentage = -.5d }
+                new Discount { id = "1", Condition = "Bike.Brand == \"Trek\"", Percentage = -.5d }
             };
             var line = new Line(Data.Bikes.TrekTF, 1);
             Assert.Equal(Bike.FiveThousand, line.Cost(disc));
@@ -48,7 +49,7 @@ namespace BikeDistributor.Test
         public void DiscountZero()
         {
             var disc = new List<Discount> {
-                new Discount { Id = 1, Condition = "Bike.Brand == \"Trek\"", Percentage = 0 }
+                new Discount { id = "1", Condition = "Bike.Brand == \"Trek\"", Percentage = 0 }
             };
             var line = new Line(Data.Bikes.TrekTF, 1);
             Assert.Equal(Bike.FiveThousand, line.Cost(disc));
@@ -58,7 +59,7 @@ namespace BikeDistributor.Test
         public void DiscountTimeSensitive()
         {
             var disc = new List<Discount> { // 4th JULY SUPER SALE - Trek @ 50%
-                new Discount { Id = 1, Condition = "Bike.Brand == \"Trek\" && DateTimeNow > DateTime(2015, 07, 01) && DateTimeNow < DateTime(2015, 07, 05)", Percentage = .5d }
+                new Discount { id = "1", Condition = "Bike.Brand == \"Trek\" && DateTimeNow > DateTime(2015, 07, 01) && DateTimeNow < DateTime(2015, 07, 05)", Percentage = .5d }
             };
             var line = new Line(Data.Bikes.TrekTF, 1);
             double expected = Bike.FiveThousand * .5d;
