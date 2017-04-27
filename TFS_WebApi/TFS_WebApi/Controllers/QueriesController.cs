@@ -12,8 +12,9 @@ namespace TFS_WebApi.Controllers
         }
 
         // GET: api/Queries?depth=2
-        public IHttpActionResult Get(int depth=2)
+        public IHttpActionResult GetWithDepth(int depth)
         {
+            if (depth < 2) depth = 2;
             return Json(witClient.GetQueriesAsync(teamProjectName, depth: depth).Result);
         }
     }

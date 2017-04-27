@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Web.Http;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.VisualStudio.Services.WebApi;
-using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.Common;
 
 namespace TFS_WebApi.Controllers
