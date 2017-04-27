@@ -21,7 +21,7 @@ namespace TFS_WebApi
             );
         }
 
-        public class BrowserJsonFormatter : JsonMediaTypeFormatter
+        private class BrowserJsonFormatter : JsonMediaTypeFormatter
         {
             public BrowserJsonFormatter()
             {
