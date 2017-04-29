@@ -1,20 +1,23 @@
-﻿namespace System
+﻿using System.Text;
+
+namespace System
 {
     public static class StringExtension
     {
         public static string SwapCase(this string str)
         {
-            string x = "";
+            var x = new StringBuilder();
+            var diff = (char)('a' - 'A');
             foreach (var c in str)
             {
                 if ((c >= 'A') && (c <= 'Z'))
-                    x += (char)(c + 32);
+                    x.Append((char)(c + diff));
                 else if ((c >= 'a') && (c <= 'z'))
-                    x += (char)(c - 32);
+                    x.Append((char)(c - diff));
                 else
-                    x += c;
+                    x.Append(c);
             }
-            return x;
+            return x.ToString();
         }
     }
 }
