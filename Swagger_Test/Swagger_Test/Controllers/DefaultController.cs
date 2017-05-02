@@ -3,6 +3,7 @@ using System.Web.Http;
 
 namespace Swagger_Test.Controllers
 {
+    [RoutePrefix("foos/{fooId}/bars/{barId}/widgets")]
     public class DefaultController : ApiController
     {
         // GET: api/Default
