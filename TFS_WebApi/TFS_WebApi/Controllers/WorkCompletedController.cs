@@ -17,14 +17,14 @@ namespace TFS_WebApi.Controllers
         const string COMPLETE = "Microsoft.VSTS.Scheduling.CompletedWork";
 
         // GET: api/WorkItems/2
-        [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
+        [CacheOutput(ClientTimeSpan = 1200, ServerTimeSpan = 1200)]
         public async Task<CompletedWork> Get(Guid id)
         {
             return await GetWork(id);
         }
 
         // GET: api/WorkItems?name=Sprint_2
-        [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
+        [CacheOutput(ClientTimeSpan = 1200, ServerTimeSpan = 1200)]
         public async Task<CompletedWork> GetByName(string name, int depth = 2)
         {
             var q = witClient.GetQueriesAsync(teamProjectName, depth: depth).Result;
