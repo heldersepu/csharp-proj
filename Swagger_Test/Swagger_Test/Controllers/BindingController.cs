@@ -6,6 +6,7 @@ using System.Web.Http.Metadata;
 
 namespace Swagger_Test.Controllers
 {
+    [RoutePrefix("bind")]
     public class BindingController : ApiController
     {
         [Route("{id}")]
@@ -14,7 +15,8 @@ namespace Swagger_Test.Controllers
             return "abc";
         }
 
-        public string Post()
+        [Route("{id}")]
+        public string Post(string id)
         {
             return "abc";
         }
