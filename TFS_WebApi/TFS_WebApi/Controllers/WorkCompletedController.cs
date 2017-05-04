@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TFS_WebApi.Models;
 using WebApi.OutputCache.V2;
 
@@ -16,28 +18,34 @@ namespace TFS_WebApi.Controllers
 
         // GET: api/WorkItems/2
         [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
-        public CompletedWork Get(Guid id)
+        public async Task<CompletedWork> Get(Guid id)
         {
-            return GetWork(id);
+            return await GetWork(id);
         }
 
         // GET: api/WorkItems?name=Sprint_2
         [CacheOutput(ClientTimeSpan = 43200, ServerTimeSpan = 43200)]
-        public CompletedWork GetByName(string name, int depth = 2)
+        public async Task<CompletedWork> GetByName(string name, int depth = 2)
         {
             var q = witClient.GetQueriesAsync(teamProjectName, depth: depth).Result;
             var item = q.WhereNameEquals(name);
             if (item == null) return null;
-            return GetWork(item.Id);
+            return await GetWork(item.Id);
         }
 
-        private CompletedWork GetWork(Guid id)
+        private async Task<CompletedWork> GetWork(Guid id)
         {
             var work = new CompletedWork();
-            var q = witClient.QueryByIdAsync(id).Result;
+            var q = await witClient.QueryByIdAsync(id);
+            var asyncTasks = new List<Task<List<WorkItem>>>();
             foreach (var item in q.WorkItems)
             {
-                var i = witClient.GetWorkItemsAsync(new List<int> { item.Id }).Result.FirstOrDefault();
+                asyncTasks.Add(witClient.GetWorkItemsAsync(new List<int> { item.Id }));
+            }
+            foreach (var task in asyncTasks)
+            {
+                var result = await task;
+                var i = result.FirstOrDefault();
                 if (i != null && i.Fields.ContainsKey(ASSIGNED))
                 {
                     string team = i.Fields[TEAM].ToString();
