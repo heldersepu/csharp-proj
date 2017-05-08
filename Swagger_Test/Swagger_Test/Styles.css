@@ -4,3 +4,20 @@
 #header {
     background-color: lightblue !important;
 }
+@keyframes anim {
+	from {
+		-webkit-transform: rotate(-180deg);
+		transform: rotate(-180deg);
+	}
+
+	to {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+}
+.logo__img {
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: anim;
+}
