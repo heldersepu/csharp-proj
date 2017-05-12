@@ -1,7 +1,10 @@
-using System.Web.Http;
-using WebActivatorEx;
 using Swagger_Test;
+using Swagger_Test.Models;
 using Swashbuckle.Application;
+using Swashbuckle.Swagger;
+using System.Web.Http;
+using System.Web.Http.Description;
+using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -241,6 +244,14 @@ namespace Swagger_Test
                         //
                         //c.EnableApiKeySupport("apiKey", "header");
                     });
+        }
+    }
+
+    public class RegisterAdditionalTypes : IDocumentFilter
+    {
+        public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
+        {
+            schemaRegistry.GetOrRegister(typeof(ExtraType));
         }
     }
 }
