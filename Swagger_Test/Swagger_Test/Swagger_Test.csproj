@@ -108,6 +108,7 @@
     <Compile Include="Controllers\DictionaryController.cs" />
     <Compile Include="Controllers\IHttpActionResultController.cs" />
     <Compile Include="Controllers\RoutePrefixController.cs" />
+    <Compile Include="Controllers\TestPostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
