@@ -245,13 +245,13 @@ namespace Swagger_Test
                         //c.EnableApiKeySupport("apiKey", "header");
                     });
         }
-    }
 
-    public class ApplyDocumentVendorExtensions : IDocumentFilter
-    {
-        public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
+        private class ApplyDocumentVendorExtensions : IDocumentFilter
         {
-            schemaRegistry.GetOrRegister(typeof(ExtraType));
+            public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
+            {
+                schemaRegistry.GetOrRegister(typeof(ExtraType));
+            }
         }
     }
 }
