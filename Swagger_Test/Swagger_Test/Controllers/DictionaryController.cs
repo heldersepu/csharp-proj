@@ -14,13 +14,15 @@ namespace Swagger_Test.Controllers
             var d = new Dictionary<string, int>();
             for (int i = 0; i < 10; i++)
                 d.Add(Guid.NewGuid().ToString(), i);
-            return new Test { id = 99, dict = d };
+            return new Test { id = 99, index = d };
         }
 
         public class Test
         {
             public int id;
-            public Dictionary<string, int> dict;
+            public Guid guid;
+            public double did;
+            public Dictionary<string, int> index;
         }
 
     }

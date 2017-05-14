@@ -5,6 +5,8 @@ using Swashbuckle.Swagger;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebActivatorEx;
+using System;
+using System.Collections.Generic;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -118,7 +120,7 @@ namespace Swagger_Test
                         // If you want to post-modify "complex" Schemas once they've been generated, across the board or for a
                         // specific type, you can wire up one or more Schema filters.
                         //
-                        //c.SchemaFilter<ApplySchemaVendorExtensions>();
+                        c.SchemaFilter<ApplySchemaVendorExtensions>();
 
                         // In a Swagger 2.0 document, complex types are typically declared globally and referenced by unique
                         // Schema Id. By default, Swashbuckle does NOT use the full type name in Schema Ids. In most cases, this
@@ -251,6 +253,31 @@ namespace Swagger_Test
             public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
             {
                 schemaRegistry.GetOrRegister(typeof(ExtraType));
+            }
+        }
+
+        private class ApplySchemaVendorExtensions : ISchemaFilter
+        {
+            public void Apply(Schema schema, SchemaRegistry schemaRegistry, Type type)
+            {
+                if (schema.properties != null)
+                {
+                    foreach (var p in schema.properties)
+                    {
+                        switch (p.Value.format)
+                        {
+                            case "uuid":
+                                p.Value.example = Guid.NewGuid();
+                                break;
+                            case "int32":
+                                p.Value.example = 123;
+                                break;
+                            case "double":
+                                p.Value.example = 9858.216;
+                                break;
+                        }
+                    }
+                }
             }
         }
     }
