@@ -275,6 +275,19 @@ namespace Swagger_Test
                             case "double":
                                 p.Value.example = 9858.216;
                                 break;
+                            default:
+                                switch (p.Key)
+                                {
+                                    case "index":
+                                        p.Value.example = new Dictionary<int, string>
+                                            { { 1, "abc" }, { 2, "def" } };
+                                        break;
+                                    case "keys":
+                                        p.Value.example = new List<string>
+                                            { "abc", "def", "ghi" };
+                                        break;
+                                }
+                                break;
                         }
                     }
                 }

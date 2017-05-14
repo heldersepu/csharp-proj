@@ -17,11 +17,17 @@ namespace Swagger_Test.Controllers
             return new Test { id = 99, index = d };
         }
 
+        public Test PostEcho(Test test)
+        {
+            return test;
+        }
+
         public class Test
         {
             public int id;
             public Guid guid;
             public double did;
+            public List<string> keys;
             public Dictionary<string, int> index;
         }
 
