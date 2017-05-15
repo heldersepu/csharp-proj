@@ -2,6 +2,9 @@
 
 namespace Swagger_Test.Controllers
 {
+    /// <summary>
+    /// Testing enums ...
+    /// </summary>
     public class TestEnumController : ApiController
     {
         public enum CustomEnum
@@ -14,6 +17,11 @@ namespace Swagger_Test.Controllers
             Checkbox = 32
         }
 
+        /// <summary>
+        /// Simple GET echoing the given param
+        /// </summary>
+        /// <param name="value">CustomEnum</param>
+        /// <returns>CustomEnum</returns>
         public CustomEnum Get(CustomEnum value)
         {
             return value;
