@@ -62,7 +62,7 @@ namespace Swagger_Test
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
                         //c.ApiKey("apiKey")
                         //    .Description("API Key Authentication")
                         //    .Name("apiKey")
@@ -102,7 +102,8 @@ namespace Swagger_Test
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\XmlComments.xml");
+                        if (System.IO.File.Exists($@"{AppDomain.CurrentDomain.BaseDirectory}\XmlComments.xml"))
+                            c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\XmlComments.xml");
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
