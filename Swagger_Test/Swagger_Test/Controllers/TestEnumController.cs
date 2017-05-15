@@ -14,6 +14,11 @@ namespace Swagger_Test.Controllers
             Checkbox = 32
         }
 
+        public CustomEnum Get(CustomEnum value)
+        {
+            return value;
+        }
+
         public CustomEnum Post(CustomEnum value)
         {
             return value;
