@@ -10,6 +10,8 @@ namespace Test_Bass.Net
         static void Main(string[] args)
         {
             BassNet.Registration("heldersepu@gmail.com", "2X3123820152222");
+            Bass.BASS_Init(-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
+
             foreach (var file in args)
             {
                 if (File.Exists(file))
@@ -21,6 +23,8 @@ namespace Test_Bass.Net
                     Console.WriteLine("");
                 }
             }
+            Bass.BASS_Free();
+
             Console.Write("Press any key to continue . . . ");
             Console.ReadLine();
         }
