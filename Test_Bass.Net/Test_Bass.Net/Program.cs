@@ -11,6 +11,11 @@ namespace Test_Bass.Net
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.BufferHeight = 9999;
+            Console.WindowHeight = 100;
+            Console.WindowWidth = 100;
+
             BassNet.Registration("heldersepu@gmail.com", "2X3123820152222");
             Bass.BASS_Init(-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
 
@@ -70,13 +75,14 @@ namespace Test_Bass.Net
             Console.ForegroundColor = color;
             Console.BackgroundColor = color;
 
-            int baseLevel = (int)(level * 70);
+            int baseLevel = (int)(level * 78);
             for (int i = 0; i < baseLevel; i++)
             {
                 Console.Write(" ");
             }
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.WriteLine((char)16);
+            if (baseLevel > 0)
+                Console.WriteLine((char)16);
         }
     }
 }
