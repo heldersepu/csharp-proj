@@ -14,6 +14,16 @@ namespace Swagger_Test.Controllers
             return Ok(new string[] { "value1", "value2" });
         }
 
+        // GET: api/IHttpActionResult/{id}
+        [ResponseType(typeof(IEnumerable<string>))]
+        public IHttpActionResult GetById(int id)
+        {
+            if (id > 0)
+                return Ok(new string[] { "value1", "value2" });
+            else
+                return BadRequest("id must be greater than 0");
+        }
+
         public IHttpActionResult Post()
         {
             throw new NotImplementedException();
