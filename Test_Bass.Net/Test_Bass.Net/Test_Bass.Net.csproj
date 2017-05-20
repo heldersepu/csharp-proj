@@ -49,6 +49,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoundEncoder.cs" />
+    <Compile Include="SoundStream.cs" />
+    <Compile Include="SoundTags.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
