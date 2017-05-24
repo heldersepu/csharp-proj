@@ -53,6 +53,7 @@
     <Compile Include="SoundMIDI.cs" />
     <Compile Include="SoundStream.cs" />
     <Compile Include="SoundTags.cs" />
+    <Compile Include="SoundWave.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

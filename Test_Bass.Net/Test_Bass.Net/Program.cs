@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using Un4seen.Bass;
 
 namespace Test_Bass.Net
@@ -16,12 +17,13 @@ namespace Test_Bass.Net
 
             foreach (var arg in args)
             {
+                Console.Beep(600, 100);
                 if (File.Exists(arg))
                 {
                     SoundTags.OutputTags(arg);
                     SoundStream.OutputStream(arg);
                 }
-                else if (arg =="MIDI")
+                else if (arg.Equals("MIDI"))
                 {
                     SoundMIDI.Play();
                 }
@@ -29,21 +31,32 @@ namespace Test_Bass.Net
                 {
                     SoundEncoder.Encode(arg.Replace("ENCODE:", ""));
                 }
+                else if (arg.Equals("WAVE"))
+                {
+                    string file = SoundWave.CreateFile();
+                    Play(file);
+                }
                 else if (arg.StartsWith("PLAY:"))
                 {
-                    int stream = Bass.BASS_StreamCreateFile(arg.Replace("PLAY:", ""), 0L, 0L, BASSFlag.BASS_DEFAULT);
-                    if (stream != 0)
-                    {
-                        Bass.BASS_ChannelPlay(stream, false);
-                        Console.ReadKey(false);
-                        Bass.BASS_StreamFree(stream);
-                    }
+                    Play(arg.Replace("PLAY:", ""));
                 }
+                Console.Beep(800, 100);
             }
             Bass.BASS_Free();
 
             Console.Write("Press any key to continue . . . ");
-            Console.ReadLine();
+            Console.ReadKey(false);
+        }
+
+        static void Play(string file)
+        {
+            int stream = Bass.BASS_StreamCreateFile(file, 0L, 0L, BASSFlag.BASS_DEFAULT);
+            if (stream != 0)
+            {
+                Bass.BASS_ChannelPlay(stream, false);
+                Thread.Sleep(10000);
+                Bass.BASS_StreamFree(stream);
+            }
         }
     }
 }
