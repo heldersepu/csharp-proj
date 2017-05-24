@@ -25,6 +25,16 @@ namespace Test_Bass.Net
                 {
                     SoundEncoder.Encode(arg.Replace("ENCODE:", ""));
                 }
+                else if (arg.StartsWith("PLAY:"))
+                {
+                    int stream = Bass.BASS_StreamCreateFile(arg.Replace("PLAY:", ""), 0L, 0L, BASSFlag.BASS_DEFAULT);
+                    if (stream != 0)
+                    {
+                        Bass.BASS_ChannelPlay(stream, false);
+                        Console.ReadKey(false);
+                        Bass.BASS_StreamFree(stream);
+                    }
+                }
             }
             Bass.BASS_Free();
 
