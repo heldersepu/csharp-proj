@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Test_Bass.Net
 {
-    class SoundWave
+    static class FileStreamExtension
     {
         static byte[] RIFF_HEADER = new byte[] { 0x52, 0x49, 0x46, 0x46 };
         static byte[] FORMAT_WAVE = new byte[] { 0x57, 0x41, 0x56, 0x45 };
@@ -12,7 +12,7 @@ namespace Test_Bass.Net
         static byte[] SUBCHUNK_ID = new byte[] { 0x64, 0x61, 0x74, 0x61 };
         private const int BYTES_PER_SAMPLE = 2;
 
-        public static void WriteHeader(Stream targetStream, int byteStreamSize, int channelCount, int sampleRate)
+        public static void WriteWavHeader(this FileStream targetStream, int byteStreamSize, int channelCount, int sampleRate)
         {
 
             int byteRate = sampleRate * channelCount * BYTES_PER_SAMPLE;
@@ -50,7 +50,10 @@ namespace Test_Bass.Net
             }
             return retVal;
         }
+    }
 
+    class SoundWave
+    {        
         public static byte[] CreateSinWave( int sampleRate, double frequency, double seconds, double magnitude )
         {
             int sampleCount = (int)(((double)sampleRate) * seconds);
@@ -60,7 +63,7 @@ namespace Test_Bass.Net
             double current = 0;
 
             for (int i = 0; i < tempBuffer.Length; ++i)
-            {
+            {                
                 tempBuffer[i] = (short)(Math.Sin(current) * magnitude * ((double)short.MaxValue));
                 current += step;
             }
@@ -69,13 +72,22 @@ namespace Test_Bass.Net
             return retVal;
         }
 
-        public static string CreateFile(string fileName = "sound.wav")
+        public static string CreateFile(string fileName = "sound.wav", int loops = 10)
         {
-            var soundData = CreateSinWave(44000, 120, 10, 1d);
+            var soundData = CreateSinWave(44000, 120, 2, 1d);
+            var silence = new byte[44000 * 6]; // 3 sec silence
+
+            var d = soundData.Length;
+            var s = silence.Length;
+
             using (FileStream fs = new FileStream(fileName, FileMode.Create))
             {
-                WriteHeader(fs, soundData.Length, 1, 44100);
-                fs.Write(soundData, 0, soundData.Length);
+                fs.WriteWavHeader((d+s) * loops, 1, 44100);
+                for (int i = 0; i <loops; i++)
+                {
+                    fs.Write(soundData, 0, d);
+                    fs.Write(silence, 0, s);
+                }
                 fs.Close();
             }
             return fileName;
