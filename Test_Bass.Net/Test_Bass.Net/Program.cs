@@ -21,6 +21,10 @@ namespace Test_Bass.Net
                     SoundTags.OutputTags(arg);
                     SoundStream.OutputStream(arg);
                 }
+                else if (arg =="MIDI")
+                {
+                    SoundMIDI.Play();
+                }
                 else if (arg.StartsWith("ENCODE:"))
                 {
                     SoundEncoder.Encode(arg.Replace("ENCODE:", ""));
