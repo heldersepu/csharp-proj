@@ -55,7 +55,5 @@ namespace nhc_noaa.Controllers
             }
             return result;
         }
-
-
     }
 }

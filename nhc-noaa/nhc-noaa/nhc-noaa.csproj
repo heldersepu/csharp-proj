@@ -128,7 +128,7 @@
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\PublishProfiles\nhc-noaa.pubxml" />
+    <None Include="Properties\PublishProfiles\nhc-noaa - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
