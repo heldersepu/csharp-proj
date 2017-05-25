@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Un4seen.Bass;
 using Un4seen.Bass.Misc;
 
 namespace Test_Bass.Net
@@ -28,7 +29,9 @@ namespace Test_Bass.Net
                     fromPos: 5.0f,
                     toPos: 10.0f
                 );
+                var e = Bass.BASS_ErrorGetCode();
                 Console.WriteLine(resp);
+                Console.WriteLine(e);
             }
         }
     }

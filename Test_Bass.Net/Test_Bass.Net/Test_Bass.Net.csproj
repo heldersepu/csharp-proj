@@ -50,8 +50,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundEncoder.cs" />
+    <Compile Include="SoundMIDI.cs" />
     <Compile Include="SoundStream.cs" />
     <Compile Include="SoundTags.cs" />
+    <Compile Include="SoundWave.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,7 +65,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>COPY $(SolutionDir)\packages\BASS.Native.2.4.12.1\build\native\x86\*.DLL $(TargetDir)</PreBuildEvent>
+    <PreBuildEvent>COPY $(SolutionDir)\packages\BASS.Native.2.4.12.1\build\native\x86\*.DLL $(TargetDir)
+COPY $(SolutionDir)\packages\BASS.Native.2.4.12.1\build\native\x86\Addon\*.DLL $(TargetDir)</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
