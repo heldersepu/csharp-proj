@@ -74,8 +74,8 @@ namespace Test_Bass.Net
 
         public static string CreateFile(string fileName = "sound.wav", int loops = 10)
         {
-            var soundData = CreateSinWave(44000, 120, 2, 1d);
-            var silence = new byte[44000 * 6]; // 3 sec silence
+            var soundData = CreateSinWave(44000, 120, 1, 1d);
+            var silence = new byte[44000]; // half sec silence
 
             var d = soundData.Length;
             var s = silence.Length;
