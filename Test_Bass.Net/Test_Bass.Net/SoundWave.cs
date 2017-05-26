@@ -23,9 +23,9 @@ namespace Test_Bass.Net
 
             targetStream.Write(FORMAT_WAVE, 0, FORMAT_WAVE.Length);
             targetStream.Write(FORMAT_TAG, 0, FORMAT_TAG.Length);
-            targetStream.Write(PackageInt(16, 4), 0, 4);//Subchunk1Size    
+            targetStream.Write(PackageInt(16, 4), 0, 4);//Subchunk1Size
 
-            targetStream.Write(AUDIO_FORMAT, 0, AUDIO_FORMAT.Length);//AudioFormat   
+            targetStream.Write(AUDIO_FORMAT, 0, AUDIO_FORMAT.Length);//AudioFormat
             targetStream.Write(PackageInt(channelCount, 2), 0, 2);
             targetStream.Write(PackageInt(sampleRate, 4), 0, 4);
             targetStream.Write(PackageInt(byteRate, 4), 0, 4);
@@ -53,7 +53,7 @@ namespace Test_Bass.Net
     }
 
     class SoundWave
-    {        
+    {
         public static byte[] CreateSinWave( int sampleRate, double frequency, double seconds, double magnitude )
         {
             int sampleCount = (int)(((double)sampleRate) * seconds);
@@ -63,7 +63,7 @@ namespace Test_Bass.Net
             double current = 0;
 
             for (int i = 0; i < tempBuffer.Length; ++i)
-            {                
+            {
                 tempBuffer[i] = (short)(Math.Sin(current) * magnitude * ((double)short.MaxValue));
                 current += step;
             }

@@ -34,7 +34,7 @@ namespace Test_Bass.Net
                 else if (arg.Equals("WAVE"))
                 {
                     string file = SoundWave.CreateFile();
-                    Play(file);
+                    SoundStream.OutputStream(file);
                 }
                 else if (arg.StartsWith("PLAY:"))
                 {

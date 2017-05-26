@@ -46,8 +46,7 @@ namespace Test_Bass.Net
                 Console.Write(" ");
             }
             Console.BackgroundColor = ConsoleColor.Black;
-            if (baseLevel > 0)
-                Console.WriteLine((char)16);
+            Console.WriteLine((char)16);
         }
     }
 }
