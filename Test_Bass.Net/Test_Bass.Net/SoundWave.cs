@@ -58,16 +58,11 @@ namespace Test_Bass.Net
         {
             int sampleCount = (int)(((double)sampleRate) * seconds);
             short[] tempBuffer = new short[sampleCount];
+
+            for (int i = 0; i < sampleCount; ++i)
+                tempBuffer[i] = (short)(Math.Sin(i/360) * short.MaxValue);
+
             byte[] retVal = new byte[sampleCount * 2];
-            double step = Math.PI * 2.0d / frequency;
-            double current = 0;
-
-            for (int i = 0; i < tempBuffer.Length; ++i)
-            {
-                tempBuffer[i] = (short)(Math.Sin(current) * magnitude * ((double)short.MaxValue));
-                current += step;
-            }
-
             Buffer.BlockCopy(tempBuffer, 0, retVal, 0, retVal.Length);
             return retVal;
         }
