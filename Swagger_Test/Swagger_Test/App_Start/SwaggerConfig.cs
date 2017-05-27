@@ -165,7 +165,7 @@ namespace Swagger_Test
                         // the Swagger 2.0 spec. - https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
                         // before using this option.
                         //
-                        c.DocumentFilter<ApplyDocumentVendorExtensions>();
+                        //c.DocumentFilter<ApplyDocumentVendorExtensions>();
 
                         // In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
                         // to an action. As a result, Swashbuckle will raise an exception if it encounters multiple actions
@@ -209,7 +209,7 @@ namespace Swagger_Test
                         // It can be set to "None" (default), "List" (shows operations for each resource),
                         // or "Full" (fully expanded: shows operations and their details).
                         //
-                        //c.DocExpansion(DocExpansion.List);
+                        c.DocExpansion(DocExpansion.List);
 
                         // Specify which HTTP operations will have the 'Try it out!' option. An empty paramter list disables
                         // it for all operations.
@@ -255,6 +255,14 @@ namespace Swagger_Test
             {
                 schemaRegistry.GetOrRegister(typeof(ExtraType));
                 //schemaRegistry.GetOrRegister(typeof(BigClass));
+                
+                var paths = new Dictionary<string, PathItem>(swaggerDoc.paths);
+                swaggerDoc.paths.Clear();
+                foreach (var path in paths)
+                {
+                    if (path.Key.Contains("foo"))
+                        swaggerDoc.paths.Add(path);
+                }
             }
         }
 
