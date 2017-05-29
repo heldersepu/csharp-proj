@@ -10,40 +10,35 @@ namespace TuroApi.Controllers
         const string domain = "https://turo.com/";
 
         // GET: api/Search
-        public IHttpActionResult Get()
+        public IHttpActionResult GetByZip(string zip, int items = 200)
         {
-            var now = DateTime.Now;
+            var date = DateTime.Now.AddDays(1);
             var client = new RestClient(domain);
             var request = new RestRequest("api/search", Method.GET);
 
-            request.AddQueryParameter("location", "FL+33323+USA");
-            request.AddQueryParameter("locationType", "ZIP");
+            request.AddParameter("location", zip);
+            request.AddParameter("itemsPerPage", items);
+            request.AddParameter("locationType", "ZIP");
 
-            request.AddQueryParameter("startDate", "05-30-2017");
-            request.AddQueryParameter("startTime", "10:00");
+            request.AddParameter("startDate", date.ToString("d"));
+            request.AddParameter("startTime", date.ToString("H:m"));
+            request.AddParameter("endDate", date.AddDays(7).ToString("d"));
+            request.AddParameter("endTime", date.AddDays(7).ToString("H:m"));
 
-            request.AddQueryParameter("endDate", "06-05-2017");
-            request.AddQueryParameter("endTime", "10:00");
+            request.AddParameter("category", "ALL");
+            request.AddParameter("maximumDistanceInMiles", "300");
+            request.AddParameter("sortType", "RELEVANCE");
 
-            request.AddQueryParameter("region", "FL");
-            request.AddQueryParameter("country", "US");
-
-            request.AddQueryParameter("category", "ALL");
-            request.AddQueryParameter("maximumDistanceInMiles", "300");
-            request.AddQueryParameter("sortType", "RELEVANCE");
-
-            request.AddQueryParameter("isMapSearch", "false");
-            request.AddQueryParameter("latitude", "26.1512497");
-            request.AddQueryParameter("longitude", "-80.3101684");
-
-            request.AddQueryParameter("defaultZoomLevel", "14");
-            request.AddQueryParameter("international", "true");
-            request.AddQueryParameter("itemsPerPage", "200");
+            request.AddParameter("isMapSearch", "false");
+            request.AddParameter("latitude", "26.1512497");
+            request.AddParameter("longitude", "-80.3101684");
+            request.AddParameter("defaultZoomLevel", "14");
+            request.AddParameter("international", "true");
 
             request.AddHeader("Referer", "https://turo.com/search");
             var resp = client.Execute(request);
 
             return Ok(JsonConvert.DeserializeObject(resp.Content));
-        }        
+        }
     }
 }
