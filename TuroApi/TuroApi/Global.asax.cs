@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace Swagger_Test
+namespace TuroApi
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

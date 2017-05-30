@@ -1,16 +1,11 @@
-using Swagger_Test;
-using Swagger_Test.Models;
-using Swashbuckle.Application;
-using Swashbuckle.Swagger;
 using System.Web.Http;
-using System.Web.Http.Description;
 using WebActivatorEx;
-using System;
-using System.Collections.Generic;
+using TuroApi;
+using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace Swagger_Test
+namespace TuroApi
 {
     public class SwaggerConfig
     {
@@ -18,7 +13,7 @@ namespace Swagger_Test
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
 
-            GlobalConfiguration.Configuration
+            GlobalConfiguration.Configuration 
                 .EnableSwagger(c =>
                     {
                         // By default, the service root url is inferred from the request used to access the docs.
@@ -37,7 +32,7 @@ namespace Swagger_Test
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "Swagger_Test");
+                        c.SingleApiVersion("v1", "TuroApi");
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
@@ -62,7 +57,7 @@ namespace Swagger_Test
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
                         //c.ApiKey("apiKey")
                         //    .Description("API Key Authentication")
                         //    .Name("apiKey")
@@ -102,8 +97,7 @@ namespace Swagger_Test
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        if (System.IO.File.Exists($@"{AppDomain.CurrentDomain.BaseDirectory}\XmlComments.xml"))
-                            c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\XmlComments.xml");
+                        //c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
@@ -121,7 +115,7 @@ namespace Swagger_Test
                         // If you want to post-modify "complex" Schemas once they've been generated, across the board or for a
                         // specific type, you can wire up one or more Schema filters.
                         //
-                        c.SchemaFilter<ApplySchemaVendorExtensions>();
+                        //c.SchemaFilter<ApplySchemaVendorExtensions>();
 
                         // In a Swagger 2.0 document, complex types are typically declared globally and referenced by unique
                         // Schema Id. By default, Swashbuckle does NOT use the full type name in Schema Ids. In most cases, this
@@ -133,19 +127,19 @@ namespace Swagger_Test
 
                         // Alternatively, you can provide your own custom strategy for inferring SchemaId's for
                         // describing "complex" types in your API.
-                        //
+                        //  
                         //c.SchemaId(t => t.FullName.Contains('`') ? t.FullName.Substring(0, t.FullName.IndexOf('`')) : t.FullName);
 
                         // Set this flag to omit schema property descriptions for any type properties decorated with the
-                        // Obsolete attribute
+                        // Obsolete attribute 
                         //c.IgnoreObsoleteProperties();
 
                         // In accordance with the built in JsonSerializer, Swashbuckle will, by default, describe enums as integers.
                         // You can change the serializer behavior by configuring the StringToEnumConverter globally or for a given
                         // enum type. Swashbuckle will honor this change out-of-the-box. However, if you use a different
                         // approach to serialize enums as strings, you can also force Swashbuckle to describe them as strings.
-                        //
-                        c.DescribeAllEnumsAsStrings();
+                        // 
+                        //c.DescribeAllEnumsAsStrings();
 
                         // Similar to Schema filters, Swashbuckle also supports Operation and Document filters:
                         //
@@ -165,12 +159,12 @@ namespace Swagger_Test
                         // the Swagger 2.0 spec. - https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
                         // before using this option.
                         //
-                        c.DocumentFilter<ApplyDocumentVendorExtensions>();
+                        //c.DocumentFilter<ApplyDocumentVendorExtensions>();
 
                         // In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
                         // to an action. As a result, Swashbuckle will raise an exception if it encounters multiple actions
                         // with the same path (sans query string) and HTTP method. You can workaround this by providing a
-                        // custom strategy to pick a winner or merge the descriptions for the purposes of the Swagger docs
+                        // custom strategy to pick a winner or merge the descriptions for the purposes of the Swagger docs 
                         //
                         //c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
@@ -185,7 +179,7 @@ namespace Swagger_Test
                         // The file must be included in your project as an "Embedded Resource", and then the resource's
                         // "Logical Name" is passed to the method as shown below.
                         //
-                        c.InjectStylesheet(thisAssembly, "Swagger_Test.Styles.css");
+                        //c.InjectStylesheet(containingAssembly, "Swashbuckle.Dummy.SwaggerExtensions.testStyles1.css");
 
                         // Use the "InjectJavaScript" option to invoke one or more custom JavaScripts after the swagger-ui
                         // has loaded. The file must be included in your project as an "Embedded Resource", and then the resource's
@@ -209,7 +203,7 @@ namespace Swagger_Test
                         // It can be set to "None" (default), "List" (shows operations for each resource),
                         // or "Full" (fully expanded: shows operations and their details).
                         //
-                        //c.DocExpansion(DocExpansion.List);
+                        c.DocExpansion(DocExpansion.List);
 
                         // Specify which HTTP operations will have the 'Try it out!' option. An empty paramter list disables
                         // it for all operations.
@@ -243,57 +237,10 @@ namespace Swagger_Test
                         //);
 
                         // If your API supports ApiKey, you can override the default values.
-                        // "apiKeyIn" can either be "query" or "header"
+                        // "apiKeyIn" can either be "query" or "header"                                                
                         //
                         //c.EnableApiKeySupport("apiKey", "header");
                     });
-        }
-
-        private class ApplyDocumentVendorExtensions : IDocumentFilter
-        {
-            public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
-            {
-                schemaRegistry.GetOrRegister(typeof(ExtraType));
-                //schemaRegistry.GetOrRegister(typeof(BigClass));
-            }
-        }
-
-        private class ApplySchemaVendorExtensions : ISchemaFilter
-        {
-            public void Apply(Schema schema, SchemaRegistry schemaRegistry, Type type)
-            {
-                if (schema.properties != null)
-                {
-                    foreach (var p in schema.properties)
-                    {
-                        switch (p.Value.format)
-                        {
-                            case "uuid":
-                                p.Value.example = Guid.NewGuid();
-                                break;
-                            case "int32":
-                                p.Value.example = 123;
-                                break;
-                            case "double":
-                                p.Value.example = 9858.216;
-                                break;
-                            default:
-                                switch (p.Key)
-                                {
-                                    case "index":
-                                        p.Value.example = new Dictionary<int, string>
-                                            { { 1, "abc" }, { 2, "def" } };
-                                        break;
-                                    case "keys":
-                                        p.Value.example = new List<string>
-                                            { "abc", "def", "ghi" };
-                                        break;
-                                }
-                                break;
-                        }
-                    }
-                }
-            }
         }
     }
 }

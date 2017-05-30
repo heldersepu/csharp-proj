@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swagger_Test")]
+[assembly: AssemblyTitle("TuroApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Autonation")]
-[assembly: AssemblyProduct("Swagger_Test")]
-[assembly: AssemblyCopyright("Copyright © Autonation 2017")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("TuroApi")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("48b8c5da-0545-4d9c-9140-5963e03668fb")]
+[assembly: Guid("16c8671f-f68e-4a3c-98c8-456dac03a85a")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -3,13 +3,14 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 
-namespace Swagger_Test
+namespace TuroApi
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.Formatters.Clear();
             config.Formatters.Add(new BrowserJsonFormatter());
             // Web API routes
             config.MapHttpAttributeRoutes();
