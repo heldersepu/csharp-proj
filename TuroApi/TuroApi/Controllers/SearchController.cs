@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.Web.Http;
 using TuroApi.Models;
 
@@ -6,25 +6,11 @@ namespace TuroApi.Controllers
 {
     public class SearchController : BaseController
     {
-        const string domain = "https://turo.com/";
-
         // GET: api/Search
-        public IHttpActionResult GetByZip(string zip, int items = 200)
+        public IHttpActionResult GetByLocation(GeoPoint location, int items = 200, string make = null, string model = null)
         {
-            var data = TuroSearch(zip, items);
-
-            var cars = new List<Car>();
-            foreach (var item in data.list)
-            {
-                cars.Add(new Car {
-                    make = item.vehicle.make,
-                    model = item.vehicle.model,
-                    year = (int)item.vehicle.year,
-                    tripsTaken = (int)item.renterTripsTaken,
-                    dailyPrice = (double)item.rate.averageDailyPrice
-                });
-            }
-            return Ok(cars);
+            var cars = TuroSearch(location, items, make, model);
+            return Ok(cars.OrderByDescending(c => c.tripsTaken));
         }
     }
 }

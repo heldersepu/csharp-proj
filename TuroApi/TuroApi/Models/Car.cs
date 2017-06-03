@@ -7,6 +7,5 @@
         public int year;
         public int tripsTaken;
         public double dailyPrice;
-
     }
 }
