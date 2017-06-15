@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Serialization;
 using System;
+using System.Collections.Generic;
 
 namespace Newtonsoft_ResolveContract
 {
@@ -9,21 +10,22 @@ namespace Newtonsoft_ResolveContract
         {
             var type = typeof(HugeClass);
 
-            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
             Console.WriteLine("Reflection GetProperties");
 
+            var propList = new List<JsonProperty>();
             foreach (var property in type.GetProperties())
             {
-                var x = property.Name;
+                propList.Add(new JsonProperty() { PropertyName = property.Name });
             }
 
-            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
             Console.WriteLine("ResolveContract");
 
             var resolver = new DefaultContractResolver();
-            JsonContract jsonContract = resolver.ResolveContract(type);            
+            var jsonContract = resolver.ResolveContract(type);
 
-            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
             Console.ReadKey();
         }
     }
