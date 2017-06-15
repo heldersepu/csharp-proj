@@ -14,9 +14,9 @@ namespace Newtonsoft_ResolveContract
             Console.WriteLine("Reflection GetProperties");
 
             var propList = new List<JsonProperty>();
-            foreach (var property in type.GetProperties())
+            foreach (var field in type.GetFields())
             {
-                propList.Add(new JsonProperty() { PropertyName = property.Name });
+                propList.Add(new JsonProperty() { PropertyName = field.Name });
             }
 
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
