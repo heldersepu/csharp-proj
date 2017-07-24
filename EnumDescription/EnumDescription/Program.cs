@@ -1,13 +1,26 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace EnumDescription
 {
     class Program
     {
-        enum workDays { monday, wednesday, friday}
+        enum workDays
+        {
+            [Description("First day")]
+            monday,
+
+            [Description("Second day")]
+            wednesday,
+
+            [Description("Last day")]
+            friday
+        }
+
         static void Main(string[] args)
         {
-            Console.Write(workDays.monday.GetDescription());
+            Console.WriteLine(workDays.monday.GetDescription());
+            Console.WriteLine(workDays.friday.GetDescription());
             Console.ReadKey();
         }
     }
