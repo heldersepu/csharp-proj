@@ -316,6 +316,7 @@
     </Compile>
     <Compile Include="Models\CompletedWork.cs" />
     <Compile Include="Models\Work.cs" />
+    <Compile Include="Models\WorkObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
