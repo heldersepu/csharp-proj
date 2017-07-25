@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace TFS_WebApi.Controllers
@@ -6,9 +7,9 @@ namespace TFS_WebApi.Controllers
     public class WorkItemsController : BaseController
     {
         // GET: api/WorkItems/2
-        public IHttpActionResult Get(int id)
+        public async Task<IHttpActionResult> Get(int id)
         {
-            return Json(witClient.GetWorkItemsAsync(new List<int> { id }).Result);
+            return Json(await witClient.GetWorkItemsAsync(new List<int> { id }));
         }
     }
 }

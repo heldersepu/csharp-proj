@@ -10,6 +10,7 @@ namespace TFS_WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.Formatters.Clear();
             config.Formatters.Add(new BrowserJsonFormatter());
             // Web API routes
             config.MapHttpAttributeRoutes();
