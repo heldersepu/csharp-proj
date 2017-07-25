@@ -1,22 +1,40 @@
 ﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using TFS_WebApi.Models;
 
 namespace TFS_WebApi.Controllers
 {
     public class WorkItemAndChildrenController : BaseController
     {
         // GET api/<controller>/5
-        public async Task<IHttpActionResult> Get(int id)
+        public async Task<WorkObj> Get(int id)
         {
             var parent = await witClient.GetWorkItemAsync(id, expand: WorkItemExpand.Relations);
-            parent.Fields = null;
-            for (int i = parent.Relations.Count - 1; i >= 0 ; i--)
+            var workObj = new WorkObj(parent);
+
+            var asyncTasks = new List<Task<WorkObj>>();
+            foreach (var child in parent.Relations)
             {
-                if (!parent.Relations[i].Rel.EndsWith("forward"))
-                    parent.Relations.RemoveAt(i);
+                if (child.Rel.EndsWith("Forward"))
+                {
+                    int pos = child.Url.LastIndexOf("/");
+                    if (pos > 1)
+                    {
+                        int cid = int.Parse(child.Url.Substring(pos + 1));
+                        asyncTasks.Add(Get(cid));
+                    }
+                }
             }
-            return Json(parent);
+
+            foreach (var task in asyncTasks)
+            {
+                var result = await task;
+                workObj.children.Add(result);
+            }
+
+            return workObj;
         }
     }
 }
