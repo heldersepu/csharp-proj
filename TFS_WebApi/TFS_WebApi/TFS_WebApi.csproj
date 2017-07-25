@@ -308,6 +308,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\QueriesController.cs" />
     <Compile Include="Controllers\WorkCompletedController.cs" />
+    <Compile Include="Controllers\WorkItemAndChildrenController.cs" />
     <Compile Include="Controllers\WorkItemsController.cs" />
     <Compile Include="Extensions\ListQueryHierarchyItemExtension.cs" />
     <Compile Include="Global.asax.cs">
