@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -9,7 +10,7 @@ namespace TFS_WebApi.Controllers
         // GET: api/WorkItems/2
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Json(await witClient.GetWorkItemsAsync(new List<int> { id }));
+            return Json(await witClient.GetWorkItemsAsync(new List<int> { id }, expand: WorkItemExpand.Relations));
         }
     }
 }
