@@ -8,6 +8,7 @@ using WebActivatorEx;
 using EnumRedef;
 using Swagger.Net.Application;
 using Swagger.Net;
+using EnumRedef.Models;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -159,7 +160,7 @@ namespace EnumRedef
                         // enum type. Swagger-Net will honor this change out-of-the-box. However, if you use a different
                         // approach to serialize enums as strings, you can also force Swagger-Net to describe them as strings.
                         //
-                        //c.DescribeAllEnumsAsStrings();
+                        c.DescribeAllEnumsAsStrings();
 
                         // Similar to Schema filters, Swagger-Net also supports Operation and Document filters:
                         //
@@ -179,7 +180,7 @@ namespace EnumRedef
                         // the Swagger 2.0 spec. - https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
                         // before using this option.
                         //
-                        //c.DocumentFilter<ApplyDocumentVendorExtensions>();
+                        c.DocumentFilter<ApplyDocumentVendorExtensions>();
 
                         // In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
                         // to an action. As a result, Swagger-Net will raise an exception if it encounters multiple actions
@@ -287,7 +288,7 @@ namespace EnumRedef
             {
                 // Include the given data type in the final SwaggerDocument
                 //
-                //schemaRegistry.GetOrRegister(typeof(ExtraType));
+                schemaRegistry.GetOrRegister(typeof(ObjectType));
             }
         }
 
