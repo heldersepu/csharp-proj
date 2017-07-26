@@ -102,12 +102,14 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\Object2Controller.cs" />
     <Compile Include="Controllers\Object1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DataMemberAttribute.cs" />
+    <Compile Include="Models\MyObject.cs" />
     <Compile Include="Models\Object1.cs" />
     <Compile Include="Models\Object2.cs" />
     <Compile Include="Models\ObjectType.cs" />
