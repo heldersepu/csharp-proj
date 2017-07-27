@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace TaskStart
@@ -8,24 +7,11 @@ namespace TaskStart
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
-            new Task(DoLoop).Start();
+            var anim = new Animations();
+            new Task(anim.DoLoop).Start();
+            new Task(anim.DoSin).Start();
+            new Task(anim.DoCos).Start();
             Console.ReadKey();
-        }
-
-        static void DoLoop()
-        {
-            string chars = "-\\|/-.oO0Oo.";
-            Console.Write("  ");
-            while (1 == 1)
-            {
-                foreach (char chr in chars)
-                {
-                    Console.Write(chr);
-                    Thread.Sleep(100);
-                    Console.Write((char)8);
-                }
-            }
         }
     }
 }
