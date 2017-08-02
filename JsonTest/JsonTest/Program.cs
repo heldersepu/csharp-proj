@@ -6,7 +6,12 @@ namespace JsonTest
     {
         static void Main(string[] args)
         {
-            var x = new DefaultContractResolver { IgnoreSerializableAttribute = false}
+            var x = new DefaultContractResolver
+            {
+                IgnoreSerializableAttribute = false,
+                IgnoreSerializableInterface = false,
+                //IgnoreIsSpecifiedmembers = false
+            };
         }
     }
 }
