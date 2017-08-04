@@ -194,7 +194,7 @@ namespace WebApi_MyGet
                         //c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
                     })
                 .EnableSwaggerUi(
-                    routeTemplate: "swagger/ui/{*assetPath}",
+                    routeTemplate: "help/ui/{*assetPath}",
                     configure: c =>
                     {
                         // Use the "DocumentTitle" option to change the Document title.
