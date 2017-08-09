@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi_MyGet</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi_MyGet.Controllers.BaseController.Get(System.Int64)">
+            <summary>
+            Get a record by the given key.
+            </summary>
+        </member>
+        <member name="M:WebApi_MyGet.Controllers.BaseController.Post(System.String)">
+            <summary>
+            Post a record.
+            </summary>
+        </member>
+        <member name="M:WebApi_MyGet.Controllers.BaseController.Put(System.Int64,System.String)">
+            <summary>
+            Put a record by the given key.
+            </summary>
+        </member>
+        <member name="M:WebApi_MyGet.Controllers.BaseController.Delete(System.Int64)">
+            <summary>
+            Delete a record by the given key.
+            </summary>
+        </member>
+        <member name="M:WebApi_MyGet.Controllers.ChildController.Get">
+            <summary>
+            Get some ...
+            </summary>
+        </member>
+        <member name="M:WebApi_MyGet.Controllers.DefaultController.Get(System.Int32)">
+            <summary>
+            The GET on DefaultController
+            </summary>
+        </member>
+        <member name="M:WebApi_MyGet.Controllers.DefaultController.Post(System.String)">
+            <summary>
+            The POST on DefaultController
+            </summary>
+        </member>
+    </members>
+</doc>
