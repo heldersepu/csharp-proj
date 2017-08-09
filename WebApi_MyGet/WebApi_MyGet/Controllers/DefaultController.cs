@@ -11,12 +11,18 @@ namespace WebApi_MyGet.Controllers
             return new string[] { "value1", "value2" };
         }
 
+        /// <summary>
+        /// The GET on DefaultController
+        /// </summary>
         // GET: api/Default/5
         public string Get(int id)
         {
             return "value";
         }
 
+        /// <summary>
+        /// The POST on DefaultController
+        /// </summary>
         // POST: api/Default
         public void Post([FromBody]string value)
         {
