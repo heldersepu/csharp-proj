@@ -108,6 +108,7 @@
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Web.config" />
+    <Content Include="WebApi_MyGet.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />

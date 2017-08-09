@@ -3,13 +3,13 @@ using System.Web.Http;
 
 namespace WebApi_MyGet.Controllers
 {
-    public abstract class BaseController : ApiController
+    public abstract class BaseController<T> : ApiController
     {
 
         /// <summary>
         /// Get a record by the given key.
         /// </summary>
-        public virtual long Get(long id)
+        public virtual T Get(T id)
         {
             return id;
         }
@@ -25,7 +25,7 @@ namespace WebApi_MyGet.Controllers
         /// <summary>
         /// Put a record by the given key.
         /// </summary>
-        public virtual long Put(long id, [FromBody]string value)
+        public virtual T Put(T id, [FromBody]string value)
         {
             return id;
         }
@@ -33,7 +33,7 @@ namespace WebApi_MyGet.Controllers
         /// <summary>
         /// Delete a record by the given key.
         /// </summary>
-        public virtual long Delete(long id)
+        public virtual T Delete(T id)
         {
             return id;
         }

@@ -2,7 +2,7 @@
 
 namespace WebApi_MyGet.Controllers
 {
-    public class ChildController : BaseController
+    public class ChildController : BaseController<long>
     {
         /// <summary>
         /// Get some ...
