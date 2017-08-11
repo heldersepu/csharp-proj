@@ -8,6 +8,7 @@ using WebActivatorEx;
 using WebApi_MyGet;
 using Swagger.Net.Application;
 using Swagger.Net;
+using System.Threading;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -72,10 +73,10 @@ namespace WebApi_MyGet
                         //    .Description("Basic HTTP Authentication");
                         //
                         // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
-                        //c.ApiKey("apiKey")
-                        //    .Description("API Key Authentication")
-                        //    .Name("apiKey")
-                        //    .In("header");
+                        c.ApiKey("apiKey")
+                            .Description("API Key Authentication")
+                            .Name("apiKey")
+                            .In("header");
                         //
                         //c.OAuth2("oauth2")
                         //    .Description("OAuth2 Implicit Grant")
@@ -180,6 +181,7 @@ namespace WebApi_MyGet
                         // before using this option.
                         //
                         //c.DocumentFilter<ApplyDocumentVendorExtensions>();
+                        //c.DocumentFilter<SwaggerAccessDocumentFilter>();
 
                         // In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
                         // to an action. As a result, Swagger-Net will raise an exception if it encounters multiple actions
@@ -274,7 +276,7 @@ namespace WebApi_MyGet
                         // If your API supports ApiKey, you can override the default values.
                         // "apiKeyIn" can either be "query" or "header"
                         //
-                        //c.EnableApiKeySupport("apiKey", "header");
+                        c.EnableApiKeySupport("apiKey", "header");
                     });
         }
 
@@ -312,6 +314,23 @@ namespace WebApi_MyGet
                                 p.Value.example = 9858.216;
                                 break;
                         }
+                    }
+                }
+            }
+        }
+
+        private class SwaggerAccessDocumentFilter : IDocumentFilter
+        {
+            public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
+            {
+                if (!Thread.CurrentPrincipal.Identity.IsAuthenticated)
+                {
+                    foreach (var pathItem in swaggerDoc.paths.Values)
+                    {
+                        pathItem.delete = null;
+                        pathItem.patch = null;
+                        pathItem.post = null;
+                        pathItem.put = null;
                     }
                 }
             }
