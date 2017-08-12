@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication7
@@ -18,14 +20,14 @@ namespace WindowsFormsApplication7
             co++;
             bunifuCustomLabel1.Text = co.ToString();
         }
-        public void testProxy(string ip, int port)
+        public async Task testProxy(string ip, int port)
         {
             bool OK = false;
             try
             {
                 WebClient wc = new WebClient();
                 wc.Proxy = new WebProxy(ip, port);
-                wc.DownloadString("http://google.com/ncr");
+                await wc.DownloadStringTaskAsync(new Uri("http://google.com/ncr"));
                 OK = true;
                 addgood();
                 richTextBox2.Text += ip + ":" + port + "\n";
@@ -54,12 +56,17 @@ namespace WindowsFormsApplication7
             }
             else
             {
+                var asyncTasks = new List<Task>();
                 foreach (String i in proxy_list.Lines)
                 {
                     String[] tab = i.Split(':');
                     port = int.Parse(tab[1]);
                     ip = tab[0];
-                    testProxy(ip, port);
+                    asyncTasks.Add(testProxy(ip, port));
+                }
+                foreach (var task in asyncTasks)
+                {
+                    task.Wait();
                 }
             }
         }
