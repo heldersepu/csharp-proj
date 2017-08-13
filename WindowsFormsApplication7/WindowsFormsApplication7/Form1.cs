@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -48,26 +47,19 @@ namespace WindowsFormsApplication7
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            String ip;
-            int port;
             if (proxy_list.Lines.Length < 1)
             {
                 MessageBox.Show("Proxy list is Vide");
             }
             else
             {
-                var asyncTasks = new List<Task>();
-                foreach (String i in proxy_list.Lines)
+                var asyncTasks = new Task[proxy_list.Lines.Length];
+                for (int i = 0; i < proxy_list.Lines.Length; i++)
                 {
-                    String[] tab = i.Split(':');
-                    port = int.Parse(tab[1]);
-                    ip = tab[0];
-                    asyncTasks.Add(testProxy(ip, port));
+                    var tab = proxy_list.Lines[i].Split(':');
+                    asyncTasks[i] = testProxy(tab[0], int.Parse(tab[1]));
                 }
-                foreach (var task in asyncTasks)
-                {
-                    task.Wait();
-                }
+                Task.WaitAll(asyncTasks);
             }
         }
     }
