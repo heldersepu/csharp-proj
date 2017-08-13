@@ -11,7 +11,12 @@ namespace TaskStart
             new Task(anim.DoLoop).Start();
             new Task(anim.DoSin).Start();
             new Task(anim.DoCos).Start();
-            Console.ReadKey();
+
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                keyInfo = Console.ReadKey();
+            } while (keyInfo.Key != ConsoleKey.Escape);
         }
     }
 }
