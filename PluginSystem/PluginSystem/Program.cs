@@ -10,7 +10,7 @@ namespace PluginSystem
 {
     public class Program
     {
-        const string DIR = "..\\..\\..";
+        const string DIR = @"..\..\..";
 
         static void Main(string[] args)
         {
