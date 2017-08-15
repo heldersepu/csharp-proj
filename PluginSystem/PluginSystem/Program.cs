@@ -1,9 +1,10 @@
 ﻿using ContractPlugin;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace PluginSystem
 {
@@ -13,14 +14,14 @@ namespace PluginSystem
 
         static void Main(string[] args)
         {
-            var dllFiles = Directory.GetFiles(DIR, "*.DLL", SearchOption.AllDirectories);
+            var dllFiles = Directory.GetFiles(DIR, "Plugin*.DLL", SearchOption.AllDirectories);
             var plugins = new HashSet<Assembly>();
 
             var references = typeof(Program).Assembly.GetReferencedAssemblies();
-            foreach (var dllPath in dllFiles)
+            foreach (var dllPath in dllFiles.Where(x => new Regex(@"\d+").Match(x).Success))
             {
                 string name = Path.GetFileNameWithoutExtension(dllPath);
-                if (!references.Any(x => x.Name == name))
+                if (!references.Any(x => x.Name == name) && !plugins.Any(x => x.GetName().Name == name))
                     plugins.Add(Assembly.LoadFrom(dllPath));
             }
 
