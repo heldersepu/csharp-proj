@@ -34,5 +34,14 @@ namespace FullScreen
                 }
             }
         }
+
+        private void Form1_Deactivate(object sender, EventArgs e)
+        {
+            if (FormBorderStyle == FormBorderStyle.None)
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
