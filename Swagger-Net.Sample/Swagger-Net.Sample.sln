@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swashbuckle.Sample", "Swashbuckle.Sample\Swashbuckle.Sample.csproj", "{0949DAEA-E845-4268-AC3B-A336BE6F8863}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swashbuckle.Sample.Controllers", "Swashbuckle.Sample.Controllers\Swashbuckle.Sample.Controllers.csproj", "{5B55B290-A5C7-489A-9670-6742E8C6747F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0949DAEA-E845-4268-AC3B-A336BE6F8863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0949DAEA-E845-4268-AC3B-A336BE6F8863}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0949DAEA-E845-4268-AC3B-A336BE6F8863}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0949DAEA-E845-4268-AC3B-A336BE6F8863}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B55B290-A5C7-489A-9670-6742E8C6747F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B55B290-A5C7-489A-9670-6742E8C6747F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B55B290-A5C7-489A-9670-6742E8C6747F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B55B290-A5C7-489A-9670-6742E8C6747F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
