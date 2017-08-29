@@ -35,14 +35,12 @@ namespace SwashbuckleSample
                             //    scopes.Add("write", "Write access to protected resources");
                             //});
 
-                        c.IncludeXmlComments(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin\Swashbuckle.Sample.Controllers.XML"));
-
-                        c.DescribeAllEnumsAsStrings();
-
                         c.OperationFilter<AssignOAuth2SecurityRequirements>();
                     })
                 .EnableSwaggerUi(c =>
                     {
+                        c.DocExpansion(DocExpansion.Full);
+
                         c.EnableOAuth2Support(
                             clientId: "183620338840937",
                             clientSecret: "de81460e907d213dcc4271aa7b1ae88a",
