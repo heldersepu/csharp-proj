@@ -8,9 +8,16 @@ namespace SwashbuckleSample.ApiControllers
         /// <summary>
         /// List all clients
         /// </summary>
-        public string GetClients()
+        [Authorize]
+        public IHttpActionResult GetClients()
         {
-            return "Hello World";
+            var obj = new
+            {
+                User.Identity.AuthenticationType,
+                User.Identity.IsAuthenticated,
+                User.Identity.Name
+            };
+            return Ok(obj);
         }
     }
 }
