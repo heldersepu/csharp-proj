@@ -8,6 +8,12 @@ namespace Newtonsoft_ResolveContract
     {
         static void Main(string[] args)
         {
+            HugeClassTest();
+            Console.ReadKey();
+        }
+
+        static void HugeClassTest()
+        {
             var type = typeof(HugeClass);
 
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
@@ -26,7 +32,6 @@ namespace Newtonsoft_ResolveContract
             var jsonContract = resolver.ResolveContract(type);
 
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
-            Console.ReadKey();
         }
     }
 }
