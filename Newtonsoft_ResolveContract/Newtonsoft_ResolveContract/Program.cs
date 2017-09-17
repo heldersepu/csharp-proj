@@ -8,7 +8,8 @@ namespace Newtonsoft_ResolveContract
     {
         static void Main(string[] args)
         {
-            HugeClassTest();
+            CountingLockTest();
+            //HugeClassTest();
             Console.ReadKey();
         }
 
@@ -32,6 +33,23 @@ namespace Newtonsoft_ResolveContract
             var jsonContract = resolver.ResolveContract(type);
 
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
+        }
+
+        static void CountingLockTest()
+        {
+            var resolver = new DefaultContractResolver();
+
+            //WriteProps((JsonObjectContract)resolver.ResolveContract(typeof(CountingLock1)));
+            var x = resolver.ResolveContract(typeof(CountingLock2));
+            WriteProps((JsonObjectContract)resolver.ResolveContract(typeof(CountingLock2)));
+        }
+
+        static void WriteProps(JsonObjectContract joc)
+        {
+            foreach (var prop in joc.Properties)
+            {
+                Console.WriteLine($"{prop.ToString()} {prop.PropertyName}");
+            }
         }
     }
 }
