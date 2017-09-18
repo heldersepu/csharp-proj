@@ -39,11 +39,15 @@ namespace Newtonsoft_ResolveContract
 
         static void CountingLockTest()
         {
+            Console.WriteLine("\n Newtonsoft.Json.Serialization.DefaultContractResolver");
             var resolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
             WriteProps((JsonObjectContract)resolver.ResolveContract(typeof(CountingLock)));
 
-            Console.WriteLine();
+            Console.WriteLine("\n Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver");
+            var r = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+            WriteProps((JsonObjectContract)r.ResolveContract(typeof(CountingLock)));
 
+            Console.WriteLine("\n System.Net.Http.Formatting.JsonContractResolver");
             var resolv = new System.Net.Http.Formatting.JsonContractResolver(new Formatter());
             WriteProps((JsonObjectContract)resolv.ResolveContract(typeof(CountingLock)));
         }
