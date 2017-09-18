@@ -9,7 +9,7 @@ namespace Newtonsoft_ResolveContract
     }
 
     [Serializable]
-    public class CountingLock2
+    public class CountingLock
     {
         public int EmployeeID { get; set; }
         public string EmployeeName { get; set; }

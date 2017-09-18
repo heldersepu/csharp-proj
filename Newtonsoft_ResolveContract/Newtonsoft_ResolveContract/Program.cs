@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Formatting;
 
 namespace Newtonsoft_ResolveContract
 {
@@ -35,21 +36,37 @@ namespace Newtonsoft_ResolveContract
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff"));
         }
 
+
         static void CountingLockTest()
         {
-            var resolver = new DefaultContractResolver();
+            var resolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+            WriteProps((JsonObjectContract)resolver.ResolveContract(typeof(CountingLock)));
 
-            //WriteProps((JsonObjectContract)resolver.ResolveContract(typeof(CountingLock1)));
-            var x = resolver.ResolveContract(typeof(CountingLock2));
-            WriteProps((JsonObjectContract)resolver.ResolveContract(typeof(CountingLock2)));
+            Console.WriteLine();
+
+            var resolv = new System.Net.Http.Formatting.JsonContractResolver(new Formatter());
+            WriteProps((JsonObjectContract)resolv.ResolveContract(typeof(CountingLock)));
         }
 
         static void WriteProps(JsonObjectContract joc)
         {
             foreach (var prop in joc.Properties)
             {
-                Console.WriteLine($"{prop.ToString()} {prop.PropertyName}");
+                Console.WriteLine($"{prop.PropertyName}");
             }
+        }
+    }
+
+    public class Formatter : MediaTypeFormatter
+    {
+        public override bool CanReadType(Type type)
+        {
+            return true;
+        }
+
+        public override bool CanWriteType(Type type)
+        {
+            return true;
         }
     }
 }
