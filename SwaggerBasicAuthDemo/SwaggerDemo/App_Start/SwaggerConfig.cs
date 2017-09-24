@@ -223,7 +223,7 @@ namespace SwaggerDemo
                         // It can be set to "None" (default), "List" (shows operations for each resource),
                         // or "Full" (fully expanded: shows operations and their details).
                         //
-                        c.DocExpansion(DocExpansion.Full);
+                        c.DocExpansion(DocExpansion.List);
 
                         // Use the CustomAsset option to provide your own version of assets used in the swagger-ui.
                         // It's typically used to instruct Swashbuckle to return your version instead of the default
@@ -276,14 +276,17 @@ namespace SwaggerDemo
     {
         public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
         {
-            if (operation.security == null)
-                operation.security = new List<IDictionary<string, IEnumerable<string>>>();
+            if (operation.operationId.Contains("Get"))
+            {
+                if (operation.security == null)
+                    operation.security = new List<IDictionary<string, IEnumerable<string>>>();
 
-            var security = new Dictionary<string, IEnumerable<string>>
+                var security = new Dictionary<string, IEnumerable<string>>
                 {
                     {"basic", new List<string> {}}
                 };
-            operation.security.Add(security);
+                operation.security.Add(security);
+            }
         }
     }
 }
