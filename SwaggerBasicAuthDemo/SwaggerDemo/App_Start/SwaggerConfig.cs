@@ -6,6 +6,7 @@ using Swagger.Net.Application;
 using Swagger.Net;
 using WebActivatorEx;
 using SwaggerDemo;
+using System.Collections.Generic;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -158,6 +159,7 @@ namespace SwaggerDemo
                         //
                         //c.OperationFilter<AssignOAuth2SecurityRequirements>();
                         //
+                        c.OperationFilter<AssignBasicAuthSecurityRequirements>();
 
                         // Set filter to eliminate duplicate operation ids from being generated
                         // when there are multiple operations with the same verb in the API.
@@ -269,4 +271,19 @@ namespace SwaggerDemo
         }
     }
     */
+
+    public class AssignBasicAuthSecurityRequirements : IOperationFilter
+    {
+        public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
+        {
+            if (operation.security == null)
+                operation.security = new List<IDictionary<string, IEnumerable<string>>>();
+
+            var security = new Dictionary<string, IEnumerable<string>>
+                {
+                    {"basic", new List<string> {}}
+                };
+            operation.security.Add(security);
+        }
+    }
 }
