@@ -12,5 +12,10 @@ namespace SwaggerDemo.Controllers
         {
             return new string[] { "value1", "value2" };
         }
+
+        public IEnumerable<string> Post()
+        {
+            return new string[] { "value1", "value2" };
+        }
     }
 }
