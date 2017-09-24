@@ -234,6 +234,7 @@ namespace SwaggerDemo
 
                         // Filter the operations works as a search, to disable set to "null"
                         //
+                        c.UIfilter("null");
 
                         // Specify which HTTP operations will have the 'Try it out!' option. An empty parameter list disables
                         // it for all operations.
