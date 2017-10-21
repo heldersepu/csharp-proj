@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System;
 
 namespace SampleLinq
 {
@@ -13,8 +12,9 @@ namespace SampleLinq
             get
             {
                 /** Return a list of unique  **/
-                return this.Where(x => Unique.Contains(x.Id));
-        }
+                return this.GroupBy(x => new { x.Fname, x.Lname }).Select(x => x.First());
+
+            }
         }
 
         public IEnumerable<Person> Duplicates
@@ -22,19 +22,8 @@ namespace SampleLinq
             get
             {
                 /** Return a list of duplicates  **/
-                return this.Where(x => !Unique.Contains(x.Id));
-        }
-        }
-
-        /** Return a list of unique ids based on Fname & Lname **/
-        private IEnumerable<Guid> Unique
-        {
-            get
-            {
-                return this.GroupBy(x => new { x.Fname, x.Lname } )
-                    .Select(x => x.Min(e => e.Id));
+                return this.Except(Originals);
             }
-
         }
     }
 }
