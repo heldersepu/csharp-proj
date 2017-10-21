@@ -26,7 +26,7 @@ namespace SampleLinq
                 return
                     (
                         from e in this
-                        group e by new {e.Fname, e.Lname}
+                        group e by new { e.Fname, e.Lname }
                         into ed
                         select ed.Min(x => x.Id)
                     ).ToList();

@@ -6,7 +6,7 @@ namespace SampleLinq
     {
         static void Main(string[] args)
         {
-            People people = new People() 
+            People people = new People()
             {
                 new Person("John", "Doe",  "132 Dr",    "305 456 7899"),
                 new Person("Jane", "Doe",  "546 Road",  "786 789 8787"),
@@ -20,7 +20,7 @@ namespace SampleLinq
 
             Console.ForegroundColor = ConsoleColor.Green;
             showList("  Originals", people.Originals());
-            
+
             Console.ForegroundColor = ConsoleColor.Red;
             showList("  Duplicates", people.Duplicates());
 
@@ -29,7 +29,7 @@ namespace SampleLinq
         }
 
         static void showList(string message, dynamic people)
-        {            
+        {
             Console.WriteLine("");
             Console.WriteLine(message);
             foreach (Person person in people)
