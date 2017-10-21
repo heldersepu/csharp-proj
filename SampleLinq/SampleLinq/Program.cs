@@ -19,10 +19,10 @@ namespace SampleLinq
             showList("  Entire List", people);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            showList("  Originals", people.Originals());
+            showList("  Originals", people.Originals);
 
             Console.ForegroundColor = ConsoleColor.Red;
-            showList("  Duplicates", people.Duplicates());
+            showList("  Duplicates", people.Duplicates);
 
             Console.WriteLine("");
             Console.ReadLine();
@@ -39,4 +39,3 @@ namespace SampleLinq
         }
     }
 }
-
