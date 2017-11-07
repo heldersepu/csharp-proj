@@ -4,10 +4,10 @@ namespace UnQliteApp
 {
     public class Data
     {
-        static Parent SampleParent(int id)
+        public static Parent SampleParent(int id)
         {
             var p = new Parent { Id = id, Data = "Parent" };
-            for (int i = 0; i < 10; i++)
+            for (int i = id*10; i < id*10 + 5; i++)
                 p.Children.Add(new Child { Id = i, Data = $"Child {i}" });
             return p;
         }
