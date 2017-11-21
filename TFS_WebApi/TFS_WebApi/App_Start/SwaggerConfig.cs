@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.Routing.Constraints;
+using System.Collections.Generic;
 
-using WebActivatorEx;
 using TFS_WebApi;
 using Swagger.Net.Application;
 using Swagger.Net;
@@ -68,14 +69,9 @@ namespace TFS_WebApi
                         // you'll need to implement a custom IDocumentFilter and/or IOperationFilter to set these properties
                         // according to your specific authorization implementation
                         //
-                        //c.BasicAuth("basic")
-                        //    .Description("Basic HTTP Authentication");
+                        //c.BasicAuth("basic").Description("Basic HTTP Authentication");
                         //
-                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
-                        //c.ApiKey("apiKey")
-                        //    .Description("API Key Authentication")
-                        //    .Name("apiKey")
-                        //    .In("header");
+                        //c.ApiKey("apiKey", "header", "API Key Authentication");
                         //
                         //c.OAuth2("oauth2")
                         //    .Description("OAuth2 Implicit Grant")
@@ -154,12 +150,12 @@ namespace TFS_WebApi
                         // Obsolete attribute
                         //c.IgnoreObsoleteProperties();
 
-                        // In accordance with the built in JsonSerializer, Swagger-Net will, by default, describe enums as integers.
+                        // In accordance with the built in JsonSerializer, if disabled Swagger-Net will describe enums as integers.
                         // You can change the serializer behavior by configuring the StringToEnumConverter globally or for a given
                         // enum type. Swagger-Net will honor this change out-of-the-box. However, if you use a different
                         // approach to serialize enums as strings, you can also force Swagger-Net to describe them as strings.
                         //
-                        //c.DescribeAllEnumsAsStrings();
+                        c.DescribeAllEnumsAsStrings(camelCase: false);
 
                         // Similar to Schema filters, Swagger-Net also supports Operation and Document filters:
                         //
@@ -221,7 +217,7 @@ namespace TFS_WebApi
                         // By default, swagger-ui will validate specs against swagger.io's online validator and display the result
                         // in a badge at the bottom of the page. Use these options to set a different validator URL or to disable the
                         // feature entirely.
-                        //c.SetValidatorUrl("http://localhost/validator");
+                        c.SetValidatorUrl("https://online.swagger.io/validator");
                         //c.DisableValidator();
 
                         // Use this option to control how the Operation listing is displayed.
@@ -229,6 +225,16 @@ namespace TFS_WebApi
                         // or "Full" (fully expanded: shows operations and their details).
                         //
                         //c.DocExpansion(DocExpansion.List);
+
+                        // Controls how models are shown when the API is first rendered. (The user can always switch
+                        // the rendering for a given model by clicking the 'Model' and 'Example Value' links.) It can be
+                        // set to 'model' or 'example', and the default is 'example'.
+                        //
+                        //c.DefaultModelRendering(DefaultModelRender.Model);
+
+                        // Use this option to control the expansion depth for models.
+                        //
+                        //c.DefaultModelExpandDepth(0);
 
                         // Limit the number of operations shown to a smaller value
                         //
@@ -238,7 +244,7 @@ namespace TFS_WebApi
                         //
                         c.UIfilter("''");
 
-                        // Specify which HTTP operations will have the 'Try it out!' option. An empty paramter list disables
+                        // Specify which HTTP operations will have the 'Try it out!' option. An empty parameter list disables
                         // it for all operations.
                         //
                         //c.SupportedSubmitMethods("GET", "HEAD");
@@ -268,15 +274,10 @@ namespace TFS_WebApi
                         //    appName: "Swagger UI"
                         //    //additionalQueryStringParams: new Dictionary<string, string>() { { "foo", "bar" } }
                         //);
-
-                        // If your API supports ApiKey, you can override the default values.
-                        // "apiKeyIn" can either be "query" or "header"
-                        //
-                        //c.EnableApiKeySupport("apiKey", "header");
                     });
         }
 
-		public static bool ResolveVersionSupportByRouteConstraint(ApiDescription apiDesc, string targetApiVersion)
+        public static bool ResolveVersionSupportByRouteConstraint(ApiDescription apiDesc, string targetApiVersion)
         {
             return (apiDesc.Route.RouteTemplate.ToLower().Contains(targetApiVersion.ToLower()));
         }
@@ -288,6 +289,32 @@ namespace TFS_WebApi
                 // Include the given data type in the final SwaggerDocument
                 //
                 //schemaRegistry.GetOrRegister(typeof(ExtraType));
+            }
+        }
+
+        public class AssignOAuth2SecurityRequirements : IOperationFilter
+        {
+            public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
+            {
+                // Correspond each "Authorize" role to an oauth2 scope
+                var scopes = apiDescription.ActionDescriptor.GetFilterPipeline()
+                    .Select(filterInfo => filterInfo.Instance)
+                    .OfType<AuthorizeAttribute>()
+                    .SelectMany(attr => attr.Roles.Split(','))
+                    .Distinct();
+
+                if (scopes.Any())
+                {
+                    if (operation.security == null)
+                        operation.security = new List<IDictionary<string, IEnumerable<string>>>();
+
+                    var oAuthRequirements = new Dictionary<string, IEnumerable<string>>
+                    {
+                        { "oauth2", scopes }
+                    };
+
+                    operation.security.Add(oAuthRequirements);
+                }
             }
         }
 
