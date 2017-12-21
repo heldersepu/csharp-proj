@@ -4,26 +4,13 @@
     {
         private static string GetErrorType(ErrorType _errorType)
         {
-            //Get setting name by passing error type
-            string _eType = string.Empty;
-            if (_errorType == ErrorType.Low)
+            switch (_errorType)
             {
-                _eType = Constants.LogErrorTypeLow;
+                case ErrorType.High: return Constants.LogErrorTypeHigh;
+                case ErrorType.Critical: return Constants.LogErrorTypeCritical;
+                case ErrorType.Medium: return Constants.LogErrorTypeMedium;
+                default: return Constants.LogErrorTypeLow;
             }
-            else if (_errorType == ErrorType.Medium)
-            {
-                _eType = Constants.LogErrorTypeMedium;
-            }
-            else if (_errorType == ErrorType.Critical)
-            {
-                _eType = Constants.LogErrorTypeCritical;
-            }
-            else if (_errorType == ErrorType.High)
-            {
-                _eType = Constants.LogErrorTypeHigh;
-            }
-
-            return _eType;
         }
     }
 
