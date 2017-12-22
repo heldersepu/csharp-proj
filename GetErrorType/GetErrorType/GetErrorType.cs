@@ -28,7 +28,6 @@ namespace GetErrorType
             }
         }
 
-
         public static string WithArray(ErrorType _errorType)
         {
             return Constants.names[(int)_errorType];
