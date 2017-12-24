@@ -70,6 +70,7 @@
     <Compile Include="OffleaseOnlyClient\StatsExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.cs" />
     <Compile Include="TuroApiClient\Echo.cs" />
     <Compile Include="TuroApiClient\EchoExtensions.cs" />
     <Compile Include="TuroApiClient\IEcho.cs" />
