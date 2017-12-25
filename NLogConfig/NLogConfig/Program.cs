@@ -8,6 +8,7 @@ namespace NLogConfig
     {
         const string DATETIME_LAYOUT = @"${date:format=HH\:mm\:ss} ${logger} ${message}";
         const string SIMPLE_LAYOUT = @"${message}";
+        const string NEWLINE_LAYOUT = @"Logger: ${logger}${newline}Message: ${message}${newline}${exception:format=tostring}";
 
         public static void AddConsole(this LoggingConfiguration config, LogLevel min, LogLevel max)
         {
@@ -30,6 +31,19 @@ namespace NLogConfig
             config.LoggingRules.Add(new LoggingRule("*", min, max, t));
         }
 
+        public static void AddEventLog(this LoggingConfiguration config, LogLevel min, LogLevel max)
+        {
+            var t = new EventLogTarget
+            {
+                Log = "Application",
+                MachineName = ".",
+                //Source = "ApplicationName",
+                Layout = NEWLINE_LAYOUT
+            };
+            config.AddTarget("eventlog", t);
+            config.LoggingRules.Add(new LoggingRule("*", min, max, t));
+        }
+
         public static void AddDebugger(this LoggingConfiguration config)
         {
             var t = new DebuggerTarget();
@@ -43,6 +57,7 @@ namespace NLogConfig
         static void Main(string[] args)
         {
             var config = new LoggingConfiguration();
+            config.AddEventLog(LogLevel.Trace, LogLevel.Error);
             config.AddConsole(LogLevel.Trace, LogLevel.Error);
             config.AddTxtFile(LogLevel.Trace, LogLevel.Error);
             config.AddDebugger();
