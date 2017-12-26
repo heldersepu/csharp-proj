@@ -6,9 +6,9 @@ namespace NLogConfig
 {
     static class CustomLoggingConfigurations
     {
-        const string DATETIME_LAYOUT = @"${date:format=HH\:mm\:ss} ${logger} ${message}";
-        const string SIMPLE_LAYOUT = @"${message}";
         const string NEWLINE_LAYOUT = @"Logger: ${logger}${newline}Message: ${message}${newline}${exception:format=tostring}";
+        const string DATETIME_LAYOUT = @"${date:format=HH\:mm\:ss} ${logger} ${message}";
+        const string SIMPLE_LAYOUT = @"${message}";        
 
         public static void AddConsole(this LoggingConfiguration config, LogLevel min, LogLevel max)
         {
