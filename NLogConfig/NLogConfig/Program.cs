@@ -44,6 +44,21 @@ namespace NLogConfig
             config.LoggingRules.Add(new LoggingRule("*", min, max, t));
         }
 
+        public static void AddDatabase(this LoggingConfiguration config, LogLevel min, LogLevel max, string ConnString)
+        {
+            var t = new DatabaseTarget
+            {
+                KeepConnection = true,
+                DBProvider = "sqlserver",
+                ConnectionString = ConnString,
+                CommandText = @"EXEC [dbo].[p_error_log]
+                                        @Logger = '${logger}',
+		                                @Message = '${message}-${exception:format=tostring}' ",
+            };
+            config.AddTarget("database", t);
+            config.LoggingRules.Add(new LoggingRule("*", min, max, t));
+        }
+
         public static void AddDebugger(this LoggingConfiguration config)
         {
             var t = new DebuggerTarget();
