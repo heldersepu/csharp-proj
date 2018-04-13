@@ -23,10 +23,10 @@ namespace ExcelTest
                 dataWorksheet.Cell(i, i).Value = i;
             workbook.SaveAs(outFile);
 
-            replaceSheet(outFile, file, "xl/worksheets/sheet1.xml");
+            ReplaceSheet(outFile, file, "xl/worksheets/sheet1.xml");
         }
 
-        static void replaceSheet(string outputFile, string inputFile, string sheetName)
+        static void ReplaceSheet(string outputFile, string inputFile, string sheetName)
         {
             using (var ozip = new ZipFile(outputFile))
             using (var izip = new ZipFile(inputFile))
