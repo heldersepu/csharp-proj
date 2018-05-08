@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using System.Linq;
 
 namespace WebApi_NetCore
 {
@@ -29,6 +30,7 @@ namespace WebApi_NetCore
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new Info { Title = "My Service", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
         }
 
