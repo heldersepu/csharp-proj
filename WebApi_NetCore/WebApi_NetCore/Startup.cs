@@ -4,7 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Collections.Generic;
 using System.Linq;
+using WebApi_NetCore.Controllers;
 
 namespace WebApi_NetCore
 {
@@ -31,6 +34,7 @@ namespace WebApi_NetCore
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new Info { Title = "My Service", Version = "v1" });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                c.DocumentFilter<MyDocFilter>();
             });
         }
 
@@ -47,8 +51,22 @@ namespace WebApi_NetCore
             });
             app.UseSwaggerUI(c => {
                 c.RoutePrefix = "swagger";
-                // serve the UI at root c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1 Docs");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1 Docs");
             });
+        }
+
+        public class MyDocFilter : IDocumentFilter
+        {
+            public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+            {
+                PathItem path = swaggerDoc.Paths.Where(x => x.Key.Contains("TestEmail")).First().Value;
+                var p = (NonBodyParameter)path.Get.Parameters.Where(x => x.Name == "templateName").First();
+                p.Enum = new List<object>();
+                foreach (var item in TestEmailController.AllNotificationTypes.Select(x => x.Name))
+                {
+                    p.Enum.Add(item);
+                }
+            }
         }
     }
 }
