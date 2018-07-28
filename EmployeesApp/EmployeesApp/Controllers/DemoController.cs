@@ -25,7 +25,7 @@ namespace EmployeesApp.Controllers
         /// Add Demo data to the database (10 random employee names will be added)
         /// </summary>
         /// <param name="count">The count of employees to add (default = 10)</param>
-        /// <returns>Returns a list of names for those employees added</returns>        
+        /// <returns>Returns a list of names for those employees added</returns>
         public IHttpActionResult Get(int count = 10)
         {
             try

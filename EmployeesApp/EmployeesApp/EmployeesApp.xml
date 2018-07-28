@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmployeesApp</name>
+    </assembly>
+    <members>
+        <member name="T:EmployeesApp.DAL.DbInitializer">
+            <summary>
+            Initialize the database with the required values
+            </summary>
+        </member>
+        <member name="M:EmployeesApp.Controllers.BenefitsDiscountsController.Get(System.Boolean)">
+            <summary>
+            Get the yearly benefits discounts
+            </summary>
+            <param name="bypassCache">Option to bypass the cache (default = false)</param>
+            <returns>Returns the benefits discounts </returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.BenefitsDiscountsController.Get(System.Int32)">
+            <summary>
+            Get a yearly benefits discount
+            </summary>
+            <param name="id">The unique identifier</param>
+            <returns>Returns the benefits discount data for the given id </returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.BenefitsDiscountsController.Post(EmployeesApp.Framework.DbSchema.BenefitsDiscount)">
+            <summary>
+            Add a new benefits discount
+            </summary>
+            <param name="benefitsDiscount">The benefits discount data to add</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.BenefitsDiscountsController.Put(System.Int32,EmployeesApp.Framework.DbSchema.BenefitsDiscount)">
+            <summary>
+            Update an existing benefits discount
+            </summary>
+            <param name="id">The unique identifier</param>
+            <param name="benefitsDiscount">The benefits discount data to update</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.BenefitsDiscountsController.Delete(System.Int32)">
+            <summary>
+            Delete an existing benefit discount
+            </summary>
+            <param name="id">The unique identifier</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.BenefitsCostController.Get(System.Boolean)">
+            <summary>
+            Get the yearly cost of benefits
+            </summary>
+            <param name="bypassCache">Option to bypass the cache (default = false)</param>
+            <returns>Returns the yearly cost of benefits for employees and dependents</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.BenefitsCostController.Post(EmployeesApp.Framework.DbSchema.BenefitsCost)">
+            <summary>
+            Updates the existing benefits costs
+            </summary>
+            <param name="benefitsCost">The new benefits </param>
+            <returns>Return Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.DependentsController.Get(System.Int32)">
+            <summary>
+            Get a dependent
+            </summary>
+            <param name="id">The unique identifier</param>
+            <returns>Returns the dependent data for the given id </returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.DependentsController.Post(System.Int32,EmployeesApp.Framework.DbSchema.Dependent)">
+            <summary>
+            Add a new dependent
+            </summary>
+            <param name="dependent">The dependent data to add</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.DependentsController.Delete(System.Int32)">
+            <summary>
+            Delete an existing dependent
+            </summary>
+            <param name="id">The unique identifier</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.ReportsController.Get(System.String)">
+            <summary>
+            Gets a report
+            </summary>
+            <param name="id">The unique report identifier</param>
+            <returns>Returns the report data</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.EmployeesController.Get">
+            <summary>
+            Get all employees on record
+            </summary>
+            <returns>Returns a list of all Employees</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.EmployeesController.Get(System.Int32)">
+            <summary>
+            Get an employee
+            </summary>
+            <param name="id">The unique identifier</param>
+            <returns>Returns the employee data for the given id </returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.EmployeesController.Post(EmployeesApp.Framework.DbSchema.Employee)">
+            <summary>
+            Add a new employee
+            </summary>
+            <param name="employee">The employee data to add</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.EmployeesController.Put(System.Int32,EmployeesApp.Framework.DbSchema.Employee)">
+            <summary>
+            Update an existing employee
+            </summary>
+            <param name="id">The unique identifier</param>
+            <param name="employee">The employee data to update</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.EmployeesController.Delete(System.Int32)">
+            <summary>
+            Delete an existing employee
+            </summary>
+            <param name="id">The unique identifier</param>
+            <returns>Returns Status code 200 OK on success</returns>
+        </member>
+        <member name="M:EmployeesApp.Controllers.DemoController.Get(System.Int32)">
+            <summary>
+            Add Demo data to the database (10 random employee names will be added)
+            </summary>
+            <param name="count">The count of employees to add (default = 10)</param>
+            <returns>Returns a list of names for those employees added</returns>
+        </member>
+    </members>
+</doc>
