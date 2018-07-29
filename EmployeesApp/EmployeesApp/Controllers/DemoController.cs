@@ -33,7 +33,7 @@ namespace EmployeesApp.Controllers
                 var employees = new List<string>();
                 using (var context = new DbModel())
                 {
-                    context.Configuration.AutoDetectChangesEnabled = false;
+                    //context.Configuration.AutoDetectChangesEnabled = false;
                     for (int i = 0; i < count; i++)
                     {
                         string name = RandomName;

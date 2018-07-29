@@ -11,6 +11,7 @@ namespace EmployeesApp.DAL
     {
         protected override void Seed(DbModel context)
         {
+            context.Database.CreateIfNotExists();
             context.CostOfBenefits.AddOrUpdate(
                 new BenefitsCost
                 {

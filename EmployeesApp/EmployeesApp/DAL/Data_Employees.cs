@@ -51,7 +51,7 @@ namespace EmployeesApp.DAL
                 return emp;
             }
         }
-                
+
         public static Employee UpdateEmployee(int id, Employee employee)
         {
             using (var context = new DbModel())

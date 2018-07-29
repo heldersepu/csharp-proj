@@ -10,6 +10,7 @@ namespace EmployeesApp.DAL
 
         public DbModel() : base("name=EmployeeModel")
         {
+            Database.SetInitializer<DbModel>(new CreateDatabaseIfNotExists<DbModel>());
             this.Database.Log = x => logger.Trace(x);
         }
 

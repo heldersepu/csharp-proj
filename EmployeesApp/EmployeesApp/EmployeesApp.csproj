@@ -124,6 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EmployeesApp.xml" />
     <Content Include="Global.asax" />
     <Content Include="newrelic\Extensions\CoreInstrumentation.xml" />
     <Content Include="newrelic\Extensions\JetBrains.Annotations.dll" />
