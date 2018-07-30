@@ -18,7 +18,7 @@ namespace mySqlEFcore
             using (var context = new LibraryContext())
             {
                 // Creates the database if not exists
-                context.Database.EnsureCreated();
+                context.Database.Migrate();
 
                 // Adds a publisher
                 var publisher = new Publisher
