@@ -1,73 +1,38 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Text;
+﻿    using Microsoft.EntityFrameworkCore;
 
-namespace mySqlEFcore
-{
-    class Program
+    namespace mySqlEFcore
     {
-        static void Main(string[] args)
+        class Program
         {
-            InsertData();
-            PrintData();
-            Console.ReadLine();
-        }
-
-        private static void InsertData()
-        {
-            using (var context = new LibraryContext())
+            static void Main(string[] args)
             {
-                // Creates the database if not exists
-                context.Database.Migrate();
-
-                // Adds a publisher
-                var publisher = new Publisher
+                using (var context = new LibraryContext())
                 {
-                    Name = "Mariner Books"
-                };
-                context.Publisher.Add(publisher);
-
-                // Adds some books
-                context.Book.Add(new Book
-                {
-                    ISBN = "978-0544003415",
-                    Title = "The Lord of the Rings",
-                    Author = "J.R.R. Tolkien",
-                    Language = "English",
-                    Pages = 1216,
-                    Publisher = publisher
-                });
-                context.Book.Add(new Book
-                {
-                    ISBN = "978-0547247762",
-                    Title = "The Sealed Letter",
-                    Author = "Emma Donoghue",
-                    Language = "English",
-                    Pages = 416,
-                    Publisher = publisher
-                });
-
-                // Saves changes
-                context.SaveChanges();
+                    context.Database.Migrate();
+                    context.Publishers.Add(new Publisher { ID = 1 });
+                    context.SaveChanges();
+                }
             }
-        }
 
-        private static void PrintData()
-        {
-            // Gets and prints all books in database
-            using (var context = new LibraryContext())
+            private class Publisher
             {
-                var books = context.Book
-                  .Include(p => p.Publisher);
-                foreach (var book in books)
+                public int ID { get; set; }
+            }
+
+            private class LibraryContext : DbContext
+            {
+                public DbSet<Publisher> Publishers { get; set; }
+
+                protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
                 {
-                    var data = new StringBuilder();
-                    data.AppendLine($"ISBN: {book.ISBN}");
-                    data.AppendLine($"Title: {book.Title}");
-                    data.AppendLine($"Publisher: {book.Publisher.Name}");
-                    Console.WriteLine(data.ToString());
+                    optionsBuilder.UseMySQL("server=localhost;database=library;user=root;password=123456;SslMode=none;");
+                }
+
+                protected override void OnModelCreating(ModelBuilder modelBuilder)
+                {
+                    base.OnModelCreating(modelBuilder);
+                    modelBuilder.Entity<Publisher>(entity => { entity.HasKey(e => e.ID); });
                 }
             }
         }
     }
-}
