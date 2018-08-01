@@ -14,18 +14,18 @@
                 }
             }
 
-            private class Publisher
+            public class Publisher
             {
                 public int ID { get; set; }
             }
 
-            private class LibraryContext : DbContext
+            public class LibraryContext : DbContext
             {
                 public DbSet<Publisher> Publishers { get; set; }
 
                 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
                 {
-                    optionsBuilder.UseMySQL("server=localhost;database=library;user=root;password=123456;SslMode=none;");
+                    optionsBuilder.UseMySql("server=localhost;database=library;user=root;password=123456;SslMode=none;");
                 }
 
                 protected override void OnModelCreating(ModelBuilder modelBuilder)
