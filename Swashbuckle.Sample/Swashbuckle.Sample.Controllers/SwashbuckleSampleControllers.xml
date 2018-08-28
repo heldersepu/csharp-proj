@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Swashbuckle.Sample.Controllers</name>
+    </assembly>
+    <members>
+        <member name="M:SwashbuckleSample.ApiControllers.ClientsController.GetClients">
+            <summary>
+            List all clients
+            </summary>
+        </member>
+        <member name="M:SwashbuckleSample.ApiControllers.DefaultController.Delete(System.Int32)">
+            <summary>
+            Deleting stuff
+            </summary>
+            <param name="id"></param>
+        </member>
+    </members>
+</doc>

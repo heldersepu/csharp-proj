@@ -36,10 +36,16 @@ namespace SwashbuckleSample
                             //});
 
                         c.OperationFilter<AssignOAuth2SecurityRequirements>();
+                        c.PrettyPrint();
+
+                        foreach (var name in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "SwashbuckleSample*.XML", SearchOption.AllDirectories))
+                        {
+                            c.IncludeXmlComments(name);
+                        }
                     })
                 .EnableSwaggerUi(c =>
                     {
-                        c.DocExpansion(DocExpansion.Full);
+                        c.DocExpansion(DocExpansion.List);
 
                         c.EnableOAuth2Support(
                             clientId: "183620338840937",
