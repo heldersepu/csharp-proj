@@ -43,5 +43,19 @@ namespace WebApi_NetCore.Controllers
                 return BadRequest("Bad Request");
             }
         }
+
+        [HttpPost]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public async virtual Task<IActionResult> Post(string dto)
+        {
+            return Ok("");
+        }
+
+        [HttpPut]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public async virtual Task<IActionResult> Put(string dto)
+        {
+            return Ok("");
+        }
     }
 }
