@@ -31,7 +31,6 @@ namespace WebApi_NetCore.Controllers
         }
 
         [HttpGet("{id:int}")]
-        [Route("GetByID")]
         public async virtual Task<IActionResult> GetByIntID(int id)
         {
             try
