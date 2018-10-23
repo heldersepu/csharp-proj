@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using WebApi_NetCore.Controllers;
 
@@ -35,6 +36,9 @@ namespace WebApi_NetCore
                 c.SwaggerDoc("v1", new Info { Title = "My Service", Version = "v1" });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.DocumentFilter<MyDocFilter>();
+
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "doc.xml");
+                c.IncludeXmlComments(filePath);
             });
         }
 

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi_NetCore</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi_NetCore.Controllers.ErrorController.Index">
+            <summary>
+            Testing xml comments
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
