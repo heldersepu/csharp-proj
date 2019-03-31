@@ -36,6 +36,7 @@ namespace WebApi_NetCore
                 c.SwaggerDoc("v1", new Info { Title = "My Service", Version = "v1" });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.DocumentFilter<MyDocFilter>();
+                c.DocumentFilter<InjectSamples>();
 
                 var filePath = Path.Combine(System.AppContext.BaseDirectory, "doc.xml");
                 c.IncludeXmlComments(filePath);
@@ -70,6 +71,15 @@ namespace WebApi_NetCore
                 {
                     p.Enum.Add(item);
                 }
+            }
+        }
+
+        public class InjectSamples : IDocumentFilter
+        {
+            public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+            {
+                PathItem path = swaggerDoc.Paths.Where(x => x.Key.Contains("Values")).First().Value;
+                path.Post.Parameters.FirstOrDefault().Extensions.Add("x-code-samples", "123456");
             }
         }
     }
