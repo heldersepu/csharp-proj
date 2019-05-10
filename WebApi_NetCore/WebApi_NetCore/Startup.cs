@@ -38,7 +38,7 @@ namespace WebApi_NetCore
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My Service", Version = "v1" });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.DocumentFilter<MyDocFilter>();
-                c.DocumentFilter<InjectSamples>();
+                //c.DocumentFilter<InjectSamples>();
 
 
                 var filePath = Path.Combine(System.AppContext.BaseDirectory, "doc.xml");
