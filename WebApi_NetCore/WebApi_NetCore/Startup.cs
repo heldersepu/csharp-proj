@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Interfaces;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
@@ -33,10 +35,11 @@ namespace WebApi_NetCore
             services.AddMvc();
 
             services.AddSwaggerGen(c => {
-                c.SwaggerDoc("v1", new Info { Title = "My Service", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My Service", Version = "v1" });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.DocumentFilter<MyDocFilter>();
                 c.DocumentFilter<InjectSamples>();
+
 
                 var filePath = Path.Combine(System.AppContext.BaseDirectory, "doc.xml");
                 c.IncludeXmlComments(filePath);
@@ -52,7 +55,7 @@ namespace WebApi_NetCore
             app.UseMvc();
 
             app.UseSwagger(c => {
-                c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Host = httpReq.Host.Value);
+                //c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Host = httpReq.Host.Value);
             });
             app.UseSwaggerUI(c => {
                 c.RoutePrefix = "swagger";
@@ -62,24 +65,30 @@ namespace WebApi_NetCore
 
         public class MyDocFilter : IDocumentFilter
         {
-            public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+            public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
             {
-                PathItem path = swaggerDoc.Paths.Where(x => x.Key.Contains("TestEmail")).First().Value;
-                var p = (NonBodyParameter)path.Get.Parameters.Where(x => x.Name == "templateName").First();
-                p.Enum = new List<object>();
-                foreach (var item in TestEmailController.AllNotificationTypes.Select(x => x.Name))
-                {
-                    p.Enum.Add(item);
-                }
+                var path = swaggerDoc.Paths.Where(x => x.Key.Contains("TestEmail")).First().Value;
+                var p = path.Operations[0].Parameters.Where(x => x.Name == "templateName").First();
+                //p.Enum = new List<object>();
+                //foreach (var item in TestEmailController.AllNotificationTypes.Select(x => x.Name))
+                //{
+                //    p.Enum.Add(item);
+                //}
+            }
+
+            public void Apply()
+            {
+                throw new System.NotImplementedException();
             }
         }
 
         public class InjectSamples : IDocumentFilter
         {
-            public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+            public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
             {
-                PathItem path = swaggerDoc.Paths.Where(x => x.Key.Contains("Values")).First().Value;
-                path.Post.Parameters.FirstOrDefault().Extensions.Add("x-code-samples", "123456");
+                var path = swaggerDoc.Paths.Where(x => x.Key.Contains("Values")).First().Value;
+                var param = path.Operations.Where(x => x.Key.Equals("Post")).First().Value;
+                //param.Extensions.Add("x-code-samples", new OpenApiExtension { "123456" });
             }
         }
     }
