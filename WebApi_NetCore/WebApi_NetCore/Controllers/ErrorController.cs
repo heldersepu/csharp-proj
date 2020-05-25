@@ -17,7 +17,7 @@ namespace WebApi_NetCore.Controllers
         }
 
         [HttpPost]
-        public List<MonthEnum> Enum(string id)
+        public List<MonthEnum> EnumPost(string id)
         {
             var l = new List<MonthEnum>();
             l.Add(MonthEnum.July);
@@ -25,20 +25,37 @@ namespace WebApi_NetCore.Controllers
             return l;
         }
 
-        public enum MonthEnum
+        [HttpPut]
+        public MyData EnumPut(string id)
         {
-            January,
-            February,
-            March,
-            April,
-            May,
-            June,
-            July,
-            August,
-            September,
-            October,
-            November,
-            December
+            var data = new MyData();
+            data.id = 1;
+            data.months = new List<MonthEnum>();
+            data.months.Add(MonthEnum.July);
+            data.months.Add(MonthEnum.August);
+            return data;
         }
+    }
+
+    public class MyData
+    {
+        public int id { get; set; }
+        public List<MonthEnum> months { get; set; }
+    }
+
+    public enum MonthEnum
+    {
+        January,
+        February,
+        March,
+        April,
+        May,
+        June,
+        July,
+        August,
+        September,
+        October,
+        November,
+        December
     }
 }
