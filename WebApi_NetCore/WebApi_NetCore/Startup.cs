@@ -56,6 +56,7 @@ namespace WebApi_NetCore
 
             app.UseSwagger(c => {
                 //c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Host = httpReq.Host.Value);
+                c.SerializeAsV2 = true;
             });
             app.UseSwaggerUI(c => {
                 c.RoutePrefix = "swagger";

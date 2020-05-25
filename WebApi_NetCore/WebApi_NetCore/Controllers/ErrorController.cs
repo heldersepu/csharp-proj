@@ -14,5 +14,27 @@ namespace WebApi_NetCore.Controllers
         {
             return "Internal error.";
         }
+
+        [HttpPost]
+        public MonthEnum Enum(string id)
+        {
+            return MonthEnum.August;
+        }
+
+        public enum MonthEnum
+        {
+            January,
+            February,
+            March,
+            April,
+            May,
+            June,
+            July,
+            August,
+            September,
+            October,
+            November,
+            December
+        }
     }
 }
