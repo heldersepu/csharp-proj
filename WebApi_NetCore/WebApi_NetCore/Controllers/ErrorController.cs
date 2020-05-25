@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace WebApi_NetCore.Controllers
 {
@@ -16,9 +17,12 @@ namespace WebApi_NetCore.Controllers
         }
 
         [HttpPost]
-        public MonthEnum Enum(string id)
+        public List<MonthEnum> Enum(string id)
         {
-            return MonthEnum.August;
+            var l = new List<MonthEnum>();
+            l.Add(MonthEnum.July);
+            l.Add(MonthEnum.August);
+            return l;
         }
 
         public enum MonthEnum
