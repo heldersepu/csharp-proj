@@ -1,4 +1,4 @@
-```JavaScript
+```c#
     public class Trie
     {
         private class Dict<T> : Dictionary<char, T> {}
